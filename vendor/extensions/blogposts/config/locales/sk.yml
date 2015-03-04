@@ -1,0 +1,29 @@
+sk:
+  refinery:
+    plugins:
+      blogposts:
+        title: Blogposts
+    blogposts:
+      admin:
+        blogposts:
+          actions:
+            create_new: Pridať Blogpost
+            reorder: Preusporiadať Blogposts
+            reorder_done: Koniec radenia Blogposts
+          records:
+            title: Blogposts
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Blogposts. Kliknite na "Pridať Blogpost" pre pridanie prvého blogpost.
+          blogpost:
+            view_live_html: Zobraziť náhľad blogpost<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť blogpost
+            delete: Zmazať blogpost
+      blogposts:
+        show:
+          other: Daľšie Blogposts
+  activerecord:
+    attributes:
+      'refinery/blogposts/blogpost':
+        title: Title
+        photo_id: Photo
+        description: Description

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_school: MyString
+  university: MyString
+  state: MyString
+  city: MyString
+  US_News_Ranking: 1
+  BW: 1
+  Forbes: 1
+  Ec: 1
+  FT: 1
+  AE: 1
+  CNN: 1
+  BI: 1
+  ARWU: 1
+
+two:
+  business_school: MyString
+  university: MyString
+  state: MyString
+  city: MyString
+  US_News_Ranking: 1
+  BW: 1
+  Forbes: 1
+  Ec: 1
+  FT: 1
+  AE: 1
+  CNN: 1
+  BI: 1
+  ARWU: 1

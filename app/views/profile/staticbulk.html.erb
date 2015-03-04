@@ -1,0 +1,8 @@
+<% @all_mebers.each do |am| %>
+							<tr>
+						<td colspan="3" style="padding:10px"> 
+						<a href="<%= static_profile_path(am.username) %>"><%= am.username %></a>
+						</td> 
+						<td colspan="2" style="padding:10px"> <%= am.email %></td>					
+							</tr>
+						<% end %>

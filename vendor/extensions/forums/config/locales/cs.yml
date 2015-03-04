@@ -1,0 +1,28 @@
+cs:
+  refinery:
+    plugins:
+      forums:
+        title: Forums
+    forums:
+      admin:
+        forums:
+          actions:
+            create_new: Přidat Forum
+            reorder: Řadit Forums
+            reorder_done: Konec řazení Forums
+          records:
+            title: Forums
+            sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
+            no_items_yet: Zatím nebyly vytvořeny žádné Forums. Zvolte "Přidat Forum" pro přidání prvního forum.
+          forum:
+            view_live_html: Zobrazit náhled forum<br/><em>(otevře se v novém okně)</em>
+            edit: Upravit forum
+            delete: Smazat forum
+      forums:
+        show:
+          other: Další Forums
+  activerecord:
+    attributes:
+      'refinery/forums/forum':
+        name: Name
+        description: Description

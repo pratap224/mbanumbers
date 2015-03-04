@@ -1,0 +1,50 @@
+<div style="margin-top:20px">
+
+<div class="one columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+<div class="one columns"></div>
+<div class="eight columns">
+<div class="well">
+  <div class="forabg">
+    <div class="inner">
+    <ul class="topiclist">
+      <li class="header">
+        <dl class="icon">
+          <dt class="header-name">Forum</dt>
+          <dd class="topics">Topics</dd>
+          <dd class="posts">Posts</dd>
+          <dd class="lastpost"><span>Last post</span></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="topiclist forums">
+      <% @forum.each do |f| %>
+        <li class="row" id="forum2">
+          <dl class="icon" style="background-image: url(./styles/marina_teal/imageset/forum_read.svg); background-repeat: no-repeat;">
+            <dt title="No unread posts">
+            <!-- <a class="feed-icon-forum" title="Feed - Your first forum" href="http://phpbb3.pixelgoose.com/feed.php?f=2"><i class="fa fa-rss-square fa-lg"></i></a> -->
+              <a href="<%= forum_topic_path(f.id) %>" class="forumtitle">
+             <%= f.name %></a><br>
+              <div class="forum-description"><%=  raw f.description %></div>
+            </dt>
+            
+            <dd class="topics"><%=f.topics.count %> <dfn>Topics</dfn></dd>
+            <dd class="posts"><%=f.topics.inject(0) {|sum, p| sum += p.posts.count} %> <dfn>Posts</dfn></dd>
+            <dd class="lastpost"><span>
+              <dfn>Last post</dfn> by <a href="#">lutvia</a>
+              <a href="./viewtopic.php?style=14&amp;f=2&amp;p=19#p19" title=""><i class="fa fa-arrow-right grey"></i></a> <br><%= f.created_at.strftime('%a %b %d %H:%M:%S %Z %Y') %></span>
+            </dd>
+          </dl>
+        </li>
+        <%end%>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="one columns"></div>
+<div class="one columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+<div class="clear"></div>
+</div>

@@ -1,0 +1,30 @@
+es:
+  refinery:
+    plugins:
+      blogposts:
+        title: Blogposts
+#        article: masculino/femenino
+    blogposts:
+      admin:
+        blogposts:
+          actions:
+            create_new: Crear nuevo blogpost
+            reorder: Reordenar blogposts
+            reorder_done: Reordenación de blogposts completada
+          records:
+            title: Blogposts
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay blogposts todavía. Pulsa en "Crear nuevo Blogpost" para crear tu primer blogpost.
+          blogpost:
+            view_live_html: Ver este blogpost como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este blogpost
+            delete: Borrar este blogpost para siempre
+      blogposts:
+        show:
+          other: Otros blogposts
+  activerecord:
+    attributes:
+      'refinery/blogposts/blogpost':
+        title: Title
+        photo_id: Photo
+        description: Description

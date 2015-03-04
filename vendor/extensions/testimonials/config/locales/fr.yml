@@ -1,0 +1,29 @@
+fr:
+  refinery:
+    plugins:
+      testimonials:
+        title: Testimonials
+    testimonials:
+      admin:
+        testimonials:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Testimonial
+            reorder: Réordonner les Testimonials
+            reorder_done: Fin de réordonnancement des Testimonials
+          records:
+            title: Testimonials
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Testimonial. Cliquer sur "Créer un(e) nouve(au/l/lle) Testimonial" pour créer votre premi(er/ère) testimonial.'
+          testimonial:
+            view_live_html: Voir ce(t/tte) testimonial <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) testimonial
+            delete: Supprimer définitivement ce(t/tte) testimonial
+      testimonials:
+        show:
+          other: Autres Testimonials
+  activerecord:
+    attributes:
+      'refinery/testimonials/testimonial':
+        name: Name
+        role: Role
+        content: Content

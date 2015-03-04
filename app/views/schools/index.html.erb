@@ -1,0 +1,85 @@
+<div id='profind'>
+<div style="margin-top:18px">
+<div class="gdlr-item gdlr-tab-item horizontal">
+<div class="tab-title-wrapper">
+	<a href="<%=schools_path %>">
+		<h4 class="tab-title active">
+		<span>Schools List</span></h4>
+	</a>
+	<a href="<%=schools_ranking_path %>"><h4 class="tab-title"><span>By Ranking</span></h4></a>
+	<!-- <a href="<%=schools_name_path %>"><h4 class="tab-title"><span>By Name</span></h4></a> -->
+	<a href="<%=schools_state_path %>"><h4 class="tab-title"><span>By State</span></h4></a>
+	<div class="gdlr-lms-content">
+
+		<div id="tribe-events-bar">
+
+	<!-- <form id="tribe-bar-form" class="tribe-clearfix tribe-bar-full" name="tribe-bar-form" method="post" action="http://themes.goodlayers.com/clevercourse/events?post_type=tribe_events&amp;eventDisplay=default">
+	 -->
+		<!-- Mobile Filters Toggle -->
+	<%=search_form_for @q, :html => { :class => 'tribe-clearfix tribe-bar-full', :id => 'tribe-bar-form'} do |f| %>
+
+			<div class="tribe-bar-filters">
+				<div class="tribe-bar-filters-inner tribe-clearfix">
+					<div class="tribe-bar-date-filter">
+							<div id="tribe-bar-dates">
+							 <label class="label-tribe-bar-date" for="tribe-bar-date">Search</label>
+							 <!-- <input type="text" name="tribe-bar-date" style="position: relative;" id="tribe-bar-date" value="" placeholder="Date"> -->
+							 <%= f.search_field :university_cont, id:'tribe-bar-search', placeholder:'University Name', :style => 'outline:none' %>
+							</div>
+							<input type="hidden" name="tribe-bar-date-day" id="tribe-bar-date-day" class="tribe-no-param" value="">
+					</div>
+					<div class="tribe-bar-search-filter">
+						<label class="label-tribe-bar-search" for="tribe-bar-search">Search</label>
+						<%= f.search_field :business_school_cont, id:'tribe-bar-search', placeholder:'School Name', :style => 'outline:none' %>
+					</div>
+					<div class="tribe-bar-submit">
+						<%= f.submit%>
+					</div>
+					<!-- .tribe-bar-submit -->
+				</div>
+				<!-- .tribe-bar-filters-inner -->
+			</div><!-- .tribe-bar-filters -->
+	<% end %>
+</div>
+<div>
+	<!-- #Temproray -->
+	 
+</div>
+	<div class="well"  >
+		<div>
+			<table class="style-1">
+				<tbody>
+				<tr>
+				<th id="th">Icon</th>
+				<th id ="th">Bussiness School</th>
+				<th id ="th">University</th>
+				<th id ="th">State</th>
+				<th id ="th">City</th>
+				<th id ="th">USN</th>
+				<th id ="th">Forbes</th>
+				<th id ="th">CNN</th>
+				</tr>
+				<% @schools.each do |t| %>
+					<tr>
+					<td><img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /></td>
+					<td> <%= t.business_school %> </td>
+					<td> <%=t.university %></td>
+					<td><%= State.find_by_id(t.state_id).name%></td>
+					<td><%=t.city %></td>
+					<td><%=t.US_News_Ranking %></td>
+					<td><%=t.forbes %></td>
+					<td><%=t.CNN %></td>
+					</tr>
+				<%end %>
+				</tbody>
+			</table>
+		</div>
+		<%= will_paginate @schools, :class => 'gdlr-pagination'%>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>

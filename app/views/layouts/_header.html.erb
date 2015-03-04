@@ -1,0 +1,34 @@
+<header class="gdlr-header-wrapper">
+	<div class="top-navigation-wrapper">
+		<div class="top-navigation-container container">
+			<div class="top-navigation-left" >
+				<%= render :partial => 'layouts/logo_with_mobile_menu' %>
+			</div>
+			<div class="top-navigation-right">
+				<div class="gdlr-lms-header-signin">
+				
+				<% if current_user.nil? %>
+					<a class="gdlr-button small" href="<%=profile_login_path %>"  style="color:#ffffff; background: #989490; width:110px ">Student Login</a>
+				<% else %>
+					 <a class="gdlr-button small" href="/logout"  style="color:#ffffff; background: #989490; width:110px; ">Logout</a> 
+				<% end %>
+					<% if current_user.nil? %>
+					<a class="gdlr-button small" href="<%=members_signup_path%>"  style="color:#ffffff; background-color:#fcaa0c; width:110px ">Enroll Now</a>
+				<% else %>
+				<a class="gdlr-button small" href="<%= profile_settings_path %>"  style="color:#ffffff; background-color:#fcaa0c; width:110px ">
+				<span class="gdlr-icon icon-gears" style="color: #4F4F4F;font-size: 16px;"></span>Settings
+				</a>
+				<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="gdlr-header-inner">
+		<div class="gdlr-header-container container">
+			<%= render :partial => 'layouts/navigation' %>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</header>

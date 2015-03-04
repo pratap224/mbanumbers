@@ -1,0 +1,71 @@
+<style>
+	
+#th {
+    background-color: #3E6AA7;
+    color:white;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-weight: normal;padding: 9px;text-transform: uppercase;
+   font-size: 14px;
+
+    
+}
+.style-1 tr td{
+
+	font-family: arial;
+	font-size: 50;
+}
+</style>
+
+
+
+
+
+<div class="gdlr-lms-content">
+	<div class="two columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+	<div class="eight columns">
+			<div class="gdlr-item gdlr-tab-item horizontal"><div class="tab-title-wrapper"><a href="<%=mailboxes_mailbox_path %>"><h4 class="tab-title"><i class="icon-inbox"></i><span>Inbox</span></h4></a>
+			<a href="<%=mailboxes_outbox_path %>"><h4 class="tab-title active"><i class="icon-share-alt"></i><span>Outbox</span></h4></a><a href="<%=mailboxes_newest_path %>"><h4 class="tab-title"><i class="icon-edit"></i><span>Compose</span></h4></a></div><div class="tab-content-wrapper"><div class="tab-content ">
+			<table class="style-1">
+				<tbody>
+				<tr>
+				<th id="th" style="text-align:left;width: 25%;">To
+				</th><th id="th" style="text-align:center width:50% ">Message</th>
+				<th id ="th" style="width:25%">Newest</th>
+				</tr>	
+				</tbody>
+				</table>
+					
+					</div>
+
+
+					<div class="tab-content active">
+					<table class="style-1">
+
+				<tbody>
+
+				<tr>
+				<th id="th" style="text-align:left;width:25%;">To
+				</th><th id="th" style="text-align:center; width:50% " >Message</th>
+				<th id ="th" style="width:25%">Newest</th>
+				</tr>
+				<tr>
+				<% @senderoutbox.each do |f| %>
+				
+				<td style="width:25%">
+				<b><%=f.name %></b><br>
+				<a href="#"><%=f.subject %></a><br>
+				<a href="<%= mailboxes_outboxdel_path(f.id) %>">Delete</a></td>
+				<td style="width:50%"><b><%= f.message %></b></td>
+				<td style="25%"><%= f.created_at.strftime("%B %d, %Y %H:%M") %></td>	</tr>					
+		
+				<%end %>
+				</tbody>
+				</table>
+					</div>
+					<div class="tab-content">
+					</div></div><div class="clear"></div></div>
+	</div>
+	<div class="one columns"></div>
+	<div class="one columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+	<div class="clear"></div>
+</div>

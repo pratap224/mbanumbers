@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<!--[if IE 7]><html class="ie ie7 ltie8 ltie9" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 ltie9" lang="en-US"><![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale = 1.0" />
+    <%= favicon_link_tag 'favicon.ico' %>
+    <title>MBA Numbers</title>
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Raleway', 'Montserrat', 'Calibri']
+        }
+      });
+    </script>    
+    <%= stylesheet_link_tag @forum.nil? ? 'application' : 'forum', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>   
+    <style type="text/css">
+    .recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}
+    </style>
+    <script type='text/javascript' src='/assets/jquery_site.js'>
+    </script>
+    <style>
+    p, .gdlr-blog-content, td{
+        font-family: 'Calibri' !important;
+    }
+    </style>
+</head>
+<body>
+    <div class="body-wrapper floatmenu">
+        <!-- Header -->
+        <%= render :partial => 'layouts/header' %>
+        <!-- Layout -->
+        <div class="content-wrapper">
+            <div class="gdlr-content">
+                <%unless @title.nil?%>
+                    <div class="gdlr-page-title-wrapper">
+                        <div class="gdlr-page-title-overlay"></div>
+                        <div class="gdlr-page-title-container container">
+                            <h1 class="gdlr-page-title"><%= @title %></h1>
+                        </div>  
+                    </div>                
+                <%end%>
+                <div class="with-sidebar-wrapper" id="base-cont">
+                    <%= yield %>
+                </div>
+            </div>
+        </div>
+        <%= render :partial => 'layouts/footer' %>
+    </div>
+        
+    <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true     %>
+    <script>
+        $(function() {
+        $(window).scroll(function() {    
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 500) {
+                $(".gdlr-header-inner").addClass("gdlr-header-fixed");
+            } else {
+                $(".gdlr-header-inner").removeClass("gdlr-header-fixed");
+            }
+        });
+        });
+    </script>
+    <% [:notice, :error, :success, :warning].each do |n| %>
+        <%if flash[n] %>
+            <script>var n = noty({text: '<%= flash[n] %>',type: '<%=n%>', layout: 'topRight',animation: {
+            open: 'animated bounceInLeft', // Animate.css class names
+            close: 'animated bounceOutLeft', // Animate.css class names
+            easing: 'swing', // unavailable - no need
+            speed: 500
+            }});  </script>
+        <%end %>
+    <%end%>
+    <%unless flash['model_errors'].nil? %>
+        <%flash['model_errors'].each do |error| %>
+            <%error[1].each do |msg| %>
+                <script>var n = noty({text: '<%= error[0] %> <%= msg %>',type: 'error', layout: 'topRight',animation: {
+                open: 'animated bounceInRight', // Animate.css class names
+                close: 'animated bounceOutRight', // Animate.css class names
+                easing: 'swing', // unavailable - no need
+                speed: 500 // unavailable - no need
+                }});  </script>
+            <%end%>
+        <%end%>
+    <%end%>
+    <script type="text/javascript" language="javascript">
+        function createlightbox()
+        {
+            document.getElementById('light').style.display='block';
+            document.getElementById('fade').style.display='block'
+        }
+        function closelightbox()
+        {
+            document.getElementById('light').style.display='none';
+            document.getElementById('fade').style.display='none'
+        }
+
+        $('.gdlr-lms-lightbox-close').click(function(){
+            $('.gdlr-lms-lightbox-wrapper').hide()
+        })
+        $('.mtbtn').click(function(){
+            $('.gdlr-lms-lightbox-wrapper').show()
+        })
+        
+        </script>
+</body>
+</html>

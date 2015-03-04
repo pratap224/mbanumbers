@@ -1,0 +1,118 @@
+<style>
+
+#th {
+    background-color: #3E6AA7;
+    color:white;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-weight: normal;padding: 9px;text-transform: uppercase;
+   font-size: 14px;
+
+    
+}
+.style-1 tr td{
+
+	font-family: arial;
+	font-size: 50;
+}
+</style>
+
+<div class="gdlr-lms-content">
+	<div class="two columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>	
+	<div class="eight columns">
+	<div class="eleven columns">
+
+	
+		
+	</div>
+
+		<div style="margin-left:1px;margin-right:1px">
+			<div class="eleven columns">
+				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme" style="margin-left: 1px;">
+						<div class="gdlr-space"></div>
+						<table class="style-2">
+						<tbody >
+						<tr>
+							<th id="th"> UserName</th>
+							<th id ="th">Schools Applied to</th>
+							<th id ="th">Accepted</th>
+							<th id="th">Waitlisted</th>
+							<th id="th">Denied</th>
+						</tr>
+						<% unless  @allmember.blank? %>
+
+							
+
+							<% @allmember.each do |f| %>
+							<tr>
+								<td>
+									<% @user_name= Member.find(f.bookmarkuserid) %>
+					<a href="<%= static_profile_path(@user_name.username) %>"><%= @user_name.username %></a>
+				<a href="<%= booklist_remove_path(f.bookmarkuserid) %>" 
+				 id="budel">
+					<i class="gdlr-icon icon-remove" style="color: #d55949; font-size: 14px; "></i>
+				</a>
+								</td>
+								<td>
+
+									<%= @count=Application.where("user_id = ?",  f.bookmarkuserid).count    %>
+								</td>
+								<td>
+									<% @accepted = Application.where("status = ? AND user_id = ?", 'Waitlisted', f.bookmarkuserid)
+									%>
+									
+									<% unless @accepted.nil? %>
+										<% @accepted.each do |f| %>
+											<%= f.school %>
+										<% end %>
+									<% end %>
+
+								</td>
+								<td>
+									<% @accepted = Application.where("status = ? AND user_id = ?", 'WL, Accepted', f.bookmarkuserid)
+									%>
+									
+									<% unless @accepted.nil? %>
+										<% @accepted.each do |f| %>
+											<%= f.school %>
+										<% end %>
+									<% end %>
+								</td>
+								<td>
+									<% @accepted = Application.where("status = ? AND user_id = ?", 'Rejected', f.bookmarkuserid)
+									%>
+									
+									<% unless @accepted.nil? %>
+										<% @accepted.each do |f| %>
+											<%= f.school %>
+										<% end %>
+									<% end %>
+								</td>
+								
+							</tr>
+							<% end %>
+
+						<% else %>
+							<tr>
+								<td colspan="5"> No Book Mark Members..... </td>
+							</tr>
+						<% end %>
+
+							
+						</tbody>
+						</table>
+				</div>
+				
+			</div>
+			<div class="one columns"></div>
+		</div>
+	</div>
+
+	<div class="one columns"></div>
+	<div class="one columns">
+		<div class="google_adsense skyscraper" style="padding-left: 18px;">
+			<%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+		</div>
+		</div>
+		<div class="clear"></div>
+		
+</div>

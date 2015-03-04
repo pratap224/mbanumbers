@@ -1,0 +1,31 @@
+zh-CN:
+  refinery:
+    plugins:
+      blogposts:
+        title: Blogposts
+    blogposts:
+      admin:
+        blogposts:
+          actions:
+            create_new: 建立新的 Blogpost
+            reorder: 对 Blogposts 重新排序
+            reorder_done: 对 Blogposts 的重新排序结束
+          records:
+            title: Blogposts
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Blogposts yet. Click "Add New Blogpost" to add your first blogpost.
+            no_items_yet: 目前没有 Blogposts . 点击 "Add New Blogpost" 创建一个blogpost.
+          blogpost:
+            view_live_html: 查看 blogpost 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 blogpost
+            delete: 永久删除 blogpost
+      blogposts:
+        show:
+          other: 其他 Blogposts
+  activerecord:
+    attributes:
+      'refinery/blogposts/blogpost':
+        title: Title
+        photo_id: Photo
+        description: Description

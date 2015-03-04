@@ -1,0 +1,29 @@
+en:
+  refinery:
+    plugins:
+      blogposts:
+        title: Blogposts
+    blogposts:
+      admin:
+        blogposts:
+          actions:
+            create_new: Add New Blogpost
+            reorder: Reorder Blogposts
+            reorder_done: Done Reordering Blogposts
+          records:
+            title: Blogposts
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Blogposts yet. Click "Add New Blogpost" to add your first blogpost.
+          blogpost:
+            view_live_html: View this blogpost live <br/><em>(opens in a new window)</em>
+            edit: Edit this blogpost
+            delete: Remove this blogpost forever
+      blogposts:
+        show:
+          other: Other Blogposts
+  activerecord:
+    attributes:
+      'refinery/blogposts/blogpost':
+        title: Title
+        photo_id: Photo
+        description: Description

@@ -1,0 +1,72 @@
+<div class="container" >
+<div class="section-container container">
+	<div class="gdlr-item gdlr-content-item" style="margin-left: 300px;
+margin-right: 300px;
+	"><p>
+	</p><div class="clear"></div>
+	<div class="gdlr-space" style="margin-top: -22px;"></div>
+	<div class="clear"></div>
+	<div class="gdlr-space" style="margin-top: 45px;"></div>
+	<div class="wpcf7" id="wpcf7-f8-o1" lang="en-US" dir="ltr">
+	<div class="screen-reader-response"></div>
+	<%=form_for @user, :url => {:action => 'create'},:html => {:class => "gdlr-lms-form"} do |f| %>
+        <dl class="dl-horizontal">
+        	<dt>User Name*</dt>
+        	<dd><%= text_field_tag 'member[username]' , "",placeholder: 'Name' %></dd>
+        	<dt>Email Address*</dt>
+        	<dd><%= text_field_tag 'member[email]' , "",placeholder: 'Email' %></dd>
+        	<dt>Zipcode*</dt>
+        	<dd><%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></dd>
+        	<dt style="width: 172px";>Under Graduate School*</dt>
+        <dd>
+        <span class='gdlr-lms-combobox'>
+        	<%=select_year(Date.today)%>	
+        </span>
+		</dd>
+        <dt>Password*</dt>
+        <dd>
+        <%=password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Enter Password' %>
+        </dd>
+        <dt style="width: 171px;">Password confirmation*</dt>
+        <dd>
+        <%=password_field_tag 'password_confirmation' , "",class: 'form-control' ,placeholder: 'Retype password' %>
+        </dd>
+		<dt>Photo</dt>
+        <dd>
+        	<%= f.file_field :image, class: 'form-control'%>
+        </dd>
+        	
+        </dl>
+ <div style="width:100%;margin-left: 248px;">
+<%= submit_tag 'Create an account',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
+    
+</div>
+		</div>
+	<%end%> 
+	</div><div class="clear"></div> 
+</div>
+
+<div class="gdlr-item gdlr-divider-item">
+<div class="gdlr-divider solid"></div>
+</div>
+
+	<div class="row" style="60px" style="margin-left: 149px;" >
+            <h5 style="color:#bfbfbf;text-align:center">Or Login with an existing account:</h5>
+            
+    <div class="six columns" style="text-align:right">
+    <a class="gdlr-button" href="/auth/facebook" target="_self" style="color:#ffffff; background-color:#3b5998;"><i class="gdlr-icon icon-facebook"></i> Login with Facebook</a>                                                        </div>
+    <div class="six columns" style="text-align:left">
+    <a class="gdlr-button" href="/auth/gplus" target="_self" style="color:#ffffff; background-color:#dd4b39;"><i class="gdlr-icon icon-google-plus"></i> login  with google</a>
+    </div>
+    <div class="six columns" style="text-align:right">
+    <a class="gdlr-button" href="/auth/linkedin" target="_self" style="color:#ffffff; background-color:#007bb6;width:184px;"><i class="gdlr-icon icon-linkedin-sign"></i> login with linkedin</a>
+
+    </div>
+    <div class="six columns" style="text-align:left;">
+    <a class="gdlr-button" href="/auth/twitter" target="_self" style="color:#ffffff; background-color:#00aced;"><i class="gdlr-icon icon-twitter"></i> login with twitter</a>
+    </div>					
+    <div class="clear"></div>
+</div>
+  
+   </div>
+

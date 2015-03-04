@@ -1,0 +1,28 @@
+nl:
+  refinery:
+    plugins:
+      forums:
+        title: Forums
+    forums:
+      admin:
+        forums:
+          actions:
+            create_new: Nieuwe Forum toevoegen
+            reorder: De volgorde van de Forums wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Forum-volgorde
+          records:
+            title: Forums
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Forums. Druk op 'Nieuwe Forum toevoegen' om de eerste toe te voegen.
+          forum:
+            view_live_html: Deze forum op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze forum
+            delete: Deze forum definitief verwijderen
+      forums:
+        show:
+          other: Andere Forums
+  activerecord:
+    attributes:
+      'refinery/forums/forum':
+        name: Name
+        description: Description

@@ -1,0 +1,37 @@
+<html>
+  <body>
+    <div><div class="adM">
+    </div>
+<div style="padding-top:20px;padding-bottom:80px;background:black">
+<img src="https://ci5.googleusercontent.com/proxy/QI7V6tw2zf-NAFBfE713qH3CYFNGu5DBmMnZE5IK0Pg3YwCtl1MZ3_gChGduqx7y4ONwqIFmliPkuxNb72tC-SVIX1HueCXeTg=s0-d-e1-ft#http://s21.postimg.org/cncgxzeyv/logo_2_X_white.png" alt="logo 2 X white" width="200px" height="50px" class="CToWUd">
+
+<div style="margin-top: 21px;">
+
+<div style="text-align:centre;background:white;width:500px;padding: 13px;
+margin-left:65px; height:255px;font-size: 14px;">
+
+  <p>Hello <%= @user.name %> ,</p>
+      <p>
+        To verify your e-mail address, please click on this link</br>
+        <a href="http://128.199.241.177:8092/<%= member_verify_path(@user.token) %>">http://128.199.241.177:8092/<%= member_verify_path(@user.token)%></a> 
+       
+      </p>
+      <p>
+        once your address is verified,you will be able to countinue with the signin process
+      </p>
+      <p>
+       Sincerely,
+      </p>
+      <p>
+      MBA Numbers.
+      </p>
+
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+  </body>
+</html>

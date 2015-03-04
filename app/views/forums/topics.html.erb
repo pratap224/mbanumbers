@@ -1,0 +1,85 @@
+<div>
+<div class="one columns" style="margin-top: 30px;
+"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+<div class="one columns"></div>
+<div class="eight columns" style="margin-top: 30px;">
+<div class="well">
+<div class="topic-actions">
+	<div class="buttons">
+		<div class="mtbtn" title="Post a new topic"><a data-rel="gdlr-lms-lightbox" data-lb-open="login-form">Post a new topic</a></div>
+		
+	</div>
+    <div class="search-box">
+		<form method="get" id="forum-search" action="./search.php">
+        <fieldset>
+            <div class="search-box-inner">
+                <input class="button2" type="submit" value="Search">
+                <input class="inputbox search tiny" type="text" name="keywords" id="keywords" size="20" value="Search this forum…" onclick="if (this.value == 'Search this forum…') this.value = '';" onblur="if (this.value == '') this.value = 'Search this forum…';">
+                <input type="hidden" name="fid[0]" value="2">
+
+            </div>
+        </fieldset>
+        </form>
+    </div>
+	<div class="pagination">
+		<%=@topics.count %> Topics • Page <strong>1</strong> of <strong>1</strong>
+	</div>
+</div>
+<div>
+	<div class="gdlr-lms-lightbox-wrapper" style="display:none;"><div class="mtbtn"></div><div class="gdlr-lms-lightbox-container login-form">
+	<div class="gdlr-lms-lightbox-close"><i class="icon-remove"></i></div>
+
+
+	<%=form_tag topic_new_path, :class => 'gdlr-lms-form' do %>
+		<%= hidden_field_tag 'refforum_id', params[:id] %>
+		<p>Title*<br>
+		<span class="wpcf7-form-control-wrap your-name">
+		<%= text_field_tag 'name' , "",class: 'form-control' ,placeholder: 'Name' %>
+		</span></p>
+		<%= submit_tag 'Post',class: 'button1' %>
+	<%end %>
+	</div>
+	</div>
+</div>
+<div class="forumbg">
+	<div class="inner">
+	<ul class="topiclist">
+		<li class="header">
+			<dl class="icon">
+				<dt class="header-name">Topics</dt>
+				<dd class="posts">Replies</dd>
+				<dd class="views">Views</dd>
+				<dd class="lastpost"><span>Last post</span></dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="topiclist topics">
+
+	<%@topics.each do |t| %>
+		<li class="row bg1">
+			<dl class="icon" style="background-image: url(./styles/marina_teal/imageset/topic_read.svg); background-repeat: no-repeat;">
+				<dt style="background-image: url(<%=t.member.image.thumb('32x32').url unless t.member.nil? %>); background-repeat: no-repeat;background-position:0 2px" title="No unread posts"><a href="<%= forum_posts_path(t.id) %>" class="topictitle"><%= t.name.capitalize %></a>
+					<br>
+					by <a href="<%=static_profile_path(t.member.username) unless t.member.nil? %>" style="color: #AA0000;" class="username-coloured"><%=t.member.username unless t.member.nil?%></a> » <%=t.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
+				</dt>
+				<dd class="posts"><%=t.posts.count %> <dfn>Replies</dfn></dd>
+				<dd class="views">34498 <dfn>Views</dfn></dd>
+				<dd class="lastpost"><span><dfn>Last post </dfn>by <a href=""><%=t.posts.last.member.username unless t.posts.empty? %></a>
+					<a href="./viewtopic.php?style=14&amp;f=2&amp;t=3&amp;p=19#p19"><i class="fa fa-arrow-right grey"></i></a> <br><%=t.created_at.strftime('%A, %d %b %Y %l:%M %p') %></span>
+				</dd>
+			</dl>
+		</li>
+	<%end %>
+	</ul>
+	</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="one columns"></div>
+<div class="one columns" style="margin-top: 30px;
+"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>

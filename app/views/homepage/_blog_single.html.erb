@@ -1,0 +1,16 @@
+<div class="gdlr-item gdlr-blog-grid">
+<%unless @blogpost.nil? %>
+	<div class="gdlr-ux gdlr-blog-grid-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;">
+	<article id="post-870" class="post-870 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row tag-business tag-life-style tag-travel">
+		<div class="gdlr-standard-style">
+			<header class="post-header">
+				<h3 class="gdlr-blog-title">
+					<a href="<%= myadvices_blog_path(@blogpost.id) %>"><p><%= @blogpost.title %></p> </a>
+				</h3>
+			</header><!-- entry-header -->
+		</div>
+	</article><%=raw @blogpost.description.truncate(80) %><!--  <div class="clear"></div> -->
+<a href="<%= myadvices_blog_path(@blogpost.id) %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd; border-color:#72d5cd;">Read More</a>
+	</div>
+<%end%>
+</div>

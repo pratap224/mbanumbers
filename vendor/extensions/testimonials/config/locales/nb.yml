@@ -1,0 +1,29 @@
+nb:
+  refinery:
+    plugins:
+      testimonials:
+        title: Testimonials
+    testimonials:
+      admin:
+        testimonials:
+          actions:
+            create_new: Lag en ny Testimonial
+            reorder: Endre rekkefølgen på Testimonials
+            reorder_done: Ferdig å endre rekkefølgen Testimonials
+          records:
+            title: Testimonials
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Testimonials enda. Klikk på "Lag en ny Testimonial" for å legge til din første testimonial.
+          testimonial:
+            view_live_html: Vis hvordan denne testimonial ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne testimonial
+            delete: Fjern denne testimonial permanent
+      testimonials:
+        show:
+          other: Andre Testimonials
+  activerecord:
+    attributes:
+      'refinery/testimonials/testimonial':
+        name: Name
+        role: Role
+        content: Content

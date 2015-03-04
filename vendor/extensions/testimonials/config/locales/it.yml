@@ -1,0 +1,29 @@
+it:
+  refinery:
+    plugins:
+      testimonials:
+        title: Testimonials
+    testimonials:
+      admin:
+        testimonials:
+          actions:
+            create_new: Aggiungi Nuovo Testimonial
+            reorder: Riordina Testimonials
+            reorder_done: Termina il Riordino di Testimonials
+          records:
+            title: Testimonials
+            sorry_no_results: "Spiacenti! Nessun risultato trovato"
+            no_items_yet: Non ci sono ancora Testimonials. Clicca "Aggiungi Nuovo Testimonial" per aggiungere il tuo primo testimonial.
+          testimonial:
+            view_live_html: Guarda live questo testimonial <br/><em>(apre una nuova finestra)</em>
+            edit: Modifica questo testimonial
+            delete: Rimuovi per sempre questo testimonial
+      testimonials:
+        show:
+          other: Altri Testimonials
+  activerecord:
+    attributes:
+      'refinery/testimonials/testimonial':
+        name: Name
+        role: Role
+        content: Content

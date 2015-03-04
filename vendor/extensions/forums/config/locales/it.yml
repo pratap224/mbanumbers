@@ -1,0 +1,28 @@
+it:
+  refinery:
+    plugins:
+      forums:
+        title: Forums
+    forums:
+      admin:
+        forums:
+          actions:
+            create_new: Aggiungi Nuovo Forum
+            reorder: Riordina Forums
+            reorder_done: Termina il Riordino di Forums
+          records:
+            title: Forums
+            sorry_no_results: "Spiacenti! Nessun risultato trovato"
+            no_items_yet: Non ci sono ancora Forums. Clicca "Aggiungi Nuovo Forum" per aggiungere il tuo primo forum.
+          forum:
+            view_live_html: Guarda live questo forum <br/><em>(apre una nuova finestra)</em>
+            edit: Modifica questo forum
+            delete: Rimuovi per sempre questo forum
+      forums:
+        show:
+          other: Altri Forums
+  activerecord:
+    attributes:
+      'refinery/forums/forum':
+        name: Name
+        description: Description

@@ -1,0 +1,68 @@
+<div id="gdlr-header-substitute" style="height: auto;"></div>
+
+
+<div class="with-sidebar-container container">
+		
+
+	<div class="with-sidebar-left eight columns">
+		<div class="with-sidebar-content twelve columns">
+			<section id="content-section-1">
+				<div class="section-container container">
+					<div class="blog-item-wrapper">
+						<div class="blog-item-holder">
+							<% @blogpost.each do |b| %>
+							<div class="gdlr-item gdlr-blog-full">
+								<div class="gdlr-ux gdlr-blog-full-ux">
+									<article id="post-859" class="post-859 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row category-life-style tag-blog tag-life-style">
+										<div class="gdlr-standard-style">
+										<div class="gdlr-blog-thumbnail">
+										<a href="#"> <img src="<%= getpath b.photo_id unless b.photo_id.nil?%> " alt="" style="width: 730px;
+height: 321px;"></a>		
+										</div>
+
+
+										<div class="blog-date-wrapper">
+										<span class="blog-date-day">
+											<%=  b.created_at.strftime(" %d ") %>
+										</span>
+										<span class="blog-date-month">
+												<%=  b.created_at.strftime(" %b ") %>
+										</span>
+										<span class="blog-date-year">
+												<%=  b.created_at.strftime(" %Y ") %>
+										</span>
+										</div>
+
+										<div class="blog-content-wrapper">
+										<header class="post-header">
+										<h3 class="gdlr-blog-title"><a href="#"><%= b.title %></a></h3>
+
+
+										<div class="gdlr-blog-info gdlr-info"><span class="gdlr-seperator">/</span><div class="blog-info blog-comment"><span class="gdlr-head">Comments</span><a href="http://themes.goodlayers.com/clevercourse/sedial-eiusmod-tempor/#respond">
+										<%=Myadvice.where('post_id=?',b.id).count %>
+										</a></div><div class="clear"></div></div>			
+										<div class="clear"></div>
+										</header><!-- entry-header -->
+										<div class="gdlr-blog-content"><%= raw(b.description.truncate(100)) %> <div class="clear"></div>
+										<a href="<%= myadvices_blog_path(b.id) %>" class="gdlr-button with-border excerpt-read-more">Read More</a>
+										</div>		</div> <!-- blog content wrapper -->
+										</div>
+								 </article>
+								</div>
+							</div>
+							<% end %>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<%= will_paginate @blogpost, :class => 'gdlr-pagination'%>
+				</div>
+			</section>
+
+		</div>
+		<div class="clear"></div>
+
+	</div>
+	<div class="gdlr-sidebar gdlr-right-sidebar four columns">
+	</div>
+	<div class="clear"></div>
+</div>

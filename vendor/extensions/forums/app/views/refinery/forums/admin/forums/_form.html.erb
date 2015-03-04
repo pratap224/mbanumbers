@@ -1,0 +1,30 @@
+<%= form_for [refinery, :forums_admin, @forum] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @forum,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= render '/refinery/admin/wysiwyg',
+                :f => f,
+                :fields => [:description],
+                :object => "forums/forum" -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.forums.admin.forums.forum'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @forum.name) -%>
+<% end -%>
+
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>

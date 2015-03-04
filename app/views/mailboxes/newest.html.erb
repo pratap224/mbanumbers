@@ -1,0 +1,57 @@
+<style>
+	
+#th {
+    background-color: #3E6AA7;
+    color:white;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-weight: normal;padding: 9px;text-transform: uppercase;
+   font-size: 14px;
+
+    
+}
+.style-1 tr td{
+
+	font-family: arial;
+	font-size: 50;
+}
+</style>
+
+
+
+
+
+<div class="gdlr-lms-content">
+	<div class="two columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+	<div class="eight columns">
+			<div class="gdlr-item gdlr-tab-item horizontal"><div class="tab-title-wrapper"><a href="<%=mailboxes_mailbox_path %>"><h4 class="tab-title" ><i class="icon-inbox"></i><span>Inbox</span></h4></a><a href="<%=mailboxes_outbox_path %>"><h4 class="tab-title"><i class="icon-share-alt"></i><span>Outbox</span></h4></a><a href="<%=mailboxes_newest_path %>"><h4 class="tab-title active"><i class="icon-edit"></i><span>Compose</span></h4></a></div><div class="tab-content-wrapper">
+
+
+					<div class="tab-content active">
+					<%=form_tag mailboxes_compose_path, :class =>'gdlr-item gdlr-content-item gdlr-lms-form' do |f| %>
+					<input type="hidden" name="from" value=<%= @usermail %>>
+					<input type="hidden" name="sender_at" value="TRUE">
+					<input type="hidden" name="receiver_at" value="TRUE">
+		<p>Email id:*<br>
+		<span class="wpcf7-form-control-wrap your-name">
+		<%= text_field_tag 'name' , "",class: 'form-control' ,placeholder: 'Name' %>
+		</span> </p>
+		<p>Subject<br>
+		<span class="wpcf7-form-control-wrap your-subject">
+			<%= text_field_tag 'subject' , "",class: 'form-control' ,placeholder: 'Subject' %>
+		</span> </p>
+		<p>Your Message<br>
+		<span class="wpcf7-form-control-wrap your-message">
+		<%= text_area_tag 'message' , "",class: 'form-control' ,placeholder: 'Message' %></span> </p>
+		<p></p>
+		<div class="wpcf7-response-output wpcf7-display-none"></div>
+		<%= submit_tag 'Send',class: 'wpcf7-form-control wpcf7-submit',name: 'send' %>
+		
+		</div>
+	<%end%>
+
+			</div></div><div class="clear"></div></div>
+	</div>
+	<div class="one columns"></div>
+	<div class="one columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+	<div class="clear"></div>
+</div>

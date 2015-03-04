@@ -1,0 +1,82 @@
+.gdlr-lms-container{ max-width: 1140px; }
+.gdlr-lms-course-grid2 .gdlr-lms-course-price span, input[type="submit"].gdlr-lms-button, input[type="submit"].gdlr-lms-button:focus, input[type="submit"].gdlr-lms-button:hover, input[type="submit"].gdlr-lms-button:active, .gdlr-lms-button.cyan{ color: #ffffff; }
+.gdlr-lms-course-grid2 .gdlr-lms-course-price span, input[type="submit"].gdlr-lms-button, input[type="submit"].gdlr-lms-button:focus, input[type="submit"].gdlr-lms-button:hover, input[type="submit"].gdlr-lms-button:active, .gdlr-lms-button.cyan{ background-color: #72d5cd; }
+.gdlr-lms-course-grid2 .gdlr-lms-course-price span, input[type="submit"].gdlr-lms-button, input[type="submit"].gdlr-lms-button:focus, input[type="submit"].gdlr-lms-button:hover, input[type="submit"].gdlr-lms-button:active, .gdlr-lms-button.cyan{ border-color: #65b4ad; }
+.gdlr-lms-course-grid2 .gdlr-lms-course-price span.blue, .gdlr-lms-button.blue{ color: #ffffff; }
+.gdlr-lms-course-grid2 .gdlr-lms-course-price span.blue, .gdlr-lms-button.blue{ background-color: #71cbde; } .gdlr-lms-item.gdlr-lms-free{ border-bottom-color: #71cbde !important; }
+.gdlr-lms-course-grid2 .gdlr-lms-course-price span.blue, .gdlr-lms-button.blue{ border-color: #4aacc0; }
+.gdlr-lms-button.black{ color: #ffffff; }
+.gdlr-lms-button.black{ background-color: #646464; }
+.gdlr-lms-button.black{ border-color: #000000; }
+.gdlr-lms-button.red{ color: #ffffff; }
+.gdlr-lms-button.red{ background-color: #d57272; }
+.gdlr-lms-button.red{ border-color: #b06464; }
+.gdlr-lms-table th{ background-color: #72d5cd; }
+.gdlr-lms-table th{ color: #ffffff; }
+.gdlr-lms-table td{ background-color: #f7f7f7; }
+.gdlr-lms-table td{ color: #4e4e4e; }
+.gdlr-lms-table td{ border-color: #e5e5e5; }
+.gdlr-lms-course-title, .gdlr-lms-course-title a{ color: #212121; }
+.gdlr-lms-course-title:hover, .gdlr-lms-course-title a:hover{ color: #212121; }
+.gdlr-lms-info .tail{ color: #aeaeae; }
+.gdlr-lms-info .head{ color: #575757; }
+.gdlr-lms-course-price .head{ color: #373737; }
+.gdlr-lms-course-price .price, .gdlr-lms-course-price .discount-price{ color: #72d5cd; }
+.gdlr-lms-course-grid2 .gdlr-lms-item, .gdlr-lms-course-grid2.gdlr-lms-item{ background-color: #f5f5f5; }
+.gdlr-lms-course-grid2 .gdlr-lms-item, .gdlr-lms-course-grid2.gdlr-lms-item{ border-bottom-color: #95e0da; }
+.gdlr-lms-rating-wrapper i, .gdlr-lms-lightbox-container.rating-form .gdlr-rating-input{ color: #f1c40f; }
+.gdlr-lms-rating-wrapper .gdlr-lms-rating-amount{ color: #c5c5c5; }
+.gdlr-lms-admin-bar{ background-color: #f3f3f3; }
+.gdlr-lms-admin-head-content .gdlr-lms-welcome{ color: #4e4e4e; }
+.gdlr-lms-admin-head-content .gdlr-lms-name{ color: #72d5cd; }
+.gdlr-lms-admin-head-content .gdlr-lms-role{ color: #b0b0b0; }
+.gdlr-lms-admin-list { background-color: #fafafa; }
+.gdlr-lms-admin-list li{ border-top-color: #ebebeb; }
+.gdlr-lms-admin-list li a{ color: #72d5cd; }
+.gdlr-lms-admin-list li .gdlr-lms-notification{ color: #ffffff; }
+.gdlr-lms-admin-list li .gdlr-lms-notification{ background-color: #f48484; }
+.gdlr-lms-form label{ color: #8f8f8f; }
+.gdlr-lms-form input[type="text"], .gdlr-lms-form input[type="email"], .gdlr-lms-form input[type="password"], .gdlr-lms-form textarea, .gdlr-lms-quiz-answer textarea, .gdlr-lms-form .gdlr-lms-combobox:after, .gdlr-lms-form .gdlr-lms-combobox select{ color: #acacac; } .gdlr-lms-form input::-webkit-input-placeholder{ color: #acacac } .gdlr-lms-form input:-moz-placeholder{ color: #acacac } .gdlr-lms-form input::-moz-placeholder{ color: #acacac } .gdlr-lms-form input:-ms-input-placeholder{ color: #acacac }
+.gdlr-lms-form input[type="text"], .gdlr-lms-form input[type="email"], .gdlr-lms-form input[type="password"], .gdlr-lms-form textarea, .gdlr-lms-quiz-answer textarea, .gdlr-lms-form .gdlr-lms-combobox, .gdlr-lms-form .gdlr-lms-combobox:after{ border-color: #e3e3e3; }
+.gdlr-lms-form input[type="text"], .gdlr-lms-form input[type="email"], .gdlr-lms-form input[type="password"], .gdlr-lms-form textarea, .gdlr-lms-quiz-answer textarea, .gdlr-lms-form .gdlr-lms-combobox, .gdlr-lms-form .gdlr-lms-combobox:after{ background-color: #ffffff; }
+.gdlr-lms-table .gdlr-lms-cancel-booking{ color: #f48484; }
+.gdlr-lms-profile-info-wrapper{ background-color: #f3f3f3; }
+.gdlr-lms-profile-info .gdlr-lms-head{ color: #b6b6b6; }
+.gdlr-lms-profile-info .gdlr-lms-tail{ color: #737373; }
+.gdlr-lms-course-single .gdlr-lms-course-info-wrapper, .gdlr-lms-course-pdf .gdlr-lms-part-pdf-info{ background-color: #f3f3f3; }
+.gdlr-lms-content-type .gdlr-lms-course-info-title{ background-color: #5c5c5c; }
+.gdlr-lms-content-type .gdlr-lms-course-info-title{ color: #ffffff; }
+.gdlr-lms-single-course-info{ background-color: #f5f5f5; }
+.gdlr-lms-course-part.gdlr-pass .gdlr-lms-course-part-bullet, .gdlr-lms-course-part.gdlr-pass .gdlr-lms-course-part-line{ background-color: #dbdbdb; }
+.gdlr-lms-course-part-bullet, .gdlr-lms-course-part-line{ background-color: #72d5cd; }
+.gdlr-lms-course-part.gdlr-pass .gdlr-lms-course-part-content, .gdlr-lms-course-pdf .gdlr-lms-part-caption{ color: #b9b9b9; }
+.gdlr-lms-course-part.gdlr-current .gdlr-lms-course-part-content, .gdlr-lms-course-part.gdlr-next .gdlr-lms-course-part-content .part, .gdlr-lms-course-pdf .gdlr-lms-part-title{ color: #5c5c5c; }
+.gdlr-lms-course-part.gdlr-next .gdlr-lms-course-part-content .title{ color: #9b9b9b; }
+.gdlr-lms-quiz-type .gdlr-lms-course-info-wrapper, .gdlr-lms-quiz-type .gdlr-lms-course-info-title{ background-color: #333333; }
+.gdlr-lms-quiz-type .gdlr-lms-course-info-title{ color: #ffffff; }
+.gdlr-lms-quiz-type .gdlr-lms-quiz-timer{ background-color: #71cbde; }
+.gdlr-lms-quiz-type .gdlr-lms-quiz-timer{ color: #ffffff; }
+.gdlr-lms-quiz-type .gdlr-lms-course-part.gdlr-pass .gdlr-lms-course-part-bullet, .gdlr-lms-quiz-type .gdlr-lms-course-part.gdlr-pass .gdlr-lms-course-part-line{ background-color: #6f6f6f; }
+.gdlr-lms-quiz-type .gdlr-lms-course-part.gdlr-pass .gdlr-lms-course-part-content{ color: #6f6f6f; }
+.gdlr-lms-quiz-type .gdlr-lms-course-part.gdlr-current .gdlr-lms-course-part-content, .gdlr-lms-quiz-type .gdlr-lms-course-part.gdlr-next .gdlr-lms-course-part-content .part{ color: #d9d9d9; }
+.gdlr-lms-quiz-type .gdlr-lms-course-part.gdlr-next .gdlr-lms-course-part-content .title{ color: #7f7f7f; }
+.gdlr-lms-quiz-question { background-color: #f0f0f0; }
+.gdlr-lms-quiz-question { color: #656565; }
+.gdlr-lms-quiz-answer{ border-color: #e8e8e8; }
+.gdlr-lms-quiz-answer{ color: #a8a8a8; }
+.gdlr-lms-question-score{ background-color: #f8f8f8; }
+.gdlr-lms-question-score .gdlr-tail{ color: #afafaf; }
+.gdlr-lms-question-score .gdlr-head { color: #515151; }
+.gdlr-lms-instructor-content{ background-color: #f5f5f5; }
+.gdlr-lms-instructor-title{ color: #72d5cd; }
+.gdlr-lms-instructor-position{ color: #888888; }
+.gdlr-lms-author-description{ color: #a9a9a9; }
+.gdlr-lms-author-info-wrapper{ background-color: #313131; }
+.gdlr-lms-author-name{ color: #ffffff; }
+.gdlr-lms-admin-bar{ color: #888888; }
+.gdlr-lms-author-info, .gdlr-lms-author-info a, .gdlr-lms-author-info a:hover{ color: #cccccc; }
+.gdlr-lms-author-info-wrapper *{ border-color: #444444; }
+.gdlr-lms-author-extra-info-wrapper{ background-color: #f5f5f5; }
+.gdlr-lms-author-extra-info-wrapper{ border-bottom-color: #72d5cd; }
+.gdlr-lms-extra-info .gdlr-tail{ color: #b1b1b1; }
+.gdlr-lms-extra-info .gdlr-head{ color: #717171; }

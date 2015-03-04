@@ -1,0 +1,74 @@
+<style>
+
+
+#th {
+    background-color: #3E6AA7;
+    color:white;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-weight: normal;padding: 9px;text-transform: uppercase;
+   font-size: 14px; text-align: center;
+
+    
+}
+.style-1 tr td{
+
+	font-family: arial;
+	font-size: 50;
+	
+}
+</style>
+
+
+
+
+<div class="well">
+
+<div class="gdlr-item gdlr-tab-item horizontal">
+<div class="tab-title-wrapper">
+<a href="<%=schools_path %>"><h4 class="tab-title ">
+<span> MBA School List</span></h4></a>
+<a href="<%=schools_ranking_path %>"><h4 class="tab-title"><span>By Ranking</span></h4></a>
+
+<a href="<%=schools_state_path %>"><h4 class="tab-title active"><span>By State</span></h4></a>
+<div class="gdlr-lms-content">
+	<div class="twelve columns">
+		<div style="margin-left:1px;margin-right:1px">
+			<div class="eleven columns">
+				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme" style="margin-left: 1px;">
+						<div class="gdlr-space" style="margin-top: 40px;"></div>
+						<table class="style-2">
+						<tbody style="text-align:left">
+						<tr>
+							<th id="th"> Icon</th>
+							<th id="th" >State</th>
+							<th id ="th">School</th>
+						</tr>
+							<% @states.each do |t| %>
+							 <tr>
+							 	<td><%a= School.where("state_id= ?" , t.id) %>
+                   				<% a.each do |t| %>
+							 	<img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /><br>
+							 	<%end %>
+							 	</td>
+								<td style="padding:10px"> <%= t.name%></td>
+                                <td style="padding:10px"> <%a= School.where("state_id= ?" , t.id) %>
+                   				<% a.each do |t| %>
+                                <a href="<%= school_appinfo_path(t.business_school) %>" style='color:inherit'><%= t.business_school %> </a><br>		
+                                 
+                                 <%end%>
+                                 </td>
+							</tr>
+							<%end %>
+						</tbody>
+						</table>
+				</div>
+				<%= will_paginate @states, :class => 'gdlr-pagination'%>
+			</div>
+			<div class="one columns"></div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>

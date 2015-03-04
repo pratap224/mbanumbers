@@ -1,0 +1,196 @@
+<style>
+	
+#th {
+    background-color: #3E6AA7;
+    color:white;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-weight: normal;padding: 9px;text-transform: uppercase;
+   font-size: 14px;
+
+    
+}
+.style-1 tr td{
+
+	font-family: arial;
+	font-size: 50;
+}
+</style>
+
+<div>
+<div class="gdlr-lms-content">
+	<%= form_for @app_data, :url => { :action => 'update'}, html: {class: 'gdlr-lms-form'} do |f| %>
+	<div>
+		<div style="margin-left:1px;margin-right:1px">
+			<div class="six columns">
+				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme" style="margin-left: 1px;">
+				<h3 class="gdlr-item-title borderme">Edit Application</h3>
+				</div>
+				<div class="gdlr-lms-item" style="margin-left: 1px;">
+				<span class="gdlr-lms-form" >
+				
+				<p>Choose a School*</p>
+						<span class="gdlr-lms-combobox">
+						<select name="school" id="school">
+							<% @school_name.each do |sn| %>
+								 <option value="<%= sn.business_school %>">
+								 	<%= sn.business_school %>
+								 </option>
+							<% end %>
+								  
+						</select>
+
+	<script type="text/javascript">
+	for(var i=0;i<document.getElementById('school').length;i++)
+	{
+		if(document.getElementById('school').options[i].value=="<%= @app_data.school  %>")
+		{
+			document.getElementById('school').options[i].selected=true
+		}
+	}          
+	</script>
+						</span>
+				</span>
+				
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div style="margin-left:1px;margin-right:1px">
+			<div class="twelve columns">
+			<span class="gdlr-lms-form" >
+
+				<!-- <div class="two columns"> -->
+					
+<!-- 					<input type="checkbox" name="Attending" value="Attending">Attending
+					<br>
+					<input type="checkbox" name="Withdrawn" value="Withdrawn">Withdrawn 
+					<br>
+					<input type="checkbox" name="Deferred" value="Deferred">Deferred 
+ -->				
+				<!-- </div> -->
+				<div class="three columns">
+					<p>Status</p>
+						<span class="gdlr-lms-combobox">
+							<select name="status" id="status">
+								<option value="">-Select-</option>
+								<option value="Intend to Apply">Intend to Apply</option>
+								<option value="Rejected">Rejected</option>
+								<option value="Waitlisted">Waitlisted	</option>
+								<option value="WL, Accepted">WL, Accepted	</option>
+								<option value="WL, Rejected">WL, Rejected	</option>
+								<option value="Pending">Pending</option>
+							</select>
+						</span>
+<script type="text/javascript">
+	for(var i=0;i<document.getElementById('status').length;i++)
+	{
+		if(document.getElementById('status').options[i].value=="<%= @app_data.status  %>")
+		{
+			document.getElementById('status').options[i].selected=true
+		}
+	}          
+</script>
+				</div>
+				<div class="three columns">
+					<p>Application Type</p>
+					<span class="gdlr-lms-combobox">
+							<select name="application_type" id="application_type">
+								<option value="text">-Select-</option>
+								<option value="Regular Application">Regular Application</option>
+								<option value="Rejected">Rejected</option>
+								<option value="Waitlisted">Waitlisted	</option>
+								<option value="WL, Accepted">WL, Accepted	</option>
+								<option value="WL, Rejected">WL, Rejected	</option>
+								<option value="Pending">Pending</option>
+			
+							</select>
+					</span>
+<script type="text/javascript">
+	for(var i=0;i<document.getElementById('application_type').length;i++)
+	{
+		if(document.getElementById('application_type').options[i].value=="<%= @app_data.application_type  %>")
+		{
+			document.getElementById('application_type').options[i].selected=true
+		}
+	}          
+</script>
+				</div>
+				<div class="two columns">
+					<p>Program</p>
+					<span class="gdlr-lms-combobox">
+							<select name="program" id="program">
+								<option value="text">-Select-</option>
+								<option value="Full Time">Full Time</option>
+								<option value="Part Time">Part Time</option>
+						
+							</select>
+						</span>
+<script type="text/javascript">
+	for(var i=0;i<document.getElementById('program').length;i++)
+	{
+		if(document.getElementById('program').options[i].value=="<%= @app_data.program  %>")
+		{
+			document.getElementById('program').options[i].selected=true
+		}
+	}          
+</script>
+				</div>
+				<div class="three columns">
+					
+						<p>Interview Date</p>
+					 <input type="date" name="interviewdate" id="interviewdate"  placeholder="mm/dd/yyyy" value="<%= @app_data.interviewdate %>">
+						</div>
+						</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div  style="margin-right:1px; margin-left:1px">
+			<div class="twelve columns">
+
+				<div class="four columns">
+					
+					<p>Choice</p>
+<input type="text" name="choice"  style="width: 240px;" value="<%= @app_data.choice  %>">					
+				</div>
+				<div class="four columns">
+					
+					<p>Seat</p>
+					<input type="text" name="seat" style="width: 240px;" value="<%= @app_data.seat %>">					
+				</div>
+				<div class="four columns">
+					
+					<p>Received</p>
+					<input type="date" name="received" style="width: 240px;" value="<%= @app_data.received %>">
+					
+				</div>
+				<div class="clear"></div>
+				<div class="four columns">
+					<p>Scholarship</p>
+					<input type="text" name="scholarship" style="width: 240px;" placeholder='$' value="<%= @app_data.scholarship %>">
+				</div>
+				<div class="four columns">
+					
+					<p>Complete</p>
+					<input type="date" name="complete"  style="width: 240px;" value="<%= @app_data.received  %>">
+					
+				</div>
+				<div class="four columns">
+					
+					<p>Descion</p>
+					<input type="date" name="descion"  style="width: 240px;" value="<%= @app_data.descion %>">
+					
+				</div>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+		<hr>
+		<div class="twelve columns" style="text-align:center;margin-top: 9px;">
+			<input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Update Application"/>
+			<b style="position: absolute;top:12px;">(or)</b> &nbsp
+			<input type="reset" class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-left: 25px;margin-top:10px" value="cancel"/>
+		</div>
+		<% end -%>
+	</div>
+</div>
+</div>

@@ -1,0 +1,49 @@
+<div style="margin-top:20px">
+
+<div class="one columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+<div class="one columns"></div>
+
+<div class="eight columns">
+<div class="well">
+
+<%@posts.each do |p| %>
+<div id="p3" class="post bg2">
+	<div class="inner">
+	<div class="postbody">
+		<h3 class="first"><img src="" width="16" height="16" alt=""> <a href="#p3">Post Title</a></h3>
+		<p class="author"><a href=""><i class="fa fa-file grey"></i></a>by <strong><a href="<%=static_profile_path(p.member.username) %>" style="color: #AA0000;" class="username-coloured"><%=p.member.username %></a></strong> » <%=p.created_at.strftime('%A, %d %b %Y %l:%M %p') %> </p>
+		<div class="content">
+			<%=p.content %>
+		</div>
+	</div>
+	<dl class="postprofile" id="profile3">
+	<dt>
+		<a href="#"><img src="<%=p.member.image.thumb('100x100').url %>" width="100" height="100" alt="User avatar"></a><br>
+		<div class="username"><a href="<%=static_profile_path(p.member.username) %>" style="color: #AA0000;" class="username-coloured"><%=p.member.username.capitalize %></a><div class="status-dot" title=" Offline"></div></div> 
+	</dt>
+	<dd></dd>
+	<dd>&nbsp;</dd>
+	<dd><strong>Posts:</strong> 16</dd><dd><strong>Joined:</strong> <%=p.member.created_at.strftime('%A, %d %b %Y %l:%M %p') %></dd>
+	</dl>
+	</div>
+</div>
+<%end %>
+<div>
+	<div class="gdlr-lms-lightbox-close"></div>
+	<%=form_tag post_new_path, :class => 'gdlr-lms-form' do %>
+		<%= hidden_field_tag 'topic_id', params[:topic] %>
+		<p>Comment*<br>
+		<span class="wpcf7-form-control-wrap your-name">
+		<%= text_area_tag 'content' , "",class: 'form-control' ,placeholder: 'Content' %>
+		</span></p>
+		<%= submit_tag 'Post',class: 'button1' %>
+	<%end %>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="one columns"></div>
+<div class="one columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+<div class="clear"></div>
+
+</div>

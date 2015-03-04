@@ -1,0 +1,49 @@
+<div id="profind">
+<div class="well">
+
+<div class="gdlr-item gdlr-tab-item horizontal">
+<div class="tab-title-wrapper">
+<a href="<%=schools_path %>"><h4 class="tab-title">
+<span>Schools List</span></h4></a>
+<a href="<%=schools_ranking_path %>"><h4 class="tab-title"><span>By Ranking</span></h4></a>
+<a href="<%=schools_state_path %>"><h4 class="tab-title"><span>By State</span></h4></a>
+
+<div class="gdlr-lms-content">
+	<div class="eight columns">
+	
+		<div style="margin-left:1px;margin-right:1px">
+			<div class="eleven columns">
+				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme" style="margin-left: 1px;">
+						<div class="gdlr-space" style="margin-top: 40px;"></div>
+						<table class="style-2">
+						<thead>
+							<tr>
+								<th id="th">Icon</th>
+								<th id="th">Business school name</th>
+
+							</tr>
+						</thead>
+						<tbody style="text-align:left">
+							<% @schools.each do |t| %>
+							<tr>
+								<td><img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /></td>
+								<td style="padding:10px"><a href="<%= school_appinfo_path(t.business_school) %>" style='color:inherit'><%= t.business_school %> </a></td>
+							</tr>
+							<%end %>
+						</tbody>
+						</table>
+				</div>
+				<%= will_paginate @schools, :class => 'gdlr-pagination'%>
+			</div>
+			<div class="one columns"></div>
+		</div>
+	</div>
+
+	
+	<div class="clear"></div>
+		
+</div>
+
+</div>
+</div>
+</div>

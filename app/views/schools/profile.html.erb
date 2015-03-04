@@ -1,0 +1,172 @@
+<style>
+	
+#th {
+    background-color: #3E6AA7;
+    color:white;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-weight: normal;padding: 9px;text-transform: uppercase;
+   font-size: 14px;
+
+    
+}
+.style-1 tr td{
+
+	font-family: arial;
+	font-size: 50;
+}
+</style>
+
+<div class="well">
+<div class="gdlr-lms-content" style="width: 1042px;
+">
+
+	<div style="margin-top:20px">
+	<%= form_tag schools_create_path, :class => 'gdlr-lms-form' do |f| %>
+	<div class="eight columns">
+		
+		<div style="margin-left:1px;margin-right:1px">
+			<div class="six columns">
+				<div class="gdlr-lms-item" style="margin-left: 1px;">
+				<span class="gdlr-lms-form" >
+				
+				<p>Choose a School*</p>
+						<span class="gdlr-lms-combobox" >
+							<select name="school" id="school">
+							<% @school_name.each do |sn| %>
+								 <option value="<%= sn.business_school	  %>">
+										<%= sn.business_school  %>
+								 </option>
+							<% end %>
+								  
+							</select>
+						</span>
+				</span>
+				
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div style="margin-left:1px;margin-right:1px; padding:17px">
+			<div class="twelve columns">
+			<span class="gdlr-lms-form" >
+				<div>
+				
+				<div class="three columns">
+					<p style="margin-bottom:0px">Status</p>
+							<span class="gdlr-lms-combobox" style="width: 158px;">
+							<select name="status" id="status">
+								<option value="">-Select-</option>
+								<option value="Intend to Apply">Intend to Apply</option>
+								<option value="Rejected">Rejected</option>
+								<option value="Waitlisted">Waitlisted	</option>
+								<option value="WL, Accepted">WL, Accepted	</option>
+								<option value="WL, Rejected">WL, Rejected	</option>
+								<option value="Pending">Pending</option>
+							</select>
+						</span>
+				</div>
+				<div class="three columns" >
+					<p style="margin-bottom:0px">Application Type</p>
+					<span class="gdlr-lms-combobox" style="width: 158px;">
+							<select name="application_type" id="application_type">
+								<option value="text">-Select-</option>
+								<option value="Regular Application">Regular Application</option>
+								<option value="Rejected">Rejected</option>
+								<option value="Waitlisted">Waitlisted	</option>
+								<option value="WL, Accepted">WL, Accepted</option>
+								<option value="WL, Rejected">WL, Rejected</option>
+								<option value="Pending">Pending</option>
+			
+							</select>
+						</span>
+				</div>
+				<div class="three columns">
+					<p style="margin-bottom:0px">Program</p>
+					<span class="gdlr-lms-combobox" style="width: 158px;">
+							<select name="program" id="program">
+								<option value="text">-Select-</option>
+								<option value="Full Time">Full Time</option>
+								<option value="Part Time">Part Time</option>
+						
+							</select>
+						</span>
+				</div>
+				</div>
+				<div class="three columns" >
+					
+						<p style="margin-bottom:0px">Interview Date</p>
+					 <input type="date" name="interviewdate" id="interviewdate"  placeholder="mm/dd/yyyy">
+				</div>
+				<!-- <div class="twelve columns">
+					<div class="four columns">
+						<input type="checkbox" name="Attending" value="Attending">Attending
+					</div>
+					<div class="four columns">
+						<input type="checkbox" name="Withdrawn" value="Withdrawn">Withdrawn 
+					</div>
+					<div class="four columns">
+						<input type="checkbox" name="Deferred" value="Deferred">Deferred 
+					</div>				
+				</div> -->
+						</div>
+						
+			<div class="clear"></div>
+		</div>
+		<div  style="margin-right:1px; margin-left:1px; padding:17px">
+			<div class="twelve columns">
+
+				<div class="four columns">
+					
+					<p style="margin-bottom:0px">Choice</p>
+						<input type="text" name="choice" value="" style="width: 198px;">					
+				</div>
+				<div class="four columns">
+					
+					<p style="margin-bottom:0px">Seat</p>
+					<input type="text" name="seat" value="" style="width: 198px;">					
+				</div>
+				<div class="four columns">
+					
+					<p style="margin-bottom:0px">Received</p>
+					<input type="date" name="received" id="interviewdate"  placeholder="mm/dd/yyyy" style="width: 198px;">
+					
+				</div>
+				<div class="clear"></div>
+				<div class="four columns">
+					<p style="margin-bottom:0px">Scholarship</p>
+					<%=text_field_tag "scholarship",'',:style => "width:198px" %>
+				</div>
+				<div class="four columns">
+					
+					<p style="margin-bottom:0px">Complete</p>
+					<%=text_field_tag  "complete",'',:style => "width:198px"  %>
+					
+				</div>
+				<div class="four columns">
+					
+					<p style="margin-bottom:0px">Decision</p>
+					<%=text_field_tag "descion",'',:style => "width:198px" %>
+					
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<hr>
+		<div class="twelve columns" style="text-align:center; margin-top: 9px;">
+			<input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application"/>
+			<b style="position: absolute;top:12px;">(or)</b> &nbsp
+			<button class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-left: 25px;margin-top:10px"><a href="<%=profile_index_path %>" style='color:inherit'>Cancel</a></button>
+		</div>
+		<% end -%>
+		
+		<div class="clear"></div>
+	
+	
+	
+	<div class="clear"></div>
+</div>
+</div>
+<div class="clear"></div>
+<div class="clear"></div>
+</div>
+</div>

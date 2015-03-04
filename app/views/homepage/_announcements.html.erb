@@ -1,0 +1,37 @@
+<div class="blog-item-wrapper">
+	<div class="blog-item-holder">
+	<% @anouncements.each do |a|%>
+		<div class="clear"></div>
+		<div class="twelve columns">
+			<div class="gdlr-item gdlr-blog-widget">
+				<div class="gdlr-ux gdlr-blog-widget-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;">
+					<article id="post-2255" class="post-2255 post type-post status-publish format-standard has-post-thumbnail hentry category-post-slider tag-blog tag-life-style">
+						<div class="gdlr-standard-style">
+							<div class="gdlr-blog-thumbnail">
+							
+	<img src="<%= getpath a.photo_id unless a.photo_id.nil?%>" alt="" width="150" height="150">
+						
+							</div>
+							<header class="post-header">
+								<h3 class="gdlr-blog-title">
+								<%= a.title %>
+								</h3>
+								<div class="gdlr-blog-info gdlr-info">
+									<div class="blog-info blog-date">
+										<span class="gdlr-head">Posted on</span>
+										<%= a.created_at.strftime(" %d %b %Y") %>
+									</div>
+									<div class="clear"></div>
+								</div>		
+								<div class="clear"></div>
+							</header><!-- entry-header -->
+							<div class="clear"></div>
+						</div>
+					</article><!-- #post -->
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<% end %>
+  </div>
+</div>

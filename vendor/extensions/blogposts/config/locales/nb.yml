@@ -1,0 +1,29 @@
+nb:
+  refinery:
+    plugins:
+      blogposts:
+        title: Blogposts
+    blogposts:
+      admin:
+        blogposts:
+          actions:
+            create_new: Lag en ny Blogpost
+            reorder: Endre rekkefølgen på Blogposts
+            reorder_done: Ferdig å endre rekkefølgen Blogposts
+          records:
+            title: Blogposts
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Blogposts enda. Klikk på "Lag en ny Blogpost" for å legge til din første blogpost.
+          blogpost:
+            view_live_html: Vis hvordan denne blogpost ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne blogpost
+            delete: Fjern denne blogpost permanent
+      blogposts:
+        show:
+          other: Andre Blogposts
+  activerecord:
+    attributes:
+      'refinery/blogposts/blogpost':
+        title: Title
+        photo_id: Photo
+        description: Description

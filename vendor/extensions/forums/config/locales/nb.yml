@@ -1,0 +1,28 @@
+nb:
+  refinery:
+    plugins:
+      forums:
+        title: Forums
+    forums:
+      admin:
+        forums:
+          actions:
+            create_new: Lag en ny Forum
+            reorder: Endre rekkefølgen på Forums
+            reorder_done: Ferdig å endre rekkefølgen Forums
+          records:
+            title: Forums
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Forums enda. Klikk på "Lag en ny Forum" for å legge til din første forum.
+          forum:
+            view_live_html: Vis hvordan denne forum ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne forum
+            delete: Fjern denne forum permanent
+      forums:
+        show:
+          other: Andre Forums
+  activerecord:
+    attributes:
+      'refinery/forums/forum':
+        name: Name
+        description: Description

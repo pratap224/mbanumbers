@@ -1,0 +1,136 @@
+<style>
+	#image{
+		width: 215px;
+		height: 238px;
+	}
+</style>
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1563360190578255&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div class="gdlr-page-title-wrapper" style="padding: 250px 0px 108px; background-color:whitesmoke; text-align:start; height: 31px;background:url(http://www.designbolts.com/wp-content/uploads/2012/12/Pyramid-White-Seamless-pattern.jpg)" >
+		<!-- <div class="gdlr-page-title-overlay" ></div> -->
+	<div class="with-sidebar-wrapper gdlr-type-right-sidebar bgnone">
+	<div class="twelve columns" style="margin-left: 100px;margin-bottom:12px">
+						<a class="btn btn-default" href="<%= mailboxes_newest_path %>" target="_self" style="color:black; background-color:white; ">Send Message</a>
+						<a class="btn btn-default" href="<%= schools_profile_path %>" target="_self" style="color:black; background-color:white; ">Apply School</a>
+						<div class="mtbtn" title="Post a new topic" style="display:inline-block">
+						<a class="btn btn-default" data-rel="gdlr-lms-lightbox" data-lb-open="login-form" style="color:black; background-color:white; ">Edit Profile</a></div>
+						
+	</div>
+		<div class="with-sidebar-container container" style="margin-top: -214px;">
+			<div class="with-sidebar-left three columns" style="display: inline-block;max-width: 100%;height: auto;padding: 4px;line-height: 1.42857143;background-color: #fff;border: 1px solid #ddd;border-radius: 4px;-webkit-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;margin-right:20px">	
+				
+			<% unless current_user.image.nil? %>
+
+				<%= image_tag current_user.image.url, :style => "width:300px;height:250px;" %>
+				<%else %>
+				<img src="/assets/profile.png" alt="Edit Entry" style="width:300px;height:250px;" />
+				
+				
+			<% end %>
+			</div>
+			<div class="with-sidebar-right five columns">
+				<div >
+
+					<h3><%= current_user.username %></h3>
+					<div style="width:329px;height:40px;">
+						<div style="width:325px;display: inline-flex;position: absolute;">
+						<div class="fb-like"></div>
+						</div>
+
+					</div>
+					<div class="gdlr-divider thick" style="border-color: #D7D1D1;"></div>
+					<div class="details">
+					<p style="color: black;"><%=@stuff.gpa %>,<%=@stuff.gmat %> | Class of 2015</p>
+						<p style="color: black;"></p>
+						
+						<dl class="dl-horizontal">
+						<dt>Hometown:</dt>
+						<dd><%=@stuff.hometown %></dd>
+						<dt>Undergraduate:</dt>
+						<dd><%=@stuff.ugschool %></dd>
+						<dt>Status:</dt>
+						<dd>Commited| <%= time_ago_in_words(@stuff.created_at) unless @stuff.created_at.blank? %></dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			
+
+		</div>
+	</div>
+			<div class="clear"></div>
+</div>
+
+<div class="with-sidebar-wrapper gdlr-type-right-sidebar" style="padding-top:41px">
+	<div class="with-sidebar-container container">
+			<div class="with-sidebar-left ten columns">
+						<table class="style-1" >
+							<tbody>
+							<tr>
+							<th id="bg">School</th>
+							<th id="bg">Scholarship($)</th>
+							<th id="bg">Status</th>
+							<th id="bg">UpdateDate</th>
+							</tr>
+							<% @app_data.each do |ad| %>
+							<tr>
+							
+							<td id ="td">
+							<div class="floatleft school-logo" style="margin-right:12px">
+								<% @slogo=School.find_by_business_school(ad.school) %>
+								<img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
+							</div><%= ad.school %> <br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: #FCF5F5; font-size: 14px; "></i></a>
+							<a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: #FCF5F5; font-size: 14px; "></i></a></td>
+							<td id="td">$<%= ad.scholarship %></td>
+							<td id="td"><i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %></td>
+							<td id="td"><%= time_ago_in_words(ad.created_at) %>
+							</td>
+							
+							</tr>
+							<%end %>
+							</tbody>
+						</table>
+						<div>
+						<div class="gdlr-lms-lightbox-wrapper" style="display:none;"><div class="mtbtn"></div><div class="gdlr-lms-lightbox-container login-form">
+						<div class="gdlr-lms-lightbox-close"><i class="icon-remove"></i></div>
+							<h3>Applicant Information</h3>
+							<dl class="dl-horizontal">
+							<%= form_for @stuff, :html => {:class => 'gdlr-lms-form'} do |f|%>
+								<dt>Undergraduate:</dt>
+								<dd><%= f.text_field :ugschool, :placeholder => 'Undergraduate School'%></dd>
+								<dt>GPA Score</dt>
+								<dd><%= f.text_field :gpa, :placeholder => 'GPA Score'%></dd>
+								<dt>GMAT Score</dt>
+								<dd><%= f.text_field :gmat, :placeholder => 'GMAT Score' %></dd>
+								<dt>Hometown:</dt>
+								<dd><%= f.text_field :hometown, :placeholder => 'Home Town' %></dd>
+								<%= f.submit "Save"%>
+								<%end %>
+								</dl>
+						</div>
+						</div>
+						</div>
+						<div class="clear"></div>
+						
+			</div>
+			<!-------Google Adds------ -->
+			<div class="gdlr-sidebar gdlr-right-sidebar two columns">
+				<div class="gdlr-item-start-content sidebar-right-item" style="padding-left: 35px;padding-top:0px">
+				<%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>	
+				</div>
+			</div>
+			<div class="clear"></div>
+	</div>
+</div>

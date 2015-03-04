@@ -1,0 +1,30 @@
+zh-CN:
+  refinery:
+    plugins:
+      forums:
+        title: Forums
+    forums:
+      admin:
+        forums:
+          actions:
+            create_new: 建立新的 Forum
+            reorder: 对 Forums 重新排序
+            reorder_done: 对 Forums 的重新排序结束
+          records:
+            title: Forums
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Forums yet. Click "Add New Forum" to add your first forum.
+            no_items_yet: 目前没有 Forums . 点击 "Add New Forum" 创建一个forum.
+          forum:
+            view_live_html: 查看 forum 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 forum
+            delete: 永久删除 forum
+      forums:
+        show:
+          other: 其他 Forums
+  activerecord:
+    attributes:
+      'refinery/forums/forum':
+        name: Name
+        description: Description

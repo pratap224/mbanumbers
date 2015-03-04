@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  ugschool: MyString
+  gpa: 1.5
+  gmat: 1.5
+  hometown: MyString
+
+two:
+  user_id: 1
+  ugschool: MyString
+  gpa: 1.5
+  gmat: 1.5
+  hometown: MyString

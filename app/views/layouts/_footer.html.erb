@@ -1,0 +1,69 @@
+<style>
+#color
+	{
+
+		color: #7f7f7f;
+	}
+</style>
+
+
+
+<footer class="footer-wrapper">
+<div class="footer-container container">
+	<div class="footer-column two columns" id="footer-widget-1">
+	<div id="text-5" class="widget widget_text gdlr-item gdlr-widget"> <a href="<%=root_url %>"><%=image_tag 'logo@2X_white.png' %></a> <div class="clear"></div>			
+	<div class="textwidget"></div>
+    </div>	
+    </div>
+
+	<div class="footer-column three columns widget widget_recent_entries gdlr-item gdlr-widget" id="footer-widget-2">
+	  <div id="gdlr-lms-recent-course-widget-2" class="widget widget_gdlr-lms-recent-course-widget gdlr-item gdlr-widget">
+		<h3 class="gdlr-widget-title" >Quick links</h3><div class="clear"></div>		
+		<ul style='list-style:none'>
+			<li><a href="<%=root_url %>">Home</a></li>
+			<li><a href="<%=profile_index_path %>">Profiles</a></li>
+			<li><a href="<%=schools_path%>">Schools</a></li>
+			<li><a href="<%=myadvices_myadvice_path %>">My Advice</a></li>
+			<li><a href="<%=forums_index_path %>">Forum</a></li>
+			<li><a href="<%= subscribes_contactus_path %>">Contact Us</a></li>
+		</ul>
+		</div>
+	</div>
+
+	<div class="footer-column three columns" id="footer-widget-3">
+	<%=form_tag subscribes_subscribe_path, :class => 'gdlr-lms-form' do | f |  %>
+		<h3 class="gdlr-widget-title">Email Newsletter</h3>
+			<p class="is-hidden-desktop" id ="color">Subscribe for monthly updates and to receive inspiration, ideas, and news in your inbox</p>
+		<p>Your Email (required)<br>
+	    <span class="wpcf7-form-control-wrap your-email">
+	    	<%=text_field_tag :email %>
+	    </span> </p>
+		<%=submit_tag 'Subscribe', :style => 'padding:12px;width:100%' %>
+	<% end %>
+	<a href="#">Privacy Policy</a>
+    <div class="clear"></div>
+	</div>
+		<div class="footer-column three columns" id="footer-widget-4">
+	<div id="recent-posts-5" class="widget widget_recent_entries gdlr-item gdlr-widget">	
+	<h3 class="gdlr-widget-title">Contact Us</h3>
+	<p id="color">184 Main Collins Street West Victoria 8007 Australia</p>
+	<p id="color"><i class="gdlr-icon icon-phone" style="color: #bfbfbf; font-size: 16px; "></i> 1800-222-222</p>
+	<p id="color"><i class="gdlr-icon icon-envelope" style="color: #bfbfbf; font-size: 16px; "></i> contact@versatilewptheme.com</p>
+	<p id="color"><i class="gdlr-icon icon-time" style="color: #bfbfbf; font-size: 16px; "></i> Everyday 9:00-17:00</p>
+	<div id="text-8" class="widget widget_text gdlr-item gdlr-widget"><h3 class="gdlr-widget-title">Social Media</h3><div class="clear"></div><div class="textwidget"><a href="#"><i class="gdlr-icon icon-facebook" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-twitter" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-dribbble" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-pinterest" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-google-plus" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-instagram" style="color: #bfbfbf; font-size: 28px; "></i></a>
+</div>
+</div>
+</div>
+</div>			
+</div>			
+<div class="clear"></div>
+<div class="copyright-wrapper">
+<div class="copyright-container container">
+<div class="copyright-left">MBA Numbers</div>
+<div class="copyright-right">
+	Copyright © 2014 - All Right Reserved - MBA Numbers 				
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</footer>

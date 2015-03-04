@@ -1,0 +1,39 @@
+<div class="blog-item-wrapper">
+	<div class="blog-item-holder">
+	<% @posts.each do |a|%>
+		<div class="clear"></div>
+		<div class="twelve columns">
+			<div class="gdlr-item gdlr-blog-widget">
+				<div class="gdlr-ux gdlr-blog-widget-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;">
+					<article id="post-2255" class="post-2255 post type-post status-publish format-standard has-post-thumbnail hentry category-post-slider tag-blog tag-life-style">
+						<div class="gdlr-standard-style">
+							
+							<header class="post-header">
+				<h2 class="gdlr-blog-title">
+					<a href="<%= forum_topic_path(a.id) %>"><p style="font-size:20px;"><%= a.name %></p> </a>
+				</h2>
+			</header>	
+							<header class="post-header">
+								<h3 class="gdlr-blog-title" style="color: #B0AEAE; text-transform: none;">
+									 <%= raw a.description %>
+								</h3>
+								<div class="gdlr-blog-info gdlr-info">
+									<div class="blog-info blog-date">
+										<span class="gdlr-head">Posted on</span>
+										<a href="#"><%= a.created_at.strftime(" %d %b %Y") %></a>
+									</div>
+									<div class="clear"></div>
+								</div>		
+								<div class="clear"></div>
+							</header><!-- entry-header -->
+							<div class="clear"></div>
+						</div>
+					</article><!-- #post -->
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<% end %>
+		<a href="<%= forums_index_path %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd; border-color:#72d5cd; padding: 9px 23px;margin-left: 240px;">View More</a>
+  </div>
+</div>

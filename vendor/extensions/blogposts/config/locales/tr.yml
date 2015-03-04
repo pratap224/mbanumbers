@@ -1,0 +1,29 @@
+tr:
+  refinery:
+    plugins:
+      blogposts:
+        title: Blogposts
+    blogposts:
+      admin:
+        blogposts:
+          actions:
+            create_new: Yeni Ekle Blogpost
+            reorder: Tekrar sirala Blogposts
+            reorder_done: Tekrar siralama tamamlandiBlogposts
+          records:
+            title: Blogposts
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Blogposts yok henuz.  Tikla "Yeni Ekle Blogpost" eklemek senin ilk blogpost.
+          blogpost:
+            view_live_html: Bunu canlu blogpost goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle blogpost
+            delete: Bunu Sil blogpost sonsuza dek
+      blogposts:
+        show:
+          other: Diger Blogposts
+  activerecord:
+    attributes:
+      'refinery/blogposts/blogpost':
+        title: Title
+        photo_id: Photo
+        description: Description

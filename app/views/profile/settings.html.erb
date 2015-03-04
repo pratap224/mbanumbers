@@ -1,0 +1,58 @@
+<div class="container" >
+<div class="section-container container">
+	<div class="gdlr-item gdlr-content-item" style="margin-left: 300px;
+margin-right: 300px;
+	"><p>
+	</p><div class="clear"></div>
+	<div class="gdlr-space" style="margin-top: -22px;"></div>
+	<div class="clear"></div>
+	<div class="gdlr-space" style="margin-top: 45px;"></div>
+	<div class="wpcf7" id="wpcf7-f8-o1" lang="en-US" dir="ltr">
+	<div class="screen-reader-response"></div>
+	<%=form_for @user, :url => {:action => 'profilecreate'},:html => {:class => "gdlr-lms-form"} do |f| %>
+        <dl class="dl-horizontal">
+        	<dt>User Name*</dt>
+        	
+        	<dd><%= text_field_tag 'member[username]' , current_user.username,placeholder: 'Name' %></dd>
+        	<dt>Email Address*</dt>
+        	<dd><%= text_field_tag 'member[email]' , current_user.email,placeholder: 'Email' %></dd>
+        	<dt>Zipcode*</dt>
+        	<dd><%= text_field_tag 'member[zipcode]' , current_user.zipcode,placeholder: 'Zipcode' %></dd>
+        	<dt>Under Graduate School*</dt>
+        <dd>
+        <span class='gdlr-lms-combobox'>
+        	
+        	<%= select_year(Date.today, :selected => current_user.year) %>	
+        </span>
+		</dd>
+        
+		<dt>Photo*</dt>
+        <dd>
+        	<%= f.file_field :image, class: 'form-control' %>
+        	<%= image_tag current_user.image.thumb('200x128#').url,:style => 'margin-top: 9px;margin-left: 93px;border: 1px;border-radius: 12px;' if current_user.image   %>
+        </dd>
+        	
+        </dl>
+ <div style="width:100%;margin-left: 208px;">
+<%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
+
+<a href="<%= profile_chnagepwd_path %>" style="margin-left: 39px;">Change The Password?</a>
+
+</div>
+
+		</div>
+	<%end%> 
+	</div><div class="clear"></div> 
+</div>
+
+<div class="gdlr-item gdlr-divider-item">
+<div class="gdlr-divider solid"></div>
+</div>
+
+
+							
+				
+</div>
+  
+   </div>
+

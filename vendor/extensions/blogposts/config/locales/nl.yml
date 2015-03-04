@@ -1,0 +1,29 @@
+nl:
+  refinery:
+    plugins:
+      blogposts:
+        title: Blogposts
+    blogposts:
+      admin:
+        blogposts:
+          actions:
+            create_new: Nieuwe Blogpost toevoegen
+            reorder: De volgorde van de Blogposts wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Blogpost-volgorde
+          records:
+            title: Blogposts
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Blogposts. Druk op 'Nieuwe Blogpost toevoegen' om de eerste toe te voegen.
+          blogpost:
+            view_live_html: Deze blogpost op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze blogpost
+            delete: Deze blogpost definitief verwijderen
+      blogposts:
+        show:
+          other: Andere Blogposts
+  activerecord:
+    attributes:
+      'refinery/blogposts/blogpost':
+        title: Title
+        photo_id: Photo
+        description: Description

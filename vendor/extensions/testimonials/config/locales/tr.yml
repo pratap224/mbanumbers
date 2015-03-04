@@ -1,0 +1,29 @@
+tr:
+  refinery:
+    plugins:
+      testimonials:
+        title: Testimonials
+    testimonials:
+      admin:
+        testimonials:
+          actions:
+            create_new: Yeni Ekle Testimonial
+            reorder: Tekrar sirala Testimonials
+            reorder_done: Tekrar siralama tamamlandiTestimonials
+          records:
+            title: Testimonials
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Testimonials yok henuz.  Tikla "Yeni Ekle Testimonial" eklemek senin ilk testimonial.
+          testimonial:
+            view_live_html: Bunu canlu testimonial goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle testimonial
+            delete: Bunu Sil testimonial sonsuza dek
+      testimonials:
+        show:
+          other: Diger Testimonials
+  activerecord:
+    attributes:
+      'refinery/testimonials/testimonial':
+        name: Name
+        role: Role
+        content: Content

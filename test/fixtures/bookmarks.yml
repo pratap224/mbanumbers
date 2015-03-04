@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  currentuserid: 1
+  bookmarkuserid: 1
+
+two:
+  currentuserid: 1
+  bookmarkuserid: 1

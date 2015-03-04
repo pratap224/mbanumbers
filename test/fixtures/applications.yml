@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school: MyString
+  status: MyString
+  application_type: MyString
+  program: MyString
+  interviewdate: 2015-02-18
+  choice: MyString
+  seat: MyString
+  received: MyString
+  complete: MyString
+  descion: MyString
+  scholarship: MyString
+
+two:
+  school: MyString
+  status: MyString
+  application_type: MyString
+  program: MyString
+  interviewdate: 2015-02-18
+  choice: MyString
+  seat: MyString
+  received: MyString
+  complete: MyString
+  descion: MyString
+  scholarship: MyString

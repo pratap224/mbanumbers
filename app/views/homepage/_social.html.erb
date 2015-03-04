@@ -1,0 +1,34 @@
+<section>
+	<div class="gdlr-color-wrapper gdlr-show-all no-skin">
+		<div class="container">
+			<div class="gdlr-shortcode-wrapper gdlr-row-shortcode" style="margin-left: 10px;margin-right: 10px;">
+			<div class="col-xs-12" >
+			    <h1 style="text-align: center">Social Media</h1>
+			</div>
+			<div class="four columns">
+			<div class="gdlr-item gdlr-column-shortcode">
+			<a class="twitter-timeline" href="https://twitter.com/MBAnumbers" data-widget-id="562495077063602176">Twitter by @MBAnumbers</a>
+				<%=raw @social.content_for(:twitter) %>
+
+			</div>
+			</div>
+			<div class="four columns">
+			<div class="gdlr-item gdlr-column-shortcode">
+			<a class="twitter-timeline" href="https://twitter.com/MBAnumbers" data-widget-id="562495077063602176">Facebook by @MBAnumbers</a>
+
+			<%=raw @social.content_for(:facebook) %>
+				
+			</div>
+			</div>
+			<div class="four columns">
+			<div class="gdlr-item gdlr-column-shortcode">
+			<a class="twitter-timeline" href="https://twitter.com/MBAnumbers" data-widget-id="562495077063602176">Likedin by @MBAnumbers</a>
+			<%=raw @social.content_for(:linkedin) %>
+			</div>
+			<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+

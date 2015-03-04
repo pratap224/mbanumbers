@@ -1,0 +1,24 @@
+<section>
+	<div class="gdlr-color-wrapper gdlr-show-all no-skin">
+		<div class="container">
+			<div class="four columns">
+				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme">
+					<h3 class="gdlr-item-title borderme">Site Announcements</h3>
+				</div>
+				<%=render :partial => 'homepage/announcements' %>
+			</div>
+			<div class="four columns">
+				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme">
+					<h3 class="gdlr-item-title">Recent Blog Post</h4>	
+				</div>	
+				<%= render :partial => 'homepage/blog_single' %>
+			</div>
+			<div class="four columns">
+				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme">
+					<h3 class="gdlr-item-title">Forum Threads</h4>	
+				</div>	
+				<%= render :partial => 'homepage/posts' %>
+			</div>
+		</div>
+	</div>
+</section>

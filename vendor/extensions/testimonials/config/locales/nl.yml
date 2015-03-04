@@ -1,0 +1,29 @@
+nl:
+  refinery:
+    plugins:
+      testimonials:
+        title: Testimonials
+    testimonials:
+      admin:
+        testimonials:
+          actions:
+            create_new: Nieuwe Testimonial toevoegen
+            reorder: De volgorde van de Testimonials wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Testimonial-volgorde
+          records:
+            title: Testimonials
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Testimonials. Druk op 'Nieuwe Testimonial toevoegen' om de eerste toe te voegen.
+          testimonial:
+            view_live_html: Deze testimonial op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze testimonial
+            delete: Deze testimonial definitief verwijderen
+      testimonials:
+        show:
+          other: Andere Testimonials
+  activerecord:
+    attributes:
+      'refinery/testimonials/testimonial':
+        name: Name
+        role: Role
+        content: Content

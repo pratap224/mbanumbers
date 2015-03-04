@@ -1,0 +1,28 @@
+fr:
+  refinery:
+    plugins:
+      forums:
+        title: Forums
+    forums:
+      admin:
+        forums:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Forum
+            reorder: Réordonner les Forums
+            reorder_done: Fin de réordonnancement des Forums
+          records:
+            title: Forums
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Forum. Cliquer sur "Créer un(e) nouve(au/l/lle) Forum" pour créer votre premi(er/ère) forum.'
+          forum:
+            view_live_html: Voir ce(t/tte) forum <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) forum
+            delete: Supprimer définitivement ce(t/tte) forum
+      forums:
+        show:
+          other: Autres Forums
+  activerecord:
+    attributes:
+      'refinery/forums/forum':
+        name: Name
+        description: Description

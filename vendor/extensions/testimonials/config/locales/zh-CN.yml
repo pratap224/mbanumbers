@@ -1,0 +1,31 @@
+zh-CN:
+  refinery:
+    plugins:
+      testimonials:
+        title: Testimonials
+    testimonials:
+      admin:
+        testimonials:
+          actions:
+            create_new: 建立新的 Testimonial
+            reorder: 对 Testimonials 重新排序
+            reorder_done: 对 Testimonials 的重新排序结束
+          records:
+            title: Testimonials
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Testimonials yet. Click "Add New Testimonial" to add your first testimonial.
+            no_items_yet: 目前没有 Testimonials . 点击 "Add New Testimonial" 创建一个testimonial.
+          testimonial:
+            view_live_html: 查看 testimonial 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 testimonial
+            delete: 永久删除 testimonial
+      testimonials:
+        show:
+          other: 其他 Testimonials
+  activerecord:
+    attributes:
+      'refinery/testimonials/testimonial':
+        name: Name
+        role: Role
+        content: Content

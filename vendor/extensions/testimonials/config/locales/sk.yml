@@ -1,0 +1,29 @@
+sk:
+  refinery:
+    plugins:
+      testimonials:
+        title: Testimonials
+    testimonials:
+      admin:
+        testimonials:
+          actions:
+            create_new: Pridať Testimonial
+            reorder: Preusporiadať Testimonials
+            reorder_done: Koniec radenia Testimonials
+          records:
+            title: Testimonials
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Testimonials. Kliknite na "Pridať Testimonial" pre pridanie prvého testimonial.
+          testimonial:
+            view_live_html: Zobraziť náhľad testimonial<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť testimonial
+            delete: Zmazať testimonial
+      testimonials:
+        show:
+          other: Daľšie Testimonials
+  activerecord:
+    attributes:
+      'refinery/testimonials/testimonial':
+        name: Name
+        role: Role
+        content: Content

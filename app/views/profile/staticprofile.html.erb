@@ -1,0 +1,169 @@
+<div id="fb-root"></div>
+<!-- like button -->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1563360190578255&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- end -->
+
+<div class="gdlr-page-title-wrapper" style="padding: 250px 0px 108px; background-color:whitesmoke; text-align:start; height: 31px;background:none" >
+		<!-- <div class="gdlr-page-title-overlay" ></div> -->
+	<div class="with-sidebar-wrapper gdlr-type-right-sidebar bgnone">
+	<div class="twelve columns" style="margin-left: 100px;">
+						<a class="gdlr-button small" href="#reply-title" target="_self" style="color:black; background-color:white; ">Post Comment</a><a class="gdlr-button small" href="http://www.goodlayers.com" target="_self" style="color:black; background-color:white; ">Send Message</a>
+					<%unless current_user.nil? %>
+					<a class="gdlr-button small" href="#" target="_self" style="color:black; background-color:white; " id="profilebookmark">Profile Bookmark</a>
+					<%end %>
+				<a class="gdlr-button small" href="#" target="_self" style="color:black; background-color:white; display:none; " id="profilebookmarkadded">Profile Bookmark Added</a>
+				<%unless @user.nil? %>
+				<a href="<%= user_remove_path(@user.id) %>" 
+				style="display:none;" id="budel">
+					<i class="gdlr-icon icon-remove" style="color: #d55949; font-size: 14px;margin-left: -20px; "></i>
+				</a>
+				<%end %>
+	</div>
+		<div class="with-sidebar-container container" style="margin-top: -214px;">
+			<div class="with-sidebar-left three columns">		
+				<div style="width:200px; margin:0px auto;">
+					<%= image_tag @user.image.url%>
+				</div>
+			</div>
+			
+			<div class="with-sidebar-right five columns">
+				<div>
+					<h3><%= @user.username %></h3>
+					<div style="width:329px;height:40px;">
+						<div style="width:325px;display: inline-flex;position: absolute;">
+						<div class="fb-like"></div>
+						</div>
+					</div>
+					<div class="gdlr-divider thick" style="border-color: #D7D1D1;"></div>
+					<div class="details">
+						<% unless@stuff.nil? %>
+						<p style="color: black;">
+						<%= @stuff.gpa %>,<%= @stuff.gmat %> | Class of 2015</p>
+						<dl class="dl-horizontal">
+						<dt>Hometown/Zipcode:</dt>
+						<dd><%= @stuff.hometown %></dd>
+						<dt>Undergraduate:</dt>
+						<dd><%= @stuff.ugschool %></dd>
+						<dt>Status:</dt>
+						<dd>Commited|<%= time_ago_in_words(@stuff.created_at) %></dd>
+						<%end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+			<div class="clear"></div>
+</div>
+
+<div class="with-sidebar-wrapper gdlr-type-right-sidebar">
+	<div class="with-sidebar-container container">
+			<div class="with-sidebar-left ten columns">
+				<table class="style-1" >
+					<thead>
+					<tr>
+					<th id="bg">School</th>
+					<th id="bg">Scholarship</th>
+					<th id="bg">Status</th>
+					<th id="bg">UpdateDate</th>
+					</tr>
+					</thead>
+					<tbody>
+						<% @lists.each do |f| %>
+						<tr>
+						<td id ="td">
+						<div class="floatleft school-logo">
+						<%= image_tag "p1.png" %>
+						</div>
+						<%=f.school %>
+						</td>
+						<td id="td"><%=f.scholarship %></td>
+						<td id="td"><i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%=f.status %></td>
+						<td id="td"><%= time_ago_in_words(f.created_at) %></td>
+						</tr>
+						<%end %>
+					</tbody>
+				</table>
+				<div class="clear"></div>
+				<div>
+					<div id="comments" class="gdlr-comments-area">
+						<h3 class="comments-title"><%=@comments.count %> Responses</h3>
+						<%@comments.each do |c| %>
+						<%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
+						<%end %>
+						<!-- .commentlist -->
+					<div id="respond" class="comment-respond">
+						<h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+						<%=form_tag comment_new_path, :class => 'gdlr-lms-form' do %>
+							<%= hidden_field_tag 'username', params[:username] %>
+							<p>Title*<br>
+							<span class="wpcf7-form-control-wrap your-name">
+							<%= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
+							</span></p>
+							<p>Comment*<br>
+							<span class="wpcf7-form-control-wrap your-name">
+							<%= text_area_tag 'comment' , "",class: 'form-control' ,placeholder: 'Comment ' %>
+							</span></p>
+							<%= submit_tag 'Post',class: 'button1' %>
+						<%end %>
+					</div><!-- #respond -->
+					</div>
+				</div>
+			</div>
+			<!-------Google Adds------ -->
+			<div class="gdlr-sidebar gdlr-right-sidebar two columns">
+				<div class="gdlr-item-start-content sidebar-right-item" style="padding-left: 35px;">
+				<%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>	
+				</div>
+			</div>
+			<div class="clear"></div>
+	</div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+		var busercount = <%= @buseridcount %>
+		if(busercount > 0)
+		{
+			$('#profilebookmarkadded').show();
+			$('#budel').show();
+			$('#profilebookmark').css('display','none');			
+		}
+
+	<%unless current_user.nil? %>
+	$("#profilebookmark").click(function(){
+
+			var cuserid= <%= current_user.id  %> 
+			var buserid= <%=  @user.id %>
+			$.ajax({
+  			  url: "<%=root_url %>user/bookmark/"+cuserid+"/"+buserid,
+  			  context: document.body
+			}).done(function(r) {
+				if( r == 'true')
+			 	{
+
+			 		$('#profilebookmarkadded').css('display','block');
+			 		
+			 		$('#profilebookmark').css('display','none');
+			 		$('#budel').show();
+			 	}
+			 	else
+			 	{
+			 		
+			 		$('#profilebookmarkadded').show();
+			 		$('#profilebookmark').css('display','none');
+			 		$('#budel').show();	
+			 	}
+		});
+
+	});
+	<%end %>
+})
+</script>
+

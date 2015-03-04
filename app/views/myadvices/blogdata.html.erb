@@ -1,0 +1,153 @@
+<div class="gdlr-page-title-wrapper">
+		<div class="gdlr-page-title-overlay"></div>
+		<div class="gdlr-page-title-container container">
+			<h3 class="gdlr-page-title">
+				<%=  @blog_data.title %>
+			</h3>
+			
+		</div>	
+</div>
+	
+
+		<div class="with-sidebar-wrapper gdlr-type-right-sidebar">
+				<div class="with-sidebar-container container">
+					<div class="with-sidebar-left eight columns">
+						<div class="with-sidebar-content twelve columns">
+								<div class="gdlr-item gdlr-blog-full gdlr-item-start-content">
+
+								<!-- get the content based on post format -->
+
+									<article id="post-859" class="post-859 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row category-life-style tag-blog tag-life-style">
+										<div class="gdlr-standard-style">
+											<div class="gdlr-blog-thumbnail">
+											 <a href="#">
+							                   <img src="<%= getpath @blog_data.photo_id unless @blog_data.photo_id.nil?%> " alt="" width="750" height="330">
+							                 </a>	
+											</div>
+
+
+										<div class="blog-date-wrapper">
+										<span class="blog-date-day">				<%=  @blog_data.created_at.strftime(" %d ") %>
+										</span>
+										<span class="blog-date-month">
+											<%= @blog_data.created_at.strftime(" %b") %> 
+										</span>
+										<span class="blog-date-year">
+											 <%= @blog_data.created_at.strftime(" %Y") %>
+										</span>
+										</div>
+
+										<div class="blog-content-wrapper">
+										<header class="post-header">
+										<h1 class="gdlr-blog-title">
+											<a href="#"><%= @blog_data.title  %></a>
+										</h1>
+
+
+										<div class="gdlr-blog-info gdlr-info"><div class="blog-info blog-comment"><span class="gdlr-head">Comments</span><a href="#"><%=Myadvice.where('post_id=?',@blog_data.id).count %></a></div><div class="clear"></div></div>			
+										<div class="clear"></div>
+										</header><!-- entry-header -->
+
+										<div class="gdlr-blog-content">
+										<%= raw(@blog_data.description)  %>
+										<div class="clear"></div>
+										<div class="gdlr-space" style="margin-top: 30px;"></div>
+										<div class="gdlr-item gdlr-divider-item">
+										<div class="gdlr-divider thick"></div>
+										</div>
+										<div class="clear"></div>
+
+
+										</div>		</div> <!-- blog content wrapper -->
+										</div>
+									</article><!-- #post -->	
+
+<!-- #################comments###################### -->
+
+
+
+<% @myadvicecomments.each do |mydata| %>
+<ol class="commentlist" style="list-style:none">
+	<li class="comment byuser comment-author-gdadmin bypostauthor even thread-even depth-1" id="li-comment-7">
+		<article id="comment-7" class="comment-article">
+			<div class="comment-avatar">
+				<%@member = Member.find(mydata.member_id) %>
+				<img alt="" src="<%=@member.image.thumb('60x60').url%>" class="avatar avatar-60 photo" height="60" width="60" style="opacity:1;">
+			</div>
+			<div class="comment-body">
+				<header class="comment-meta">
+					<div class="comment-author gdlr-title"><%= @member.username %></div>
+					<div class="comment-time">
+						<i class="icon-time"></i>
+						<a href="">
+							<time><%=mydata.created_at.strftime('%A, %d %b %Y %l:%M %p') %></time>
+						</a>
+					</div>
+				</header>
+				<section class="comment-content">
+					<h5><%=mydata.title %></h5>
+					<p><%=mydata.comment %></p>
+				</section><!-- comment-content -->
+			</div><!-- comment-body -->
+		</article><!-- comment-article -->
+	</li><!-- #comment-## -->
+</ol>	
+<hr>
+<% end %>
+
+
+								<!-- .nav-single -->
+
+
+
+
+								<div class="gdlr-social-share">
+								<div class="textwidget"><a href="#"><i class="gdlr-icon icon-facebook" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-twitter" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-dribbble" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-pinterest" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-google-plus" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="#"><i class="gdlr-icon icon-instagram" style="color: #bfbfbf; font-size: 28px; "></i></a>
+								</div>
+								<div class="clear">
+
+
+								</div>			
+
+								</div>
+
+
+
+								<div id="comments" class="gdlr-comments-area">
+								<div>
+					<div id="comments" class="gdlr-comments-area" style="list-style:none">
+						
+						
+						
+								<%=form_tag myadvices_create_path, :class => 'gdlr-lms-form' do %>
+								<%= hidden_field_tag 'id', params[:id] %>
+							<li>
+								<label for="first_name">Title</label>
+								<%=text_field_tag "title" %>
+							</li>
+							<li>
+								<label for="last_name">Comment</label>
+								<%=text_area_tag "comment" %>
+							</li>
+							<%=submit_tag("Post") %>
+							</div>
+							<%end %>
+							</div>
+					<p class="form-submit">						
+						</div>	
+
+							
+						
+						<div class="clear"></div>
+					</div>
+					<div class="two columns gdlr-item-start-content">
+						<div class="google_adsense skyscraper" style="padding-left: 18px;">
+						<%= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	</div>

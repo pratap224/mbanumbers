@@ -1,0 +1,29 @@
+es:
+  refinery:
+    plugins:
+      forums:
+        title: Forums
+#        article: masculino/femenino
+    forums:
+      admin:
+        forums:
+          actions:
+            create_new: Crear nuevo forum
+            reorder: Reordenar forums
+            reorder_done: Reordenación de forums completada
+          records:
+            title: Forums
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay forums todavía. Pulsa en "Crear nuevo Forum" para crear tu primer forum.
+          forum:
+            view_live_html: Ver este forum como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este forum
+            delete: Borrar este forum para siempre
+      forums:
+        show:
+          other: Otros forums
+  activerecord:
+    attributes:
+      'refinery/forums/forum':
+        name: Name
+        description: Description

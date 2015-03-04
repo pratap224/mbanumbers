@@ -1,0 +1,56 @@
+<div class="container">
+  
+<div class="section-container container">
+        <div class="gdlr-item gdlr-content-item" style="margin-left: 300px;
+margin-right: 300px;
+        "><p>
+        </p><div class="clear"></div>
+        <div class="gdlr-space" style="margin-top: -22px;"></div>
+        <div class="clear"></div>
+        <div class="gdlr-space" style="margin-top: 45px;"></div>
+        <div class="wpcf7" id="wpcf7-f8-o1" lang="en-US" dir="ltr">
+        <div class="screen-reader-response"></div>
+        
+        <%=form_tag profile_create_path, :class =>'gdlr-item gdlr-content-item gdlr-lms-form' do |f| %>
+        <dl class="dl-horizontal" style="margin-left: -65px;">
+                
+                <dt>Email Address*</dt>
+                <dd><%= text_field_tag 'email' , "",class: 'form-control' ,placeholder: 'Email' %></dd>
+                <dt>Password*</dt>
+                <dd><%= password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Password' %></dd>
+                
+                
+        </dl>
+        <div style="width:100%;text-align:center;">
+            <%= submit_tag 'Signin',class: 'wpcf7-form-control wpcf7-submit',name: 'signin', style: 'padding: 12px 67px;margin-left:86px;font-size: 18px;'   %>    
+            <a href="<%= profile_forgotpassword_path %>">Forgot Your Password?</a>
+        </div>
+       
+        </div>
+        <%end%>
+        </div><div class="clear"></div> 
+</div>
+
+<div class="gdlr-item gdlr-divider-item">
+<div class="gdlr-divider solid"></div>
+</div>
+
+<div class="row" style="60px" style="margin-left: 149px;" >
+    <h5 style="color:#bfbfbf;text-align:center">Or Login with an existing account:</h5>
+            
+<div class="six columns" style="text-align:right">
+<a class="gdlr-button" href="/auth/facebook" target="_self" style="color:#ffffff; background-color:#3b5998;"><i class="gdlr-icon icon-facebook"></i> Login with Facebook</a>                                                        </div>
+<div class="six columns" style="text-align:left">
+<a class="gdlr-button" href="/auth/gplus" target="_self" style="color:#ffffff; background-color:#dd4b39;"><i class="gdlr-icon icon-google-plus"></i> login  with google</a>
+</div>
+<div class="six columns" style="text-align:right">
+<a class="gdlr-button" href="/auth/linkedin" target="_self" style="color:#ffffff; background-color:#007bb6;width:184px;"><i class="gdlr-icon icon-linkedin-sign"></i> login with linkedin</a>
+
+</div>
+<div class="six columns" style="text-align:left;">
+ <a class="gdlr-button" href="/auth/twitter" target="_self" style="color:#ffffff; background-color:#00aced;"><i class="gdlr-icon icon-twitter"></i> login with twitter</a>
+</div>
+
+<div class="clear"></div> 
+</div>
+

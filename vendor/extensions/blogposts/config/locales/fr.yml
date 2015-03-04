@@ -1,0 +1,29 @@
+fr:
+  refinery:
+    plugins:
+      blogposts:
+        title: Blogposts
+    blogposts:
+      admin:
+        blogposts:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Blogpost
+            reorder: Réordonner les Blogposts
+            reorder_done: Fin de réordonnancement des Blogposts
+          records:
+            title: Blogposts
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Blogpost. Cliquer sur "Créer un(e) nouve(au/l/lle) Blogpost" pour créer votre premi(er/ère) blogpost.'
+          blogpost:
+            view_live_html: Voir ce(t/tte) blogpost <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) blogpost
+            delete: Supprimer définitivement ce(t/tte) blogpost
+      blogposts:
+        show:
+          other: Autres Blogposts
+  activerecord:
+    attributes:
+      'refinery/blogposts/blogpost':
+        title: Title
+        photo_id: Photo
+        description: Description

@@ -1,0 +1,28 @@
+tr:
+  refinery:
+    plugins:
+      forums:
+        title: Forums
+    forums:
+      admin:
+        forums:
+          actions:
+            create_new: Yeni Ekle Forum
+            reorder: Tekrar sirala Forums
+            reorder_done: Tekrar siralama tamamlandiForums
+          records:
+            title: Forums
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Forums yok henuz.  Tikla "Yeni Ekle Forum" eklemek senin ilk forum.
+          forum:
+            view_live_html: Bunu canlu forum goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle forum
+            delete: Bunu Sil forum sonsuza dek
+      forums:
+        show:
+          other: Diger Forums
+  activerecord:
+    attributes:
+      'refinery/forums/forum':
+        name: Name
+        description: Description
