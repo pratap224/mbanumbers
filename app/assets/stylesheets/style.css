@@ -1564,6 +1564,18 @@ border-color: #adadad;
 i.gdlr-icon { margin-right: 10px; opacity: 0.7; }
 i.gdlr-icon:hover {opacity: 1;}
 
+/*.wrapper{
+	width: 306px;
+background-color: #ffffff;
+border-radius: 3px;
+border: 1px solid #cecece;
+padding: 0 10px 5px 10px;
+font-family: Helvetica Neue;
+position: relative;
+height: 595px;
+
+}*/
+
 
 #profind #th {
     background-color: #3E6AA7;

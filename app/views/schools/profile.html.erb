@@ -91,11 +91,12 @@
 							</select>
 						</span>
 				</div>
-				</div>
+				
 				<div class="three columns" >
 					
 						<p style="margin-bottom:0px">Interview Date</p>
 					 <input type="date" name="interviewdate" id="interviewdate"  placeholder="mm/dd/yyyy">
+				</div>
 				</div>
 				<!-- <div class="twelve columns">
 					<div class="four columns">
@@ -123,7 +124,7 @@
 				<div class="four columns">
 					
 					<p style="margin-bottom:0px">Seat</p>
-					<input type="text" name="seat" value="" style="width: 198px;">					
+					<input type="text" name="seat"  value="" style="width: 198px;">					
 				</div>
 				<div class="four columns">
 					
@@ -134,18 +135,18 @@
 				<div class="clear"></div>
 				<div class="four columns">
 					<p style="margin-bottom:0px">Scholarship</p>
-					<%=text_field_tag "scholarship",'',:style => "width:198px" %>
+					<%=text_field_tag "scholarship",'',:style => "width:198px"%>
 				</div>
 				<div class="four columns">
 					
 					<p style="margin-bottom:0px">Complete</p>
-					<%=text_field_tag  "complete",'',:style => "width:198px"  %>
+					<input type="date" name="complete" id="interviewdate" value="" style="width: 198px;">
 					
 				</div>
 				<div class="four columns">
 					
 					<p style="margin-bottom:0px">Decision</p>
-					<%=text_field_tag "descion",'',:style => "width:198px" %>
+					<input type="date" name="descion" id="interviewdate" value="" style="width: 198px;">
 					
 				</div>
 			</div>
