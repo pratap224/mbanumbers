@@ -18,13 +18,51 @@ margin-right: 300px;
         	<dd><%= text_field_tag 'member[email]' , current_user.email,placeholder: 'Email' %></dd>
         	<dt>Zipcode*</dt>
         	<dd><%= text_field_tag 'member[zipcode]' , current_user.zipcode,placeholder: 'Zipcode' %></dd>
-        	<dt>Under Graduate School*</dt>
-        <dd>
-        <span class='gdlr-lms-combobox'>
-        	
-        	<%= select_year(Date.today, :selected => current_user.year) %>	
-        </span>
-		</dd>
+            <dt>Hometown</dt>
+            <dd><%= text_field_tag 'member[hometown]' , current_user.hometown,placeholder: 'Hometown' %></dd>
+            <dt style="width: 172px">Under Graduate School*</dt>
+            <dd><span class="gdlr-lms-combobox" >
+                            <select name="undergraduate_school" id="undergraduate_school" >
+                            <option value="">-----------Select School----------</option>
+                            <% @school_name.each do |sn| %>
+                                 <option value="<%= sn.business_school    %>">
+                                        <%= sn.business_school   %>
+                                 </option>
+                            <% end %>
+                                  
+                            </select>
+                    <script type="text/javascript">
+                        for(var i=0;i<document.getElementById('undergraduate_school').length;i++)
+                        {
+                            if(document.getElementById('undergraduate_school').options[i].value=="<%= current_user.undergraduate_school  %>")
+                            {
+                                document.getElementById('undergraduate_school').options[i].selected=true
+                            }
+                        }          
+                   </script>
+    
+                        </span></dd>
+            <dt style="width: 172px";>Under Graduate class*</dt>
+
+            <dd>
+            <span class='gdlr-lms-combobox'>
+                <%=select_year(Date.today,:selected => current_user.year)%>    
+            </span>
+            <script type="text/javascript">
+                        for(var i=0;i<document.getElementById('date_year').length;i++)
+                        {
+                            if(document.getElementById('date_year').options[i].value=="<%= current_user.year  %>")
+                            {
+                                document.getElementById('date_year').options[i].selected=true
+                            }
+                        }          
+            </script>
+            </dd>
+            <dt>GPA Score</dt>
+                <dd>
+            <%= text_field_tag 'member[gpa]' , current_user.gpa ,placeholder: 'GPA Score' %></dd>
+            <dt>GMAT Score</dt>
+            <dd><%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></dd>
         
 		<dt>Photo*</dt>
         <dd>

@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-layout 'homepage'
+layout 'member'
 before_action :authenticated
 before_action :pass_check, only: :create
   
@@ -9,10 +9,13 @@ before_action :pass_check, only: :create
   def signup
   	@title = "Create Account"
     @user = Member.new
+    @school_name=School.all
   end
   
   def create
+
     @user = Member.new(req_params)
+    @user.undergraduate_school = params[:undergraduate_school]
   	@user.year = params[:date][:year]
   	@user.password = params[:password]
   	@user.token =SecureRandom.urlsafe_base64
@@ -35,7 +38,7 @@ before_action :pass_check, only: :create
 
 	private
 	def req_params
-  	params.require(:member).permit(:username, :email, :zipcode, :image)
+  	params.require(:member).permit(:username, :email, :zipcode, :image, :hometown, :gpa, :gmat_score, :undergraduate_school)
   end
   def email_exist
 		unless Member.find_by_email(req_params['email']).nil?

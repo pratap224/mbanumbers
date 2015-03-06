@@ -15,10 +15,49 @@
 	font-size: 50;
 }
 </style>
+<script type="text/javascript">
+	function validate()
+	{
+
+		var school= document.getElementById('school').value; 
+		// alert(school);
+		// return false;
+		var status= document.getElementById('status').value;
+		var application=document.getElementById('application_type').value;
+		
+		var scholarship=document.getElementById('scholarship').value;
+		
+		if(school == "")
+		{
+			document.getElementById('error').innerHTML="Please Select The School";
+			// document.getElementById('school').focus();
+			return false;
+		}
+		else if(status == "")
+		{
+			document.getElementById('error').innerHTML="Please Select Status";
+			// document.getElementById('status').focus();
+			return false;
+		}
+		else if(application == "")
+		{
+		 document.getElementById('error').innerHTML="Please Select Application Type";
+		 	// document.getElementById('application_type').focus();
+			return false;
+		}
+		else if(scholarship == "")
+		{
+			document.getElementById('error').innerHTML="Please Enter The Schoolarship";
+			return false;
+		}
+		return true;
+	
+	}
+</script>
 
 <div class="well">
-<div class="gdlr-lms-content" style="width: 1042px;
-">
+<div class="gdlr-lms-content" style="width: 1042px;">
+ <span style="color: rgb(219, 103, 103);margin-left: 316px;" id="error"></span>
 
 	<div style="margin-top:20px">
 	<%= form_tag schools_create_path, :class => 'gdlr-lms-form' do |f| %>
@@ -32,6 +71,7 @@
 				<p>Choose a School*</p>
 						<span class="gdlr-lms-combobox" >
 							<select name="school" id="school">
+							<option value="">-----------Select School----------</option>
 							<% @school_name.each do |sn| %>
 								 <option value="<%= sn.business_school	  %>">
 										<%= sn.business_school  %>
@@ -69,7 +109,7 @@
 					<p style="margin-bottom:0px">Application Type</p>
 					<span class="gdlr-lms-combobox" style="width: 158px;">
 							<select name="application_type" id="application_type">
-								<option value="text">-Select-</option>
+								<option value="">-Select-</option>
 								<option value="Regular Application">Regular Application</option>
 								<option value="Rejected">Rejected</option>
 								<option value="Waitlisted">Waitlisted	</option>
@@ -135,7 +175,7 @@
 				<div class="clear"></div>
 				<div class="four columns">
 					<p style="margin-bottom:0px">Scholarship</p>
-					<%=text_field_tag "scholarship",'',:style => "width:198px"%>
+					<input type="text" name="scholarship" id="scholarship" value="" style="width: 240px;" placeholder='$'>
 				</div>
 				<div class="four columns">
 					
@@ -154,7 +194,7 @@
 		</div>
 		<hr>
 		<div class="twelve columns" style="text-align:center; margin-top: 9px;">
-			<input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application"/>
+			<input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application" onclick="return validate();"/>
 			<b style="position: absolute;top:12px;">(or)</b> &nbsp
 			<button class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-left: 25px;margin-top:10px"><a href="<%=profile_index_path %>" style='color:inherit'>Cancel</a></button>
 		</div>

@@ -7,6 +7,9 @@ before_action :check_session, :only => [:login, :create]
     @title = 'Profile'
     @stuff = Stuff.find_by_member_id(session[:user_id]) || Stuff.new
     @app_data = Application.where('user_id=?',session[:user_id])
+    @q = Member.ransack(params[:q])
+     # binding.pry
+    @user = @q.result(distinct: true)
   end
 
   def stuffupdate
@@ -34,14 +37,17 @@ before_action :check_session, :only => [:login, :create]
     @all_mebers=Member.all
   end
   def staticprofile
-    @user = Member.find_by_username(params[:username])
+    @a=params[:q]
+     @user = Member.find_by_username(@a['username'])
+    # @user = Member.find_by_username(params[:username])
     unless @user.nil?
       @stuff = Stuff.find_by_member_id(@user.id)
       @lists = Application.where('user_id=?',@user.id)
       @buseridcount=Bookmark.where("bookmarkuserid = ?", @user.id).count
       @comments = Comment.where('target_id=?',@user.id)
     else
-      render :text => "user doesnot exists"
+       flash[:error]="Username Not Found"
+      redirect_to profile_index_path
     end
   end
   def bookmark
@@ -127,14 +133,18 @@ before_action :check_session, :only => [:login, :create]
   def settings
     @title="Profile Settings"
     @user=Member.new()
+    @school_name=School.all
+    
+    
   end
   
   def profilecreate 
-    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:year => params[:date][:year])
+    # binding.pry
+    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:undergraduate_school], :year => params[:date][:year])
     if update
       current_user.update(:image => params[:member][:image]) unless params[:member][:image].nil?
       flash[:success]="Profile has been changed sucessfully"
-      redirect_to profile_settings_path
+      redirect_to profile_index_path
     end
   end
 
@@ -196,6 +206,7 @@ before_action :check_session, :only => [:login, :create]
   end
 
   def commentcreate
+    binding.pry
     @comment = Comment.new(params.permit(:title, :comment))
     @comment.user_id = session[:user_id]
     @comment.target_id = Member.find_by_username(params[:username]).id

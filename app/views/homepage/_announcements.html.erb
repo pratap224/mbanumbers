@@ -1,5 +1,6 @@
 <div class="blog-item-wrapper">
 	<div class="blog-item-holder">
+ <% unless @anouncements.nil? %>
 	<% @anouncements.each do |a|%>
 		<div class="clear"></div>
 		<div class="twelve columns">
@@ -33,5 +34,8 @@
 		</div>
 		<div class="clear"></div>
 		<% end %>
+		<% else %>
+		<P> NO SITE ANNOUNCEMENTS</P>
+<% end %>
   </div>
 </div>

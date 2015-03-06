@@ -1,5 +1,8 @@
 <div class="blog-item-wrapper">
 	<div class="blog-item-holder">
+ <% unless @posts.nil? %>
+ 	
+ 
 	<% @posts.each do |a|%>
 		<div class="clear"></div>
 		<div class="twelve columns">
@@ -15,12 +18,14 @@
 			</header>	
 							<header class="post-header">
 								<h3 class="gdlr-blog-title" style="color: #B0AEAE; text-transform: none;">
-									 <%= raw a.description %>
+									 <%= raw a.description.truncate(200) %>
+		<a href="<%= forum_topic_path(a.id) %>" style="color: #fcaa0c;">Read More</a>
 								</h3>
 								<div class="gdlr-blog-info gdlr-info">
 									<div class="blog-info blog-date">
 										<span class="gdlr-head">Posted on</span>
 										<a href="#"><%= a.created_at.strftime(" %d %b %Y") %></a>
+
 									</div>
 									<div class="clear"></div>
 								</div>		
@@ -33,7 +38,11 @@
 			</div>
 		</div>
 		<div class="clear"></div>
+		
 		<% end %>
 		<a href="<%= forums_index_path %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd; border-color:#72d5cd; padding: 9px 23px;margin-left: 240px;">View More</a>
+	<% else %>
+		<P>NO FORUM THREADS</P>
+	<% end  %>
   </div>
 </div>

@@ -1,8 +1,9 @@
+
+<!-- <div class="well" > -->
 <div class="container" >
+<!-- <div class="six columns"> -->
 <div class="section-container container">
-	<div class="gdlr-item gdlr-content-item" style="margin-left: 300px;
-margin-right: 300px;
-	"><p>
+	<div class="gdlr-item gdlr-content-item" style="margin-right: 207px;"><p>
 	</p><div class="clear"></div>
 	<div class="gdlr-space" style="margin-top: -22px;"></div>
 	<div class="clear"></div>
@@ -17,26 +18,47 @@ margin-right: 300px;
         	<dd><%= text_field_tag 'member[email]' , "",placeholder: 'Email' %></dd>
         	<dt>Zipcode*</dt>
         	<dd><%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></dd>
-        	<dt style="width: 172px";>Under Graduate School*</dt>
-        <dd>
-        <span class='gdlr-lms-combobox'>
-        	<%=select_year(Date.today)%>	
-        </span>
-		</dd>
-        <dt>Password*</dt>
-        <dd>
-        <%=password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Enter Password' %>
-        </dd>
-        <dt style="width: 171px;">Password confirmation*</dt>
-        <dd>
-        <%=password_field_tag 'password_confirmation' , "",class: 'form-control' ,placeholder: 'Retype password' %>
-        </dd>
-		<dt>Photo</dt>
-        <dd>
-        	<%= f.file_field :image, class: 'form-control'%>
-        </dd>
-        	
-        </dl>
+            <dt>Hometown</dt>
+            <dd><%= text_field_tag 'member[hometown]' , "",placeholder: 'Hometown' %></dd>
+            <dt style="width: 172px">Under Graduate School*</dt>
+            <dd><span class="gdlr-lms-combobox" >
+                            <select name="undergraduate_school" id="undergraduate_school">
+                            <option value="">-----------Select School----------</option>
+                            <% @school_name.each do |sn| %>
+                                 <option value="<%= sn.business_school    %>">
+                                        <%= sn.business_school  %>
+                                 </option>
+                            <% end %>
+                                  
+                            </select>
+                        </span></dd>
+        	<dt style="width: 172px";>Under Graduate class*</dt>
+
+            <dd>
+            <span class='gdlr-lms-combobox'>
+            	<%=select_year(Date.today)%>	
+            </span>
+    		</dd>
+            <dt>GPA Score</dt>
+                <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA Score' %></dd>
+            <dt>GMAT Score</dt>
+            <dd><%= text_field_tag 'member[gmat_score]' , "",placeholder: 'GMAT Score' %></dd>
+            <dt>Refer A Friend</dt>
+            <dd><%= text_field_tag 'member[raf]' , "",placeholder: 'Refer A Friend' %></dd>
+            <dt>Password*</dt>
+            <dd>
+            <%=password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Enter Password' %>
+            </dd>
+            <dt style="width: 171px;">Password confirmation*</dt>
+            <dd>
+            <%=password_field_tag 'password_confirmation' , "",class: 'form-control' ,placeholder: 'Retype password' %>
+            </dd>
+    		<dt>Photo</dt>
+            <dd>
+            	<%= f.file_field :image, class: 'form-control'%>
+            </dd>
+            	
+            </dl>
  <div style="width:100%;margin-left: 248px;">
 <%= submit_tag 'Create an account',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
     
@@ -45,7 +67,8 @@ margin-right: 300px;
 	<%end%> 
 	</div><div class="clear"></div> 
 </div>
-
+<!-- </div> -->
+<!-- <div class="six columns"> -->
 <div class="gdlr-item gdlr-divider-item">
 <div class="gdlr-divider solid"></div>
 </div>
@@ -67,6 +90,9 @@ margin-right: 300px;
     </div>					
     <div class="clear"></div>
 </div>
-  
+  <!-- </div> -->
+  <div class="clear"></div>
    </div>
 
+
+<!-- </div> -->

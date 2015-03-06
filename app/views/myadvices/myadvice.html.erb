@@ -43,8 +43,8 @@ height: 321px;"></a>
 										</a></div><div class="clear"></div></div>			
 										<div class="clear"></div>
 										</header><!-- entry-header -->
-										<div class="gdlr-blog-content"><%= raw(b.description.truncate(100)) %> <div class="clear"></div>
-										<a href="<%= myadvices_blog_path(b.id) %>" class="gdlr-button with-border excerpt-read-more">Read More</a>
+										<div class="gdlr-blog-content"><%= raw(b.description.truncate(250)) %> <div class="clear"></div>
+										<a href="<%= myadvices_blog_path(b.id) %>" class="gdlr-button with-border excerpt-read-more" style="margin-top: 8px;padding: 7px 23px;">Read More</a>
 										</div>		</div> <!-- blog content wrapper -->
 										</div>
 								 </article>
@@ -62,7 +62,15 @@ height: 321px;"></a>
 		<div class="clear"></div>
 
 	</div>
-	<div class="gdlr-sidebar gdlr-right-sidebar four columns">
+	<div class="gdlr-sidebar gdlr-right-sidebar one columns" style="margin-top:100px; "></div>
+	<div class="gdlr-sidebar gdlr-right-sidebar two columns" style="margin-top:100px; ">
+		<div class="google_adsense skyscraper" style="padding-left: 18px;">
+						<%= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+		</div>
+		<div class="google_adsense skyscraper" style="padding-left: 18px;">
+						<%= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+		</div>
 	</div>
+
 	<div class="clear"></div>
 </div>

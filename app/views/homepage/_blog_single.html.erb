@@ -1,16 +1,23 @@
 <div class="gdlr-item gdlr-blog-grid">
 <%unless @blogpost.nil? %>
+<% @blogpost.each do |f| %>
 	<div class="gdlr-ux gdlr-blog-grid-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;">
 	<article id="post-870" class="post-870 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row tag-business tag-life-style tag-travel">
 		<div class="gdlr-standard-style">
 			<header class="post-header">
 				<h3 class="gdlr-blog-title">
-					<a href="<%= myadvices_blog_path(@blogpost.id) %>"><p><%= @blogpost.title %></p> </a>
+					<a href="<%= myadvices_blog_path(f.id) %>"><p><%= f.title %></p> </a>
 				</h3>
 			</header><!-- entry-header -->
 		</div>
-	</article><%=raw @blogpost.description.truncate(80) %><!--  <div class="clear"></div> -->
-<a href="<%= myadvices_blog_path(@blogpost.id) %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd; border-color:#72d5cd;">Read More</a>
+	</article>
+	<lable style="text-align:justify;"><%=raw f.description.truncate(210) %></lable><!--  <div class="clear"></div> -->
+	<a href="<%= myadvices_blog_path(f.id) %>">Read More</a>
 	</div>
+
+<% end %>
+<a href="<%= myadvices_myadvice_path %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd; border-color:#72d5cd; padding: 10px 23px;margin-left: 221px;">View More</a>
+<% else %>
+	<P>No RECENT BLOG POST</P>
 <%end%>
 </div>

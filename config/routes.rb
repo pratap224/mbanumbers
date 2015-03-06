@@ -34,6 +34,7 @@
   get 'forums/post/:id' => 'forums#post', as: 'forum_post'
   post 'forums/create'
   post 'forums/postcreate'
+  get 'forums/forumsearch'
 
   mount Refinery::Core::Engine, at: Refinery::Core.mounted_path
    
@@ -87,7 +88,8 @@
   post 'profile/createupdatepwd'
   # resources :schools
 
-  get 'member/:username' => 'profile#staticprofile', :as => 'static_profile'
+  # get 'member/:username' => 'profile#staticprofile', :as => 'static_profile'
+  get 'profile/staticprofile'
   get 'profiles/all' => 'profile#staticbulk'
   get 'user/bookmark/:currentuserid/:bookmarkuserid' => 'profile#bookmark', :as => 'member_bookmark'
   get 'user/remove/:id' => 'profile#remove', :as => 'user_remove'
@@ -100,6 +102,7 @@
   get 'bookmark/remove/:id' => 'profile#removebookmarklist', :as => 'booklist_remove'
 
   get 'schools/schoolappinfo/:schoolname' => 'schools#schoolappinfo', :as => 'school_appinfo'
+
 end
 
 

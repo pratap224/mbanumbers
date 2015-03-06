@@ -10,7 +10,11 @@ layout 'homepage'
   end
   def topics
    
-    @title = Refforum.find(params[:id]).name
+    @q = Refforum.ransack(params[:q])
+    @forum_data = @q.result(distinct: true)
+    @forum_data = Refforum.find(params[:id])
+    # @description = Refforum.find(params[:id]).description
+    
     @topics = Refforum.find(params[:id]).topics
   
   end
@@ -52,6 +56,10 @@ layout 'homepage'
       redirect_to forum_post_path(topic.id)
     end
 
+  end
+
+  def forumsearch
+    
   end
   private
   def req_params

@@ -21,12 +21,22 @@
 <div class="gdlr-page-title-wrapper" style="padding: 250px 0px 108px; background-color:whitesmoke; text-align:start; height: 31px;background:url(http://www.designbolts.com/wp-content/uploads/2012/12/Pyramid-White-Seamless-pattern.jpg)" >
 		<!-- <div class="gdlr-page-title-overlay" ></div> -->
 	<div class="with-sidebar-wrapper gdlr-type-right-sidebar bgnone">
-	<div class="twelve columns" style="margin-left: 100px;margin-bottom:12px">
+	<div class="four columns" style="margin-left: 100px;margin-bottom:12px">
 						<a class="btn btn-default" href="<%= mailboxes_newest_path %>" target="_self" style="color:black; background-color:white; ">Send Message</a>
 						<a class="btn btn-default" href="<%= schools_profile_path %>" target="_self" style="color:black; background-color:white; ">Apply School</a>
-						<div class="mtbtn" title="Post a new topic" style="display:inline-block">
-						<a class="btn btn-default" data-rel="gdlr-lms-lightbox" data-lb-open="login-form" style="color:black; background-color:white; ">Edit Profile</a></div>
+						<!-- <div class="mtbtn" title="Post a new topic" style="display:inline-block">
+						<a class="btn btn-default" data-rel="gdlr-lms-lightbox" data-lb-open="login-form" style="color:black; background-color:white; ">Edit Profile</a></div> -->
 						
+	</div>
+	<div class="five columns">
+
+	<%=search_form_for @q, :url => { :controller => 'profile',:action => 'staticprofile' }   do |f| %> 
+
+			<%= f.search_field :username, id:'tribe-bar-search', placeholder:'Enter User Name', :style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;padding: 8px;margin-top: -15px;' %>
+
+				
+			<%= f.submit :style => 'padding: 10px;'%>
+	<% end %>
 	</div>
 		<div class="with-sidebar-container container" style="margin-top: -214px;">
 			<div class="with-sidebar-left three columns" style="display: inline-block;max-width: 100%;height: auto;padding: 4px;line-height: 1.42857143;background-color: #fff;border: 1px solid #ddd;border-radius: 4px;-webkit-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;margin-right:20px">	
@@ -52,16 +62,18 @@
 					</div>
 					<div class="gdlr-divider thick" style="border-color: #D7D1D1;"></div>
 					<div class="details">
-					<p style="color: black;"><%=@stuff.gpa %>,<%=@stuff.gmat %> | Class of 2015</p>
+					<p style="color: black;"><%=current_user.gpa %>,<%=current_user.gmat_score %> | Class of 2015</p>
 						<p style="color: black;"></p>
 						
 						<dl class="dl-horizontal">
 						<dt>Hometown:</dt>
-						<dd><%=@stuff.hometown %></dd>
+						<dd><%=current_user.hometown %></dd>
 						<dt>Undergraduate:</dt>
-						<dd><%=@stuff.ugschool %></dd>
+						<dd><%=current_user.undergraduate_school %></dd>
 						<dt>Status:</dt>
-						<dd>Commited| <%= time_ago_in_words(@stuff.created_at) unless @stuff.created_at.blank? %></dd>
+						<dd>
+		Commited| <%= time_ago_in_words(current_user.created_at) unless current_user.created_at.blank? %>
+						</dd>
 						</dl>
 					</div>
 				</div>
@@ -94,7 +106,19 @@
 							</div><%= ad.school %> <br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: #FCF5F5; font-size: 14px; "></i></a>
 							<a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: #FCF5F5; font-size: 14px; "></i></a></td>
 							<td id="td">$<%= ad.scholarship %></td>
-							<td id="td"><i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %></td>
+							<td id="td">
+							<% if ad.status == "Waitlisted" %>
+								<i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+								<% elsif ad.status == "WL, Rejected" || ad.status == "Rejected"%>
+								<i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; "></i><%= ad.status %>
+								<% elsif ad.status == "WL, Accepted" %>
+									<i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+								<% else %>
+									<i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+
+								
+							<% end %>
+								</td>
 							<td id="td"><%= time_ago_in_words(ad.created_at) %>
 							</td>
 							

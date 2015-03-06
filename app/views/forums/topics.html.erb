@@ -10,20 +10,30 @@
 		
 	</div>
     <div class="search-box">
-		<form method="get" id="forum-search" action="./search.php">
-        <fieldset>
+		
+		
+        <!-- <fieldset>
             <div class="search-box-inner">
+            
                 <input class="button2" type="submit" value="Search">
-                <input class="inputbox search tiny" type="text" name="keywords" id="keywords" size="20" value="Search this forum…" onclick="if (this.value == 'Search this forum…') this.value = '';" onblur="if (this.value == '') this.value = 'Search this forum…';">
-                <input type="hidden" name="fid[0]" value="2">
+                <input class="inputbox search tiny" type="text" name="name" id="name" size="20" placeholder="Search Forum">
+                
+                
 
             </div>
-        </fieldset>
-        </form>
+        </fieldset> -->
+        
+        
     </div>
 	<div class="pagination">
-		<%=@topics.count %> Topics • Page <strong>1</strong> of <strong>1</strong>
+		<%=@topics.count %> Topics 
 	</div>
+</div>
+<div class="topic-actions">
+	<h3><%= @forum_data.name   %></h3>
+	<label style="font-size:15px;"> <%= raw @forum_data.description %></label>
+	<label><b>Created at:</b><%= @forum_data.created_at.strftime('%A, %d %b %Y %l:%M %p') %></label>
+
 </div>
 <div>
 	<div class="gdlr-lms-lightbox-wrapper" style="display:none;"><div class="mtbtn"></div><div class="gdlr-lms-lightbox-container login-form">
