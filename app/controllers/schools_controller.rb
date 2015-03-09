@@ -6,7 +6,7 @@ class SchoolsController < ApplicationController
   	@title="schools"
   	# @schools= School.paginate(:page => params[:page], :per_page => 10)
     @q = School.ransack(params[:q]) 
-    @schools = @q.result(distinct: true).paginate(:page => params[:page])
+    @schools = @q.result(distinct: true).paginate(:page => params[:page]).order('forbes')
   end
 
   def profile

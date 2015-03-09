@@ -7,20 +7,28 @@ before_action :pass_check, only: :create
   end
 
   def signup
+
   	@title = "Create Account"
     @user = Member.new
     @school_name=School.all
+    @state = State.all
   end
   
   def create
 
     @user = Member.new(req_params)
+    
     @user.undergraduate_school = params[:undergraduate_school]
   	@user.year = params[:date][:year]
   	@user.password = params[:password]
   	@user.token =SecureRandom.urlsafe_base64
+    if !params['state'].empty?
+      @user.state =params['state']
+    end
+    
     if @user.save
-  		UserMailer.sendemail(@user).deliver!
+       UserMailer.sendemail(@user).deliver!
+       UserMailer.friend(@user).deliver!
       flash[:success] = 'Your Account is created sucessfully, before you login activate your email'
   		redirect_to root_url
     else
@@ -33,12 +41,15 @@ before_action :pass_check, only: :create
 	 redirect_to profile_login_path, :notice => 'Your email is verified sucessfully please login here'
 	end
   end
-	
 
+  # def collage
+  #    @state=School.where("state_id=?",params[:stateid])
+     
 
+  # end
 	private
 	def req_params
-  	params.require(:member).permit(:username, :email, :zipcode, :image, :hometown, :gpa, :gmat_score, :undergraduate_school)
+  	params.require(:member).permit(:username, :email, :zipcode, :image, :hometown, :gpa, :gmat_score, :undergraduate_school, :state, :question, :friend)
   end
   def email_exist
 		unless Member.find_by_email(req_params['email']).nil?

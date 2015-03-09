@@ -1,0 +1,6 @@
+<select>
+<option>------select school------</option>
+<% @state.each do |f| %>
+	<option value="<%= f.business_school %>"><%= f.business_school  %></option>
+<% end %>
+</select>

@@ -1,5 +1,7 @@
   Rails.application.routes.draw do
 
+  get 'colleges/index/:stateid' => 'colleges#index', :as => 'college_index'
+
   get 'mailboxes/mailbox'
   get 'mailboxes/show/:id' => "mailboxes#show", :as => 'mailboxes_show'
   post 'mailboxes/compose'
@@ -46,6 +48,8 @@
   post 'members/create'
   #get 'members/login'
   get 'members/verifieamil/:token' => 'members#verifiemail', as: 'member_verify'
+  get 'members/collage/:stateid' => 'members#collage', as: 'member_collage'
+  
   root 'homepage#index'
 
   get 'homepage/create'

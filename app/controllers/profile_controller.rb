@@ -134,13 +134,14 @@ before_action :check_session, :only => [:login, :create]
     @title="Profile Settings"
     @user=Member.new()
     @school_name=School.all
+    @state = State.all
     
     
   end
   
   def profilecreate 
     # binding.pry
-    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:undergraduate_school], :year => params[:date][:year])
+    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:undergraduate_school], :year => params[:date][:year], :state => params[:state], :question => params[:question])
     if update
       current_user.update(:image => params[:member][:image]) unless params[:member][:image].nil?
       flash[:success]="Profile has been changed sucessfully"

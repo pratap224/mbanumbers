@@ -1,4 +1,3 @@
-
 <!-- <div class="well" > -->
 <div class="container" >
 <!-- <div class="six columns"> -->
@@ -20,31 +19,55 @@
         	<dd><%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></dd>
             <dt>Hometown</dt>
             <dd><%= text_field_tag 'member[hometown]' , "",placeholder: 'Hometown' %></dd>
-            <dt style="width: 172px">Under Graduate School*</dt>
-            <dd><span class="gdlr-lms-combobox" >
-                            <select name="undergraduate_school" id="undergraduate_school">
-                            <option value="">-----------Select School----------</option>
-                            <% @school_name.each do |sn| %>
-                                 <option value="<%= sn.business_school    %>">
-                                        <%= sn.business_school  %>
-                                 </option>
-                            <% end %>
+             <dt ><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
+            <dd>
+                        
+        <input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;"> Yes
+        <input type="radio" id="question1" name="member[question]" value="no"style="width: 35px;height: 17px;"> No   
+                        
+            </dd>
+            <div style="display:none;" id="stated">
+            <dt style="width: 172px;margin-top: 10px;">State</dt>
+            <dd style="margin-top: 37px;"><span class="gdlr-lms-combobox" >
+    <select name="state" id="state">
+                        <option value="">-----------Select State----------</option>
+                        <% @state.each do |s| %>
+                          <option value="<%= s.id %>"><%= s.name %></option>  
+                        <% end %>
                                   
-                            </select>
+                    </select>
                         </span></dd>
-        	<dt style="width: 172px";>Under Graduate class*</dt>
+            <dt style="width: 172px;">Undergraduate School*</dt>
+            <dd><span class="gdlr-lms-combobox" >
+            <select name="undergraduate_school" id="undergraduate_school">
+                <option value="">-----------Select School----------</option>
+                            
+            </select>
+            
+                        </span></dd>
+            </div>
+            <div style="display:none;" id="schoold">
+            <dt style="width: 172px;margin-top: 17px;">Undergraduate School*</dt>
+            <dd style="margin-top:17px;">
+           
+        <%= text_field_tag 'undergraduate_school' , "",placeholder: 'Undergraduate School' %>
+           
+            </dd>
+            </div>
+        	<dt style="width: 172px";>Undergraduate class*</dt>
 
             <dd>
             <span class='gdlr-lms-combobox'>
-            	<%=select_year(Date.today)%>	
+            <%= select_year(Date.today, start_year: 1990, end_year: 2018) %>
+            	
             </span>
     		</dd>
-            <dt>GPA Score</dt>
-                <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA Score' %></dd>
+            <dt>GPA</dt>
+                <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></dd>
             <dt>GMAT Score</dt>
             <dd><%= text_field_tag 'member[gmat_score]' , "",placeholder: 'GMAT Score' %></dd>
             <dt>Refer A Friend</dt>
-            <dd><%= text_field_tag 'member[raf]' , "",placeholder: 'Refer A Friend' %></dd>
+            <dd><%= text_field_tag 'member[friend]' , "",placeholder: 'Refer A Friend' %></dd>
             <dt>Password*</dt>
             <dd>
             <%=password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Enter Password' %>
@@ -93,6 +116,37 @@
   <!-- </div> -->
   <div class="clear"></div>
    </div>
-
-
 <!-- </div> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$("#state").change(function(){
+   // alert("check");
+   var stateid=$("#state").val();
+   // alert(a);
+    $.ajax({
+              url: "<%=root_url %>colleges/index/"+stateid,
+              context: document.body
+            }).done(function(r) {
+
+                   // alert(r);
+                document.getElementById('undergraduate_school').innerHTML=r;
+                
+        });
+    
+});
+
+$('#question').click(function(){
+    var a=$("#question").val();
+        $('#stated').css('display','block');
+        $('#schoold').css('display','none');
+    
+    
+});
+$('#question1').click(function(){
+    
+    var b=$("#question1").val();
+    $('#schoold').css('display','block');
+    $('#stated').css('display','none');
+    
+});
+</script>

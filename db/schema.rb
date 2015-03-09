@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305084535) do
+ActiveRecord::Schema.define(version: 20150309140804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,9 +72,12 @@ ActiveRecord::Schema.define(version: 20150305084535) do
     t.string   "image_uid"
     t.string   "image_name"
     t.string   "undergraduate_school"
-    t.integer  "gpa"
-    t.integer  "gmat_score"
+    t.decimal  "gpa"
+    t.decimal  "gmat_score"
     t.string   "hometown"
+    t.string   "state"
+    t.string   "question"
+    t.string   "friend"
   end
 
   create_table "myadvices", force: true do |t|
@@ -277,7 +280,7 @@ ActiveRecord::Schema.define(version: 20150305084535) do
   create_table "schools", force: true do |t|
     t.string   "business_school"
     t.string   "university"
-    t.string   "state"
+    t.string   "name"
     t.string   "city"
     t.integer  "US_News_Ranking"
     t.integer  "BW"

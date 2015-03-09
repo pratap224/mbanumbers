@@ -76,3 +76,4 @@ gem 'refinerycms-testimonials', path: 'vendor/extensions'
 gem 'nprogress-rails'
 
 gem 'refinerycms-forums', path: 'vendor/extensions'
+ 

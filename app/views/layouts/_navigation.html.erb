@@ -1,88 +1,113 @@
 
 <div id = "nav">
 
-<header class="gdlr-header-wrapper" id ="nav">
-	<div class="gdlr-header-inner" id="nav">
-		<div class="gdlr-header-container container">
-				<!-- logo -->
+<header class="gdlr-header-wrapper">
+<div class="gdlr-header-inner">
+<div class="gdlr-header-container container">
+<!-- logo -->
+<div class="gdlr-logo">
+<div class="crebuttons">
+<a class="gdlr-button small" href="#" style="color:#ffffff; background: #989490; ">Student Login</a>
+<a class="gdlr-button small" href="#" style="color:#ffffff; background-color:#fcaa0c; ">Enroll Now</a>
+</div>
+<div class="gdlr-responsive-navigation dl-menuwrapper" id="gdlr-responsive-navigation" >
+<!--------- Mobile ----------- -->
+<button class="dl-trigger">Open Menu</button>
+<ul id="menu-main-menu" class="dl-menu gdlr-main-mobile-menu">
+<li id="menu-item-3263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263"><a href="#">Home </a></li>
+<li id="menu-item-3383" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383"><a href="#">Profiles</a>
+<ul class="dl-submenu">
+<li id="menu-item-3319" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3312 current_page_item menu-item-3319"><a href="#">New</a></li>
+<li id="menu-item-3318" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3318"><a href="#">Updates</a></li>
+<li id="menu-item-3320" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3320"><a href="http://themes.goodlayers.com/clevercourse/author/rebeccasm/">By GMAT</a></li>
+<li id="menu-item-3325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3325"><a href="#">By GPA</a></li>
+<li id="menu-item-3455" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3455"><a href="#">By Name</a></li>
+</ul>
+</li>
+<li id="menu-item-3132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3132">
+<a href="#">Schools</a>
+<ul class="dl-submenu">
+<li id="menu-item-3131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3131">
+<a href="#">By Ranking</a>
+</li>
+<li id="menu-item-3145" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3145">
+<a href="#">By Name</a>
+</li>
+<li id="menu-item-3162" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3162">
+<a href="#">By State</a>
+</li>
+</ul>
+</li>
+<li id="menu-item-3344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344">
+<a href="#">My Advice</a>
+</li>
+<li id="menu-item-3046" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046">
+<a href="#">Forum</a>
+</li>
+<li id="menu-item-3040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040">
+<a href="#">Contact Us</a>
+</li>
+</ul>
+</div>
+</div>
+<!-------------------- Mobile end ------------>
+<!-- navigation -->
+<!----------------- Desk top start ------------- -->
+<div class="gdlr-navigation-wrapper" style="margin-top:17px;padding-top: 17px;
+margin-top: 0px;">
+<div class="crebuttons">
+<a class="gdlr-button small" href="#" style="color:#ffffff; background: #989490; ">Student Login</a>
+<a class="gdlr-button small" href="#" style="color:#ffffff; background-color:#fcaa0c; ">Enroll Now</a>
+</div>
+<nav class="gdlr-navigation" id="gdlr-main-navigation" role="navigation">
+<ul id="menu-main-menu-1" class="sf-menu gdlr-main-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu">
+<a href="<%= root_path %>" style="font-weight:700;color:white;font-size: 16px;">Home</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383 gdlr-normal-menu">
+<a href="#" style="font-weight:700;color:white;font-size: 16px;opacity: 0.5;
+">Profiles</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3312 current_page_item menu-item-3319">
+<a href="<%= members_signup_path %>">New</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3318">
+<a href="<%= profile_settings_path %>">Updates</a></li>
 
-		   <div class="gdlr-logo">
-		   		<div class="crebuttons">
-				<% if current_user.nil? %>
-					<a class="gdlr-button small" href="<%=profile_login_path %>"  style="color:#ffffff; background: #989490; width:110px ">Student Login</a>
-				<% else %>
-					 <a class="gdlr-button small" href="/logout"  style="color:#ffffff; background: #989490; width:110px; ">Logout</a> 
-				<% end %>
-					<a class="gdlr-button small" href="<%=members_signup_path%>"  style="color:#ffffff; background-color:#fcaa0c; width:110px ">Enroll Now</a>
-				
-				</div>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3455">
+<a href="<%= profile_index_path %>">By Name</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383 gdlr-normal-menu">
+<a href="<%= schools_path %>" style="font-weight:700;color:white;font-size: 16px;opacity: 0.5;
+">Schools</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3312 current_page_item menu-item-3319">
+<a href="<%= schools_ranking_path %>">By Ranking</a>
+</li>
 
-			 <div class="gdlr-responsive-navigation dl-menuwrapper" id="gdlr-responsive-navigation" >
-			 		<!--------- Mobile ----------- -->
-				<button class="dl-trigger">Open Menu</button>
-				<ul id="menu-main-menu" class="dl-menu gdlr-main-mobile-menu">
-					<li id="menu-item-3263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263"><a href="<%= root_url %>">Home </a></li>
-					<li id="menu-item-3383" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383"><a href="<%= profile_index_path %>">Profiles</a>
-					</li>
-					<li id="menu-item-3132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3132">
-						<a href="<%=schools_path %>">Schools</a>
-					</li>
-					<li id="menu-item-3344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344">
-							<a href="<%= myadvices_myadvice_path %>">My Advice</a>
-					</li>
-					<li id="menu-item-3046" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046">
-						<a href="<%=forums_index_path %>">Forum</a>
-					
-					</li>
-					<li id="menu-item-3040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040">
-						<a href="<%=subscribes_contactus_path %>">Contact Us</a>
-					</li>
-					
-				</ul>
-			</div>						
-		</div>
-		<!-------------------- Mobile end ------------>
-		
-		<!-- navigation -->
-		<!----------------- Desk top start ------------- -->
-
-		<div class="gdlr-navigation-wrapper" style="padding-top: 17px;margin-top: 0px; ">
-
-		<div class="crebuttons">
-				
-					<a class="gdlr-button small" href="#"  style="color:#ffffff; background: #989490; ">Student Login</a>
-					<a class="gdlr-button small" href="#"  style="color:#ffffff; background-color:#fcaa0c; ">Enroll Now</a>
-				
-				</div>
-				<nav class="gdlr-navigation" id="gdlr-main-navigation" role="navigation">
-					<ul id="menu-main-menu-1" class="sf-menu gdlr-main-menu" >
-						<li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu" >
-							<a href="<%=root_url %>" style="font-weight:700; color:white;font-size: 16px;">Home</a>
-						</li>
-						
-						<li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu" >
-							<a href="<%= profile_index_path%>" style="font-weight:700; color:white;font-size: 16px;">Profiles</a>
-						</li>
-						<li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu" >
-							<a href="<%=schools_path %>" style="font-weight:700; color:white;font-size: 16px;">Schools</a>
-						</li>
-						<li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344 gdlr-normal-menu"><a href="<%= myadvices_myadvice_path %>" style="font-weight:700; color:white;font-size: 16px;">My Advice</a>
-						
-						</li>
-						<li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046 gdlr-normal-menu"><a href="<%=forums_index_path %>" style="font-weight:700; color:white;font-size: 16px;">Forum</a>
-						
-						</li>
-						<li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040 gdlr-mega-menu"><a href="<%=subscribes_contactus_path %>" style="font-weight:700; color:white;font-size: 16px;">CONTACT</a>
-						</li>
-						
-					</ul>
-				</nav>
-				<div class="clear"></div>
-			</div>	
-
-		<div class="clear"></div>
-		</div>
-		</div>		
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3320">
+<a href="<%= schools_state_path %>">By State</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344 gdlr-normal-menu">
+	<a href="<%= myadvices_myadvice_path %>" style="font-weight:700;color:white;font-size:16px;">My Advice</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046 gdlr-normal-menu">
+	<a href="<%= forums_index_path %>" style="font-weight:700;color:white;font-size:16px;">Forum</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040 gdlr-mega-menu">
+<a href="<%= subscribes_contactus_path %>" style="font-weight:700;color:white;font-size:16px;">CONTACT</a>
+</li>
+</ul>
+</nav>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
 <div class="clear"></div>
 </header>
 </div>
