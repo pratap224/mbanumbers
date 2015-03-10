@@ -1,7 +1,7 @@
 
 <div id = "nav">
 
-<header class="gdlr-header-wrapper">
+<header class="gdlr-header-wrapper" style="line-height: 19px;">
 <div class="gdlr-header-inner">
 <div class="gdlr-header-container container">
 <!-- logo -->
@@ -53,7 +53,7 @@
 <!-------------------- Mobile end ------------>
 <!-- navigation -->
 <!----------------- Desk top start ------------- -->
-<div class="gdlr-navigation-wrapper" style="margin-top:17px;padding-top: 17px;
+ <div class="gdlr-navigation-wrapper" style="margin-top:112px;padding-top: 3px;
 margin-top: 0px;">
 <div class="crebuttons">
 <a class="gdlr-button small" href="#" style="color:#ffffff; background: #989490; ">Student Login</a>
@@ -62,44 +62,66 @@ margin-top: 0px;">
 <nav class="gdlr-navigation" id="gdlr-main-navigation" role="navigation">
 <ul id="menu-main-menu-1" class="sf-menu gdlr-main-menu">
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu">
-<a href="<%= root_path %>" style="font-weight:700;color:white;font-size: 16px;">Home</a>
+<a href="<%= root_path %>" style="font-weight:700;color:white;font-size: 15px;margin-top: 12px;">Home</a> 
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383 gdlr-normal-menu">
-<a href="#" style="font-weight:700;color:white;font-size: 16px;opacity: 0.5;
+
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu" style="margin-top: 12px;">
+<label style="margin-top: 12px;
+">|</label> 
+</li>
+
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383 gdlr-normal-menu" style="margin-left: 12px;">
+<a href="#" style="font-weight:700;color:white;font-size: 15px;opacity: 0.5;margin-top: 12px;
+
 ">Profiles</a>
 <ul class="sub-menu">
 <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3312 current_page_item menu-item-3319">
-<a href="<%= members_signup_path %>">New</a>
+<a href="<%= members_signup_path %>" style="font-size: 14px;">New</a>
 </li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3318">
-<a href="<%= profile_settings_path %>">Updates</a></li>
+<a href="<%= profile_settings_path %>" style="font-size: 14px;">Updates</a></li>
 
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3455">
-<a href="<%= profile_index_path %>">By Name</a>
+<a href="<%= profile_index_path %>" style="font-size: 14px;">By Name</a>
 </li>
 </ul>
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383 gdlr-normal-menu">
-<a href="<%= schools_path %>" style="font-weight:700;color:white;font-size: 16px;opacity: 0.5;
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu" style="margin-top: 12px;">
+<label style="margin-top: 12px;">|</label> 
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3383 gdlr-normal-menu" style="margin-left:12px;">
+<a href="<%= schools_path %>" style="font-weight:700;color:white;font-size: 15px;opacity: 0.5;margin-top: 12px;
 ">Schools</a>
 <ul class="sub-menu">
 <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3312 current_page_item menu-item-3319">
-<a href="<%= schools_ranking_path %>">By Ranking</a>
+<a href="<%= schools_ranking_path %>" style="font-size: 14px;">By Ranking</a>
 </li>
 
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3320">
-<a href="<%= schools_state_path %>">By State</a>
+<a href="<%= schools_state_path %>" style="font-size: 14px;">By State</a>
 </li>
 </ul>
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344 gdlr-normal-menu">
-	<a href="<%= myadvices_myadvice_path %>" style="font-weight:700;color:white;font-size:16px;">My Advice</a>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu" style="margin-top: 12px;">
+<label style="margin-top: 12px;">|</label> 
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046 gdlr-normal-menu">
-	<a href="<%= forums_index_path %>" style="font-weight:700;color:white;font-size:16px;">Forum</a>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3344 gdlr-normal-menu" style="margin-left:12px;">
+	<a href="<%= myadvices_myadvice_path %>" style="font-weight:700;color:white;font-size:15px;margin-top: 12px;
+">My Advice</a>
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040 gdlr-mega-menu">
-<a href="<%= subscribes_contactus_path %>" style="font-weight:700;color:white;font-size:16px;">CONTACT</a>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu" style="margin-top: 12px;">
+<label style="margin-top: 12px;">|</label> 
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3046 gdlr-normal-menu" style="margin-left:12px;margin-top: 12px;">
+	<a href="<%= forums_index_path %>" style="font-weight:700;color:white;font-size:16px;
+">Forum</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3263menu-item menu-item-type-post_type menu-item-object-page menu-item-3263 gdlr-normal-menu"style="margin-left:12px;margin-top: 12px;">
+<label style="margin-top: 12px;">|</label> 
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040 gdlr-mega-menu" style="margin-left:12px;">
+<a href="<%= subscribes_contactus_path %>" style="font-weight:700;color:white;font-size:16px;margin-top: 12px;
+">CONTACT</a>
 </li>
 </ul>
 </nav>

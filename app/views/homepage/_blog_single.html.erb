@@ -1,7 +1,7 @@
-<div class="gdlr-item gdlr-blog-grid">
+<div class="gdlr-item gdlr-blog-grid" style="height: 9px;">
 <%unless @blogpost.nil? %>
 <% @blogpost.each do |f| %>
-	<div class="gdlr-ux gdlr-blog-grid-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;">
+	<div class="gdlr-ux gdlr-blog-grid-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;     margin-bottom: 2px;">
 	<article id="post-870" class="post-870 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row tag-business tag-life-style tag-travel">
 		<div class="gdlr-standard-style">
 			<header class="post-header">
@@ -11,12 +11,13 @@
 			</header><!-- entry-header -->
 		</div>
 	</article>
-	<lable style="text-align:justify;"><%=raw f.description.truncate(210) %></lable><!--  <div class="clear"></div> -->
+	<lable style="text-align:justify;"><%=raw f.description.truncate(150) %></lable><!--  <div class="clear"></div> -->
 	<a href="<%= myadvices_blog_path(f.id) %>">Read More</a>
 	</div>
 
 <% end %>
-<a href="<%= myadvices_myadvice_path %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd; border-color:#72d5cd; padding: 10px 23px;margin-left: 221px;">View More</a>
+<a href="<%= myadvices_myadvice_path %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd;border-color: #72d5cd;padding: 4px 23px;margin-left:221px;
+margin-top: -14px;">View More</a>
 <% else %>
 	<P>No RECENT BLOG POST</P>
 <%end%>

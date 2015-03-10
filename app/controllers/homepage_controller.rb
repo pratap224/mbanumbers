@@ -1,10 +1,10 @@
 class HomepageController < ApplicationController
   
   def index
-  	@anouncements = Refannouncement.all
+  	@anouncements = Refannouncement.last(3)
     @blogpost =  Refblog.last(2)
     @testimonials = Reftestimonial.all
-    @posts = Refforum.last(7)
+    @posts = Refforum.last(6)
     @social = Refinery::Page.where(:slug => 'home_social_groups').first
     
   end

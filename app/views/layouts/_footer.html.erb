@@ -29,12 +29,14 @@
 <footer class="footer-wrapper">
 <div class="footer-container container">
 	<div class="footer-column two columns" id="footer-widget-1">
-	<div id="text-5" class="widget widget_text gdlr-item gdlr-widget"> <a href="<%=root_url %>"><%=image_tag 'logo@2X_white.png' %></a> <div class="clear"></div>			
+	<div id="text-5" class="widget widget_text gdlr-item gdlr-widget" style="margin-left: -2%;width: 186px">  <a href="<%=root_url %>"><%=image_tag 'logo@2X_white.png'%></a> <div class="clear"></div>			
 	<div class="textwidget"></div>
+	<!-- <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p> -->
+</div>
     </div>	
     </div>
 
-	<div class="footer-column three columns widget widget_recent_entries gdlr-item gdlr-widget" id="footer-widget-2">
+	<div class="footer-column three columns widget widget_recent_entries gdlr-item gdlr-widget" id="footer-widget-2" style="margin-right: 3%;margin-left: 8px;">
 	  <div id="gdlr-lms-recent-course-widget-2" class="widget widget_gdlr-lms-recent-course-widget gdlr-item gdlr-widget">
 		<h3 class="gdlr-widget-title" >Quick links</h3><div class="clear"></div>		
 		<ul style='list-style:none'>
@@ -44,31 +46,33 @@
 			<li><a href="<%=myadvices_myadvice_path %>">My Advice</a></li>
 			<li><a href="<%=forums_index_path %>">Forum</a></li>
 			<li><a href="<%= subscribes_contactus_path %>">Contact Us</a></li>
+			<a href="#">Privacy Policy</a>
 		</ul>
 		</div>
 	</div>
 
-	<div class="footer-column three columns" id="footer-widget-3">
+	<div class="footer-column three columns" id="footer-widget-3" style="margin-right: -1%;margin-left: -31px;" >
 	<%=form_tag subscribes_subscribe_path, :class => 'gdlr-lms-form' do | f |  %>
 		<h3 class="gdlr-widget-title">Email Newsletter</h3>
-			<p class="is-hidden-desktop" id ="color">Subscribe for monthly updates and to receive inspiration, ideas, and news in your inbox</p>
-		<p>Your Email (required)&nbsp&nbsp&nbsp<span id="error" style="color:red;"></span><br>
+			<p class="is-hidden-desktop" id ="color"><b style="font-size: 15px">Subscribe for monthly updates and to receive inspiration, ideas, and news in your inbox</b></p>
+		<p><b>Your Email (required)&nbsp&nbsp&nbsp</b><span id="error" style="color:red;"></span><br>
 	    <span class="wpcf7-form-control-wrap your-email">
 	    	<%=text_field_tag :email, '',:id => "email" %>
 	    </span> </p>
-		<%=submit_tag 'Subscribe', :style => 'padding:12px;width:100%' , :onclick => 'return validateform();' %>
+		<%=submit_tag 'Subscribe', :style => 'padding:12px;width:100%;margin: 0px;margin-top: -10px;' , :onclick => 'return validateform();' %>
 	<% end %>
-	<a href="#">Privacy Policy</a>
     <div class="clear"></div>
 	</div>
-		<div class="footer-column three columns" id="footer-widget-4">
-	<div id="recent-posts-5" class="widget widget_recent_entries gdlr-item gdlr-widget">	
+
+	<div class="footer-column three columns" id="footer-widget-4" style="margin-left: 30px;
+">
+	<div id="recent-posts-5" class="widget widget_recent_entries gdlr-item gdlr-widget" style="margin-right: 10%;">	
 	<h3 class="gdlr-widget-title">Contact Us</h3>
-	<p id="color">184 Main Collins Street West Victoria 8007 Australia</p>
-	<p id="color"><i class="gdlr-icon icon-phone" style="color: #bfbfbf; font-size: 16px; "></i> 1800-222-222</p>
-	<p id="color"><i class="gdlr-icon icon-envelope" style="color: #bfbfbf; font-size: 16px; "></i> contact@versatilewptheme.com</p>
-	<p id="color"><i class="gdlr-icon icon-time" style="color: #bfbfbf; font-size: 16px; "></i> Everyday 9:00-17:00</p>
-	<div id="text-8" class="widget widget_text gdlr-item gdlr-widget"><h3 class="gdlr-widget-title">Social Media</h3><div class="clear"></div><div class="textwidget"><a href="https://www.facebook.com/pages/Mbanumbers/1619282458305903?skip_nax_wizard=true&ref_type=bookmark" target="_blank"><i class="gdlr-icon icon-facebook" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="https://twitter.com/infombanumbers" target="_blank"><i class="gdlr-icon icon-twitter" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="https://plus.google.com/111198438646871692348/about?hl=en-GB&service=PLUS" target="_blank"><i class="gdlr-icon icon-google-plus" style="color: #bfbfbf; font-size: 28px; "></i></a> <a href="https://www.linkedin.com/pub/info-mbanumbers/b3/891/bb9" target="_blank"><i class="gdlr-icon icon-linkedin" style="color: #bfbfbf; font-size: 28px; "></i></a>
+	<p id="color" style="margin: 0"><b style="font-size: 15px">184 Main Collins Street West Victoria 8007 Australia</b></p>
+	<p id="color" style="margin: 0"><i class="gdlr-icon icon-phone" style="color: #bfbfbf; font-size: 16px; "></i> <b style="font-size: 15px">1800-222-222</b></p>
+	<p id="color" style="margin: 0"><i class="gdlr-icon icon-envelope" style="color: #bfbfbf; font-size: 16px; "></i> <b style="font-size: 15px">contact@versatilewptheme.com</b></p>
+	<p id="color"><i class="gdlr-icon icon-time" style="color: #bfbfbf; font-size: 16px; "></i> <b style="font-size: 15px">Everyday 9:00-17:00</b></p>
+	<div id="text-8" class="widget widget_text gdlr-item gdlr-widget" style="margin: 0"><h3 class="gdlr-widget-title" style="margin: 0">Social Media</h3><div class="clear"></div><div class="textwidget"><a href="https://www.facebook.com/pages/Mbanumbers/1619282458305903?skip_nax_wizard=true&ref_type=bookmark" target="_blank"><i class="gdlr-icon icon-facebook" style="color: #bfbfbf; font-size: 15px; "></i></a> <a href="https://twitter.com/infombanumbers" target="_blank"><i class="gdlr-icon icon-twitter" style="color: #bfbfbf; font-size: 15px; "></i></a> <a href="https://plus.google.com/111198438646871692348/about?hl=en-GB&service=PLUS" target="_blank"><i class="gdlr-icon icon-google-plus" style="color: #bfbfbf; font-size: 15px; "></i></a> <a href="https://www.linkedin.com/pub/info-mbanumbers/b3/891/bb9" target="_blank"><i class="gdlr-icon icon-linkedin" style="color: #bfbfbf; font-size: 15px; "></i></a>
 
 </div>
 </div>

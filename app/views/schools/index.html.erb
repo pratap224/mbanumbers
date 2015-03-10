@@ -4,7 +4,7 @@
 <div class="tab-title-wrapper">
 	<a href="<%=schools_path %>">
 		<h4 class="tab-title active">
-		<span>Schools List</span></h4>
+		<span>MBA schools list</span></h4>
 	</a>
 	<a href="<%=schools_ranking_path %>"><h4 class="tab-title"><span>By Ranking</span></h4></a>
 	<!-- <a href="<%=schools_name_path %>"><h4 class="tab-title"><span>By Name</span></h4></a> -->
@@ -51,7 +51,7 @@
 				<tbody>
 				<tr>
 				<th id="th">Icon</th>
-				<th id ="th">Bussiness School</th>
+				<th id ="th">Business School</th>
 				<th id ="th">University</th>
 				<th id ="th">State</th>
 				<th id ="th">City</th>
@@ -61,7 +61,8 @@
 				</tr>
 				<% @schools.each do |t| %>
 					<tr>
-					<td><img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /></td>
+					<td><img alt="Icon" src="<%= t.image.thumb('300x300').url %>" style="width: 100px; height: 41px;" />
+					</td>
 					<td> <%= t.business_school %> </td>
 					<td> <%=t.university %></td>
 					<td><%= State.find_by_id(t.state_id).name%></td>
