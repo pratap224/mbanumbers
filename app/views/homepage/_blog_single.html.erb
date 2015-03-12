@@ -1,3 +1,6 @@
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <div class="gdlr-item gdlr-blog-grid" style="height: 9px;">
 <%unless @blogpost.nil? %>
 <% @blogpost.each do |f| %>
@@ -6,7 +9,7 @@
 		<div class="gdlr-standard-style">
 			<header class="post-header">
 				<h3 class="gdlr-blog-title">
-					<a href="<%= myadvices_blog_path(f.id) %>"><p><%= f.title %></p> </a>
+					<a href="<%= myadvices_blog_path(f.id) %>"><p style="font-size:13px;"><%= f.title %></p> </a>
 				</h3>
 			</header><!-- entry-header -->
 		</div>

@@ -92,7 +92,7 @@
   post 'profile/createupdatepwd'
   # resources :schools
 
-  # get 'member/:username' => 'profile#staticprofile', :as => 'static_profile'
+  get 'member/:username' => 'profile#staticprofile', :as => 'static_profile'
   get 'profile/staticprofile'
   get 'profiles/all' => 'profile#staticbulk'
   get 'user/bookmark/:currentuserid/:bookmarkuserid' => 'profile#bookmark', :as => 'member_bookmark'

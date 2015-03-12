@@ -38,7 +38,11 @@ before_action :check_session, :only => [:login, :create]
   end
   def staticprofile
     @a=params[:q]
+    if !@a.nil?
      @user = Member.find_by_username(@a['username'])
+    else
+      @user = Member.find_by_username(params[:username])
+    end
     # @user = Member.find_by_username(params[:username])
     unless @user.nil?
       @stuff = Stuff.find_by_member_id(@user.id)

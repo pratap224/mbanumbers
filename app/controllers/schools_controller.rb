@@ -6,7 +6,8 @@ class SchoolsController < ApplicationController
   	@title="schools"
   	# @schools= School.paginate(:page => params[:page], :per_page => 10)
     @q = School.ransack(params[:q]) 
-    @schools = @q.result(distinct: true).paginate(:page => params[:page]).order('forbes')
+    @schools = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 20).order('business_school ASC')
+ 
   end
 
   def profile
@@ -17,11 +18,12 @@ class SchoolsController < ApplicationController
   end
   def ranking
     @title="Browse MBA schools by Ranking"
-    @schools = School.order('forbes').paginate(:page => params[:page], :per_page => 10)
+    @schools = School.order('forbes').paginate(:page => params[:page], :per_page => 20)
+    # binding.pry
   end
   def state
     @title = "Schools List By State"
-    @states= State.order('name').paginate(:page => params[:page], :per_page => 10)
+    @states= State.order('name').paginate(:page => params[:page], :per_page => 20)
    end
 
     def statelist

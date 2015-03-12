@@ -145,7 +145,7 @@
   -o-transition: all 1s;
 
   background:transparent;
-  font:12px/14px Calibri;
+  font:12px/14px Arial;
   position:absolute;
   top:-30px;
   left:0;
@@ -162,7 +162,7 @@
 
 .mb_YTVPBar span{
   display:inline-block;
-  font:16px/20px Calibri, sans-serif;
+  font:16px/20px Arial, sans-serif;
   position:relative;
   width: 30px;
   height: 25px;

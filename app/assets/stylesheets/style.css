@@ -222,7 +222,7 @@ img.gdlr-full-boxed-background{ min-height: 100%; min-width: 1024px;
 .gdlr-navigation-wrapper{ margin: 0px 15px;}
 .gdlr-navigation-wrapper .gdlr-navigation-container{ position: relative; line-height: 0; }
 .gdlr-navigation-wrapper .gdlr-main-menu > li{ padding: 0px; }
-.gdlr-navigation-wrapper .gdlr-main-menu > li > a{ font-size: 11px;opacity: 0.5; padding: 0px 20px 15px 0px; margin: 0px; text-transform: uppercase; font-weight: 700; letter-spacing: 2px; }
+.gdlr-navigation-wrapper .gdlr-main-menu > li > a{ font-size: 11px;opacity: 2.5; padding: 0px 20px 15px 0px; margin: 0px; text-transform: uppercase; font-weight: 700; letter-spacing: 2px; }
 .gdlr-navigation-wrapper .gdlr-main-menu > li:first-child > a{ padding-left: 0px; }
 /*.gdlr-navigation-wrapper .gdlr-main-menu > li > a:before { content: "•"; margin-right: 20px; }*/
 .gdlr-navigation-wrapper .gdlr-main-menu > li:first-child > a:before { display: none; }
@@ -619,7 +619,7 @@ table.style-2 tr td{ border-bottom-width: 0px; }
 .gdlr-testimonial-item.plain-style .testimonial-item-inner:after{ content: ''; height: 0px; width: 0px; 
 	border: 12px solid transparent; position: absolute; right: 0px; bottom: -24px; }
 .gdlr-testimonial-item.plain-style .testimonial-content-wrapper{ margin: 0px auto; max-width: 700px; text-align: left;
-	padding-left: 100px; background: url('images/testimonial-quote.png') 0px 6px no-repeat; }
+	padding-left: 100px; background: url('/assets/testimonial-quote.png') 0px 6px no-repeat; }
 .gdlr-testimonial-item.plain-style .testimonial-info{ margin-top: 15px; font-size: 17px; }
 .gdlr-testimonial-item.plain-style.large .testimonial-item{ font-size: 20px; }
 
@@ -1352,7 +1352,7 @@ body .tribe-events-loop .tribe-events-event-meta{ margin-bottom: 25px; }
 }
 
 .borderme{border-bottom:1px solid #e3e3e3}
-.borderme h3{border-bottom:5px solid #db8f4d !important;padding-bottom:8px }
+.borderme h3{border-bottom:3px solid #db8f4d !important;padding-bottom:8px }
 .crebuttons{ display: none;}
 .details
 	{
@@ -1580,12 +1580,13 @@ height: 595px;
 #profind #th {
     background-color: #3E6AA7;
     color:white;
-    font-family: Verdana,Arial,Helvetica,sans-serif;
-	font-size: 10px;font-weight: normal;padding: 9px;text-transform: uppercase;
+    font-family: Arial;
+	font-size: 13px;font-weight: normal;padding: 9px;text-transform: uppercase;
     }
 #profind #b {
     color: #3E6AA7;
-    text-align: left
+    text-align: left;
+    font-family:arial;
 }
 #profind .style-1 tr td{
 

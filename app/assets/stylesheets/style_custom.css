@@ -6,7 +6,7 @@ html.ltie9 body, body{ min-width: 1140px; } .container{ max-width: 1140px; } .gd
 .gdlr-navigation-wrapper{ margin-top: 42px; }
 h1, h2, h3, h4, h5, h6{ font-family: "Raleway"; }
 body, input, textarea, select{ font-family: "Montserrat"; }
-.gdlr-navigation{ font-family: "Raleway"; }
+.gdlr-navigation{ font-family: "Arial"; }
 .gdlr-slider-item{ font-family: "Montserrat"; }
 body{ font-size: 14px; }
 h1{ font-size: 47px; }

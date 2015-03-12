@@ -1,20 +1,17 @@
-<section>
-	<div class="gdlr-color-wrapper gdlr-show-all no-skin" style="background-color:#f5f5f5">
-		<div class="container">
-			<div class="gdlr-testimonial-item-wrapper">
-				<div class="gdlr-item-title-wrapper gdlr-item pos-center gdlr-nav-container "><div class="gdlr-item-title-head"><i class="icon-angle-left gdlr-flex-prev"></i><h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">What Student Say?</h3><i class="icon-angle-right gdlr-flex-next"></i><div class="clear"></div></div><div class="gdlr-item-title-divider"></div></div>
-				<div class="gdlr-item gdlr-testimonial-item carousel plain-style"><div class="gdlr-ux gdlr-testimonial-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;">
-					<div class="flexslider" data-type="carousel" data-nav-container="gdlr-testimonial-item" data-columns="1"><div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 600%; margin-left: -2280px;">
-					<%@testimonials.each do |t| %>
-						<li class="testimonial-item" style="float: left; display: block; width: 1110px;">
-							<div class="testimonial-content-wrapper">
-								<div class="testimonial-content gdlr-skin-content">
-								<%=raw t.content %>
-								</div>
-								<div class="testimonial-info"><span class="testimonial-author gdlr-skin-link-color"><%= t.name %></span><span class="testimonial-position gdlr-skin-info"><span>, </span><%= t.role %></span></div>
-							</div>
-						</li>
-					<%end %>
+<section id="content-section-7">
+<div class="gdlr-color-wrapper  gdlr-show-all no-skin" style="background-color: #f5f5f5; padding-top: 85px; padding-bottom: 45px; ">
+<div class="container">
+<div class="gdlr-testimonial-item-wrapper">
+<div class="gdlr-item-title-wrapper gdlr-item pos-center gdlr-nav-container ">
+<div class="gdlr-item-title-head">
+<i class="icon-angle-left gdlr-flex-prev"></i>
+<h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border" style="font-family:arial">What Student Say?</h3>
+<i class="icon-angle-right gdlr-flex-next"></i>
+<div class="clear"></div></div><div class="gdlr-item-title-divider"></div></div><div class="gdlr-item gdlr-testimonial-item carousel plain-style">
+<div class="gdlr-ux gdlr-testimonial-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;"><div class="flexslider" data-type="carousel" data-nav-container="gdlr-testimonial-item" data-columns="1">
+<div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 600%; margin-left: -1140px;">
+<%@testimonials.each do |t| %><li class="testimonial-item" style="float: left; display: block; width: 1110px;"><div class="testimonial-content-wrapper"><div class="testimonial-content gdlr-skin-content"><%=raw t.content %></div><div class="testimonial-info"><span class="testimonial-author gdlr-skin-link-color"><%= t.name %></span><span class="testimonial-position gdlr-skin-info"><span>, </span><%= t.role %></span></div></div></li>
+<%end %>
 					</ul></div></div>
 				</div></div>
 			</div>

@@ -8,10 +8,8 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <!-- end -->
-<div class="well" style="border:none">
 
-<div class="gdlr-page-title-wrapper" style="padding: 250px 0px 108px; background-color:#D9EDF7; text-align:start; height: 31px;background-image:none;border: 1px solid;
-border-color: #61C7F1;border-radius: 7px;" >
+<div class="gdlr-page-title-wrapper" style="padding: 250px 0px 108px; background-color:whitesmoke; text-align:start; height: 31px;background:none" >
 		<!-- <div class="gdlr-page-title-overlay" ></div> -->
 	<div class="with-sidebar-wrapper gdlr-type-right-sidebar bgnone">
 	<div class="twelve columns" style="margin-left: 100px;">
@@ -30,15 +28,7 @@ border-color: #61C7F1;border-radius: 7px;" >
 		<div class="with-sidebar-container container" style="margin-top: -214px;">
 			<div class="with-sidebar-left three columns">		
 				<div style="width:200px; margin:0px auto;">
-				<% unless @user.image.nil? %>
-
-				<%= image_tag @user.image.url, :style => "width:300px;height:250px;" %>
-				<%else %>
-				<img src="/assets/profile.png" alt="Edit Entry" style="width:300px;height:250px;" />
-				
-				
-			<% end %>
-					
+					<%= image_tag @user.image.url%>
 				</div>
 			</div>
 			
@@ -66,7 +56,6 @@ border-color: #61C7F1;border-radius: 7px;" >
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	</div>
 			<div class="clear"></div>
