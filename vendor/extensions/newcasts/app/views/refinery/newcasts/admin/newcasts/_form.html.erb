@@ -1,0 +1,35 @@
+<%= form_for [refinery, :newcasts_admin, @newcast] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @newcast,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= render '/refinery/admin/wysiwyg',
+                :f => f,
+                :fields => [:description],
+                :object => "newcasts/newcast" -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :url -%>
+    <%= f.text_field :url -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.newcasts.admin.newcasts.newcast'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @newcast.title) -%>
+<% end -%>
+
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>

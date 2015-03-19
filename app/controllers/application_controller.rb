@@ -18,4 +18,7 @@ class ApplicationController < ActionController::Base
       redirect_to profile_index_path, :notice => 'user already logged in' unless session[:user_id].nil?
     end
   	helper_method :current_user
+    def not_found
+      raise ActionController::RoutingError.new('Not Found')
+    end
 end

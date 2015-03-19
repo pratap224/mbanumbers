@@ -1,0 +1,29 @@
+tr:
+  refinery:
+    plugins:
+      newcasts:
+        title: Newcasts
+    newcasts:
+      admin:
+        newcasts:
+          actions:
+            create_new: Yeni Ekle Newcast
+            reorder: Tekrar sirala Newcasts
+            reorder_done: Tekrar siralama tamamlandiNewcasts
+          records:
+            title: Newcasts
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Newcasts yok henuz.  Tikla "Yeni Ekle Newcast" eklemek senin ilk newcast.
+          newcast:
+            view_live_html: Bunu canlu newcast goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle newcast
+            delete: Bunu Sil newcast sonsuza dek
+      newcasts:
+        show:
+          other: Diger Newcasts
+  activerecord:
+    attributes:
+      'refinery/newcasts/newcast':
+        title: Title
+        description: Description
+        url: Url

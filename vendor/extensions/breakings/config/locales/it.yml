@@ -1,0 +1,28 @@
+it:
+  refinery:
+    plugins:
+      breakings:
+        title: Breakings
+    breakings:
+      admin:
+        breakings:
+          actions:
+            create_new: Aggiungi Nuovo Breaking
+            reorder: Riordina Breakings
+            reorder_done: Termina il Riordino di Breakings
+          records:
+            title: Breakings
+            sorry_no_results: "Spiacenti! Nessun risultato trovato"
+            no_items_yet: Non ci sono ancora Breakings. Clicca "Aggiungi Nuovo Breaking" per aggiungere il tuo primo breaking.
+          breaking:
+            view_live_html: Guarda live questo breaking <br/><em>(apre una nuova finestra)</em>
+            edit: Modifica questo breaking
+            delete: Rimuovi per sempre questo breaking
+      breakings:
+        show:
+          other: Altri Breakings
+  activerecord:
+    attributes:
+      'refinery/breakings/breaking':
+        title: Title
+        description: Description

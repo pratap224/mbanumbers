@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@media screen and (max-width:1024px)
+{
+
+
+
+
+}
+
+
+@media screen and (max-width:768px)
+{
+
+.profile_blog_lft				{ display:none;}
+.profile_blog_rgt				{ display:none;}
+.profile_blog_mid				{ width:98%; margin:0 1%;}
+
+}
+
+@media screen and (max-width:767px)
+{
+
+.profile_blog_mid_lft			{ width:100%;}
+.profile_blog_mid_lft_pic		{ text-align:center;}
+.profile_blog_mid_rgt			{ width:100%; margin:25px 0;}
+.leave_blog input[type="button"]{ height:40px;}
+
+}
+
+@media screen and (max-width:480px)
+{
+
+.profile_search_blog_lft		{ width:100%; text-align:center;}
+.profile_search_blog_rgt		{ width:100%; float:left; margin-top:15px; text-align:center;}
+.leave_blog input[type="button"]{ width:30%;}
+
+
+
+}

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 ltie8 ltie9" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 ltie9" lang="en-US"><![endif]-->
@@ -50,14 +49,16 @@
                     </div>                
                 <%end%>
                 <div class="with-sidebar-wrapper" id="base-cont">
-                   <div class="two columns" style="margin-top:20px;margin-left:20px;">
-                      <%= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %> 
-                   </div>
-                   <div class="seven columns">
+
+                    <div class="one columns" style="margin-top:20px;margin-left:20px;">
+                      <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                   </div> 
+                   <div class="one column"></div>
+                   <div class="eight columns">
                        <%= yield %>
                    </div>
-                   <div class="two columns" style="margin-top:20px;margin-left:20px">
-                      <%= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                    <div class="one columns" style="margin-top:20px;margin-left:20px">
+                      <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
                    </div>
                    <div class="clear"></div>
                 </div>

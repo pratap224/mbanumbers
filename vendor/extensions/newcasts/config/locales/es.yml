@@ -1,0 +1,30 @@
+es:
+  refinery:
+    plugins:
+      newcasts:
+        title: Newcasts
+#        article: masculino/femenino
+    newcasts:
+      admin:
+        newcasts:
+          actions:
+            create_new: Crear nuevo newcast
+            reorder: Reordenar newcasts
+            reorder_done: Reordenación de newcasts completada
+          records:
+            title: Newcasts
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay newcasts todavía. Pulsa en "Crear nuevo Newcast" para crear tu primer newcast.
+          newcast:
+            view_live_html: Ver este newcast como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este newcast
+            delete: Borrar este newcast para siempre
+      newcasts:
+        show:
+          other: Otros newcasts
+  activerecord:
+    attributes:
+      'refinery/newcasts/newcast':
+        title: Title
+        description: Description
+        url: Url

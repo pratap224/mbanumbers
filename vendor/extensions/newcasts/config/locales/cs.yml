@@ -1,0 +1,29 @@
+cs:
+  refinery:
+    plugins:
+      newcasts:
+        title: Newcasts
+    newcasts:
+      admin:
+        newcasts:
+          actions:
+            create_new: Přidat Newcast
+            reorder: Řadit Newcasts
+            reorder_done: Konec řazení Newcasts
+          records:
+            title: Newcasts
+            sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
+            no_items_yet: Zatím nebyly vytvořeny žádné Newcasts. Zvolte "Přidat Newcast" pro přidání prvního newcast.
+          newcast:
+            view_live_html: Zobrazit náhled newcast<br/><em>(otevře se v novém okně)</em>
+            edit: Upravit newcast
+            delete: Smazat newcast
+      newcasts:
+        show:
+          other: Další Newcasts
+  activerecord:
+    attributes:
+      'refinery/newcasts/newcast':
+        title: Title
+        description: Description
+        url: Url

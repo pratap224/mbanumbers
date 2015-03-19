@@ -1,174 +1,209 @@
-<div id="fb-root"></div>
-<!-- like button -->
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1563360190578255&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<!-- end -->
-<div class="well" style="border:none">
+ <div class="gdlr-item gdlr-divider-item"></div>
+ <div class="wraper">
+        <div class="mid_wrap">
+            <div class="profile_blog">
+                <div class="profile_blog_lft">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div><!--profile_blog_lft-->
+                <div class="profile_blog_mid">
+                    <div class="profile_blog_mid_lft">
+                        <div class="profile_blog_mid_lft_pic">
+                            <a href="#"><% unless @user.image.nil? %>
 
-<div class="gdlr-page-title-wrapper" style="padding: 250px 0px 108px; background-color:#D9EDF7; text-align:start; height: 31px;background-image:none;border: 1px solid;
-border-color: #61C7F1;border-radius: 7px;" >
-		<!-- <div class="gdlr-page-title-overlay" ></div> -->
-	<div class="with-sidebar-wrapper gdlr-type-right-sidebar bgnone">
-	<div class="twelve columns" style="margin-left: 100px;">
-						<a class="gdlr-button small" href="#reply-title" target="_self" style="color:black; background-color:white; ">Post Comment</a><a class="gdlr-button small" href="http://www.goodlayers.com" target="_self" style="color:black; background-color:white; ">Send Message</a>
-					<%unless current_user.nil? %>
-					<a class="gdlr-button small" href="#" target="_self" style="color:black; background-color:white; " id="profilebookmark">Profile Bookmark</a>
-					<%end %>
-				<a class="gdlr-button small" href="#" target="_self" style="color:black; background-color:white; display:none; " id="profilebookmarkadded">Profile Bookmark Added</a>
-				<%unless @user.nil? %>
-				<a href="<%= user_remove_path(@user.id) %>" 
-				style="display:none;" id="budel">
-					<i class="gdlr-icon icon-remove" style="color: #d55949; font-size: 14px;margin-left: -20px; "></i>
-				</a>
-				<%end %>
-	</div>
-		<div class="with-sidebar-container container" style="margin-top: -214px;">
-			<div class="with-sidebar-left three columns">		
-				<div style="width:200px; margin:0px auto;">
-				<% unless @user.image.nil? %>
+                <%= image_tag @user.image.url, :style => "width:300px;height:250px;margin-left: 18px;" %>
+                <%else %>
+                <img src="/assets/profile.png" alt="Edit Entry" style="width:300px;height:250px;" />
+                
+                
+            <% end %></a>
+                        </div><!--profile_blog_mid_lft_pic-->
+                        <div class="profile_blog_mid_lft_list">
+                            <ul>
+                                <li><a href="<%= mailboxes_newest_path %>">Send Message</a><i class="icon-location-arrow" style="color: black; font-size: 16px; margin-left: 99px;"></i></li>
+                                <!-- <li><a href="<%= schools_profile_path %>">Add School</a><i class="icon-ok" style="color: black; font-size: 16px; margin-left: 119px;"></i></li> -->
+                                
+                                
+                                 <li>
+                                <% unless current_user.nil? %>
+                                   <a href="#" id="profilebookmark">Bookmark</a>
+                                <% end %>
+                                <!-- <i class="icon-search" style="color: black; font-size: 16px; margin-left: 124px;">
+                                    
+                                </i>
+                                 -->
+                    <a  href="#" style="display:none;" id="profilebookmarkadded">    Profile Bookmark Added
+                    </a>
+                <%unless @user.nil? %>
+                <a href="<%= user_remove_path(@user.id) %>" 
+                style="display:none;float: left;margin-top: -23px;" id="budel">
+                    <i class="icon-remove" style="color:#d55949; font-size: 14px;margin-left: 200px; "></i>
+                </a>
+                <%end %>
 
-				<%= image_tag @user.image.url, :style => "width:300px;height:250px;" %>
-				<%else %>
-				<img src="/assets/profile.png" alt="Edit Entry" style="width:300px;height:250px;" />
-				
-				
-			<% end %>
-					
-				</div>
-			</div>
-			
-			<div class="with-sidebar-right five columns">
-				<div>
-					<h3><%= @user.username %></h3>
-					<div style="width:329px;height:40px;">
-						<div style="width:325px;display: inline-flex;position: absolute;">
-						<div class="fb-like"></div>
-						</div>
-					</div>
-					<div class="gdlr-divider thick" style="border-color: #D7D1D1;"></div>
-					<div class="details">
-						<% unless@stuff.nil? %>
-						<p style="color: black;">
-						<%= @stuff.gpa %>,<%= @stuff.gmat %> | Class of 2015</p>
-						<dl class="dl-horizontal">
-						<dt>Hometown/Zipcode:</dt>
-						<dd><%= @stuff.hometown %></dd>
-						<dt>Undergraduate:</dt>
-						<dd><%= @stuff.ugschool %></dd>
-						<dt>Status:</dt>
-						<dd>Commited|<%= time_ago_in_words(@stuff.created_at) %></dd>
-						<%end %>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-	</div>
-			<div class="clear"></div>
-</div>
 
-<div class="with-sidebar-wrapper gdlr-type-right-sidebar">
-	<div class="with-sidebar-container container">
-			<div class="with-sidebar-left ten columns">
-				<table class="style-1" >
-					<thead>
-					<tr>
-					<th id="bg">School</th>
-					<th id="bg">Scholarship</th>
-					<th id="bg">Status</th>
-					<th id="bg">UpdateDate</th>
-					</tr>
-					</thead>
-					<tbody>
-						<% @lists.each do |f| %>
-						<tr>
-						<td id ="td">
-						<div class="floatleft school-logo">
-						<%= image_tag "p1.png" %>
-						</div>
-						<%=f.school %>
-						</td>
-						<td id="td"><%=f.scholarship %></td>
-						<td id="td"><i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%=f.status %></td>
-						<td id="td"><%= time_ago_in_words(f.created_at) %></td>
-						</tr>
-						<%end %>
-					</tbody>
-				</table>
-				<div class="clear"></div>
-				<div>
-					<div id="comments" class="gdlr-comments-area">
-						<h3 class="comments-title"><%=@comments.count %> Responses</h3>
-						<%@comments.each do |c| %>
-						<%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
-						<%end %>
-						<!-- .commentlist -->
-					<div id="respond" class="comment-respond">
-						<h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
-						<%=form_tag comment_new_path, :class => 'gdlr-lms-form' do %>
-							<%= hidden_field_tag 'username', params[:username] %>
-							<p>Title*<br>
-							<span class="wpcf7-form-control-wrap your-name">
-							<%= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
-							</span></p>
-							<p>Comment*<br>
-							<span class="wpcf7-form-control-wrap your-name">
-							<%= text_area_tag 'comment' , "",class: 'form-control' ,placeholder: 'Comment ' %>
-							</span></p>
-							<%= submit_tag 'Post',class: 'button1' %>
-						<%end %>
-					</div><!-- #respond -->
-					</div>
-				</div>
-			</div>
-			<!-------Google Adds------ -->
-			<div class="gdlr-sidebar gdlr-right-sidebar two columns">
-				<div class="gdlr-item-start-content sidebar-right-item" style="padding-left: 35px;">
-				<%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>	
-				</div>
-			</div>
-			<div class="clear"></div>
-	</div>
-</div>
+
+
+
+
+
+
+
+
+                                
+                                </li>
+                                <!-- <li><a href="#">Edit Profile</a><i class="icon-edit" style="color: black; font-size: 16px; margin-left: 121px;"></i></li> -->
+                                <!-- <li><a href="<%= mailboxes_mailbox_path %>">Mail Box</a><i class="icon-envelope" style="color: black; font-size: 16px; margin-left: 137px;"></i></li> -->
+                            </ul>
+                        </div><!--profile_blog_mid_lft_list-->
+                    </div><!--profile_blog_mid_lft-->
+                    <div class="profile_blog_mid_rgt">
+                        <div class="profile_search_blog">
+                            <div class="profile_search_blog_lft">
+                                <h1><%= @user.username %></h1>
+                                
+                            </div><!--profile_search_blog_lft-->
+                            <div class="profile_search_blog_rgt">
+                                <!--  -->
+                            </div><!--profile_search_blog_rgt-->
+                        </div><!--profile_search_blog-->
+                        <div class="home_town_blog">
+                        <%# unless@stuff.nil? %>
+                            <p style="color: black;font-size: 23px;"><%= @user.gpa %>,<%= @user.gmat_score %> | Class of <%=@user.year %></p>
+                            <dl class="dl-horizontal">
+                        <dt>Hometown/Zipcode:</dt>
+                        <dd><%= @user.hometown %></dd>
+                        <dt>Undergraduate:</dt>
+                        <dd><%= @user.undergraduate_school %></dd>
+                        <dt>Status:</dt>
+                        <dd>Commited|<%= time_ago_in_words(@user.created_at) %></dd>
+                        </dl>
+                        <%#end %>
+                            
+                             <!--home_town_text-->
+                            
+                             <!--home_town_text-->
+                            
+                        </div><!--home_town_blog-->
+                        <div class="profile_tbl">
+                            <table>
+                                <tr>
+                                    <th style="text-align: center;">School</th>
+                            <th style="text-align: center;">Scholarship($)</th>
+                            <th style="text-align: center;">Status</th>
+                            <th style="text-align: center;">Last Updated</th>
+                            <th style="text-align: center;">Interview</th>
+                            <th style="text-align: center;">Round Applied</th>
+                                </tr>
+                                <% @lists.each do |f| %>
+                            <tr>
+                            
+                            <td id ="td">
+                            <div class="floatleft school-logo" style="margin-right:12px">
+                                <% @slogo=School.find_by_business_school(f.school) %>
+                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
+                            </div><%=f.school %> <br></td>
+                            <td id="td">$<%=f.scholarship %></td>
+                            <td id="td">
+                            <% if f.status == "Waitlisted" %>
+                                <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= f.status %>
+                                <% elsif f.status == "WL, Rejected" || f.status == "Rejected"%>
+                                <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white"></i><%= f.status %>
+                                <% elsif f.status == "WL, Accepted" %>
+                                    <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= f.status %>
+                                <% else %>
+                                    <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= f.status %>
+
+                                
+                            <% end %>
+                                </td> 
+                            <td id="td"><%= f.update_attribute(:updated_at, Time.now)%>
+                            </td>
+                            <td id="td" style="font-size:9px"><%=f.interviewdate %></td>
+                            <td id="td"><%=f.choice %></td>
+                            
+                            </tr>
+                            <%end %>
+                            </table>
+                            
+                        
+                        </div><!--profile_tbl-->
+                        <div>
+                    <div id="comments" class="gdlr-comments-area">
+                        <h3 class="comments-title"><%=@comments.count %> Responses</h3>
+                        <%@comments.each do |c| %>
+                        <%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
+                        <%end %>
+                        <!-- .commentlist -->
+                    <div id="respond" class="comment-respond">
+                        <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+                        <%=form_tag comment_new_path, :class => 'gdlr-lms-form' do %>
+                            <%= hidden_field_tag 'username', params[:username] %>
+                            <p>Title*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <%= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
+                            </span></p>
+                            <p>Comment*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <%= text_area_tag 'comment' , "",class: 'form-control' ,placeholder: 'Comment ' %>
+                            </span></p>
+                            <%= submit_tag 'Post',class: 'button1' %>
+                        <%end %>
+                    </div><!-- #respond -->
+                    </div>
+                </div><!--leave_blog-->
+                        
+                    </div><!--profile_blog_mid_rgt-->
+                </div><!--profile_blog_mid-->
+                
+                <div class="profile_blog_rgt">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div><!--profile_blog_rgt-->
+            </div><!--profile_blog-->
+            <div class="clear"></div>
+        </div><!--mid_wrap-->
+        <div class="clear"></div>
+    </div><!--wraper-->
+    <div class="clear"></div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-		var busercount = <%= @buseridcount %>
-		if(busercount > 0)
-		{
-			$('#profilebookmarkadded').show();
-			$('#budel').show();
-			$('#profilebookmark').css('display','none');			
-		}
-	<%unless current_user.nil? %>
-	$("#profilebookmark").click(function(){
-			var cuserid= <%= current_user.id  %> 
-			var buserid= <%=  @user.id %>
-			$.ajax({
-  			  url: "<%=root_url %>user/bookmark/"+cuserid+"/"+buserid,
-  			  context: document.body
-			}).done(function(r) {
-				if( r == 'true')
-			 	{
-			 		$('#profilebookmarkadded').css('display','block');
-			 		
-			 		$('#profilebookmark').css('display','none');
-			 		$('#budel').show();
-			 	}
-			 	else
-			 	{
-			 		
-			 		$('#profilebookmarkadded').show();
-			 		$('#profilebookmark').css('display','none');
-			 		$('#budel').show();	
-			 	}
-		});
-	});
-	<%end %>
+
+        var busercount = <%= @buseridcount %>
+        if(busercount > 0)
+        {
+            $('#profilebookmarkadded').show();
+            $('#budel').show();
+            $('#profilebookmark').css('display','none');            
+        }
+
+    <%unless current_user.nil? %>
+    $("#profilebookmark").click(function(){
+
+            var cuserid= <%= current_user.id  %> 
+            var buserid= <%=  @user.id %>
+            $.ajax({
+              url: "<%=root_url %>user/bookmark/"+cuserid+"/"+buserid,
+              context: document.body
+            }).done(function(r) {
+                if( r == 'true')
+                {
+
+                    $('#profilebookmarkadded').css('display','block');
+                    
+                    $('#profilebookmark').css('display','none');
+                    $('#budel').show();
+                }
+                else
+                {
+                    
+                    $('#profilebookmarkadded').show();
+                    $('#profilebookmark').css('display','none');
+                    $('#budel').show(); 
+                }
+        });
+
+    });
+    <%end %>
 })
 </script>
+

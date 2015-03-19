@@ -9,8 +9,14 @@ before_action :check_session, :only => [:login, :create]
     @app_data = Application.where('user_id=?',session[:user_id])
     @q = Member.ransack(params[:q])
      # binding.pry
+     # @users = Member.find_by_username(['username'])
     @user = @q.result(distinct: true)
+    @user=Member.new()
+    @school_name=School.all
+    @state = State.all
+    @comments = Comment.where('target_id=?',@user.id)
   end
+  
 
   def stuffupdate
     @stuff = Stuff.find_by_member_id(session[:user_id])
@@ -38,6 +44,7 @@ before_action :check_session, :only => [:login, :create]
   end
   def staticprofile
     @a=params[:q]
+    
     if !@a.nil?
      @user = Member.find_by_username(@a['username'])
     else
@@ -133,6 +140,20 @@ before_action :check_session, :only => [:login, :create]
 
   end
 
+  def edit
+    @user=Member.new()
+    
+  end
+  def update
+    
+    update=current_user.update(:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:member][:undergraduate_school], :year => params[:date][:year], :status => params[:member][:status], :school => params[:member][:school])
+    if update
+      flash[:success]="Profile has been changed sucessfully"
+      redirect_to profile_index_path
+    end
+    
+  end
+
 
   def settings
     @title="Profile Settings"
@@ -145,7 +166,7 @@ before_action :check_session, :only => [:login, :create]
   
   def profilecreate 
     # binding.pry
-    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:undergraduate_school], :year => params[:date][:year], :state => params[:state], :question => params[:question])
+    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:undergraduate_school], :year => params[:date][:year], :state => params[:state], :question => params[:question], :status => [:status])
     if update
       current_user.update(:image => params[:member][:image]) unless params[:member][:image].nil?
       flash[:success]="Profile has been changed sucessfully"
@@ -210,11 +231,12 @@ before_action :check_session, :only => [:login, :create]
     end
   end
 
-  def commentcreate
-    binding.pry
+   def commentcreate
+    # binding.pry
     @comment = Comment.new(params.permit(:title, :comment))
     @comment.user_id = session[:user_id]
     @comment.target_id = Member.find_by_username(params[:username]).id
+
     if @comment.save
       flash[:success] = 'Comment added'
       redirect_to static_profile_path(params[:username])
@@ -223,10 +245,12 @@ before_action :check_session, :only => [:login, :create]
     end
 
   end
-
   def topusers
-    @title="Members By Name"
-    @all_mebers=Member.all
+    @title="Top Users"
+    @all_mebers=Member.order('created_at DESC').paginate(:page => params[:page], :per_page => 20)
+    
+    # Client.all(:order => "created_at DESC")
+    # Client.all(:order => "created_at DESC")
   end
 
   def bookmarklist
@@ -239,6 +263,14 @@ before_action :check_session, :only => [:login, :create]
     if @buserdel
       redirect_to profile_bookmarklist_path
     end
+  end
+
+  def profileupdates
+    @title = "Profile Updates"
+    @updates = Application.all
+    @all_mebers=Member.order('created_at DESC').paginate(:page => params[:page], :per_page => 20)
+    
+    # binding.pry
   end
 
   private

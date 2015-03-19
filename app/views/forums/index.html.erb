@@ -31,7 +31,7 @@
             <dd class="posts"><%=f.topics.inject(0) {|sum, p| sum += p.posts.count} %> <dfn>Posts</dfn></dd>
             <dd class="lastpost"><span>
               <dfn>Last post</dfn> by <a href="#">lutvia</a>
-              <a href="./viewtopic.php?style=14&amp;f=2&amp;p=19#p19" title=""><i class="fa fa-arrow-right grey"></i></a> <br><%= f.created_at.strftime('%a %b %d %H:%M:%S %Z %Y') %></span>
+              <a href="./viewtopic.php?style=14&amp;f=2&amp;p=19#p19" title=""><i class="fa fa-arrow-right grey"></i></a> <br><%= f.created_at.strftime("%Y-%m-%d") %></span>
             </dd>
           </dl>
         </li>

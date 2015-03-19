@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="newcasts">
+    <% @newcasts.each do |newcast| %>
+      <li>
+        <%= link_to newcast.title, refinery.newcasts_newcast_path(newcast) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

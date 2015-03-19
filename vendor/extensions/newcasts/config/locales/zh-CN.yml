@@ -1,0 +1,31 @@
+zh-CN:
+  refinery:
+    plugins:
+      newcasts:
+        title: Newcasts
+    newcasts:
+      admin:
+        newcasts:
+          actions:
+            create_new: 建立新的 Newcast
+            reorder: 对 Newcasts 重新排序
+            reorder_done: 对 Newcasts 的重新排序结束
+          records:
+            title: Newcasts
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Newcasts yet. Click "Add New Newcast" to add your first newcast.
+            no_items_yet: 目前没有 Newcasts . 点击 "Add New Newcast" 创建一个newcast.
+          newcast:
+            view_live_html: 查看 newcast 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 newcast
+            delete: 永久删除 newcast
+      newcasts:
+        show:
+          other: 其他 Newcasts
+  activerecord:
+    attributes:
+      'refinery/newcasts/newcast':
+        title: Title
+        description: Description
+        url: Url

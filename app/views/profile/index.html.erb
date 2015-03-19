@@ -1,162 +1,150 @@
-<style>
-	#image{
-		width: 215px;
-		height: 238px;
-	}
-</style>
+ <div class="gdlr-item gdlr-divider-item"></div>
+ <div class="wraper">
+        <div class="mid_wrap">
+            <div class="profile_blog">
+                <div class="profile_blog_lft">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div><!--profile_blog_lft-->
+                <div class="profile_blog_mid">
+                    <div class="profile_blog_mid_lft">
+                        <div class="profile_blog_mid_lft_pic">
+                            <a href="#"><% unless current_user.image.nil? %>
+                <%= image_tag current_user.image.url, :style => "width:300px;height:250px; margin-left: 18px;" %>
+                <%else %>
+                <img src="/assets/profile.png" alt="Edit Entry" style="width:300px;height:250px;" />
+                
+                
+            <% end %></a>
+                        </div><!--profile_blog_mid_lft_pic-->
+                        <div class="profile_blog_mid_lft_list">
+                            <ul>
+                                <li><a href="<%= mailboxes_newest_path %>">Send Message</a><i class="icon-location-arrow" style="color: black; font-size: 16px; margin-left: 99px;"></i></li>
+                                <li><a href="<%= schools_profile_path %>">Add School</a><i class="icon-ok" style="color: black; font-size: 16px; margin-left: 119px;"></i></li>
+                                <!-- <li><a href="#">View Profile</a><img src="images/profile-list_pics_20.png" alt=""></li> -->
+                                <li><a href="<%= profile_bookmarklist_path %>">Bookmark List</a><i class="icon-search" style="color: black; font-size: 16px; margin-left: 196px;float: left;margin-top: -18px;"></i></li>
+                                <li><a href="#">Edit Profile</a><i class="icon-edit" style="color: black; font-size: 16px; margin-left: 121px;"></i></li>
+                                
+                            </ul>
+                        </div><!--profile_blog_mid_lft_list-->
+                    </div><!--profile_blog_mid_lft-->
+                    <div class="profile_blog_mid_rgt">
+                        <div class="profile_search_blog">
+                            <div class="profile_search_blog_lft">
+                                <h1><%=current_user.username %></h1>
+                                
+                            </div><!--profile_search_blog_lft-->
+                            <div class="profile_search_blog_rgt">
+                                
+   <%=search_form_for @q, :url => { :controller => 'profile',:action => 'staticprofile' }   do |f| %> 
 
+            <%= f.search_field :username, id:'tribe-bar-search', placeholder:'Enter User Name', :style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;padding: 8px;margin-top: -15px;' %>
 
+                
+            <%= f.submit :style => 'padding: 10px;color:white; background-color:#F7BD4F;'%>
+    <% end %>  
 
+                               
+                            </div><!--profile_search_blog_rgt-->
+                        </div><!--profile_search_blog-->
+                        <div class="home_town_blog">
+                            <p style="color: black;font-size: 23px;"><%=current_user.gpa %>,<%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
+                            <dl class="dl-horizontal">
+                        <dt>Hometown:</dt>
+                        <dd><%=current_user.hometown %></dd>
+                        <dt>Undergraduate:</dt>
+                        <dd><%=current_user.undergraduate_school %></dd>
+                        <dt>Status:</dt>
+                        <dd> <%=current_user.status %> 
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1563360190578255&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+                         <% if current_user.status == "Commited"  %>   
+                        To <%=current_user.school %>  On <%= current_user.updated_at.strftime("%Y-%m-%d")  %>
+                        <% end %>
 
-<div class="well" style="border:none">
+                        </dd>
+                        </dl>
+                            
+                             <!--home_town_text-->
+                            
+                             <!--home_town_text-->
+                            
+                        </div><!--home_town_blog-->
+                        <div class="profile_tbl">
+                            <table>
+                                <tr>
+                                    <th style="text-align: center;" >School</th>
+                            <th style="text-align: center;" >Scholarship($)</th>
+                            <th style="text-align: center;">Status</th>
+                            <th style="text-align: center;">Last Updated</th>
+                            <th style="text-align: center;">Interview</th>
+                            <th style="text-align: center;">Round Applied</th>
+                                </tr>
+                                <% @app_data.each do |ad| %>
+                            <tr>
+                            
+                            <td id ="td" style="font-size:12px">
+                            <div class="floatleft school-logo" style="margin-right:12px">
+                                <% @slogo=School.find_by_business_school(ad.school) %>
+                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
+                            </div><%= ad.school %> <br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
+                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: black; font-size: 14px; "></i></a></td>
+                            <td id="td"style="font-size:12px">$<%= ad.scholarship %></td>
+                            <td id="td" style="font-size:9px">
+                            <% if ad.status == "Waitlisted" %>
+                                <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+                                <% elsif ad.status == "WL, Rejected" || ad.status == "Rejected"%>
+                                <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white"></i><%= ad.status %>
+                                <% elsif ad.status == "WL, Accepted" %>
+                                    <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+                                <% else %>
+                                    <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
 
-<div class="gdlr-page-title-wrapper" style="padding: 250px 0px 108px; background-color:#D9EDF7; text-align:start; height: 31px;background-image:none;border: 1px solid;
-border-color: #61C7F1;border-radius: 7px;" >
-		<!-- <div class="gdlr-page-title-overlay" ></div> -->
-	<div class="with-sidebar-wrapper gdlr-type-right-sidebar bgnone">
-	<div class="four columns" style="margin-left: 100px;margin-bottom:12px">
-						<a class="btn btn-default" href="<%= mailboxes_newest_path %>" target="_self" style="color:white; background-color:#00B8F1; ">Send Message</a>
-						<a class="btn btn-default" href="<%= schools_profile_path %>" target="_self" style="color:white; background-color:#00B8F1; ">Apply School</a>
-						<!-- <div class="mtbtn" title="Post a new topic" style="display:inline-block">
-						<a class="btn btn-default" data-rel="gdlr-lms-lightbox" data-lb-open="login-form" style="color:black; background-color:white; ">Edit Profile</a></div> -->
-						
-	</div>
-	<div class="five columns">
-
-	<%=search_form_for @q, :url => { :controller => 'profile',:action => 'staticprofile' }   do |f| %> 
-
-			<%= f.search_field :username, id:'tribe-bar-search', placeholder:'Enter User Name', :style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;padding: 8px;margin-top: -15px;' %>
-
-				
-			<%= f.submit :style => 'padding: 10px;color:white; background-color:#00B8F1;'%>
-	<% end %>
-	</div>
-		<div class="with-sidebar-container container" style="margin-top: -214px;">
-			<div class="with-sidebar-left three columns" style="display: inline-block;max-width: 100%;height: auto;padding: 4px;line-height: 1.42857143;background-color: #fff;border: 1px solid #ddd;border-radius: 4px;-webkit-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;margin-right:20px">	
-				
-			<% unless current_user.image.nil? %>
-
-				<%= image_tag current_user.image.url, :style => "width:300px;height:250px;" %>
-				<%else %>
-				<img src="/assets/profile.png" alt="Edit Entry" style="width:300px;height:250px;" />
-				
-				
-			<% end %>
-			</div>
-			<div class="with-sidebar-right five columns">
-				<div >
-
-					<h3><%= current_user.username %></h3>
-					<div style="width:329px;height:40px;">
-						<div style="width:325px;display: inline-flex;position: absolute;">
-						<div class="fb-like"></div>
-						</div>
-
-					</div>
-					<div class="gdlr-divider thick" style="border-color: #D7D1D1;"></div>
-					<div class="details">
-					<p style="color: black;"><%=current_user.gpa %>,<%=current_user.gmat_score %> | Class of 2015</p>
-						<p style="color: black;"></p>
-						
-						<dl class="dl-horizontal">
-						<dt>Hometown:</dt>
-						<dd><%=current_user.hometown %></dd>
-						<dt>Undergraduate:</dt>
-						<dd><%=current_user.undergraduate_school %></dd>
-						<dt>Status:</dt>
-						<dd>
-		Commited| <%= time_ago_in_words(current_user.created_at) unless current_user.created_at.blank? %>
-						</dd>
-						</dl>
-					</div>
-				</div>
-			</div>
-			
-
-		</div>
-	</div>
-			<div class="clear"></div>
-</div>
-</div>
-<div class="with-sidebar-wrapper gdlr-type-right-sidebar" style="padding-top:41px">
-	<div class="with-sidebar-container container">
-			<div class="with-sidebar-left ten columns">
-						<table class="style-1" >
-							<tbody>
-							<tr>
-							<th id="bg">School</th>
-							<th id="bg">Scholarship($)</th>
-							<th id="bg">Status</th>
-							<th id="bg">UpdateDate</th>
-							</tr>
-							<% @app_data.each do |ad| %>
-							<tr>
-							
-							<td id ="td">
-							<div class="floatleft school-logo" style="margin-right:12px">
-								<% @slogo=School.find_by_business_school(ad.school) %>
-								<img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
-							</div><%= ad.school %> <br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: #FCF5F5; font-size: 14px; "></i></a>
-							<a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: #FCF5F5; font-size: 14px; "></i></a></td>
-							<td id="td">$<%= ad.scholarship %></td>
-							<td id="td">
-							<% if ad.status == "Waitlisted" %>
-								<i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
-								<% elsif ad.status == "WL, Rejected" || ad.status == "Rejected"%>
-								<i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; "></i><%= ad.status %>
-								<% elsif ad.status == "WL, Accepted" %>
-									<i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
-								<% else %>
-									<i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
-
-								
-							<% end %>
-								</td>
-							<td id="td"><%= time_ago_in_words(ad.created_at) %>
-							</td>
-							
-							</tr>
-							<%end %>
-							</tbody>
-						</table>
-						<div>
-						<div class="gdlr-lms-lightbox-wrapper" style="display:none;"><div class="mtbtn"></div><div class="gdlr-lms-lightbox-container login-form">
-						<div class="gdlr-lms-lightbox-close"><i class="icon-remove"></i></div>
-							<h3>Applicant Information</h3>
-							<dl class="dl-horizontal">
-							<%= form_for @stuff, :html => {:class => 'gdlr-lms-form'} do |f|%>
-								<dt>Undergraduate:</dt>
-								<dd><%= f.text_field :ugschool, :placeholder => 'Undergraduate School'%></dd>
-								<dt>GPA Score</dt>
-								<dd><%= f.text_field :gpa, :placeholder => 'GPA Score'%></dd>
-								<dt>GMAT Score</dt>
-								<dd><%= f.text_field :gmat, :placeholder => 'GMAT Score' %></dd>
-								<dt>Hometown:</dt>
-								<dd><%= f.text_field :hometown, :placeholder => 'Home Town' %></dd>
-								<%= f.submit "Save"%>
-								<%end %>
-								</dl>
-						</div>
-						</div>
-						</div>
-						<div class="clear"></div>
-						
-			</div>
-			<!-------Google Adds------ -->
-			<div class="gdlr-sidebar gdlr-right-sidebar two columns">
-				<div class="gdlr-item-start-content sidebar-right-item" style="padding-left: 35px;padding-top:0px">
-				<%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>	
-				</div>
-			</div>
-			<div class="clear"></div>
-	</div>
-</div>
+                                
+                            <% end %>
+                                </td>
+                            <td id="td"  style="font-size:9px"><%= ad.updated_at.strftime("%Y-%m-%d") %>
+                            </td>
+                            <td id="td" style="font-size:9px"><%=ad.interviewdate %></td>
+                            <td id="td"><%=ad.choice %></td>
+                            
+                            </tr>
+                            <%end %>
+                            </table>
+                            <h3>0 Responses</h3>
+                        </div><!--profile_tbl-->
+                        <div id="comments" class="gdlr-comments-area">
+                        <h3 class="comments-title"><%=@comments.count %> Responses</h3>
+                        <%@comments.each do |c| %>
+                        <%= render :partial => 'profile/com', :locals => { :mydata => c } %>
+                        <%end %>
+                        <!-- .commentlist -->
+                    <div id="respond" class="comment-respond">
+                        <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+                        <%=form_tag comment_new_path, :class => 'gdlr-lms-form' do %>
+                                                    <p>Title*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <%= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
+                            </span></p>
+                            <p>Comment*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <%= text_area_tag 'comment' , "",class: 'form-control' ,placeholder: 'Comment ' %>
+                            </span></p>
+                            <%= submit_tag 'Post',class: 'button1' %>
+                        <%end %>
+                    </div><!-- #respond -->
+                    </div>
+                        
+                    </div><!--profile_blog_mid_rgt-->
+                </div><!--profile_blog_mid-->
+                
+                <div class="profile_blog_rgt">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div><!--profile_blog_rgt-->
+            </div><!--profile_blog-->
+            <div class="clear"></div>
+        </div><!--mid_wrap-->
+        <div class="clear"></div>
+        <div>
+                    <!-- ---------------commnt---------------- -->
+                </div>
+    </div><!--wraper-->
+    <div class="clear"></div>

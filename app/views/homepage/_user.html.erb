@@ -1,0 +1,71 @@
+<section id="content-section-3">
+	<div class="gdlr-color-wrapper  gdlr-show-all no-skin" style="background-color: #f5f5f5; padding-top: 40px; padding-bottom: 20px; ">
+		<div class="container">
+			<div class="gdlr-stunning-text-ux gdlr-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;">
+				<div class="gdlr-item gdlr-stunning-text-item gdlr-button-on type-normal">
+					<h2 class="stunning-text-title">
+					<% unless !current_user.nil? %>
+					Welcome, Guest!</h2>
+					<p>Do you want to do MBA? so, Don't waste your time to search for good MBA Shcools. Here We done Smart work for you so start searching here.</p>
+
+					<a href="#" class="stunning-text-button gdlr-button" href="#" target="_blank">Search Here</a>
+
+					<% end %>
+
+
+					<% unless current_user.nil? %>
+					<h2 class="stunning-text-title"> Welcome,<%= current_user.username %>!</h2>
+				<p>Your member profile was last updated on <%= time_ago_in_words(current_user.created_at) unless current_user.created_at.blank? %>. If anything has changed like your name, your education, your status or your address, please let us know.</p>
+				<div class="mtbtn" title="Post a new topic" style="display:inline-block">
+						<a class="stunning-text-button gdlr-button" data-rel="gdlr-lms-lightbox" data-lb-open="login-form">View Profile</a></div>
+				
+			
+			<div class="gdlr-lms-lightbox-wrapper" style="display:none;"><div class="mtbtn"></div><div class="gdlr-lms-lightbox-container login-form" style="border-radius: 7px;margin-top: -100px;">
+						
+						<div class="gdlr-lms-lightbox-close"><i class="icon-remove"></i></div>
+
+								<div class="six columns">
+							<h6><i class="gdlr-icon icon-user" style="color: #333333; font-size: 36px; "></i>Basic Information</h6>
+							<dl class="dl-horizontal" 
+							style="margin-left: -69px;">
+								<dt style="font-size: 13px;">Name:</dt>
+								<dd style="color:black"><%=current_user.name %></dd>
+								<dt style="font-size: 13px;">Username:</dt>
+								<dd style="color:black"><%= current_user.username%></dd>
+								<dt style="font-size: 13px;">Email ID:</dt>
+								<dd style="color:black"><%=current_user.email %></dd>
+								<dt style="font-size: 13px;">Hometown:</dt>
+								<dd style="color:black"><%=current_user.hometown %></dd>
+								<dt style="font-size: 13px;">Zipcode:</dt>
+									<dd style="color:black"> <%=current_user.zipcode %></dd>
+									</dl>
+
+										</div>
+										
+										<div class="six columns">
+
+								<h6><i class="gdlr-icon icon-book" style="color: #333333; font-size: 36px; "></i>School Information</h6>
+								<dl class="dl-horizontal">
+								<dt style="font-size: 13px;">Undergraduate School:</dt>
+								<dd style="color:black" ><%=current_user.undergraduate_school %></dd>
+								<dt style="font-size: 13px;">Undergraduate Class:</dt>
+								<dd style="color:black"><%=current_user.year %></dd>
+								</dl>
+								</div>
+								
+						</div>
+											</div>
+					<% end %>
+				<div class="stunning-text-caption gdlr-skin-content">
+					
+				</div>
+					</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+<div class="clear"></div>
+	<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+
+</section>
+<div class="gdlr-item gdlr-divider-item"></div>

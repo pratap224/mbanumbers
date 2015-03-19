@@ -1,8 +1,6 @@
 <div class="container" >
 <div class="section-container container">
-	<div class="gdlr-item gdlr-content-item" style="margin-left: 300px;
-margin-right: 300px;
-	"><p>
+	<div class="gdlr-item gdlr-content-item" ><p>
 	</p><div class="clear"></div>
 	<div class="gdlr-space" style="margin-top: -22px;"></div>
 	<div class="clear"></div>
@@ -23,20 +21,12 @@ margin-right: 300px;
            <dt ><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
             <dd>
                
-<input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;" <% if current_user.question=="yes" %> <%= checked="checked" %> <% end %>> Yes
-        <input type="radio" id="question1" name="member[question]" value="no"style="width: 35px;height: 17px;"> No   
-                        
+<input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;" <% if current_user.question=="yes" %> <%= checked="checked" %> <% end %> Yes
+        <input type="radio" id="question1" name="member[question]" value="no"style="width: 35px;height: 17px;"> No  
             </dd>
             <div style="display:none;" id="stated">
             <dt style="width: 172px;margin-top: 10px;">State</dt>
-            <dd style="margin-top: 37px;"><span class="gdlr-lms-combobox" >
-    <select name="state" id="state">
-                        <option value="">-----------Select State----------</option>
-                        <% @state.each do |s| %>
-                          <option value="<%= s.id %>"><%= s.name %></option>  
-                        <% end %>
-                                  
-    </select>
+            <dd style="margin-top: 37px;"><%= text_field_tag 'member[state]' , current_user.zipcode,placeholder: 'State' %>
 <script type="text/javascript">
                         for(var i=0;i<document.getElementById('state').length;i++)
                         {
@@ -48,13 +38,9 @@ margin-right: 300px;
 </script>
 
 
-                        </span></dd>
-            <dt style="width: 172px;">Undergraduate School*</dt>
-            <dd><span class="gdlr-lms-combobox" >
-            <select name="undergraduate_school" id="undergraduate_school">
-                <option value="">-----------Select School----------</option>
-                            
-            </select>
+                        </dd>
+            <dt style="width: 172px;">Undergraduate*</dt>
+            <dd><%= text_field_tag 'member[undergraduate_school]' , current_user.zipcode,placeholder: 'Undergraduate' %>
         <script type="text/javascript">
         for(var i=0;i<document.getElementById('undergraduate_school').length;i++)
         {
@@ -65,17 +51,17 @@ margin-right: 300px;
         }          
             </script>
             
-                        </span></dd>
+                        </dd>
             </div>
             <div style="display:none;" id="schoold">
-            <dt style="width: 172px;margin-top: 17px;">Undergraduate School*</dt>
+            <dt style="width: 172px;margin-top: 17px;">Undergraduate*</dt>
             <dd style="margin-top:17px;">
            
         <%= text_field_tag 'undergraduate_school' ,current_user.undergraduate_school,placeholder: 'Undergraduate School' %>
            
             </dd>
             </div>
-            <dt style="width: 172px";>Undergraduate class*</dt>
+            <dt style="width: 172px";>Undergraduate Year*</dt>
 
             <dd>
             <span class='gdlr-lms-combobox'>
@@ -104,10 +90,13 @@ margin-right: 300px;
         </dd>
         	
         </dl>
- <div style="width:100%;margin-left: 208px;">
-<%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
+ <div style="width:100%;">
+ <div class="six columns">
+     <%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;'%>
 
 <a href="<%= profile_chnagepwd_path %>" style="margin-left: 39px;">Change The Password?</a>
+ </div>
+
 
 </div>
 

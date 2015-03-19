@@ -1,47 +1,33 @@
-<style type="text/css">
-	
-	{
-		border-radius: 4px;
-	}
-</style>
-<section>
-	<div class="gdlr-color-wrapper gdlr-show-all no-skin">
-		<div class="container">
-			<div class="gdlr-shortcode-wrapper gdlr-row-shortcode" style="margin-left: 10px;margin-right: 10px;">
-			<div class="col-xs-12" >
-			    <h1 style="text-align: center;font-family:arial;font-size:33px;" >Social Media</h1>
-			</div>
-			<div class="four columns" style="height: 315px;">
-			<div class="gdlr-item gdlr-column-shortcode" style="height: 314px;">
-			<!-- <a class="twitter-timeline" href="https://twitter.com/MBAnumbers" data-widget-id="562495077063602176">Twitter by @MBAnumbers</a> -->
-				<% # raw @social.content_for(:twitter) %> 
-			<a class="twitter-timeline" href="https://twitter.com/infombanumbers" data-widget-id="573467130869342208">Tweets by @infombanumbers</a>
+<section id="content-section-8">
+<div class="gdlr-color-wrapper  gdlr-show-all no-skin" style="background-color: #ffffff;  padding-bottom: 60px; ">
+<div class="container">
+<div class="gdlr-title-item" style="margin-bottom: 50px;">
+<div class="gdlr-item-title-wrapper gdlr-item pos-center "><div class="gdlr-item-title-head">
+<h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">Social Media</h3>
+<div class="clear"></div></div>
+<div class="gdlr-item-title-divider"></div>
+
+</div></div>
+<div class="gdlr-banner-item-wrapper">
+<div class="gdlr-banner-images gdlr-item" style="margin-bottom: 0px;">
+<div class="flexslider" data-pausetime="7000" data-slidespeed="600" data-effect="fade" data-columns="3" data-type="carousel" data-nav-container="gdlr-banner-images"><div class="flex-viewport" style="overflow: hidden; position: relative;">
+<ul class="slides" style="width: 600%; margin-left: 0px;">
+<li style="float: left; display: block; width: 350px;"><a class="twitter-timeline" href="https://twitter.com/infombanumbers" data-widget-id="573467130869342208">Tweets by @infombanumbers</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			</div>
-			</div>
-			</div>
-			<div class="four columns" style="margin-left: 54px;">
-			<div class="gdlr-item gdlr-column-shortcode _4s7c">
-			<!-- <a class="twitter-timeline" href="https://www.facebook.com/pages/Mbanumbers/1619282458305903">Facebook by @MBAnumbers</a>-->
-			<div class="_4s7c">
-			<%#raw @social.content_for(:facebook) %> 
-			<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FMbanumbers%2F1619282458305903&amp;width=300&amp;height=427&amp;colorscheme=light&amp;show_faces=false&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:427px;" allowTransparency="true"></iframe>
-				
-			</div>
-			</div>
-			</div>
-				<div class="two columns">
-			<div class="gdlr-item gdlr-column-shortcode">
-			<!-- <a class="twitter-timeline" href="https://twitter.com/MBAnumbers" data-widget-id="562495077063602176">Likedin by @MBAnumbers</a>-->
-			<%#=raw @social.content_for(:linkedin) %> 
-				<iframe src="http://widgetsplus.com:8080/64829.htm" width="300px" height="425px" style="padding:0; margin:0; overflow:hidden;" frameborder="0"></iframe>
-			</div>
 			
-			
-			<div class="clear"></div>
-			</div>
-		</div>
+			</li>
+<li style="float: left; display: block; width: 350px;"><div class="well"><iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FMbanumbers%2F1619282458305903&amp;width=300&amp;height=427&amp;colorscheme=light&amp;show_faces=false&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:299px; height:422px;" allowTransparency="true"></iframe></div></li><li style="float: left; display: block; width: 350px;"><div class="well" style="overflow-y: scroll;height: 429px;
+">
+	<h6 style="color:rgb(132, 176, 226)">Breaking News</h6><hr>
 	
-	</div>
-	</div>
-</section>
+	<% @newcast.each do |a|%>
+
+	<p style="font-size:16px; color:black"><%= a.title  %></p>
+	<p style="font-size:13px;text-align:justify"> 
+			
+			<%= raw a.description %>
+
+	</p> 
+	
+	<% end %>
+</div></li></ul></div><ul class="flex-direction-nav"><li><a class="flex-prev flex-disabled" href="#" tabindex="-1"><i class="icon-angle-left"></i></a></li><li><a class="flex-next flex-disabled" href="#" tabindex="-1"><i class="icon-angle-right"></i></a></li></ul></div></div></div><div class="clear"></div></div></div><div class="clear"></div></section>

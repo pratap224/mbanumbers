@@ -1,3 +1,5 @@
+<div class="gdlr-item gdlr-divider-item"></div>
+
 <style>
 	
 #th {
@@ -65,12 +67,14 @@
 		
 		<div style="margin-left:1px;margin-right:1px">
 			<div class="six columns">
-				<div class="gdlr-lms-item" style="margin-left: 1px;">
+				<div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;
+">
 				<span class="gdlr-lms-form" >
 				
 				<p>Choose a School*</p>
 						<span class="gdlr-lms-combobox" >
-							<select name="school" id="school">
+							<select name="school" id="school" style="width: 267px;
+">
 							<option value="">-----------Select School----------</option>
 							<% @school_name.each do |sn| %>
 								 <option value="<%= sn.business_school	  %>">
@@ -135,7 +139,8 @@
 				<div class="three columns" >
 					
 						<p style="margin-bottom:0px">Interview Date</p>
-					 <input type="date" name="interviewdate" id="interviewdate"  placeholder="mm/dd/yyyy">
+					 
+					 <input type="date" name="interviewdate" id="interviewdate" value="" style="width: 198px;">
 				</div>
 				</div>
 				<!-- <div class="twelve columns">
@@ -158,7 +163,7 @@
 
 				<div class="four columns">
 					
-					<p style="margin-bottom:0px">Choice</p>
+					<p style="margin-bottom:0px">Round Applied</p>
 						<input type="text" name="choice" value="" style="width: 198px;">					
 				</div>
 				<div class="four columns">
@@ -175,7 +180,7 @@
 				<div class="clear"></div>
 				<div class="four columns">
 					<p style="margin-bottom:0px">Scholarship</p>
-					<input type="text" name="scholarship" id="scholarship" value="" style="width: 240px;" placeholder='$'>
+					<input type="text" name="scholarship" id="scholarship" value="" style="width: 198px;" placeholder='$'>
 				</div>
 				<div class="four columns">
 					

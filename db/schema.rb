@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310121014) do
+ActiveRecord::Schema.define(version: 20150318134447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20150310121014) do
   create_table "bookmarks", force: true do |t|
     t.integer  "currentuserid"
     t.integer  "bookmarkuserid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "breakings", force: true do |t|
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,6 +85,8 @@ ActiveRecord::Schema.define(version: 20150310121014) do
     t.string   "state"
     t.string   "question"
     t.string   "friend"
+    t.string   "status"
+    t.string   "school"
   end
 
   create_table "myadvices", force: true do |t|
@@ -109,6 +118,20 @@ ActiveRecord::Schema.define(version: 20150310121014) do
     t.integer  "member_id"
   end
 
+  create_table "ref_breakings", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "refbreakings", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "refinery_announcements", force: true do |t|
     t.string   "title"
     t.integer  "photo_id"
@@ -121,6 +144,14 @@ ActiveRecord::Schema.define(version: 20150310121014) do
   create_table "refinery_blogposts", force: true do |t|
     t.string   "title"
     t.integer  "photo_id"
+    t.text     "description"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "refinery_breakings", force: true do |t|
+    t.string   "title"
     t.text     "description"
     t.integer  "position"
     t.datetime "created_at"
@@ -145,6 +176,23 @@ ActiveRecord::Schema.define(version: 20150310121014) do
     t.datetime "updated_at"
     t.string   "image_title"
     t.string   "image_alt"
+  end
+
+  create_table "refinery_newcasts", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "url"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "refinery_news", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "refinery_page_part_translations", force: true do |t|

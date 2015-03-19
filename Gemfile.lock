@@ -62,7 +62,13 @@ PATH
     refinerycms-blogposts (1.0)
       acts_as_indexed (~> 0.8.0)
       refinerycms-core (~> 3.0.0)
+    refinerycms-breakings (1.0)
+      acts_as_indexed (~> 0.8.0)
+      refinerycms-core (~> 3.0.0)
     refinerycms-forums (1.0)
+      acts_as_indexed (~> 0.8.0)
+      refinerycms-core (~> 3.0.0)
+    refinerycms-newcasts (1.0)
       acts_as_indexed (~> 0.8.0)
       refinerycms-core (~> 3.0.0)
     refinerycms-testimonials (1.0)
@@ -315,7 +321,9 @@ DEPENDENCIES
   refinerycms-acts-as-indexed (~> 2.0, >= 2.0.0)
   refinerycms-announcements!
   refinerycms-blogposts!
+  refinerycms-breakings!
   refinerycms-forums!
+  refinerycms-newcasts!
   refinerycms-testimonials!
   refinerycms-wymeditor (~> 1.0, >= 1.0.6)
   sass-rails (~> 4.0.3)

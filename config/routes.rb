@@ -20,6 +20,7 @@
   post 'profile/stuff' => 'profile#stuffupdate', :as => 'stuffs'
   patch 'profile/stuff' => 'profile#stuffupdate', :as => 'stuff'
 
+
   get 'schools/edit/:id' => 'schools#edit',  as: 'schools_edit'
   patch 'schools/update/:id' => 'schools#update', as: 'schools_update'
   get 'schools/destroy/:id' => 'schools#destroy', :as => 'schools_destroy'
@@ -81,7 +82,8 @@
   get 'profile/destroy/:id' => 'profile#destroy', :as => 'profile_destroy'
   get 'profile/new'
   post 'profile/save'
-
+  get 'profile/edit'
+  post 'profile/update'
   get 'profile/settings'
   post 'profile/profilecreate'
   get 'profile/chnagepwd'
@@ -90,6 +92,7 @@
   post 'profile/createforgotpassword'
   get 'profile/updatepassword/:token' => 'profile#updatepassword', :as => 'profile_updatepwd'
   post 'profile/createupdatepwd'
+  get 'profile/profileupdates'
   # resources :schools
 
   get 'member/:username' => 'profile#staticprofile', :as => 'static_profile'

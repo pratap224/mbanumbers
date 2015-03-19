@@ -28,7 +28,7 @@
 
 
 /*- no submenu indicator on top level -*/
-.sf-menu li a.sf-with-ul:after{ content: '\f107'; font-family: FontAwesome; position: absolute; 
+.sf-menu li a.sf-with-ul:after{ content: '\f107'; font-family: Arial; position: absolute; 
 	top: 12px; right: 0px; line-height: 20px; height: 20px; margin-top: -9px; }
 .sf-menu > li > a.sf-with-ul{ padding-right: 17px; *padding-right: 10px; } 
 .sf-menu i{ margin-right: 7px; }

@@ -2,23 +2,28 @@
 	<div class="gdlr-color-wrapper gdlr-show-all no-skin">
 		<div class="container">
 			<div class="four columns">
-				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme">
-					<h3 class="gdlr-item-title borderme" style="font-family:arial;font-size: 16px;">Site Announcements</h3>
+				<div class="gdlr-shortcode-wrapper ">
+					<h3 class="gdlr-divider dotted " style="font-family:arial;font-size: 16px;">Site Announcements</h3>
+
 				</div>
+				<div class="gdlr-item gdlr-divider-item"></div>
 				<%=render :partial => 'homepage/announcements' %>
 			</div>
 			<div class="four columns">
-				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme">
-					<h3 class="gdlr-item-title" style="font-family:arial;font-size: 16px;">Recent Blog Post</h4>	
+				<div class="gdlr-shortcode-wrapper ">
+					<h3 class="gdlr-divider dotted" style="font-family:arial;font-size: 16px;">Recent Blog Post</h4>	
 				</div>	
+				<div class="gdlr-item gdlr-divider-item"></div>
 				<%= render :partial => 'homepage/blog_single' %>
 			</div>
 			<div class="four columns">
-				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme">
-					<h3 class="gdlr-item-title" style="font-family:arial;font-size: 16px;"><lable style="font-size:12px;">Forum</lable> Threads</h3>	
+				<div class="gdlr-shortcode-wrapper">
+					<h3 class="gdlr-divider dotted" style="font-family:arial;font-size: 16px;">Forum Threads</h3>	
 				</div>	
+				<div class="gdlr-item gdlr-divider-item"></div>
 				<%= render :partial => 'homepage/posts' %>
 			</div>
 		</div>
 	</div>
+	<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 </section>

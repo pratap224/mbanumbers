@@ -1,0 +1,28 @@
+en:
+  refinery:
+    plugins:
+      breakings:
+        title: Breakings
+    breakings:
+      admin:
+        breakings:
+          actions:
+            create_new: Add New Breaking
+            reorder: Reorder Breakings
+            reorder_done: Done Reordering Breakings
+          records:
+            title: Breakings
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Breakings yet. Click "Add New Breaking" to add your first breaking.
+          breaking:
+            view_live_html: View this breaking live <br/><em>(opens in a new window)</em>
+            edit: Edit this breaking
+            delete: Remove this breaking forever
+      breakings:
+        show:
+          other: Other Breakings
+  activerecord:
+    attributes:
+      'refinery/breakings/breaking':
+        title: Title
+        description: Description

@@ -1,0 +1,71 @@
+<div class="gdlr-lms-content">
+
+<div class="one columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+<div class="one columns"></div>	
+<div class="eight columns">
+<!-- <div class="four columns">
+<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme">
+					<h3 class="gdlr-item-title borderme">Members</h3>
+				</div>
+				</div> -->
+				<div class="twelve columns">
+<div class="well">
+<div id='profind'>
+				<table class="style-2">
+						<tbody style="text-align:left">
+						<tr>
+							<th id="th" colspan="3">Member Name</th>
+							<th id="th" colspan="3">School Name</th>
+							<th id ="th"colspan="2">GMAT</th>
+							<th id ="th"colspan="2">GPA</th>
+							<th id ="th"colspan="2">Last Updated</th>
+						</tr>
+
+
+							
+			<% @updates.each do |update| %>
+							<tr>
+						<td colspan="3" style="padding:10px">
+							<%= Member.find(update.user_id).username  %>
+						</td> 
+
+												
+						<td colspan="3" style="padding:10px"><%= update.school %></td>	
+
+
+
+				
+			<td colspan="2" style="padding:10px;color:#453232;" >
+
+					<%= Member.find(update.user_id).gmat_score  %>
+			 </td>		
+			<td colspan="2" style="padding:10px;color:#453232;" > 
+				<%= Member.find(update.user_id).gpa %>
+			</td>	
+			<td colspan="2" style="padding:10px;color:#453232;" > 
+
+				<%= update.updated_at.strftime("%Y-%m-%d") %>
+				
+			</td>					
+						
+							</tr>
+			<% end %>
+						</tbody>
+						</table>
+						</div>
+						</div>
+						<div class="clear"></div>
+						</div>
+						</div>
+						<div class="one columns">
+		<div class="google_adsense skyscraper" style="padding-left: 18px;">
+			<%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+		</div>
+		</div>
+		<div class="one columns"></div>	
+		<div class="clear"></div>
+		<div class="gdlr-item gdlr-divider-item"></div>
+		<%= will_paginate @all_mebers, :class => 'gdlr-pagination'%>
+		
+</div>
+</div>

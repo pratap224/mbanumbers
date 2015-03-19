@@ -1,12 +1,13 @@
 <div class="gdlr-lms-content">
-<div class="one columns"></div>	
+
 <div class="one columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
+<div class="one columns"></div>
 <div class="eight columns">
-<div class="four columns">
+<!-- <div class="four columns">
 <div class="gdlr-item-title-wrapper gdlr-item pos-left borderme">
 					<h3 class="gdlr-item-title borderme">Members</h3>
 				</div>
-				</div>
+				</div> -->
 				<div class="twelve columns">
 <div class="well">
 <div id='profind'>
@@ -14,7 +15,7 @@
 						<tbody style="text-align:left">
 						<tr>
 							<th id="th" colspan="3">Member Name</th>
-							<th id="th" colspan="3">Email</th>
+							<!-- <th id="th" colspan="3">Email</th> -->
 							<th id ="th"colspan="2">GMAT</th>
 							<th id ="th"colspan="2">GPA</th>
 							<th id ="th"colspan="2">Last Updated</th>
@@ -25,11 +26,11 @@
 						<td colspan="3" style="padding:10px"> 
 				<a href="<%= static_profile_path(am.username) %>" style="color:#453232;"><%= am.username %></a>
 						</td> 
-				<td colspan="3" style="padding:10px;color:#453232;" > <%= am.email %></td>					
+				<!-- <td colspan="3" style="padding:10px;color:#453232;" > <%= am.email %></td>					 -->
 			<td colspan="2" style="padding:10px;color:#453232;" > <%= am.gpa %></td>		
 			<td colspan="2" style="padding:10px;color:#453232;" > <%= am.gmat_score %></td>	
 			<td colspan="2" style="padding:10px;color:#453232;" > 
-				<%=  time_ago_in_words(am.created_at) %>
+				<%= am.updated_at.strftime("%Y-%m-%d") %>
 			</td>					
 						
 							</tr>
@@ -48,6 +49,7 @@
 		</div>
 		<div class="one columns"></div>	
 		<div class="clear"></div>
-		
+		<div class="gdlr-item gdlr-divider-item"></div>
+		<%= will_paginate @all_mebers, :class => 'gdlr-pagination'%>
 </div>
 </div>

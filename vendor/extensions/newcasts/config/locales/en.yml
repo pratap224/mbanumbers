@@ -1,0 +1,29 @@
+en:
+  refinery:
+    plugins:
+      newcasts:
+        title: Newcasts
+    newcasts:
+      admin:
+        newcasts:
+          actions:
+            create_new: Add New Newcast
+            reorder: Reorder Newcasts
+            reorder_done: Done Reordering Newcasts
+          records:
+            title: Newcasts
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Newcasts yet. Click "Add New Newcast" to add your first newcast.
+          newcast:
+            view_live_html: View this newcast live <br/><em>(opens in a new window)</em>
+            edit: Edit this newcast
+            delete: Remove this newcast forever
+      newcasts:
+        show:
+          other: Other Newcasts
+  activerecord:
+    attributes:
+      'refinery/newcasts/newcast':
+        title: Title
+        description: Description
+        url: Url

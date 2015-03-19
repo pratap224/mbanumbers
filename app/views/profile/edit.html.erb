@@ -1,0 +1,145 @@
+<div class="container" >
+<div class="section-container container">
+    <div class="gdlr-item gdlr-content-item" style="margin-left: 300px;
+margin-right: 300px;
+    "><p>
+    </p><div class="clear"></div>
+    <div class="gdlr-space" style="margin-top: -22px;"></div>
+    <div class="clear"></div>
+    <div class="gdlr-space" style="margin-top: 45px;"></div>
+    <div class="wpcf7" id="wpcf7-f8-o1" lang="en-US" dir="ltr">
+    <div class="screen-reader-response"></div>
+    <%=form_for @user, :url => {:action => 'update'},:html => {:class => "gdlr-lms-form"} do |f| %>
+        <dl class="dl-horizontal">
+            
+            <dt>Hometown</dt>
+            <dd><%= text_field_tag 'member[hometown]' , current_user.hometown,placeholder: 'Hometown' %></dd>
+           
+            <dt>Undergraduate</dt>
+            <dd><%= text_field_tag 'member[undergraduate_school]' , current_user.undergraduate_school ,placeholder: 'Undergraduate' %></dd>
+
+            
+            
+            <dt style="width: 172px";>Undergraduate year*</dt>
+
+            <dd>
+            <span class='gdlr-lms-combobox'>
+                <%=select_year(Date.today,:selected => current_user.year)%>    
+            </span>
+            <script type="text/javascript">
+                        for(var i=0;i<document.getElementById('date_year').length;i++)
+                        {
+                            if(document.getElementById('date_year').options[i].value=="<%= current_user.year  %>")
+                            {
+                                document.getElementById('date_year').options[i].selected=true
+                            }
+                        }          
+            </script>
+            </dd>
+            <dt>GPA</dt>
+                <dd>
+            <%= text_field_tag 'member[gpa]' , current_user.gpa ,placeholder: 'GPA ' %></dd>
+            <dt>GMAT Score</dt>
+            <dd><%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></dd>
+            <dt>Staus</dt>
+            <dd>
+           
+            
+              <%=select_tag 'member[status]', options_for_select([ "Open", "Commited" ]), :style => 'width: 404px;height: 44px;background-color: white;color: #B3ACAC;' %>
+              <script type="text/javascript">
+                        for(var i=0;i<document.getElementById('member_status').length;i++)
+                        {
+                            if(document.getElementById('member_status').options[i].value=="<%= current_user.status  %>")
+                            {
+                                document.getElementById('member_status').options[i].selected=true
+                            }
+                        }          
+            </script>
+            
+            </dd>
+            <% if current_user.status == "Commited"  %>
+             <dt>Undergraduate</dt>
+            <dd>
+               
+            
+                <%= text_field_tag 'member[school]' ,current_user.school, placeholder: 'Undergraduate' %>
+            
+            </dd>
+            <% end %>
+        
+            
+        </dl>
+ <div style="width:100%;margin-left: 208px;">
+<%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
+
+
+
+</div>
+
+        </div>
+    <%end%> 
+    </div><div class="clear"></div> 
+</div>
+
+<div class="gdlr-item gdlr-divider-item">
+<div class="gdlr-divider solid"></div>
+</div>
+
+
+                            
+                
+</div>
+  
+   </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$("#state").change(function(){
+   // alert("check");
+   var stateid=$("#state").val();
+   // alert(a);
+    $.ajax({
+              url: "<%=root_url %>colleges/index/"+stateid,
+              context: document.body
+            }).done(function(r) {
+
+                   // alert(r);
+                document.getElementById('undergraduate_school').innerHTML=r;
+                
+        });
+    
+});
+
+$('#question').click(function(){
+    var a=$("#question").val();
+        $('#stated').css('display','block');
+        $('#schoold').css('display','none');
+    
+    
+});
+$('#question1').click(function(){
+    
+    var b=$("#question1").val();
+    $('#schoold').css('display','block');
+    $('#stated').css('display','none');
+    
+});
+
+if ($("#question").prop("checked")) 
+{
+
+   $('#stated').css('display','block');
+   $('#schoold').css('display','none');
+}
+
+if ($("#question1").prop("checked")) 
+{
+
+   $('#stated').css('display','block');
+   $('#schoold').css('display','none');
+}
+
+
+
+
+</script>

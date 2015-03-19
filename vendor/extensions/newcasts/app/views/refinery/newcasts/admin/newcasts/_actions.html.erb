@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::Newcasts::Admin::NewcastsController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.newcasts_admin_newcasts_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_newcasts_admin_newcast_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::Newcasts::Admin::NewcastsController.sortable? && ::Refinery::Newcasts::Newcast.many? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Newcasts"),
+                 refinery.newcasts_admin_newcasts_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Newcasts"),
+                 refinery.newcasts_admin_newcasts_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

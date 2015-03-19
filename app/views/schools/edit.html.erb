@@ -26,12 +26,13 @@
 		
 		<div style="margin-left:1px;margin-right:1px">
 			<div class="six columns">
-				<div class="gdlr-lms-item" style="margin-left: 1px;">
+				<div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;
+">
 				<span class="gdlr-lms-form" >
 				
 				<p>Choose a School*</p>
 						<span class="gdlr-lms-combobox" >
-							<select name="school" id="school">
+							<select name="school" id="school"  style="width: 267px;">
 							<% @school_name.each do |sn| %>
 								 <option value="<%= sn.business_school	  %>">
 										<%= sn.business_school  %>
@@ -131,7 +132,7 @@
 				<div class="three columns" >
 					
 						<p style="margin-bottom:0px">Interview Date</p>
-					 <input type="date" name="interviewdate" id="interviewdate"  placeholder="mm/dd/yyyy" value="<%= @app_data.interviewdate %>">
+					 <input type="date" name="interviewdate" id="interviewdate" style="width: 198px;" placeholder="mm/dd/yyyy" value="<%= @app_data.interviewdate %>">
 				</div>
 				</div>
 				<!-- <div class="twelve columns">

@@ -77,3 +77,5 @@ gem 'nprogress-rails'
 
 gem 'refinerycms-forums', path: 'vendor/extensions'
  
+gem 'refinerycms-breakings', path: 'vendor/extensions'
+gem 'refinerycms-newcasts', path: 'vendor/extensions'

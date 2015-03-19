@@ -1,0 +1,29 @@
+nb:
+  refinery:
+    plugins:
+      newcasts:
+        title: Newcasts
+    newcasts:
+      admin:
+        newcasts:
+          actions:
+            create_new: Lag en ny Newcast
+            reorder: Endre rekkefølgen på Newcasts
+            reorder_done: Ferdig å endre rekkefølgen Newcasts
+          records:
+            title: Newcasts
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Newcasts enda. Klikk på "Lag en ny Newcast" for å legge til din første newcast.
+          newcast:
+            view_live_html: Vis hvordan denne newcast ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne newcast
+            delete: Fjern denne newcast permanent
+      newcasts:
+        show:
+          other: Andre Newcasts
+  activerecord:
+    attributes:
+      'refinery/newcasts/newcast':
+        title: Title
+        description: Description
+        url: Url

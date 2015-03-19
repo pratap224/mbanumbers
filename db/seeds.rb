@@ -20,3 +20,9 @@ Refinery::Testimonials::Engine.load_seed
 
 # Added by Refinery CMS Forums extension
 Refinery::Forums::Engine.load_seed
+
+# Added by Refinery CMS Breakings extension
+Refinery::Breakings::Engine.load_seed
+
+# Added by Refinery CMS Newcasts extension
+Refinery::Newcasts::Engine.load_seed

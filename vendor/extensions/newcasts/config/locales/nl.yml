@@ -1,0 +1,29 @@
+nl:
+  refinery:
+    plugins:
+      newcasts:
+        title: Newcasts
+    newcasts:
+      admin:
+        newcasts:
+          actions:
+            create_new: Nieuwe Newcast toevoegen
+            reorder: De volgorde van de Newcasts wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Newcast-volgorde
+          records:
+            title: Newcasts
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Newcasts. Druk op 'Nieuwe Newcast toevoegen' om de eerste toe te voegen.
+          newcast:
+            view_live_html: Deze newcast op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze newcast
+            delete: Deze newcast definitief verwijderen
+      newcasts:
+        show:
+          other: Andere Newcasts
+  activerecord:
+    attributes:
+      'refinery/newcasts/newcast':
+        title: Title
+        description: Description
+        url: Url

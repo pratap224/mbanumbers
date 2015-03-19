@@ -1,0 +1,53 @@
+<section id="content-section-4">
+<div class="gdlr-color-wrapper  gdlr-show-all no-skin" style="background-color: #ffffff;padding: 0;">
+<div class="container">
+<div class="gdlr-item-title-wrapper gdlr-item pos-center gdlr-nav-container "><div class="gdlr-item-title-head">
+<i class="icon-angle-left gdlr-flex-prev"></i>
+<h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">RECENT APPLICATION UPDATES</h3>
+<i class="icon-angle-right gdlr-flex-next"></i>
+<div class="clear"></div></div>
+<a class="gdlr-item-title-link" href="#">View All Courses</a></div>
+<div class="course-item-wrapper">
+<div class="gdlr-lms-course-grid2-wrapper gdlr-lms-carousel">
+<div class="flexslider" data-type="carousel" data-nav-container="course-item-wrapper" data-columns="3">
+<div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1400%; margin-left: 0px;">
+<li class="gdlr-lms-course-grid2 gdlr-lms-item " style="float: left; display: block; height: 375px; width: 350px;">
+<% @schools.each do |user| %>
+						<% @user=Member.find_by_id(user.user_id)
+
+							
+						%> 
+<div class="gdlr-lms-course-content">
+<h3 class="gdlr-lms-course-title">
+<a href="#"><%=@user.username %><br>(<%=@user.gpa %>/<%=@user.gmat_score %>)</p> <%=user.status %>  at <%= user.school %> </a>
+</h3>
+<div class="gdlr-lms-course-price">
+<% if user.status == "Waitlisted" %>
+														<i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= user.status %>
+														<% elsif user.status == "WL, Rejected" || user.status == "Rejected"%>
+														<i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; "></i><%= user.status %>
+														<% elsif user.status == "WL, Accepted" %>
+															<i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= user.status %>
+														<% else %>
+															<i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= user.status %>
+
+														
+													<% end %>
+
+</div>
+<div class="gdlr-lms-course-info">
+<i class="icon-time">– about <%= time_ago_in_words(user.updated_at) %></i>
+</div>
+<div class="clear"></div></div></li>
+<li class="gdlr-lms-course-grid2 gdlr-lms-item " style="float: left; display: block; height: 375px; width: 350px;">
+<!-- <div class="gdlr-lms-course-thumbnail">
+<a href="http://themes.goodlayers.com/clevercourse/course/starting-company-all-you-need-to-know-to-start-company/">
+
+</div> -->
+<div class="gdlr-lms-course-content">
+<div class="clear"></div>
+<%end %>
+</li>
+
+</ul></div></div></div></div><div class="clear"></div></div></div><div class="clear"></div></section>
+<div class="gdlr-item gdlr-divider-item"></div>

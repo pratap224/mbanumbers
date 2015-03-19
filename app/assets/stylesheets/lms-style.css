@@ -316,10 +316,10 @@ table.gdlr-lms-table.gdlr-lms-leaderboard-table td img { vertical-align: middle;
 	border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; margin: 0px; }
 .gdlr-lms-form textarea{ height: 100px; }
 .gdlr-lms-form input[type="submit"]{ margin-top: 10px; }
-.gdlr-lms-form .gdlr-lms-combobox select { padding: 11px 2% 11px; width: 100%; font-size: 13px; outline: none; 
+.gdlr-lms-form .gdlr-lms-combobox select { padding: 11px 2% 11px; width: 88%; font-size: 13px; outline: none; 
 	border: 0px; margin: 0px; height: 40px; background: transparent; }
 .gdlr-lms-form .gdlr-lms-combobox { border-width: 1px; border-style: solid; display: block; position: relative; }
-.gdlr-lms-form .gdlr-lms-combobox:after { content: "\f107"; font-family: fontAwesome; position: absolute; right: 0px;
+.gdlr-lms-form .gdlr-lms-combobox:after { content: "\f107"; font-family: Arial; position: absolute; right: 0px;
     top: 0px; bottom: 0px; padding: 8px 13px 0px; z-index: 9999; border-left-width: 1px; border-left-style: solid; 
 	pointer-events: none; }	
 
@@ -368,7 +368,7 @@ table.gdlr-lms-table.gdlr-lms-leaderboard-table td img { vertical-align: middle;
 	z-index: 99999; display: none; }
 .gdlr-lms-lightbox-overlay { position: absolute; left: 0px; right: 0px; bottom: 0px; top: 0px;
     background: #000; opacity: 0.75; filter: alpha(opacity=75); }
-.gdlr-lms-lightbox-container{ display: none; background: #f3f3f3; padding: 40px 30px 30px;
+.gdlr-lms-lightbox-container{ display: none; background: white; padding: 40px 30px 30px;
 	position: absolute; top: 50%; left: 50%; }
 .gdlr-lms-lightbox-container.evidence-form{ width: 620px; padding-bottom: 20px; margin-left: -340px; margin-top: -274px; }
 .gdlr-lms-lightbox-container.buy-form,

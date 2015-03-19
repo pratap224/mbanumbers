@@ -1,0 +1,51 @@
+<section id="content-section-5"><div class="gdlr-parallax-wrapper gdlr-background-image gdlr-show-all gdlr-skin-dark-skin" id="gdlr-parallax-wrapper-1" data-bgspeed="0.2" style="padding-top: 130px; padding-bottom: 90px; background-image: url(http://themes.goodlayers.com/clevercourse/wp-content/uploads/2014/08/search-bg1.jpg); background-position: 50% -86.4px;"><div class="container"><div class="gdlr-item-title-wrapper gdlr-item pos-center "><div class="gdlr-item-title-head"><h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">Search For MBA Schools</h3><div class="clear"></div></div><div class="gdlr-item-title-divider"></div><div class="gdlr-item-title-caption gdlr-skin-info">Fill keywords to seek for MBA Schools</div></div><div class="course-search-wrapper"><form class="gdlr-lms-form" action="http://themes.goodlayers.com/clevercourse/">
+	<div class="course-search-column gdlr-lms-1">
+		<span class="gdlr-lms-combobox">
+			<select name="state" id="state" style="width: 287px;
+">
+				<option value="">State</option>
+				<% @allstates.each do |all_states| %>
+				   <option value="<%= all_states.id %>"><%= all_states.name %></option>
+				<% end %>
+
+			</select>
+		</span>
+	</div>
+	<div class="course-search-column gdlr-lms-3">
+		<span class="gdlr-lms-combobox">
+			<select name="course_type" id="gender" style="width: 431px;">
+				<option value="">Type</option>
+				<option value="online">Online Course</option>
+				<option value="onsite">Onsite Course</option>
+			</select>
+		</span>	
+	</div>
+	<div class="course-search-column gdlr-lms-4">
+		<input type="hidden" name="post_type" value="course">
+		<input class="gdlr-lms-button" type="submit" value="Search!">
+	</div>
+	<div class="clear"></div>
+</form>
+<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+</div><div class="clear"></div></div></div><div class="clear"></div>
+<div class="gdlr-lms-course-content"></div>
+</section>
+<div class="gdlr-item gdlr-divider-item"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$("#state").change(function(){
+   // alert("check");
+   var stateid=$("#state").val();
+   
+    $.ajax({
+              url: "<%=root_url %>colleges/index/"+stateid,
+              context: document.body
+            }).done(function(r) {
+
+                   // alert(r);
+                document.getElementById('undergraduate_school').innerHTML=r;
+                
+        });
+    
+});
+</script>

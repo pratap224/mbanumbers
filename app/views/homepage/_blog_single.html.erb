@@ -1,7 +1,7 @@
 <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<div class="gdlr-item gdlr-blog-grid" style="height: 9px;">
+<div class="gdlr-item gdlr-blog-grid" >
 <%unless @blogpost.nil? %>
 <% @blogpost.each do |f| %>
 	<div class="gdlr-ux gdlr-blog-grid-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;     margin-bottom: 2px;">
@@ -19,9 +19,9 @@
 	</div>
 
 <% end %>
-<a href="<%= myadvices_myadvice_path %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd;border-color: #72d5cd;padding: 4px 23px;margin-left:221px;
-margin-top: -14px;">View More</a>
+<a href="<%= myadvices_myadvice_path %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd;border-color: #72d5cd;padding: 4px 23px;margin-left: 87px;margin-top: -14px;">View More</a>
 <% else %>
 	<P>No RECENT BLOG POST</P>
 <%end%>
+<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 </div>

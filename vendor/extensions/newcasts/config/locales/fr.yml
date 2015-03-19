@@ -1,0 +1,29 @@
+fr:
+  refinery:
+    plugins:
+      newcasts:
+        title: Newcasts
+    newcasts:
+      admin:
+        newcasts:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Newcast
+            reorder: Réordonner les Newcasts
+            reorder_done: Fin de réordonnancement des Newcasts
+          records:
+            title: Newcasts
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Newcast. Cliquer sur "Créer un(e) nouve(au/l/lle) Newcast" pour créer votre premi(er/ère) newcast.'
+          newcast:
+            view_live_html: Voir ce(t/tte) newcast <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) newcast
+            delete: Supprimer définitivement ce(t/tte) newcast
+      newcasts:
+        show:
+          other: Autres Newcasts
+  activerecord:
+    attributes:
+      'refinery/newcasts/newcast':
+        title: Title
+        description: Description
+        url: Url

@@ -1,0 +1,28 @@
+fr:
+  refinery:
+    plugins:
+      breakings:
+        title: Breakings
+    breakings:
+      admin:
+        breakings:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Breaking
+            reorder: Réordonner les Breakings
+            reorder_done: Fin de réordonnancement des Breakings
+          records:
+            title: Breakings
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Breaking. Cliquer sur "Créer un(e) nouve(au/l/lle) Breaking" pour créer votre premi(er/ère) breaking.'
+          breaking:
+            view_live_html: Voir ce(t/tte) breaking <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) breaking
+            delete: Supprimer définitivement ce(t/tte) breaking
+      breakings:
+        show:
+          other: Autres Breakings
+  activerecord:
+    attributes:
+      'refinery/breakings/breaking':
+        title: Title
+        description: Description
