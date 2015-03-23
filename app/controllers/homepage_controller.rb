@@ -1,7 +1,7 @@
 class HomepageController < ApplicationController
   
   def index
-  	@anouncements = Refineryannounce.last(1)
+  	@anouncements = Refineryannounce.last(2)
     @blogpost =  Refblog.last(2)
     @testimonials = Reftestimonial.all
     @posts = Refforum.last(6)

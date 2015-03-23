@@ -1,4 +1,4 @@
-<footer class="footer-wrapper">
+ <footer class="footer-wrapper">
 				<div class="footer-container container" style="padding: 0;">
 										<div class="footer-container container">
 	<div class="footer-column two columns" id="footer-widget-1">
@@ -63,3 +63,22 @@
 <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 
 			</footer>
+			<script type="text/javascript">
+	function validateform()
+	{
+		var email=document.getElementById('email').value
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+		if(email == "")
+		{
+			document.getElementById('error').innerHTML ="Please Enter Email";
+			return false;
+		}
+		else if(!re.test(email))
+		{
+			document.getElementById('error').innerHTML ="Please Enter Valid Email";
+			return false;
+		}
+		
+	}
+</script>

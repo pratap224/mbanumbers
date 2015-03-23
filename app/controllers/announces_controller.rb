@@ -1,7 +1,7 @@
 class AnnouncesController < ApplicationController
 
 	layout 'homepage'
- before_action :authenticate_user
+ # before_action :authenticate_user
 
 	def index
     @blogpost = Refineryannounce.order(created_at: :desc).paginate(:page => params[:page], :per_page => 4)
@@ -14,4 +14,7 @@ class AnnouncesController < ApplicationController
   #     @myadvicecomments = Announce.where('post_id=?', params[:id])
        
   # end
+  def single
+    @announce_data=Refineryannounce.find_by_id(params[:id])
+  end
 end

@@ -36,7 +36,7 @@
 
 </div>
 <div class="gdlr-lms-course-info">
-<i class="icon-time">– about <%= time_ago_in_words(user.updated_at) %></i>
+<i class="icon-time">– Updated at <%= user.updated_at.strftime("%d-%m-%Y") %></i>
 </div>
 <div class="clear"></div></div></li>
 <li class="gdlr-lms-course-grid2 gdlr-lms-item " style="float: left; display: block; height: 375px; width: 350px;">

@@ -1,35 +1,73 @@
-<div class="row">
-<div class="gdlr-item gdlr-divider-item"></div>
- <div class="wraper">
-        <div class="mid_wrap">
-            <div class="profile_blog">
+<div id="gdlr-header-substitute" style="height: auto;"></div>
 
-                <div class="profile_blog_lft">
-                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                </div>
-                
-                
-                   <div class="row">
-                   <div class="ten columns" style="padding:14px">
-                   <div class="well">
-                    
-                    <% @blogpost .each do |f| %>
-                    <h1 class="gdlr-blog-title"><%=f.title %></h1>
-                    <div class="gdlr-blog-content">
-                    <p><%=raw f.description %></p>
-                   </div>
-                <%end %>
-                </div>
-                </div>
-                </div>
-                <!--  <div class="profile_blog_rgt">
-                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                </div>  -->
-                </div>
-                </div>
-                </div>
-                <div class="clear"></div>
-                <div class="clear"></div>
-                </div>
 
-                <div class="gdlr-item gdlr-divider-item"></div>
+<div class="with-sidebar-container container">
+        
+
+    <div class="with-sidebar-left eight columns">
+        <div class="with-sidebar-content twelve columns">
+            <section id="content-section-1">
+                <div class="section-container container">
+                    <div class="blog-item-wrapper">
+                        <div class="blog-item-holder">
+                            <% @blogpost.each do |b| %>
+                            <div class="gdlr-item gdlr-blog-full">
+                                <div class="gdlr-ux gdlr-blog-full-ux">
+                                    <article id="post-859" class="post-859 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row category-life-style tag-blog tag-life-style">
+                                        <div class="gdlr-standard-style">
+                                        <div class="gdlr-blog-thumbnail">
+                                                
+                                        </div>
+
+
+                                        <div class="blog-date-wrapper">
+                                        <span class="blog-date-day">
+                                            <%=  b.created_at.strftime(" %d ") %>
+                                        </span>
+                                        <span class="blog-date-month">
+                                                <%=  b.created_at.strftime(" %b ") %>
+                                        </span>
+                                        <span class="blog-date-year">
+                                                <%=  b.created_at.strftime(" %Y ") %>
+                                        </span>
+                                        </div>
+
+                                        <div class="blog-content-wrapper">
+                                        <header class="post-header">
+                                        <h3 class="gdlr-blog-title"><a href="#"><%= b.title %></a></h3>
+
+
+                                                   
+                                        <div class="clear"></div>
+                                        </header><!-- entry-header -->
+                                        <div class="gdlr-blog-content"><%= raw(b.description.truncate(250)) %> <div class="clear"></div>
+                                        <a href="<%=announces_announce_path(b.id) %>" class="gdlr-button with-border excerpt-read-more" style="margin-top: 8px;padding: 7px 23px;">Read More</a>
+                                        </div>      </div> <!-- blog content wrapper -->
+                                        </div>
+                                 </article>
+                                </div>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <%= will_paginate @blogpost, :class => 'gdlr-pagination'%>
+                </div>
+            </section>
+
+        </div>
+        <div class="clear"></div>
+
+    </div>
+    <div class="gdlr-sidebar gdlr-right-sidebar one columns" style="margin-top:100px; "></div>
+    <div class="gdlr-sidebar gdlr-right-sidebar two columns" style="margin-top:100px; ">
+        <div class="google_adsense skyscraper" style="padding-left: 18px;">
+                        <%= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+        </div>
+        <!-- <div class="google_adsense skyscraper" style="padding-left: 18px;">
+                        <%= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+        </div> -->
+    </div>
+
+    <div class="clear"></div>
+</div>

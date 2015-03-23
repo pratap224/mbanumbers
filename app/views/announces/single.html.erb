@@ -1,0 +1,99 @@
+<div class="gdlr-page-title-wrapper">
+		<div class="gdlr-page-title-overlay"></div>
+		<div class="gdlr-page-title-container container">
+			<h3 class="gdlr-page-title">
+			
+				<%=  @announce_data.title %>
+			</h3>
+			
+		</div>	
+</div>
+	
+
+		<div class="with-sidebar-wrapper gdlr-type-right-sidebar">
+				<div class="with-sidebar-container container">
+					<div class="with-sidebar-left eight columns">
+						<div class="with-sidebar-content twelve columns">
+								<div class="gdlr-item gdlr-blog-full gdlr-item-start-content">
+
+								<!-- get the content based on post format -->
+
+									<article id="post-859" class="post-859 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row category-life-style tag-blog tag-life-style">
+										<div class="gdlr-standard-style">
+											<!--  -->
+
+
+										<div class="blog-date-wrapper">
+										<span class="blog-date-day">				<%= @announce_data.created_at.strftime(" %d ") %>
+										</span>
+										<span class="blog-date-month">
+											<%= @announce_data.created_at.strftime(" %b") %> 
+										</span>
+										<span class="blog-date-year">
+											 <%= @announce_data.created_at.strftime(" %Y") %>
+										</span>
+										</div>
+
+										<div class="blog-content-wrapper">
+										<header class="post-header">
+										<h1 class="gdlr-blog-title">
+											<a href="#"><%=@announce_data.title  %></a>
+										</h1>
+
+
+										<!-- <div class="gdlr-blog-info gdlr-info"><div class="blog-info blog-comment"><span class="gdlr-head">Comments</span><a href="#"><%#=Myadvice.where('post_id=?',@blog_data.id).count %></a></div><div class="clear"></div></div>	 -->		
+										<div class="clear"></div>
+										</header><!-- entry-header -->
+
+										<div class="gdlr-blog-content">
+									
+										<%= raw(@announce_data.description)  %>
+										<div class="clear"></div>
+										<div class="gdlr-space" style="margin-top: 30px;"></div>
+										<div class="gdlr-item gdlr-divider-item">
+										<div class="gdlr-divider thick"></div>
+										</div>
+										<div class="clear"></div>
+
+
+										</div>		</div> <!-- blog content wrapper -->
+										</div>
+									</article><!-- #post -->	
+									
+<!-- #################comments###################### -->
+
+
+
+
+								<!-- .nav-single -->
+
+
+
+
+								
+
+
+
+									
+
+							
+						
+						<div class="clear"></div>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+		</div>
+		
+		
+	</div>
+	<div class="gdlr-sidebar gdlr-right-sidebar two columns" style="margin-top:100px; ">
+        <div class="google_adsense skyscraper" style="padding-left: 18px;">
+                        <%= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+        </div>
+        <!-- <div class="google_adsense skyscraper" style="padding-left: 18px;">
+                        <%#= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+        </div> -->
+    </div>
+	<div class="clear"></div>
+	</div>

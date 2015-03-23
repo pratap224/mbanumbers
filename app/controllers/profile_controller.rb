@@ -288,7 +288,16 @@ before_action :check_session, :only => [:login, :create]
       
      
      @a=Like.delete_all(puser_id: params[:buserid])
+     if @a == 1
+        render json: true
+     end
 
+
+
+  end
+  def name
+    @title="By Name"
+    @all_mebers=Member.order('created_at DESC').paginate(:page => params[:page], :per_page => 20)
   end
 
   private

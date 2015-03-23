@@ -15,7 +15,7 @@
 		</div>
 	</article>
 	<lable style="text-align:justify;"><%=raw f.description.truncate(150) %></lable><!--  <div class="clear"></div> -->
-	<a href="<%= myadvices_blog_path(f.id) %>">Read More</a>
+	<a href="<%=announces_announce_path(f.id) %>">Read More</a>
 	</div>
 
 <% end %>

@@ -30,8 +30,19 @@
             <dd class="topics"><%=f.topics.count %> <dfn>Topics</dfn></dd>
             <dd class="posts"><%=f.topics.inject(0) {|sum, p| sum += p.posts.count} %> <dfn>Posts</dfn></dd>
             <dd class="lastpost"><span>
-              <dfn>Last post</dfn> by <a href="#">lutvia</a>
-              <a href="./viewtopic.php?style=14&amp;f=2&amp;p=19#p19" title=""><i class="fa fa-arrow-right grey"></i></a> <br><%= f.created_at.strftime("%Y-%m-%d") %></span>
+              <dfn>Last post</dfn> 
+              <%  @topic = Topic.where("refforum_id=?",f.id).last %>
+              
+              <% unless @topic.nil? %>
+
+                <%a=Member.find_by_id(@topic.member_id) %>
+               by <a href="<%=static_profile_path(a.username)%>" class="username-coloured"> <%=a.username %></a>
+               
+              </a>
+              <i class="fa fa-arrow-right grey"></i></a> <br><%=  @topic.created_at.strftime("%d-%m-%Y") %></span> 
+              <% else %>
+              <%= "No Recent Posts" %>
+              <% end %>
             </dd>
           </dl>
         </li>
@@ -41,6 +52,7 @@
   <div class="clear"></div>
   </div>
   <div class="clear"></div>
+  <%= will_paginate @forum, :class => 'gdlr-pagination'%>
 </div>
 <div class="clear"></div>
 </div>

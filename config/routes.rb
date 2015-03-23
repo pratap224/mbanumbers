@@ -61,6 +61,7 @@
   post 'myadvices/create'
    # get 'admin/show/:id' => 'admins#show', as: 'show_admin'
   get 'announces/index'
+  get 'announces/single/:id' => 'announces#single', as: 'announces_announce'
   get 'auth/:provider/callback' => 'authentications#create' 
   get 'logout' => 'authentications#destroy'
 
@@ -111,6 +112,7 @@
   get 'bookmark/remove/:id' => 'profile#removebookmarklist', :as => 'booklist_remove'
 
   get 'schools/schoolappinfo/:schoolname' => 'schools#schoolappinfo', :as => 'school_appinfo'
+  get 'profile/name' => 'profile#name', :as => 'profile_name'
 
 
 

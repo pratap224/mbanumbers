@@ -7,7 +7,7 @@ layout 'homepage'
 
   def index
     
-  	@forum=Refforum.all
+  	@forum=Refforum.order(created_at: :desc).paginate(:page => params[:page], :per_page => 20)
     @title = "Forum"
   end
   def topics

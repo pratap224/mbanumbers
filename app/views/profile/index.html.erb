@@ -1,3 +1,29 @@
+ <style type="text/css">
+    .hover {
+    position:relative;
+    float:left;
+    
+}
+
+.tooltip {
+  top: -40px;
+  background-color:black;
+  color:white;
+  border-radius:5px;
+  opacity:0;
+  position:absolute;
+  padding: 3px;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition:  opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition:  opacity 0.5s;
+  transition:  opacity 0.5s;
+}
+
+.hover:hover .tooltip {
+    opacity:1;
+}
+</style>
  <div class="gdlr-item gdlr-divider-item"></div>
  <div class="wraper">
         <div class="mid_wrap">
@@ -32,9 +58,44 @@
                             <div class="profile_search_blog_lft">
                                 <h1><%=current_user.username %></h1>
 
-                                <%= image_tag 'like.png', :style => 'margin-top: -12px;'%>
-                                Be the first person to congratulate 
+                <div class="hover">
+                    <%= image_tag 'like.png', :style => 'margin-top: -12px;'%>
+                    <div class="tooltip">
+                            <%
+                                 @username=Like.where('puser_id = ?',current_user.id)
+                                 @username.each do |f|
+                                 
+                            %>
+                                  <% f.puser_id      
+                                  @likename=Member.find_by_id(f.puser_id)
+                                  %> 
+                                  <%= @likename.username %>
+                                  <br>
+                            <%
+                                end
+                                
+                            %>
+
+                            
+
+
+
+                          </div>
+                </div>
+                        <% 
+                          @count=Like.where('puser_id = ?',current_user.id).count 
+                          
+                        %>        
+                        
+                         <div style="width:31px;height:25px;background-color:green;border: 0px solid;border-radius: 30px;text-align: center;color: white;display: inline-block;margin-left: 5px;" ><%= @count %>
+
+                          
+
+                         </div> Members are liked.
                             </div><!--profile_search_blog_lft-->
+
+                   
+
                             <div class="profile_search_blog_rgt">
                                 
    <%=search_form_for @q, :url => { :controller => 'profile',:action => 'staticprofile' }   do |f| %> 
