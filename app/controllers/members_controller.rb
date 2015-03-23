@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-layout 'member'
+layout 'homepage'
 before_action :authenticated
 before_action :pass_check, only: :create
   
@@ -17,13 +17,14 @@ before_action :pass_check, only: :create
   def create
 
     @user = Member.new(req_params)
-    
-    @user.undergraduate_school = params[:undergraduate_school]
+    # req_params
+     # binding.pry
+     unless params[:school].empty?
+       @user.undergraduate_school = params[:school]  
+     end
   	@user.year = params[:date][:year]
   	@user.password = params[:password]
   	@user.token =SecureRandom.urlsafe_base64
-    
-    
     if @user.save
        UserMailer.sendemail(@user).deliver!
        UserMailer.friend(@user).deliver!
@@ -47,7 +48,7 @@ before_action :pass_check, only: :create
   # end
 	private
 	def req_params
-  	params.require(:member).permit( :name,:username, :email, :zipcode, :image, :hometown, :gpa, :gmat_score, :undergraduate_school, :state, :question, :friend, :status)
+  	params.require(:member).permit( :name,:username, :email, :zipcode, :image, :hometown, :gpa, :gmat_score, :undergraduate_school, :state, :question, :friend, :status, :school)
   end
   def email_exist
 		unless Member.find_by_email(req_params['email']).nil?

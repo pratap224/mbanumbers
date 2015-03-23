@@ -1,6 +1,6 @@
 class MyadvicesController < ApplicationController
  layout 'homepage'
- before_action :authenticate_user
+before_action :authenticate_user, :except => [:myadvice, :blogdata]
 
 	def myadvice
     @blogpost = Refblog.order(created_at: :desc).paginate(:page => params[:page], :per_page => 4)

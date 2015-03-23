@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="announces">
+    <% @announces.each do |announce| %>
+      <li>
+        <%= link_to announce.title, refinery.announces_announce_path(announce) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

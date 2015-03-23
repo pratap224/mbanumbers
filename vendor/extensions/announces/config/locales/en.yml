@@ -1,0 +1,28 @@
+en:
+  refinery:
+    plugins:
+      announces:
+        title: Announces
+    announces:
+      admin:
+        announces:
+          actions:
+            create_new: Add New Announce
+            reorder: Reorder Announces
+            reorder_done: Done Reordering Announces
+          records:
+            title: Announces
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Announces yet. Click "Add New Announce" to add your first announce.
+          announce:
+            view_live_html: View this announce live <br/><em>(opens in a new window)</em>
+            edit: Edit this announce
+            delete: Remove this announce forever
+      announces:
+        show:
+          other: Other Announces
+  activerecord:
+    attributes:
+      'refinery/announces/announce':
+        title: Title
+        description: Description

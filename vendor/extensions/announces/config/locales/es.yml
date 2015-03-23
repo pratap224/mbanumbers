@@ -1,0 +1,29 @@
+es:
+  refinery:
+    plugins:
+      announces:
+        title: Announces
+#        article: masculino/femenino
+    announces:
+      admin:
+        announces:
+          actions:
+            create_new: Crear nuevo announce
+            reorder: Reordenar announces
+            reorder_done: Reordenación de announces completada
+          records:
+            title: Announces
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay announces todavía. Pulsa en "Crear nuevo Announce" para crear tu primer announce.
+          announce:
+            view_live_html: Ver este announce como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este announce
+            delete: Borrar este announce para siempre
+      announces:
+        show:
+          other: Otros announces
+  activerecord:
+    attributes:
+      'refinery/announces/announce':
+        title: Title
+        description: Description

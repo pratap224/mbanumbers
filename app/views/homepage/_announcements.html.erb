@@ -1,43 +1,27 @@
-<div class="blog-item-wrapper">
-	<div class="blog-item-holder">
- <% unless @anouncements.nil? %>
-	<% @anouncements.each do |a|%>
-		<div class="clear"></div>
-		<div class="twelve columns">
-			<div class="gdlr-item gdlr-blog-widget">
-				<div class="gdlr-ux gdlr-blog-widget-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;">
-					<article id="post-2255" class="post-2255 post type-post status-publish format-standard has-post-thumbnail hentry category-post-slider tag-blog tag-life-style">
-						<div class="gdlr-standard-style">
-							<div class="gdlr-blog-thumbnail">
-							
-	<img src="<%= getpath a.photo_id unless a.photo_id.nil?%>" alt="" width="150" height="150">
-						
-							</div>
-							<header class="post-header">
-								<h3 class="gdlr-blog-title">
-								<%= a.title %>
-								</h3>
-								<div class="gdlr-blog-info gdlr-info">
-									<div class="blog-info blog-date">
-										<span class="gdlr-head">Posted on</span>
-										<%= a.created_at.strftime(" %d %b %Y") %>
-									</div>
-									<div class="clear"></div>
-								</div>		
-								<div class="clear"></div>
-							</header><!-- entry-header -->
-							<div class="clear"></div>
-						</div>
-					</article><!-- #post -->
-				</div>
-			</div>
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<div class="gdlr-item gdlr-blog-grid" >
+<%unless @anouncements.empty? %>
+<% @anouncements.each do |f| %>
+	<div class="gdlr-ux gdlr-blog-grid-ux" style="opacity: 1; padding-top: 0px; margin-bottom: 0px;     margin-bottom: 2px;">
+	<article id="post-870" class="post-870 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row tag-business tag-life-style tag-travel">
+		<div class="gdlr-standard-style">
+			<header class="post-header">
+				<h3 class="gdlr-blog-title">
+					<a href="<%= myadvices_blog_path(f.id) %>"><p style="font-size:13px;"><%= f.title %></p> </a>
+				</h3>
+			</header><!-- entry-header -->
 		</div>
-		<div class="clear"></div>
-		<% end %>
-		<% else %>
-		<P> NO SITE ANNOUNCEMENTS</P>
+	</article>
+	<lable style="text-align:justify;"><%=raw f.description.truncate(150) %></lable><!--  <div class="clear"></div> -->
+	<a href="<%= myadvices_blog_path(f.id) %>">Read More</a>
+	</div>
 
 <% end %>
+<a href="<%= announces_index_path %>" class="gdlr-button with-border excerpt-read-more" style="background-color: #72d5cd;border-color: #72d5cd;padding: 4px 23px;margin-left: 87px;margin-top: -14px;">View More</a>
+<% else %>
+	<p>No RECENT ANNONCEMENTS</p>
+<%end%>
 <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-  </div>
 </div>

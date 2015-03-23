@@ -1,0 +1,35 @@
+<div class="row">
+<div class="gdlr-item gdlr-divider-item"></div>
+ <div class="wraper">
+        <div class="mid_wrap">
+            <div class="profile_blog">
+
+                <div class="profile_blog_lft">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>
+                
+                
+                   <div class="row">
+                   <div class="ten columns" style="padding:14px">
+                   <div class="well">
+                    
+                    <% @blogpost .each do |f| %>
+                    <h1 class="gdlr-blog-title"><%=f.title %></h1>
+                    <div class="gdlr-blog-content">
+                    <p><%=raw f.description %></p>
+                   </div>
+                <%end %>
+                </div>
+                </div>
+                </div>
+                <!--  <div class="profile_blog_rgt">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>  -->
+                </div>
+                </div>
+                </div>
+                <div class="clear"></div>
+                <div class="clear"></div>
+                </div>
+
+                <div class="gdlr-item gdlr-divider-item"></div>

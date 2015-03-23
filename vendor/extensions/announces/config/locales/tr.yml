@@ -1,0 +1,28 @@
+tr:
+  refinery:
+    plugins:
+      announces:
+        title: Announces
+    announces:
+      admin:
+        announces:
+          actions:
+            create_new: Yeni Ekle Announce
+            reorder: Tekrar sirala Announces
+            reorder_done: Tekrar siralama tamamlandiAnnounces
+          records:
+            title: Announces
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Announces yok henuz.  Tikla "Yeni Ekle Announce" eklemek senin ilk announce.
+          announce:
+            view_live_html: Bunu canlu announce goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle announce
+            delete: Bunu Sil announce sonsuza dek
+      announces:
+        show:
+          other: Diger Announces
+  activerecord:
+    attributes:
+      'refinery/announces/announce':
+        title: Title
+        description: Description

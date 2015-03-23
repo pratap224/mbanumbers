@@ -64,7 +64,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'omniauth-gplus', '~> 2.0'
 gem 'unicorn'
-gem 'refinerycms-announcements', path: 'vendor/extensions'
 gem 'refinerycms-blogposts', path: 'vendor/extensions'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 # gem 'ads-rails', '~> 0.2.0'
@@ -77,5 +76,7 @@ gem 'nprogress-rails'
 
 gem 'refinerycms-forums', path: 'vendor/extensions'
  
-gem 'refinerycms-breakings', path: 'vendor/extensions'
 gem 'refinerycms-newcasts', path: 'vendor/extensions'
+
+
+gem 'refinerycms-announces', path: 'vendor/extensions'

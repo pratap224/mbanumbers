@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
 layout 'homepage'
-before_action :authenticate_user, :except => [:login, :create, :forgotpassword, :createforgotpassword,:updatepassword,:createupdatepwd]
+before_action :authenticate_user, :except => [:profileupdates,:topusers,:login, :create, :forgotpassword, :createforgotpassword,:updatepassword,:createupdatepwd]
 before_action :check_session, :only => [:login, :create]
 
   def index
@@ -43,6 +43,8 @@ before_action :check_session, :only => [:login, :create]
     @all_mebers=Member.all
   end
   def staticprofile
+
+
     @a=params[:q]
     
     if !@a.nil?
@@ -90,7 +92,7 @@ before_action :check_session, :only => [:login, :create]
     if status
       session[:user_id] = status
       flash[:success] = 'Welcome to MBA Numbers'
-      redirect_to profile_index_path
+      redirect_to root_url
     else
       flash[:notice] = "Please check your credentials"
       redirect_to profile_login_path
@@ -271,6 +273,22 @@ before_action :check_session, :only => [:login, :create]
     @all_mebers=Member.order('created_at DESC').paginate(:page => params[:page], :per_page => 20)
     
     # binding.pry
+  end
+
+  def like
+    @a=params[:cuserid]
+
+    @user= Like.new(:cuser_id => params[:cuserid],:puser_id => params[:buserid],:count => "1")
+    if @user.save
+      render json: true
+    end
+  end
+
+  def dislike
+      
+     
+     @a=Like.delete_all(puser_id: params[:buserid])
+
   end
 
   private

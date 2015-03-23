@@ -44,28 +44,32 @@ margin-right: 300px;
             <dt>Staus</dt>
             <dd>
            
+            <%=select_tag 'member[status]', options_for_select([ "Commited", "Open" ]), :style => 'width: 404px;height: 44px;background-color: white;color: #B3ACAC;' %>
             
-              <%=select_tag 'member[status]', options_for_select([ "Open", "Commited" ]), :style => 'width: 404px;height: 44px;background-color: white;color: #B3ACAC;' %>
-              <script type="text/javascript">
+
+
+            <script type="text/javascript">
                         for(var i=0;i<document.getElementById('member_status').length;i++)
                         {
                             if(document.getElementById('member_status').options[i].value=="<%= current_user.status  %>")
                             {
                                 document.getElementById('member_status').options[i].selected=true
+
                             }
                         }          
             </script>
             
             </dd>
-            <% if current_user.status == "Commited"  %>
-             <dt>Undergraduate</dt>
+            <div style="display:none;" id="undergrad">
+            <dt>Undergraduate</dt>
             <dd>
                
             
-                <%= text_field_tag 'member[school]' ,current_user.school, placeholder: 'Undergraduate' %>
+                <%= text_field_tag 'member[school]' ,current_user.school, placeholder: 'Undergraduate',:required => "true"%>
             
             </dd>
-            <% end %>
+            </div>
+            
         
             
         </dl>
@@ -94,52 +98,25 @@ margin-right: 300px;
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
-$("#state").change(function(){
-   // alert("check");
-   var stateid=$("#state").val();
-   // alert(a);
-    $.ajax({
-              url: "<%=root_url %>colleges/index/"+stateid,
-              context: document.body
-            }).done(function(r) {
+$("#member_status").change(function(){
 
-                   // alert(r);
-                document.getElementById('undergraduate_school').innerHTML=r;
-                
-        });
+    if($("#member_status").val()=="Commited")
+    {
+        $("#undergrad").css("display","block");
+    }
+
+    if($("#member_status").val()=="Open")
+    {
+        $("#undergrad").css("display","none");
+    }
+  
     
 });
 
-$('#question').click(function(){
-    var a=$("#question").val();
-        $('#stated').css('display','block');
-        $('#schoold').css('display','none');
-    
-    
-});
-$('#question1').click(function(){
-    
-    var b=$("#question1").val();
-    $('#schoold').css('display','block');
-    $('#stated').css('display','none');
-    
-});
-
-if ($("#question").prop("checked")) 
+if($("#member_status").val()=="Commited")
 {
-
-   $('#stated').css('display','block');
-   $('#schoold').css('display','none');
+    $("#undergrad").css("display","block");
 }
-
-if ($("#question1").prop("checked")) 
-{
-
-   $('#stated').css('display','block');
-   $('#schoold').css('display','none');
-}
-
-
 
 
 </script>

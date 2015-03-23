@@ -22,7 +22,7 @@
                                 <li><a href="<%= schools_profile_path %>">Add School</a><i class="icon-ok" style="color: black; font-size: 16px; margin-left: 119px;"></i></li>
                                 <!-- <li><a href="#">View Profile</a><img src="images/profile-list_pics_20.png" alt=""></li> -->
                                 <li><a href="<%= profile_bookmarklist_path %>">Bookmark List</a><i class="icon-search" style="color: black; font-size: 16px; margin-left: 196px;float: left;margin-top: -18px;"></i></li>
-                                <li><a href="#">Edit Profile</a><i class="icon-edit" style="color: black; font-size: 16px; margin-left: 121px;"></i></li>
+                                <li><a href="<%=profile_edit_path %>">Edit Profile</a><i class="icon-edit" style="color: black; font-size: 16px; margin-left: 121px;"></i></li>
                                 
                             </ul>
                         </div><!--profile_blog_mid_lft_list-->
@@ -31,7 +31,9 @@
                         <div class="profile_search_blog">
                             <div class="profile_search_blog_lft">
                                 <h1><%=current_user.username %></h1>
-                                
+
+                                <%= image_tag 'like.png', :style => 'margin-top: -12px;'%>
+                                Be the first person to congratulate 
                             </div><!--profile_search_blog_lft-->
                             <div class="profile_search_blog_rgt">
                                 
@@ -54,6 +56,7 @@
                         <dt>Undergraduate:</dt>
                         <dd><%=current_user.undergraduate_school %></dd>
                         <dt>Status:</dt>
+                       
                         <dd> <%=current_user.status %> 
 
                          <% if current_user.status == "Commited"  %>   

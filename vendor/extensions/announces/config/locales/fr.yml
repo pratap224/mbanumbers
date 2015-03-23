@@ -1,0 +1,28 @@
+fr:
+  refinery:
+    plugins:
+      announces:
+        title: Announces
+    announces:
+      admin:
+        announces:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Announce
+            reorder: Réordonner les Announces
+            reorder_done: Fin de réordonnancement des Announces
+          records:
+            title: Announces
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Announce. Cliquer sur "Créer un(e) nouve(au/l/lle) Announce" pour créer votre premi(er/ère) announce.'
+          announce:
+            view_live_html: Voir ce(t/tte) announce <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) announce
+            delete: Supprimer définitivement ce(t/tte) announce
+      announces:
+        show:
+          other: Autres Announces
+  activerecord:
+    attributes:
+      'refinery/announces/announce':
+        title: Title
+        description: Description

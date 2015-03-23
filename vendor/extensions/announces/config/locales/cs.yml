@@ -1,0 +1,28 @@
+cs:
+  refinery:
+    plugins:
+      announces:
+        title: Announces
+    announces:
+      admin:
+        announces:
+          actions:
+            create_new: Přidat Announce
+            reorder: Řadit Announces
+            reorder_done: Konec řazení Announces
+          records:
+            title: Announces
+            sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
+            no_items_yet: Zatím nebyly vytvořeny žádné Announces. Zvolte "Přidat Announce" pro přidání prvního announce.
+          announce:
+            view_live_html: Zobrazit náhled announce<br/><em>(otevře se v novém okně)</em>
+            edit: Upravit announce
+            delete: Smazat announce
+      announces:
+        show:
+          other: Další Announces
+  activerecord:
+    attributes:
+      'refinery/announces/announce':
+        title: Title
+        description: Description

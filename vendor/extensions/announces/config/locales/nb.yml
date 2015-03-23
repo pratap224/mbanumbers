@@ -1,0 +1,28 @@
+nb:
+  refinery:
+    plugins:
+      announces:
+        title: Announces
+    announces:
+      admin:
+        announces:
+          actions:
+            create_new: Lag en ny Announce
+            reorder: Endre rekkefølgen på Announces
+            reorder_done: Ferdig å endre rekkefølgen Announces
+          records:
+            title: Announces
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Announces enda. Klikk på "Lag en ny Announce" for å legge til din første announce.
+          announce:
+            view_live_html: Vis hvordan denne announce ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne announce
+            delete: Fjern denne announce permanent
+      announces:
+        show:
+          other: Andre Announces
+  activerecord:
+    attributes:
+      'refinery/announces/announce':
+        title: Title
+        description: Description

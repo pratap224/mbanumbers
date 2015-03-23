@@ -60,7 +60,7 @@
   get 'myadvices/new'
   post 'myadvices/create'
    # get 'admin/show/:id' => 'admins#show', as: 'show_admin'
-  
+  get 'announces/index'
   get 'auth/:provider/callback' => 'authentications#create' 
   get 'logout' => 'authentications#destroy'
 
@@ -93,6 +93,8 @@
   get 'profile/updatepassword/:token' => 'profile#updatepassword', :as => 'profile_updatepwd'
   post 'profile/createupdatepwd'
   get 'profile/profileupdates'
+  get 'profile/like/:cuserid/:buserid' => 'profile#like', :as => 'profile_like'
+  get 'profile/dislike/:cuserid/:buserid' => 'profile#dislike', :as => 'profile_dislike'
   # resources :schools
 
   get 'member/:username' => 'profile#staticprofile', :as => 'static_profile'
@@ -109,6 +111,8 @@
   get 'bookmark/remove/:id' => 'profile#removebookmarklist', :as => 'booklist_remove'
 
   get 'schools/schoolappinfo/:schoolname' => 'schools#schoolappinfo', :as => 'school_appinfo'
+
+
 
 end
 

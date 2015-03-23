@@ -4,8 +4,16 @@ class Member < ActiveRecord::Base
 	validates :username, uniqueness: true
 	validates :username, length: {maximum: 30, minimum: 6 }
 	validates :email, presence: true
+	validates :email, uniqueness: true
 	validates :email, format: /@/
 	validate :username, :uniqueness => {:case_sensitive => false}
+	validates :gpa, presence: true
+	validates_numericality_of :gpa , :less_than_or_equal_to=>4.00, :greater_than_or_equal_to=>1.00
+    validates :gmat_score, presence: true
+	validates_numericality_of :gmat_score , :less_than_or_equal_to=>800, :greater_than_or_equal_to=>200
+	# validates :password, :presence =>true,
+ #                    :length => { :minimum => 5, :maximum => 40 },
+ #                    :confirmation =>true
 	dragonfly_accessor :image
 	has_one :stuff
 	has_many :posts

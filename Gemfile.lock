@@ -56,13 +56,10 @@ GIT
 PATH
   remote: vendor/extensions
   specs:
-    refinerycms-announcements (1.0)
+    refinerycms-announces (1.0)
       acts_as_indexed (~> 0.8.0)
       refinerycms-core (~> 3.0.0)
     refinerycms-blogposts (1.0)
-      acts_as_indexed (~> 0.8.0)
-      refinerycms-core (~> 3.0.0)
-    refinerycms-breakings (1.0)
       acts_as_indexed (~> 0.8.0)
       refinerycms-core (~> 3.0.0)
     refinerycms-forums (1.0)
@@ -319,9 +316,8 @@ DEPENDENCIES
   ransack!
   refinerycms!
   refinerycms-acts-as-indexed (~> 2.0, >= 2.0.0)
-  refinerycms-announcements!
+  refinerycms-announces!
   refinerycms-blogposts!
-  refinerycms-breakings!
   refinerycms-forums!
   refinerycms-newcasts!
   refinerycms-testimonials!

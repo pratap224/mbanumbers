@@ -68,7 +68,7 @@
 	<%@topics.each do |t| %>
 		<li class="row bg1">
 			<dl class="icon" style="background-image: url(./styles/marina_teal/imageset/topic_read.svg); background-repeat: no-repeat;">
-			<% binding.pry %>
+		
 				<dt style="background-image: url(<%=t.member.image.thumb('32x32').url unless t.member.nil? %>); background-repeat: no-repeat;background-position:0 2px" title="No unread posts"><a href="<%= forum_posts_path(t.id) %>" class="topictitle"><%= t.name.capitalize %></a>
 					<br>
 					by <a href="<%=static_profile_path(t.member.username) unless t.member.nil? %>" style="color: #AA0000;" class="username-coloured"><%=t.member.username unless t.member.nil?%></a> » <%=t.created_at.strftime('%A, %d %b %Y %l:%M %p') %>

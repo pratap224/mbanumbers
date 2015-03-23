@@ -1,7 +1,10 @@
 <%= render :partial => 'layouts/slider' %>
 
 <%= render :partial => 'homepage/groupnews' %>
-<%= render :partial => 'homepage/recentapp' %>
+
+<% unless @users.nil? || @schools.empty? %>
+  <%= render :partial => 'homepage/recentapp' %>
+<% end %>
 <%= render :partial => 'homepage/user' %>
 
 <%#= render :partial => 'homepage/searchschool' %>

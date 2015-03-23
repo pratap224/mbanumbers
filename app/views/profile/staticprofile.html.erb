@@ -60,7 +60,22 @@
                         <div class="profile_search_blog">
                             <div class="profile_search_blog_lft">
                                 <h1><%= @user.username %></h1>
-                                
+          
+<% if @user.status=="Commited"  %>
+    <% 
+       @likeuser=Like.where('cuser_id =? AND puser_id =?',current_user.id,@user.id)
+       
+     %>
+    
+           <div style="width:100%;">
+           <% if @likeuser.empty? %>
+                <a href="javascript:void(0)" id="like" style="float:left;"> <%= image_tag 'like.png', :style => 'margin-top: -12px;'%> </a>
+            <% end %>
+                <a href="javascript:void(0)" id="dislike" style="display:none;float:left"><%= image_tag 'dislike.png', :style => 'margin-top: -12px;' %></a>
+                <label id="content"> Be the first person to congratulate <%= @user.username %></label>
+                <div style="width:31px;height:25px;background-color:green;border: 0px solid;border-radius: 30px;text-align: center;color: white;display: inline-block;margin-left: 5px;">1</div>
+            </div>
+<% end %>
                             </div><!--profile_search_blog_lft-->
                             <div class="profile_search_blog_rgt">
                                 <!--  -->
@@ -75,7 +90,13 @@
                         <dt>Undergraduate:</dt>
                         <dd><%= @user.undergraduate_school %></dd>
                         <dt>Status:</dt>
-                        <dd>Commited|<%= time_ago_in_words(@user.created_at) %></dd>
+                        <dd> <%=@user.status %> 
+
+                         <% if @user.status == "Commited"  %>   
+                        To <%=@user.school %>  On <%= @user.updated_at.strftime("%Y-%m-%d")  %>
+                        <% end %>
+
+                        </dd>
                         </dl>
                         <%#end %>
                             
@@ -116,7 +137,7 @@
                                 
                             <% end %>
                                 </td> 
-                            <td id="td"><%= f.update_attribute(:updated_at, Time.now)%>
+                            <td id="td" style="font-size:9px;" ><%= f.updated_at.strftime("%Y-%m-%d") %>
                             </td>
                             <td id="td" style="font-size:9px"><%=f.interviewdate %></td>
                             <td id="td"><%=f.choice %></td>
@@ -204,6 +225,68 @@ $(document).ready(function(){
 
     });
     <%end %>
+
+
+
+    $("#like").click(function(){
+
+
+        var cuserid= <%= current_user.id  %> 
+
+        var buserid= <%=  @user.id %>
+            $.ajax({
+              url: "<%=root_url %>profile/like/"+cuserid+"/"+buserid,
+              context: document.body
+            }).done(function(r) {
+
+                    console.log(r);
+                    if(r == true)
+                    {
+                       $('#dislike').css('display','block');
+                       $('#like').css('display','none');
+                       $('#content').css('display','none');
+                    }
+
+               
+            });
+
+
+            
+
+    });
+
+
+    $("#dislike").click(function(){
+
+
+        var cuserid= <%= current_user.id  %> 
+
+        var buserid= <%=  @user.id %>
+            $.ajax({
+              url: "<%=root_url %>profile/dislike/"+cuserid+"/"+buserid,
+              context: document.body
+            }).done(function(r) {
+
+                    
+                    if(r == "true")
+                    {
+                       $('#like').css('display','none');
+                       $('#dislike').css('display','block');
+                    }
+
+               
+            });
+
+
+            
+
+    });
+
+
+     <% unless @likeuser.empty? %>
+        $('#dislike').css('display','block');
+        $('#content').css('display','none');
+     <% end %>
 })
 </script>
 

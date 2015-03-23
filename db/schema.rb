@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318134447) do
+ActiveRecord::Schema.define(version: 20150320110852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "announces", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "applications", force: true do |t|
     t.string   "school"
@@ -59,6 +66,14 @@ ActiveRecord::Schema.define(version: 20150318134447) do
   create_table "forums", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", force: true do |t|
+    t.integer  "cuser_id"
+    t.integer  "puser_id"
+    t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -118,40 +133,17 @@ ActiveRecord::Schema.define(version: 20150318134447) do
     t.integer  "member_id"
   end
 
-  create_table "ref_breakings", force: true do |t|
+  create_table "refinery_announces", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "refbreakings", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "refinery_announcements", force: true do |t|
-    t.string   "title"
-    t.integer  "photo_id"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description"
   end
 
   create_table "refinery_blogposts", force: true do |t|
     t.string   "title"
     t.integer  "photo_id"
-    t.text     "description"
-    t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "refinery_breakings", force: true do |t|
-    t.string   "title"
     t.text     "description"
     t.integer  "position"
     t.datetime "created_at"

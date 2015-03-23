@@ -1,31 +1,30 @@
-<div class="container" >
-<div class="section-container container">
-	<div class="gdlr-item gdlr-content-item" ><p>
-	</p><div class="clear"></div>
-	<div class="gdlr-space" style="margin-top: -22px;"></div>
-	<div class="clear"></div>
-	<div class="gdlr-space" style="margin-top: 45px;"></div>
-	<div class="wpcf7" id="wpcf7-f8-o1" lang="en-US" dir="ltr">
-	<div class="screen-reader-response"></div>
-	<%=form_for @user, :url => {:action => 'profilecreate'},:html => {:class => "gdlr-lms-form"} do |f| %>
+<div class="gdlr-item gdlr-divider-item"></div>
+
+<div class="profile_blog_lft">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>
+                <div>
+                <div class="profile_blog_mid_rgt">
+                    <div class="profile_search_blog">
+                    <%=form_for @user, :url => {:action => 'profilecreate'},:html => {:class => "gdlr-lms-form"} do |f| %>
         <dl class="dl-horizontal">
-        	<dt>User Name*</dt>
-        	
-        	<dd><%= text_field_tag 'member[username]' , current_user.username,placeholder: 'Name' %></dd>
-        	<dt>Email Address*</dt>
-        	<dd><%= text_field_tag 'member[email]' , current_user.email,placeholder: 'Email' %></dd>
-        	<dt>Zipcode*</dt>
-        	<dd><%= text_field_tag 'member[zipcode]' , current_user.zipcode,placeholder: 'Zipcode' %></dd>
-            <dt>Hometown</dt>
+            <dt style="color:black">User Name*</dt>
+            
+            <dd><%= text_field_tag 'member[username]' , current_user.username,placeholder: 'Name' %></dd>
+            <dt style="color:black">Email Address*</dt>
+            <dd><%= text_field_tag 'member[email]' , current_user.email,placeholder: 'Email' %></dd>
+            <dt style="color:black">Zipcode*</dt>
+            <dd><%= text_field_tag 'member[zipcode]' , current_user.zipcode,placeholder: 'Zipcode' %></dd>
+            <dt style="color:black">Hometown</dt>
             <dd><%= text_field_tag 'member[hometown]' , current_user.hometown,placeholder: 'Hometown' %></dd>
-           <dt ><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
+           <dt style="color:black"><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
             <dd>
                
 <input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;" <% if current_user.question=="yes" %> <%= checked="checked" %> <% end %> Yes
         <input type="radio" id="question1" name="member[question]" value="no"style="width: 35px;height: 17px;"> No  
             </dd>
             <div style="display:none;" id="stated">
-            <dt style="width: 172px;margin-top: 10px;">State</dt>
+            <dt style="width: 172px;margin-top: 10px;color:black">State</dt>
             <dd style="margin-top: 37px;"><%= text_field_tag 'member[state]' , current_user.zipcode,placeholder: 'State' %>
 <script type="text/javascript">
                         for(var i=0;i<document.getElementById('state').length;i++)
@@ -39,7 +38,7 @@
 
 
                         </dd>
-            <dt style="width: 172px;">Undergraduate*</dt>
+            <dt style="width: 172px;color:black">Undergraduate*</dt>
             <dd><%= text_field_tag 'member[undergraduate_school]' , current_user.zipcode,placeholder: 'Undergraduate' %>
         <script type="text/javascript">
         for(var i=0;i<document.getElementById('undergraduate_school').length;i++)
@@ -54,17 +53,17 @@
                         </dd>
             </div>
             <div style="display:none;" id="schoold">
-            <dt style="width: 172px;margin-top: 17px;">Undergraduate*</dt>
+            <dt style="width: 172px;margin-top: 17px;color:black">Undergraduate*</dt>
             <dd style="margin-top:17px;">
            
         <%= text_field_tag 'undergraduate_school' ,current_user.undergraduate_school,placeholder: 'Undergraduate School' %>
            
             </dd>
             </div>
-            <dt style="width: 172px";>Undergraduate Year*</dt>
+            <dt style="width: 172px;color:black">Undergraduate Year*</dt>
 
             <dd>
-            <span class='gdlr-lms-combobox'>
+            <span class='gdlr-lms-combobox' style="width: 129px;">
                 <%=select_year(Date.today,:selected => current_user.year)%>    
             </span>
             <script type="text/javascript">
@@ -77,18 +76,18 @@
                         }          
             </script>
             </dd>
-            <dt>GPA</dt>
+            <dt style="color:black">GPA</dt>
                 <dd>
             <%= text_field_tag 'member[gpa]' , current_user.gpa ,placeholder: 'GPA ' %></dd>
-            <dt>GMAT Score</dt>
+            <dt style="color:black">GMAT Score</dt>
             <dd><%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></dd>
         
-		<dt>Photo*</dt>
+        <dt style="color:black">Photo*</dt>
         <dd>
-        	<%= f.file_field :image, class: 'form-control' %>
-        	<%= image_tag current_user.image.thumb('200x128#').url,:style => 'margin-top: 9px;margin-left: 93px;border: 1px;border-radius: 12px;' if current_user.image   %>
+            <%= f.file_field :image, class: 'form-control' %>
+            <%= image_tag current_user.image.thumb('200x128#').url,:style => 'margin-top: 9px;margin-left: 93px;border: 1px;border-radius: 12px;' if current_user.image   %>
         </dd>
-        	
+            
         </dl>
  <div style="width:100%;">
  <div class="six columns">
@@ -100,22 +99,19 @@
 
 </div>
 
-		</div>
-	<%end%> 
-	</div><div class="clear"></div> 
-</div>
-
-<div class="gdlr-item gdlr-divider-item">
-<div class="gdlr-divider solid"></div>
-</div>
+        </div>
+    <%end%> 
 
 
-							
-				
-</div>
-  
-   </div>
 
+
+                    </div>
+                    </div>
+
+                    <div class="profile_blog_rgt">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>
+<div class="clear"></div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
 $("#state").change(function(){

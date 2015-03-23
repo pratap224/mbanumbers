@@ -1,26 +1,21 @@
-<!-- <div class="well" > -->
-<div class="twelve columns">
-<div class="eight columns">
-<div class="container" >
-<!-- <div class="six columns"> -->
-<div class="section-container container">
-	<div class="gdlr-item gdlr-content-item" ><p>
-	</p><div class="clear"></div>
-	<div class="gdlr-space" style="margin-top: -22px;"></div>
-	<div class="clear"></div>
-	<div class="gdlr-space" style="margin-top: 45px;"></div>
-	<div class="wpcf7" id="wpcf7-f8-o1" lang="en-US" dir="ltr">
-	<div class="screen-reader-response"></div>
-	<%=form_for @user, :url => {:action => 'create'},:html => {:class => "gdlr-lms-form"} do |f| %>
+<div class="gdlr-item gdlr-divider-item"></div>
+<div class="profile_blog_lft">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>
+                    <div class="profile_blog_mid_rgt">
+                    <div class="profile_search_blog">
+
+
+                    <%=form_for @user, :url => {:action => 'create'},:html => {:class => "gdlr-lms-form"} do |f| %>
         <dl class="dl-horizontal">
             <dt> Full Name*</dt>
             <dd><%= text_field_tag 'member[name]' , "",placeholder: 'Name' %></dd>
-        	<dt>User Name*</dt>
-        	<dd><%= text_field_tag 'member[username]' , "",placeholder: 'User Name' %></dd>
-        	<dt>Email Address*</dt>
-        	<dd><%= text_field_tag 'member[email]' , "",placeholder: 'Email' %></dd>
-        	<dt>Zipcode*</dt>
-        	<dd><%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></dd>
+            <dt>User Name*</dt>
+            <dd><%= text_field_tag 'member[username]' , "",placeholder: 'User Name' %></dd>
+            <dt>Email Address*</dt>
+            <dd><%= text_field_tag 'member[email]' , "",placeholder: 'Email' %></dd>
+            <dt>Zipcode*</dt>
+            <dd><%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></dd>
             <dt>Hometown</dt>
             <dd><%= text_field_tag 'member[hometown]' , "",placeholder: 'Hometown' %></dd>
              <dt ><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
@@ -36,7 +31,7 @@
             <dt style="width: 172px;">Undergraduate*</dt>
             <dd style="margin-top:17px;">
            
-        <%= text_field_tag 'undergraduate_school' , "",placeholder: 'Undergraduate School' %>
+        <%= text_field_tag 'member[undergraduate_school]' , "",placeholder: 'Undergraduate School' %>
            
             </dd>
             </div>
@@ -44,19 +39,19 @@
             <dt style="width: 172px;margin-top: 17px;">Undergraduate*</dt>
             <dd style="margin-top:17px;">
            
-        <%= text_field_tag 'undergraduate_school' , "",placeholder: 'Undergraduate School' %>
+        <%= text_field_tag 'school' , "",placeholder: 'Undergraduate School' %>
            
             </dd>
             </div>
-        	<dt style="width: 172px";>Undergraduate Year*</dt>
+            <dt style="width: 172px";>Undergraduate Year*</dt>
 
             <dd>
-            <span class='gdlr-lms-combobox' style="width: 160px;
+            <span class='gdlr-lms-combobox' style="width: 150px;
 ">
             <%= select_year(Date.today, start_year: 1990, end_year: 2018) %>
-            	
+                
             </span>
-    		</dd>
+            </dd>
             <dt>GPA</dt>
                 <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></dd>
             <dt>GMAT Score</dt>
@@ -71,11 +66,11 @@
             <dd>
             <%=password_field_tag 'password_confirmation' , "",class: 'form-control' ,placeholder: 'Retype password' %>
             </dd>
-    		<dt>Photo</dt>
+            <dt>Photo</dt>
             <dd>
-            	<%= f.file_field :image, class: 'form-control'%>
+                <%= f.file_field :image, class: 'form-control'%>
             </dd>
-            	
+                
             </dl>
             <div class="three columns"></div>
             <div class="three columns">
@@ -84,17 +79,9 @@
     
 </div>
 </div>
-		</div>
-	<%end%> 
-	</div><div class="clear"></div> 
-</div>
-<!-- </div> -->
-<!-- <div class="six columns"> -->
-<div class="gdlr-item gdlr-divider-item">
-<div class="gdlr-divider solid"></div>
-</div>
-
-	<div class="row" style="60px"  >
+        </div>
+    <%end%> 
+    <div class="row" style="60px"  >
             <h5 style="color:#bfbfbf;text-align:center">Or Login with an existing account:</h5>
             
     <div class="three columns" >
@@ -108,20 +95,19 @@
     </div>
     <div class="three columns" >
     <a class="gdlr-button" href="/auth/twitter" target="_self" style="color:#ffffff; background-color:#00aced;"><i class="gdlr-icon icon-twitter"></i> login with twitter</a>
-    </div>					
+    </div>                  
     <div class="clear"></div>
 </div>
-  <!-- </div> -->
-  <div class="clear"></div>
-   </div>
-   </div>
-   </div>
-                   
-                 <div class="one columns" style="margin-top:20px;margin-left:20px">
-                      <%= ad_unit(:wide_skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                   </div>  
-<!-- </div> -->
-</div>
+                    </div>
+                    </div>
+
+
+                <div class="profile_blog_rgt">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>
+
+
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
 $("#state").change(function(){

@@ -9,8 +9,7 @@
 # Added by Refinery CMS Pages extension
 Refinery::Pages::Engine.load_seed
 
-# Added by Refinery CMS Announcements extension
-Refinery::Announcements::Engine.load_seed
+
 
 # Added by Refinery CMS Blogposts extension
 Refinery::Blogposts::Engine.load_seed
@@ -21,8 +20,12 @@ Refinery::Testimonials::Engine.load_seed
 # Added by Refinery CMS Forums extension
 Refinery::Forums::Engine.load_seed
 
-# Added by Refinery CMS Breakings extension
-Refinery::Breakings::Engine.load_seed
+
 
 # Added by Refinery CMS Newcasts extension
 Refinery::Newcasts::Engine.load_seed
+
+# Added by Refinery CMS Announcements extension
+
+# Added by Refinery CMS Announces extension
+Refinery::Announces::Engine.load_seed
