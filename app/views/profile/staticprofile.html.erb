@@ -113,7 +113,7 @@
                         </div><!--home_town_blog-->
                         <div class="profile_tbl">
                             <table>
-                                <tr>
+                                <tr >
                                     <th style="text-align: center;">School</th>
                             <th style="text-align: center;">Scholarship($)</th>
                             <th style="text-align: center;">Status</th>
@@ -122,7 +122,9 @@
                             <th style="text-align: center;">Round Applied</th>
                                 </tr>
                                 <% @lists.each do |f| %>
-                            <tr>
+                            <tr <% if f.status== "WL, Accepted"  %> style = "background-color:rgba(73, 43, 43, 0.8);" <% elsif f.status=="Rejected" %> 
+                            style = "background-color:#F5525D"
+                                 <%end %>>
                             
                             <td id ="td">
                             <div class="floatleft school-logo" style="margin-right:12px">
@@ -300,7 +302,7 @@ $(document).ready(function(){
     });
 
     
-     <% unless @likeuser.empty? %>
+     <% unless @likeuser.nil? %>
         
         $('#dislike').css('display','block');
         $('#like').css('display','none');

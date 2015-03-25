@@ -18,6 +18,7 @@ layout 'homepage'
     # @description = Refforum.find(params[:id]).description
     
     @topics = Refforum.find(params[:id]).topics
+    
   
   end
   def topic_new

@@ -34,7 +34,8 @@
                 <div class="profile_blog_mid">
                     <div class="profile_blog_mid_lft">
                         <div class="profile_blog_mid_lft_pic">
-                            <a href="#"><% unless current_user.image.nil? %>
+                            <a href="#">
+                            <% unless current_user.image.nil? %>
                 <%= image_tag current_user.image.url, :style => "width:300px;height:250px; margin-left: 18px;" %>
                 <%else %>
                 <img src="/assets/profile.png" alt="Edit Entry" style="width:300px;height:250px;" />

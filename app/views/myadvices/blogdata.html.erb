@@ -21,6 +21,7 @@
 										<div class="gdlr-standard-style">
 											<div class="gdlr-blog-thumbnail">
 											 <a href="#">
+											 
 							                   <img src="<%= getpath @blog_data.photo_id unless @blog_data.photo_id.nil?%> " alt="" width="750" height="330">
 							                 </a>	
 											</div>
@@ -72,7 +73,14 @@
 		<article id="comment-7" class="comment-article">
 			<div class="comment-avatar">
 				<%@member = Member.find(mydata.member_id) %>
-				<img alt="" src="<%=@member.image.thumb('60x60').url%>" class="avatar avatar-60 photo" height="60" width="60" style="opacity:1;">
+
+						<% unless @member.image.nil? %>
+                <%= image_tag @member.image.url, :style => "width:60px;height:60px; margin-left: 18px;" %>
+                <%else %>
+                <img src="/assets/profile.png" alt="Edit Entry" style="width:60px;height:60px;" />
+                
+                
+            <% end %>
 			</div>
 			<div class="comment-body">
 				<header class="comment-meta">
