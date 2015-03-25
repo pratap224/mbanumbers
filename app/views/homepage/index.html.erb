@@ -2,10 +2,13 @@
 
 <%= render :partial => 'homepage/groupnews' %>
 
-<% if @users.empty? || @schools.empty? %>
-	
+<% unless @users.nil? || @schools.nil? %>
+
   <%= render :partial => 'homepage/recentapp' %>
+  <%else %>
+  <p>sdfhusdhfiosdufiojsdkfjsijfojsfknsinvijvsnsnv</p>
 <% end %>
+
 <%= render :partial => 'homepage/user' %>
 
 <%#= render :partial => 'homepage/searchschool' %>

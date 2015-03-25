@@ -6,12 +6,13 @@
 <h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">RECENT APPLICATION UPDATES</h3>
 <i class="icon-angle-right gdlr-flex-next"></i>
 <div class="clear"></div></div>
-<a class="gdlr-item-title-link" href="#">View All Courses</a></div>
+<a class="gdlr-item-title-link" href="<%=profile_profileupdates_path%>">View All Updates</a></div>
 <div class="course-item-wrapper">
 <div class="gdlr-lms-course-grid2-wrapper gdlr-lms-carousel">
 <div class="flexslider" data-type="carousel" data-nav-container="course-item-wrapper" data-columns="3">
 <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1400%; margin-left: 0px;">
 <li class="gdlr-lms-course-grid2 gdlr-lms-item " style="float: left; display: block; height: 375px; width: 350px;">
+<%unless @schools.empty? %>
 <% @schools.each do |user| %>
 						<% @user=Member.find_by_id(user.user_id)
 
@@ -47,6 +48,9 @@
 <div class="gdlr-lms-course-content">
 <div class="clear"></div>
 <%end %>
+<% else %>
+	<p style="color:black; font-size:16px">No Recent Application Updates</p>
+<%end%>
 </li>
 
 </ul></div></div></div></div><div class="clear"></div></div></div><div class="clear"></div></section>

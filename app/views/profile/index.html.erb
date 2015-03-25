@@ -128,7 +128,7 @@
                              <!--home_town_text-->
                             
                              <!--home_town_text-->
-                            
+    
                         </div><!--home_town_blog-->
                         <div class="profile_tbl">
                             <table>
@@ -141,7 +141,9 @@
                             <th style="text-align: center;">Round Applied</th>
                                 </tr>
                                 <% @app_data.each do |ad| %>
-                            <tr>
+                            <tr  <% if ad.status== "WL, Accepted"  %> style = "background-color:rgba(73, 43, 43, 0.8);" <% elsif ad.status=="Rejected" %> 
+                            style = "background-color:#F5525D"
+                                 <%end %>>
                             
                             <td id ="td" style="font-size:12px">
                             <div class="floatleft school-logo" style="margin-right:12px">
@@ -157,6 +159,8 @@
                                 <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white"></i><%= ad.status %>
                                 <% elsif ad.status == "WL, Accepted" %>
                                     <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+                                    <% elsif ad.status == "Rejected" %>
+                                    <i class="gdlr-icon icon-remove" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
                                 <% else %>
                                     <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
 

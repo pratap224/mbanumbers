@@ -31,7 +31,7 @@
             <dt style="width: 172px;">Undergraduate*</dt>
             <dd style="margin-top:17px;">
            
-        <%= text_field_tag 'member[undergraduate_school]' , "",placeholder: 'Undergraduate School' %>
+        <%= text_field_tag 'member[undergraduate_school]' , "",placeholder: 'Undergraduate' %>
            
             </dd>
             </div>
@@ -39,7 +39,7 @@
             <dt style="width: 172px;margin-top: 17px;">Undergraduate*</dt>
             <dd style="margin-top:17px;">
            
-        <%= text_field_tag 'school' , "",placeholder: 'Undergraduate School' %>
+        <%= text_field_tag 'school' , "",placeholder: 'Undergraduate' %>
            
             </dd>
             </div>
@@ -57,7 +57,7 @@
             <dt>GMAT Score</dt>
             <dd><%= text_field_tag 'member[gmat_score]' , "",placeholder: 'GMAT Score' %></dd>
             <dt>Refer A Friend</dt>
-            <dd><%= text_field_tag 'member[friend]' , "",placeholder: 'Refer A Friend' %></dd>
+            <dd><%= text_field_tag 'member[friend]' , "",placeholder: "Enter Friend's Email" %></dd>
             <dt>Password*</dt>
             <dd>
             <%=password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Enter Password' %>

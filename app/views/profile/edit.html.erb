@@ -41,7 +41,7 @@ margin-right: 300px;
             <%= text_field_tag 'member[gpa]' , current_user.gpa ,placeholder: 'GPA ' %></dd>
             <dt>GMAT Score</dt>
             <dd><%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></dd>
-            <dt>Staus</dt>
+            <dt>Status</dt>
             <dd>
            
             <%=select_tag 'member[status]', options_for_select([ "Commited", "Open" ]), :style => 'width: 356px;height: 44px;background-color: white;color: #B3ACAC;' %>
