@@ -61,14 +61,16 @@
                         <div class="profile_search_blog">
                             <div class="profile_search_blog_lft">
                                 <h1><%= @user.username %></h1>
-          
+      
 <% if @user.status=="Commited"  %>
     <% 
        @likeuser=Like.where('cuser_id =? AND puser_id =?',current_user.id,@user.id)
+
        # @likecount=Like.where('puser_id =?',@user.id).count
        
        
      %>
+
     
            <div style="width:100%;">
            <% if @likeuser.empty? %>
@@ -162,9 +164,15 @@
                     <div id="respond" class="comment-respond">
                         <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
                         <%=form_tag comment_new_path, :class => 'gdlr-lms-form' do %>
-                            <%= hidden_field_tag 'username', params[:username] %>
+                        
+                            
+                            
+                              <%= hidden_field_tag 'username', params[:username] %>
+                            
+
                             <p>Title*<br>
                             <span class="wpcf7-form-control-wrap your-name">
+                            <% #binding.pry %>
                             <%= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
                             </span></p>
                             <p>Comment*<br>
@@ -291,9 +299,11 @@ $(document).ready(function(){
 
     });
 
-
+    
      <% unless @likeuser.empty? %>
+        
         $('#dislike').css('display','block');
+        $('#like').css('display','none');
         $('#content1').css('display','block');
         $('#content').css('display','none');
      <% end %>

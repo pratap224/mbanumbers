@@ -2,7 +2,8 @@
 
 <%= render :partial => 'homepage/groupnews' %>
 
-<% unless @users.nil? || @schools.empty? %>
+<% if @users.empty? || @schools.empty? %>
+	
   <%= render :partial => 'homepage/recentapp' %>
 <% end %>
 <%= render :partial => 'homepage/user' %>

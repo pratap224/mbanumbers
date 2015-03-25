@@ -67,7 +67,7 @@
                                  
                             %>
                                   <% f.puser_id      
-                                  @likename=Member.find_by_id(f.puser_id)
+                                  @likename=Member.find_by_id(f.cuser_id)
                                   %> 
                                   <%= @likename.username %>
                                   <br>
@@ -97,14 +97,12 @@
                    
 
                             <div class="profile_search_blog_rgt">
-                                
-   <%=search_form_for @q, :url => { :controller => 'profile',:action => 'staticprofile' }   do |f| %> 
 
-            <%= f.search_field :username, id:'tribe-bar-search', placeholder:'Enter User Name', :style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;padding: 8px;margin-top: -15px;' %>
+<%=form_tag profile_staticprofile_path, :method => 'get' do |f|  %>
+     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'enter member name'  %>
+     <%= submit_tag 'Search',:style => 'padding: 10px;color:white; background-color:#F7BD4F;' %>
+<% end -%>
 
-                
-            <%= f.submit :style => 'padding: 10px;color:white; background-color:#F7BD4F;'%>
-    <% end %>  
 
                                
                             </div><!--profile_search_blog_rgt-->
@@ -173,28 +171,16 @@
                             </tr>
                             <%end %>
                             </table>
-                            <h3>0 Responses</h3>
+                            
                         </div><!--profile_tbl-->
                         <div id="comments" class="gdlr-comments-area">
                         <h3 class="comments-title"><%=@comments.count %> Responses</h3>
-                        <%@comments.each do |c| %>
-                        <%= render :partial => 'profile/com', :locals => { :mydata => c } %>
-                        <%end %>
+                <%@comments.each do |c| %>
+                <%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
+                <%end %>
                         <!-- .commentlist -->
-                    <div id="respond" class="comment-respond">
-                        <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
-                        <%=form_tag comment_new_path, :class => 'gdlr-lms-form' do %>
-                                                    <p>Title*<br>
-                            <span class="wpcf7-form-control-wrap your-name">
-                            <%= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
-                            </span></p>
-                            <p>Comment*<br>
-                            <span class="wpcf7-form-control-wrap your-name">
-                            <%= text_area_tag 'comment' , "",class: 'form-control' ,placeholder: 'Comment ' %>
-                            </span></p>
-                            <%= submit_tag 'Post',class: 'button1' %>
-                        <%end %>
-                    </div><!-- #respond -->
+                    <!-- #respond -->
+
                     </div>
                         
                     </div><!--profile_blog_mid_rgt-->

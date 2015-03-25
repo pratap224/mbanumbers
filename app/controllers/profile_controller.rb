@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
 layout 'homepage'
-before_action :authenticate_user, :except => [:profileupdates,:topusers,:login, :create, :forgotpassword, :createforgotpassword,:updatepassword,:createupdatepwd]
+before_action :authenticate_user, :except => [:name,:profileupdates,:topusers,:login, :create, :forgotpassword, :createforgotpassword,:updatepassword,:createupdatepwd]
 before_action :check_session, :only => [:login, :create]
 
   def index
@@ -14,7 +14,7 @@ before_action :check_session, :only => [:login, :create]
     @user=Member.new()
     @school_name=School.all
     @state = State.all
-    @comments = Comment.where('target_id=?',@user.id)
+    @comments = Comment.where('target_id=?',session[:user_id])
   end
   
 
@@ -45,13 +45,13 @@ before_action :check_session, :only => [:login, :create]
   def staticprofile
 
 
-    @a=params[:q]
+    # @a=params[:q]
     
-    if !@a.nil?
-     @user = Member.find_by_username(@a['username'])
-    else
+    # if !@a.nil?
+    #  @user = Member.find_by_username(@a['username'])
+    # else
       @user = Member.find_by_username(params[:username])
-    end
+    # end
     # @user = Member.find_by_username(params[:username])
     unless @user.nil?
       @stuff = Stuff.find_by_member_id(@user.id)
@@ -288,6 +288,7 @@ before_action :check_session, :only => [:login, :create]
       
      
      @a=Like.delete_all(puser_id: params[:buserid])
+     
      if @a == 1
         render json: true
      end

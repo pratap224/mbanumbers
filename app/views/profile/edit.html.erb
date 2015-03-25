@@ -23,7 +23,7 @@ margin-right: 300px;
             <dt style="width: 172px";>Undergraduate year*</dt>
 
             <dd>
-            <span class='gdlr-lms-combobox'>
+            <span class='gdlr-lms-combobox' style="width: 110px;">
                 <%=select_year(Date.today,:selected => current_user.year)%>    
             </span>
             <script type="text/javascript">
@@ -44,7 +44,7 @@ margin-right: 300px;
             <dt>Staus</dt>
             <dd>
            
-            <%=select_tag 'member[status]', options_for_select([ "Commited", "Open" ]), :style => 'width: 404px;height: 44px;background-color: white;color: #B3ACAC;' %>
+            <%=select_tag 'member[status]', options_for_select([ "Commited", "Open" ]), :style => 'width: 356px;height: 44px;background-color: white;color: #B3ACAC;' %>
             
 
 
@@ -75,7 +75,8 @@ margin-right: 300px;
         </dl>
  <div style="width:100%;margin-left: 208px;">
 <%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
-
+<a href="<%=profile_index_path %>">
+<input class="wpcf7-form-control wpcf7-submit" name="signup" style="font-size:15px;margin-top: 13px;" type="submit" value="Cancel"></a>
 
 
 </div>
