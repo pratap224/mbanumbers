@@ -7,6 +7,7 @@ before_action :authenticate_user, :except => [:myadvice, :blogdata]
     @title = "my advice"
   end
   def blogdata
+    @title = "blogdata"
       @blog_data=Refblog.find_by_id(params[:id])
       @myadvicecomments = Myadvice.where('post_id=?', params[:id])
        
