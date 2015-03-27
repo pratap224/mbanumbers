@@ -222,7 +222,7 @@ img.gdlr-full-boxed-background{ min-height: 100%; min-width: 1024px;
 .gdlr-navigation-wrapper{ margin: 0px 15px;}
 .gdlr-navigation-wrapper .gdlr-navigation-container{ position: relative; line-height: 0; }
 .gdlr-navigation-wrapper .gdlr-main-menu > li{ padding: 0px; }
-.gdlr-navigation-wrapper .gdlr-main-menu > li > a{ font-size: 11px;opacity: 2.5; padding: 0px 20px 15px 0px; margin: 0px; text-transform: uppercase; font-weight: 700; letter-spacing: 2px; }
+.gdlr-navigation-wrapper .gdlr-main-menu > li > a{ font-size: 11px;opacity: 1.5; padding: 0px 20px 15px 0px; margin: 0px; text-transform: uppercase; font-weight: 700; letter-spacing: 2px; }
 .gdlr-navigation-wrapper .gdlr-main-menu > li:first-child > a{ padding-left: 0px; }
 /*.gdlr-navigation-wrapper .gdlr-main-menu > li > a:before { content: "•"; margin-right: 20px; }*/
 .gdlr-navigation-wrapper .gdlr-main-menu > li:first-child > a:before { display: none; }

@@ -28,7 +28,7 @@
  <div class="wraper">
         <div class="mid_wrap">
             <div class="profile_blog">
-                <div class="profile_blog_lft">
+                <div class="profile_blog_lft" style="border:none">
                 <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
                 </div><!--profile_blog_lft-->
                 <div class="profile_blog_mid">
@@ -45,11 +45,12 @@
                         </div><!--profile_blog_mid_lft_pic-->
                         <div class="profile_blog_mid_lft_list">
                             <ul>
-                                <li><a href="<%= mailboxes_newest_path %>">Send Message</a><i class="icon-location-arrow" style="color: black; font-size: 16px; margin-left: 99px;"></i></li>
-                                <li><a href="<%= schools_profile_path %>">Add School</a><i class="icon-ok" style="color: black; font-size: 16px; margin-left: 119px;"></i></li>
+                                <li><i class="icon-envelope-alt" style="color: black; font-size: 16px; "></i><a href="<%= mailboxes_mailbox_path %>">Mailbox</a></li>
+                                <li><i class="icon-location-arrow" style="color: black; font-size: 16px;"></i><a href="<%= mailboxes_newest_path %>">Send Message</a></li>
+                                <li><i class="icon-ok" style="color: black; font-size: 16px; "></i><a href="<%= schools_profile_path %>">Add School</a></li>
                                 <!-- <li><a href="#">View Profile</a><img src="images/profile-list_pics_20.png" alt=""></li> -->
-                                <li><a href="<%= profile_bookmarklist_path %>">Bookmark List</a><i class="icon-search" style="color: black; font-size: 16px; margin-left: 196px;float: left;margin-top: -18px;"></i></li>
-                                <li><a href="<%=profile_edit_path %>">Edit Profile</a><i class="icon-edit" style="color: black; font-size: 16px; margin-left: 121px;"></i></li>
+                                <li><i class="icon-search" style="color: black; font-size: 16px;"></i><a href="<%= profile_bookmarklist_path %>">Bookmark List</a></li>
+                                <li><i class="icon-edit" style="color: black; font-size: 16px;"></i><a href="<%=profile_edit_path %>">Edit Profile</a></li>
                                 
                             </ul>
                         </div><!--profile_blog_mid_lft_list-->
@@ -100,7 +101,7 @@
                             <div class="profile_search_blog_rgt">
 
 <%=form_tag profile_staticprofile_path, :method => 'get' do |f|  %>
-     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'enter member name'  %>
+     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'Enter member name'  %>
      <%= submit_tag 'Search',:style => 'padding: 10px;color:white; background-color:#F7BD4F;' %>
 <% end -%>
 
@@ -191,7 +192,7 @@
                     </div><!--profile_blog_mid_rgt-->
                 </div><!--profile_blog_mid-->
                 
-                <div class="profile_blog_rgt">
+                <div class="profile_blog_rgt" style="border:none">
                 <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
                 </div><!--profile_blog_rgt-->
             </div><!--profile_blog-->

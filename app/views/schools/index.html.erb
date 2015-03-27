@@ -61,11 +61,11 @@
 				<th id ="th">City</th>
 				<th id ="th">USN</th>
 				<th id ="th">Forbes</th>
-				<th id ="th">CNN</th>
+				<!-- <th id ="th">CNN</th> -->
 				</tr>
 				<% @schools.each do |t| %>
 					<tr>
-					<td><img alt="Icon" src="<%= t.image.thumb('300x300').url %>" style="width: 100px; height: 41px;" />
+					<td><img alt="Icon" src="<%= t.image.thumb('300x300').url %>" style="width: 60px; height: 20px;" />
 					</td>
 					<td style="color:#453232;"> <%= t.business_school %> </td>
 					<td style="color:#453232;"> <%=t.university %></td>
@@ -73,7 +73,7 @@
 					<td style="color:#453232;"><%=t.city %></td>
 					<td style="color:#453232;"><%=t.US_News_Ranking %></td>
 					<td style="color:#453232;"><%=t.forbes %></td>
-					<td style="color:#453232;"><%= t.CNN %></td>
+					<!-- <td style="color:#453232;"><%= t.CNN %></td> -->
 					</tr>
 				<%end %>
 				</tbody>

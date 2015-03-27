@@ -8,12 +8,15 @@
 				<div class="gdlr-lms-header-signin">
 				
 				<% if current_user.nil? %>
-					<a class="gdlr-button small" href="<%=profile_login_path %>"  style="color:#ffffff; background: #989490; width:121px ">Student Login</a>
+					<a class="gdlr-button small" href="<%=profile_login_path %>"  style="color:#ffffff; background: #989490; width:121px ">
+					<span class="gdlr-icon icon-signin" style="color: black;font-size: 16px;"></span> Login</a>
 				<% else %>
-					 <a class="gdlr-button small" href="/logout"  style="color:#ffffff; background: #989490; width:110px; ">Logout</a> 
+					 <a class="gdlr-button small" href="/logout"  style="color:#ffffff; background: #989490; width:110px; ">
+					 <span class="gdlr-icon icon-signout" style="color: black;font-size: 16px;"></span>Logout</a> 
 				<% end %>
 					<% if current_user.nil? %>
-					<a class="gdlr-button small" href="<%=members_signup_path%>"  style="color:#ffffff; background-color:#fcaa0c; width:110px ">Enroll Now</a>
+					<a class="gdlr-button small" href="<%=members_signup_path%>"  style="color:#ffffff; background-color:#fcaa0c; width:110px ">
+					<span class="gdlr-icon  icon-upload-alt" style="color: #4F4F4F;font-size: 16px;"></span>Enroll Now</a>
 				<% else %>
 				<a class="gdlr-button small" href="<%= profile_settings_path %>"  style="color:#ffffff; background-color:#fcaa0c; width:110px ">
 				<span class="gdlr-icon icon-gears" style="color: #4F4F4F;font-size: 16px;"></span>Settings

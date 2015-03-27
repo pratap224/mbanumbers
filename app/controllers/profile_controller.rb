@@ -167,8 +167,8 @@ before_action :check_session, :only => [:login, :create]
   end
   
   def profilecreate 
-    # binding.pry
-    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:undergraduate_school], :year => params[:date][:year], :state => params[:state], :question => params[:question], :status => [:status])
+     
+    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:undergraduate_school], :year => params[:date][:year], :state => params[:state], :question => params[:question])
     if update
       current_user.update(:image => params[:member][:image]) unless params[:member][:image].nil?
       flash[:success]="Profile has been changed sucessfully"
@@ -188,7 +188,7 @@ before_action :check_session, :only => [:login, :create]
           member.password=params[:newpassword]
           if member.save
             flash[:success]= "Your Password Changed Sucessfully"
-            redirect_to profile_chnagepwd_path
+            redirect_to profile_index_path
           end
       else
         flash[:error]="New Password And ConformPassword Doesnot Match"

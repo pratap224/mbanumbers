@@ -1,21 +1,24 @@
-class MailboxesController < ApplicationController
+ class MailboxesController < ApplicationController
+  layout 'homepage'
  before_action :authenticate_user
- layout 'homepage'
+ 
   def mailbox
-    @tittle = 'Mailbox'
+    @title = 'Mailbox'
     @outbox = Outbox.where('member_id=?',session[:user_id])
-    @inboxreciver = Outbox.where('name=? AND receiver_at=?',Member.find(session[:user_id]).email,TRUE)
+    @inboxreciver = Outbox.where('name=? AND receiver_at=?',Member.find(session[:user_id]).email,TRUE).paginate(:page => params[:page], :per_page => 20)
   end
 
   def outbox
+    @title = 'Mailbox'
     # Client.where("orders_count = ? AND locked = ?", params[:orders], false)
-    @senderoutbox = Outbox.where('member_id=? AND sender_at=?',session[:user_id],TRUE)
-    @senderinbox = Outbox.where('member_id=? AND sender_at=?',session[:user_id],FALSE)
+    @senderoutbox = Outbox.where('member_id=? AND sender_at=?',session[:user_id],TRUE).paginate(:page => params[:page], :per_page => 20)
+    @senderinbox = Outbox.where('member_id=? AND sender_at=?',session[:user_id],FALSE).paginate(:page => params[:page], :per_page => 20)
     
     @inbox = Outbox.where('name=? AND sender_at=?',Member.find(session[:user_id]).email,TRUE)
   end
 
   def newest
+    @title = 'Mailbox'
     @outbox = Outbox.where('member_id=?',session[:user_id])
     @inbox = Outbox.where('name=?',Member.find(session[:user_id]).email)
   end

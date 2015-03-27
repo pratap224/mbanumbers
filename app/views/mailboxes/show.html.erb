@@ -17,19 +17,19 @@
        
 						<%=@inbox.message %>
 				<div class="gdlr-divider dotted"></div>
-				<% @reply.each do |f| %>
-				<%= f.message %>
-				<div class="gdlr-divider dotted"></div>
-				<%end %>
+				<%# @reply.each do |f| %>
+				<%#= f.message %>
+				<!-- <div class="gdlr-divider dotted"></div> -->
+				<%#end %>
 						
-			<div class="gdlr-divider dotted"></div>
-						<p>Your Reply<br>
-				<%=form_tag mailboxes_save_path %>
-				<input type="hidden" name="outbox_id" value='<%= params[:id]%>'>			
-				<span class="gdlr-item gdlr-content-item gdlr-lms-form">
-		<%= text_area_tag 'message' , "",class: 'form-control' ,placeholder: 'Message' %>
-		</span> </p>
-   				<%= submit_tag 'Send',class: 'wpcf7-form-control wpcf7-submit',name: 'send' %>
+			<!-- <div class="gdlr-divider dotted"></div> -->
+						<!-- <p>Your Reply<br> -->
+				<%#=form_tag mailboxes_save_path %>
+				<!-- <input type="hidden" name="outbox_id" value='<%#= params[:id]%>'> -->			
+				<!-- <span class="gdlr-item gdlr-content-item gdlr-lms-form">
+		<%#= text_area_tag 'message' , "",class: 'form-control' ,placeholder: 'Message' %>
+		</span> </p> -->
+   				<%#= submit_tag 'Send',class: 'wpcf7-form-control wpcf7-submit',name: 'send' %>
 			</div>
 			</div>
 			</div>

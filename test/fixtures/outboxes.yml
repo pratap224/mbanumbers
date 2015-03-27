@@ -3,9 +3,17 @@
 one:
   name: MyString
   subject: MyString
-  message: MyString
+  message: MyText
+  member_id: 1
+  from: MyString
+  sender_at: false
+  receiver_at: false
 
 two:
   name: MyString
   subject: MyString
-  message: MyString
+  message: MyText
+  member_id: 1
+  from: MyString
+  sender_at: false
+  receiver_at: false

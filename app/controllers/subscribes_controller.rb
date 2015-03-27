@@ -35,7 +35,7 @@ layout 'homepage'
 		
 		redirect_to root_url , :alert => "Mail send sucessfully"
 	else 
-		redirect_tos subscribes_contactus_path, :flash => {:model_errors => @user.errors.messages}
+		redirect_to subscribes_contactus_path, :flash => {:model_errors => @user.errors.messages}
 		
 
 	end

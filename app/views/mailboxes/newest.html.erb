@@ -32,8 +32,10 @@
 					<input type="hidden" name="sender_at" value="TRUE">
 					<input type="hidden" name="receiver_at" value="TRUE">
 		<p>Email id:*<br>
+		<span id="error1" style="color:red"></span>
 		<span class="wpcf7-form-control-wrap your-name">
-		<%= text_field_tag 'name' , "",class: 'form-control' ,placeholder: 'Name' %>
+		<%= text_field_tag 'name' , "",class: 'form-control' ,placeholder: 'Name' ,
+		:id => "name"%>
 		</span> </p>
 		<p>Subject<br>
 		<span class="wpcf7-form-control-wrap your-subject">
@@ -44,7 +46,7 @@
 		<%= text_area_tag 'message' , "",class: 'form-control' ,placeholder: 'Message' %></span> </p>
 		<p></p>
 		<div class="wpcf7-response-output wpcf7-display-none"></div>
-		<%= submit_tag 'Send',class: 'wpcf7-form-control wpcf7-submit',name: 'send' %>
+		<%= submit_tag 'Send',class: 'wpcf7-form-control wpcf7-submit',name: 'send',:onclick => 'return validatesform();' %>
 		
 		</div>
 	<%end%>
@@ -55,3 +57,23 @@
 	<div class="one columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
 	<div class="clear"></div>
 </div>
+
+<script type="text/javascript">
+	function validatesform()
+	{
+		var name=document.getElementById('name').value
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+		if(name == "")
+		{
+			document.getElementById('error1').innerHTML ="Please Enter Email";
+			return false;
+		}
+		else if(!re.test(name))
+		{
+			document.getElementById('error1').innerHTML ="Please Enter Valid Email";
+			return false;
+		}
+		
+	}
+</script>

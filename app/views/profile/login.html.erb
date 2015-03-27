@@ -1,11 +1,14 @@
+<div class="with-sidebar-wrapper" id="base-cont" style="
+    margin-left: 4%;">
+
 <div class="gdlr-item gdlr-divider-item"></div>
-<div class="profile_blog_lft">
+
+<!-- <div class="profile_blog_lft">
                 <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                </div>
-               
-                    <div class="profile_blog_mid_rgt">
+                </div> -->
+                <div>
+                <div class="profile_blog_mid_rgt">
                     <div class="profile_search_blog">
-                    <div class="eight column">
                     <%=form_tag profile_create_path, :class =>'gdlr-item gdlr-content-item gdlr-lms-form' do |f| %>
         <dl class="dl-horizontal" >
                 
@@ -17,34 +20,39 @@
                 
         </dl>
         <div style="width:100%;text-align:center;">
-            <%= submit_tag 'Signin',class: 'wpcf7-form-control wpcf7-submit',name: 'signin', style: 'padding: 12px 67px;margin-left:86px;font-size: 18px;'   %>    
+            <%= submit_tag 'Signin',class: 'wpcf7-form-control wpcf7-submit',name: 'signin', style: 'font-size: 11px;'   %>    
             <a href="<%= profile_forgotpassword_path %>">Forgot Your Password?</a>
         </div>
        </div>
         </div>
         <%end%>
-        <div class="row"   >
-            <h5 style="color:#bfbfbf;text-align:center">Or Login with an existing account:</h5>
-            
-    <div class="three columns" >
-    <a class="gdlr-button" href="/auth/facebook" target="_self" style="color:#ffffff; background-color:#3b5998;"><i class="gdlr-icon icon-facebook"></i> Login with Facebook</a>                                                        </div>
-    <div class="three columns" >
-    <a class="gdlr-button" href="/auth/gplus" target="_self" style="color:#ffffff; background-color:#dd4b39;"><i class="gdlr-icon icon-google-plus"></i> login  with google</a>
-    </div>
-    <div class="three columns" >
-    <a class="gdlr-button" href="/auth/linkedin" target="_self" style="color:#ffffff; background-color:#007bb6;"><i class="gdlr-icon icon-linkedin-sign"></i> login with linkedin</a>
 
-    </div>
-    <div class="three columns" >
-    <a class="gdlr-button" href="/auth/twitter" target="_self" style="color:#ffffff; background-color:#00aced;"><i class="gdlr-icon icon-twitter"></i> login with twitter</a>
-    </div>                  
-    <div class="clear"></div>
-</div>
 
-                    </div>
+
+
                     </div>
                     
-                    <div class="profile_blog_rgt">
-                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                </div>
 
+                    <!-- <div class="profile_blog_rgt">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div> -->
+<div class="clear"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<div>    
+
+<h5 style="color:#bfbfbf;text-align:center">Or Login with an existing account:</h5>
+    <div class="three columns" >
+    <a class="gdlr-button small" href="/auth/facebook" target="_self" style="color:#ffffff; background-color:#3b5998;"><i class="gdlr-icon icon-facebook"></i> Login with Facebook</a>                                                        </div>
+    <div class="three columns" >
+    <a class="gdlr-button small" href="/auth/gplus" target="_self" style="color:#ffffff; background-color:#dd4b39;"><i class="gdlr-icon icon-google-plus"></i> login  with google</a>
+    </div>
+    <div class="three columns" >
+    <a class="gdlr-button small" href="/auth/linkedin" target="_self" style="color:#ffffff; background-color:#007bb6;"><i class="gdlr-icon icon-linkedin-sign"></i> login with linkedin</a>
+
+    </div>
+    <div class="three columns" >
+    <a class="gdlr-button small" href="/auth/twitter" target="_self" style="color:#ffffff; background-color:#00aced;"><i class="gdlr-icon icon-twitter"></i> login with twitter</a>
+    </div>  
+    </div>
+    <div class="clear"></div>
+    </div>

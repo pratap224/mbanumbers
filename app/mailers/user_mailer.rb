@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
 
   def sent(user)
     @user = user
-    mail( :to => @user[:name], :subject => "test mail")
+    mail( :to => @user[:name], :subject => "You got mail from MBA Numbers User")
   end
 
   def forgot_email(user)
@@ -30,7 +30,7 @@ class UserMailer < ApplicationMailer
   end
    def friend(user)
    @user = user
-   mail(:to =>@user.friend, subject: 'refer friend')
+   mail(:to =>@user.friend, subject: 'Your Friend Refer You To Join In MBA Numbers')
 
   end
   # def friend(shift)

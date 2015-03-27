@@ -36,11 +36,11 @@
 				<% @inboxreciver.each do |f| %>
 				<tr>
 				<td style="width:25%">
-				<input type="checkbox" id="msg_17231" name="msg_17231" style="padding:0; margin:left">
+				<!-- <input type="checkbox" id="msg_17231" name="msg_17231" style="padding:0; margin:left"> -->
 				<b><%=f.from %></b><br>
-				<a href="#"><%=f.subject %></a><br>
-				<a href="<%=mailboxes_destroy_path(f.id)%>">Delete</a></td>
-				<td style="width:50%"><a href="<%=mailboxes_show_path(f.id) %>"><b><%= f.message %></b></a></td>
+				<a href="<%=mailboxes_show_path(f.id) %>" style="color:black"><%=f.subject %></a><br>
+				<a href="<%=mailboxes_destroy_path(f.id)%>" style="color:black">Delete</a></td>
+				<td style="width:50%"><a href="<%=mailboxes_show_path(f.id) %>" style="color:black"><b><%= f.message %></b></a></td>
 				<td style="25%"><%= f.created_at.strftime("%B %d, %Y %H:%M") %></td>					
 				</tr>
 				<%end %>
