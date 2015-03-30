@@ -48,7 +48,7 @@ before_action :pass_check, only: :create
   # end
 	private
 	def req_params
-  	params.require(:member).permit( :name,:username, :email, :zipcode, :image, :hometown, :gpa, :gmat_score, :undergraduate_school, :state, :question, :friend, :status, :school)
+  	params.require(:member).permit( :name,:username, :email, :zipcode, :image, :hometown, :gpa, :gmat_score, :undergraduate_school, :state, :question, :friend, :status, :school, :experience)
   end
   def email_exist
 		unless Member.find_by_email(req_params['email']).nil?

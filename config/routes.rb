@@ -96,6 +96,7 @@
   get 'profile/profileupdates'
   get 'profile/like/:cuserid/:buserid' => 'profile#like', :as => 'profile_like'
   get 'profile/dislike/:cuserid/:buserid' => 'profile#dislike', :as => 'profile_dislike'
+  get  'profile/commitschool/:cuurentuserid/:schoolname' => 'profile#commitschool', :as => 'profile_commitschool'
   # resources :schools
 
   get 'member/:username' => 'profile#staticprofile', :as => 'static_profile'

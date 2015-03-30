@@ -4004,9 +4004,9 @@ p.rules {
 Colours and backgrounds for links.css
 -------------------------------------------------------------- */
 
-a:link	{ color: #0FA195; }
-a:visited	{ color: #0FA195; }
-a:hover	{ color: #0FA195; }
+a:link	{ color: #8A8A8A; }
+a:visited	{ color: #8A8A8A; }
+a:hover	{ color: #8A8A8A; }
 a:active	{ color: #0FA195; background-color: transparent; }
 
 /* Links on gradient backgrounds */

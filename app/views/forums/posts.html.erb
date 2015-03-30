@@ -18,7 +18,16 @@
 	</div>
 	<dl class="postprofile" id="profile3">
 	<dt>
-		<a href="#"><img src="<%=p.member.image.thumb('100x100').url %>" width="100" height="100" alt="User avatar"></a><br>
+		<a href="#">
+		<% unless current_user.image.nil? %>
+                <%= image_tag current_user.image.url, :style => "width:100px;height:100px; margin-left: 18px;" %>
+                <%else %>
+                <img src="/assets/profile.png" alt="Edit Entry" style="width:100px;height:100px;" />
+                
+                
+            <% end %>
+
+		</a><br>
 		<div class="username"><a href="<%=static_profile_path(p.member.username) %>" style="color: #AA0000;" class="username-coloured"><%=p.member.username.capitalize %></a><div class="status-dot" title=" Offline"></div></div> 
 	</dt>
 	<dd></dd>

@@ -27,4 +27,6 @@
  *= require animate
  *= require nprogress
  *= require nprogress-bootstrap
+ *= require owl.carousel
+ *= require owl.theme
  */

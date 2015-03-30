@@ -92,7 +92,7 @@ before_action :check_session, :only => [:login, :create]
     if status
       session[:user_id] = status
       flash[:success] = 'Welcome to MBA Numbers'
-      redirect_to root_url
+      redirect_to profile_index_path
     else
       flash[:notice] = "Please check your credentials"
       redirect_to profile_login_path
@@ -299,6 +299,14 @@ before_action :check_session, :only => [:login, :create]
   def name
     @title="By Name"
     @all_mebers=Member.order('created_at DESC').paginate(:page => params[:page], :per_page => 20)
+  end
+  def commitschool
+    @commitschool=Member.find(params[:cuurentuserid]).update(:commitschool => params[:schoolname])
+    
+    if @commitschool
+      render json: true
+    end
+
   end
 
   private

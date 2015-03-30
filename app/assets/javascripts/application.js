@@ -32,4 +32,5 @@
 //= require jquery.noty
 //= require nprogress
 //= require nprogress-turbolinks
+//= require owl.carousel
 

@@ -80,3 +80,4 @@ gem 'refinerycms-newcasts', path: 'vendor/extensions'
 
 
 gem 'refinerycms-announces', path: 'vendor/extensions'
+gem 'owlcarousel-rails'

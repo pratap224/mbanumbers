@@ -18,6 +18,7 @@
   -ms-transition: opacity 0.5s;
   -o-transition:  opacity 0.5s;
   transition:  opacity 0.5s;
+  width: 100px;
 }
 
 .hover:hover .tooltip {
@@ -35,7 +36,7 @@
                     <div class="profile_blog_mid_lft">
                         <div class="profile_blog_mid_lft_pic">
                             <a href="#">
-                            <% unless current_user.image.nil? %>
+                    <% unless current_user.image.nil? %>
                 <%= image_tag current_user.image.url, :style => "width:300px;height:250px; margin-left: 18px;" %>
                 <%else %>
                 <img src="/assets/profile.png" alt="Edit Entry" style="width:300px;height:250px;" />
@@ -65,18 +66,27 @@
                     <div class="tooltip">
                             <%
                                  @username=Like.where('puser_id = ?',current_user.id)
+                            %>
+                            <% unless @username.empty? %>
+                            <%
                                  @username.each do |f|
                                  
                             %>
                                   <% f.puser_id      
                                   @likename=Member.find_by_id(f.cuser_id)
                                   %> 
+
                                   <%= @likename.username %>
                                   <br>
                             <%
                                 end
                                 
                             %>
+                            <% else %>
+                             0 Members...
+                            <%
+                              end
+                             %>
 
                             
 
@@ -118,10 +128,12 @@
                         <dd><%=current_user.undergraduate_school %></dd>
                         <dt>Status:</dt>
                        
-                        <dd> <%=current_user.status %> 
-
-                         <% if current_user.status == "Commited"  %>   
-                        To <%=current_user.school %>  On <%= current_user.updated_at.strftime("%Y-%m-%d")  %>
+                        <dd > 
+                          
+                         <% unless current_user.commitschool.nil? %>   
+                         Commited To <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
+                         <% else %>
+                           open
                         <% end %>
 
                         </dd>
@@ -142,8 +154,9 @@
                             <th style="text-align: center;">Interview</th>
                             <th style="text-align: center;">Round Applied</th>
                                 </tr>
-                                <% @app_data.each do |ad| %>
-                            <tr  <% if ad.status== "WL, Accepted"  %> style = "background-color:rgba(73, 43, 43, 0.8);" <% elsif ad.status=="Rejected" %> 
+                  <% @app_data.each_with_index do |ad , k | %>
+                           
+                            <tr  <% if ad.status=="Accepted"%> style = "background-color:rgba(73, 43, 43, 0.8);" <% elsif ad.status=="Rejected" %> 
                             style = "background-color:#F5525D"
                                  <%end %>>
                             
@@ -152,40 +165,49 @@
                                 <% @slogo=School.find_by_business_school(ad.school) %>
                                 <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
                             </div><%= ad.school %> <br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
-                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: black; font-size: 14px; "></i></a></td>
+                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: black; font-size: 14px; "></i></a>
+                            <% if ad.status=="Accepted"%>
+                           
+                <input type="hidden" id = "commitsname<%= k %>" value="<%= ad.school %>">
+            <a href="javascript:void(0)" id="commit<%= k %>">commit</a>
+<%end %>
+                            </td>
                             <td id="td"style="font-size:12px">$<%= ad.scholarship %></td>
                             <td id="td" style="font-size:9px">
                             <% if ad.status == "Waitlisted" %>
                                 <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
                                 <% elsif ad.status == "WL, Rejected" || ad.status == "Rejected"%>
                                 <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white"></i><%= ad.status %>
+                                <% elsif ad.status == "Accepted" %>
+                                  <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
                                 <% elsif ad.status == "WL, Accepted" %>
                                     <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
                                     <% elsif ad.status == "Rejected" %>
-                                    <i class="gdlr-icon icon-remove" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+                                  <i class="gdlr-icon icon-remove" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
                                 <% else %>
                                     <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
 
                                 
                             <% end %>
                                 </td>
-                            <td id="td"  style="font-size:9px"><%= ad.updated_at.strftime("%Y-%m-%d") %>
+                            <td id="td"  style="font-size:9px"><%= ad.updated_at.strftime("%d-%m-%Y") %>
                             </td>
                             <td id="td" style="font-size:9px"><%=ad.interviewdate %></td>
                             <td id="td"><%=ad.choice %></td>
                             
                             </tr>
+                            
                             <%end %>
                             </table>
                             
                         </div><!--profile_tbl-->
                         <div id="comments" class="gdlr-comments-area">
                         <h3 class="comments-title"><%=@comments.count %> Responses</h3>
-                <%@comments.each do |c| %>
-                <%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
-                <%end %>
+                        <%@comments.each do |c| %>
+                        <%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
+                            <%end %>
                         <!-- .commentlist -->
-                    <!-- #respond -->
+                        <!-- #respond -->
 
                     </div>
                         
@@ -204,3 +226,54 @@
                 </div>
     </div><!--wraper-->
     <div class="clear"></div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  .toggler {
+    width: 500px;
+    height: 200px;
+  }
+  #button {
+    padding: .5em 1em;
+    text-decoration: none;
+  }
+  #effect {
+    position: relative;
+    width: 240px;
+    height: 135px;
+    padding: 0.4em;
+  }
+  #effect h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+  }
+  </style>
+  
+<script>
+$(document).ready(function(){
+  <% (0..@app_data.count).each do |f| %>
+
+          
+    
+        $("#commit<%= f %>").click(function(){
+       
+            var cuurentuserid = <%= current_user.id; %>
+            var schoolname =$('#commitsname<%= f %>').val();
+              
+            $.ajax({
+                    url: "<%=root_url %>profile/commitschool/"+cuurentuserid+"/"+schoolname,
+                      context: document.body
+                    }).done(function(r) {
+
+                            
+                            location.reload();
+                        
+                });
+         });
+     <% end %>
+});
+</script>

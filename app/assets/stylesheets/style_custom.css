@@ -18,7 +18,7 @@ h6{ font-size: 16px; }
 .top-navigation-wrapper{ color: #bababa; }
 .top-navigation-wrapper a{ color: #bababa; }
 .top-navigation-wrapper{ border-color: #eeeeee; }
-.gdlr-header-inner, .header-style-transparent .gdlr-fixed-header .gdlr-header-inner{ background-color:rgb(247, 189, 79)
+.gdlr-header-inner, .header-style-transparent .gdlr-fixed-header .gdlr-header-inner{ background-color:white
 ; }@media only screen and (max-width: 767px) { .body-wrapper.header-style-transparent .gdlr-header-inner{ background-color: #ffffff; } }
 .gdlr-main-menu > li > a, .header-style-transparent .gdlr-fixed-header .gdlr-header-inner .gdlr-main-menu > li > a{ color: #7f7f7f; }
 .gdlr-fixed-header{ border-bottom: 2px solid #f5f5f5; }

@@ -1,3 +1,13 @@
+<% 
+def addthree(max)
+    # Return a sequence incremented by three up to the max.
+    i = 200
+    while i <= max
+    yield i
+    i += 5
+    end
+end
+%>
 <div class="gdlr-item gdlr-divider-item"></div>
 <div class="profile_blog_lft">
                 <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
@@ -46,8 +56,7 @@
             <dt style="width: 172px";>Undergraduate Year*</dt>
 
             <dd>
-            <span class='gdlr-lms-combobox' style="width: 150px;
-">
+            <span class='gdlr-lms-combobox' style="width: 150px;">
             <%= select_year(Date.today, start_year: 1990, end_year: 2018) %>
                 
             </span>
@@ -55,7 +64,17 @@
             <dt>GPA</dt>
                 <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></dd>
             <dt>GMAT Score</dt>
-            <dd><%= text_field_tag 'member[gmat_score]' , "",placeholder: 'GMAT Score' %></dd>
+            <dd>
+              <select name="member[gmat_score]">
+                  <option value="">-----Select----</option>
+                  <% addthree(800) do |n| %>
+                     <option value="<%= n %>"><%= n %></option>
+                  <% end %>
+                
+              </select>
+            </dd>
+            <dt>Work Experience <br>   (in months)</dt>
+            <dd><%= text_field_tag 'member[experience]' , "",placeholder: 'Work Experience' %></dd>
             <dt>Refer A Friend</dt>
             <dd><%= text_field_tag 'member[friend]' , "",placeholder: "Enter Friend's Email" %></dd>
             <dt>Password*</dt>

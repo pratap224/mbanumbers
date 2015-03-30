@@ -11,12 +11,12 @@ class UserMailer < ApplicationMailer
   end
 	def support_email(user)
    @user = user
-   mail( :from => @user["email"], :to => "infombanumbers@gmail.com", :subject => "Mail From #{@user['name']}" )
+   mail( :from => @user["email"], :to => "admin@mbanumbers.com", :subject => "Mail From #{@user['name']}" )
   end
 
   def sendemail(user)
    @user = user
-   mail(:to =>@user['email'], subject: 'Your Registration Is Completed')
+   mail(:to =>@user['email'], subject: 'Your Registration is Complete')
   end
 
   def sent(user)
@@ -30,7 +30,7 @@ class UserMailer < ApplicationMailer
   end
    def friend(user)
    @user = user
-   mail(:to =>@user.friend, subject: 'Your Friend Refer You To Join In MBA Numbers')
+   mail(:to =>@user.friend, subject: 'Your friend has recommended you to join MBAnumbers.com')
 
   end
   # def friend(shift)
