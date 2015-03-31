@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6, .gdlr-title, .gdlr-title a{ color: #454545; }
 body{ color: #a4a4a4; }
 a{ color: #fcaa0c; }
 a:hover{ color: #82d6cc; }
-body *{ border-color: #e9e9e9; }
+body *{ border-color: black; }
 .page-not-found-block{ background-color: #d65938; }
 .page-not-found-block{ color: #ffffff; }
 .page-not-found-search  .gdl-search-form input[type="text"]{ background-color: #963a20; }
