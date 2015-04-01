@@ -159,7 +159,24 @@
 				<div class="four columns">
 					
 					<p>Choice</p>
-<input type="text" name="choice"  style="width: 198px;" value="<%= @app_data.choice  %>">					
+					
+				<span class="gdlr-lms-combobox" style="width: 158px;">
+						<select name="choice" id="choice">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+						
+							</select>	
+							<script type="text/javascript">
+						for(var i=0;i<document.getElementById('choice').length;i++)
+						{
+							if(document.getElementById('choice').options[i].value=="<%= @app_data.choice  %>")
+							{
+								document.getElementById('choice').options[i].selected=true
+							}
+						}          
+					</script>				
+					</span>
 				</div>
 				<div class="four columns">
 					

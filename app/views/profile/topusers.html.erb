@@ -27,10 +27,10 @@
 				<a href="<%= static_profile_path(am.username) %>" style="color:#453232;"><%= am.username %></a>
 						</td> 
 				<!-- <td colspan="3" style="padding:10px;color:#453232;" > <%= am.email %></td>					 -->
-			<td colspan="2" style="padding:10px;color:#453232;" > <%= am.gpa %></td>		
-			<td colspan="2" style="padding:10px;color:#453232;" > <%= am.gmat_score %></td>	
+			<td colspan="2" style="padding:10px;color:#453232;" > <%= am.gmat_score %></td>		
+			<td colspan="2" style="padding:10px;color:#453232;" > <%= am.gpa %></td>	
 			<td colspan="2" style="padding:10px;color:#453232;" > 
-				<%= am.updated_at.strftime("%Y-%m-%d") %>
+				<%= am.updated_at.strftime("%d-%m-%Y") %>
 			</td>					
 						
 							</tr>

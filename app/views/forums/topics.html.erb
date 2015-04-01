@@ -83,7 +83,7 @@
 				<dd class="posts"><%=t.posts.count %> <dfn>Replies</dfn></dd>
 				<dd class="views">34498 <dfn>Views</dfn></dd>
 				<dd class="lastpost"><span><dfn>Last post </dfn>by <a href="<%=static_profile_path(t.member.username) unless t.member.nil? %>"><%=t.posts.last.member.username unless t.posts.empty? %></a>
-					<a href="./viewtopic.php?style=14&amp;f=2&amp;t=3&amp;p=19#p19"><i class="fa fa-arrow-right grey"></i></a> <br><%=t.created_at.strftime("%Y-%m-%d") %></span>
+					<a href="./viewtopic.php?style=14&amp;f=2&amp;t=3&amp;p=19#p19"><i class="fa fa-arrow-right grey"></i></a> <br><%=t.created_at.strftime("%d-%m-%Y") %></span>
 				</dd>
 			</dl>
 		</li>

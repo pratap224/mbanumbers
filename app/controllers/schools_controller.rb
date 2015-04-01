@@ -14,6 +14,7 @@ class SchoolsController < ApplicationController
   	@title="Add Application"
     @school_name=School.all
     @app_data=Application.all
+    
   	
   end
   def ranking

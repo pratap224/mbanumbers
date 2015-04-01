@@ -6,7 +6,12 @@
 			</div>
 			<div class="top-navigation-right">
 				<div class="gdlr-lms-header-signin">
-				
+				<% if current_user.nil? %>
+				<a href=""></a>
+				<%else %>
+					<a class="gdlr-button small" href="<%=profile_index_path%>"  style="color:#ffffff; background-color:#fcaa0c; width: 135px;">
+					<span class="gdlr-icon  icon-user" style="color: #4F4F4F;font-size: 16px;"></span>My Profile</a>
+					<%end %>
 				<% if current_user.nil? %>
 					<a class="gdlr-button small" href="<%=profile_login_path %>"  style="color:#ffffff; background: #989490; width:121px ">
 					<span class="gdlr-icon icon-signin" style="color: black;font-size: 16px;"></span> Login</a>
@@ -16,12 +21,13 @@
 				<% end %>
 					<% if current_user.nil? %>
 					<a class="gdlr-button small" href="<%=members_signup_path%>"  style="color:#ffffff; background-color:#fcaa0c; width: 135px;">
-					<span class="gdlr-icon  icon-upload-alt" style="color: #4F4F4F;font-size: 16px;"></span>Enroll Now</a>
+					<span class="gdlr-icon  icon-upload-alt" style="color: #4F4F4F;font-size: 16px;"></span>Sign Up</a>
 				<% else %>
 				<a class="gdlr-button small" href="<%= profile_settings_path %>"  style="color:#ffffff; background-color:#fcaa0c; width:110px ">
 				<span class="gdlr-icon icon-gears" style="color: #4F4F4F;font-size: 16px;"></span>Settings
 				</a>
 				<% end %>
+
 				</div>
 			</div>
 		</div>

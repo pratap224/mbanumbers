@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330062651) do
+ActiveRecord::Schema.define(version: 20150401143701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20150330062651) do
     t.string   "image_name"
     t.string   "undergraduate_school"
     t.decimal  "gpa"
-    t.decimal  "gmat_score"
+    t.integer  "gmat_score"
     t.string   "hometown"
     t.string   "state"
     t.string   "question"

@@ -62,7 +62,7 @@
                                 <h1><%=current_user.username %></h1>
 
                 <div class="hover">
-                    <%= image_tag 'like.png', :style => 'margin-top: -12px;'%>
+                    <%= image_tag 'congo.jpg', :style => 'margin-top: -12px;'%>
                     <div class="tooltip">
                             <%
                                  @username=Like.where('puser_id = ?',current_user.id)
@@ -103,7 +103,7 @@
 
                           
 
-                         </div> Members are liked.
+                         </div>  Have Congratulated 
                             </div><!--profile_search_blog_lft-->
 
                    
@@ -121,7 +121,7 @@
                         </div><!--profile_search_blog-->
                         <div class="home_town_blog">
 
-                            <p style="color: black;font-size: 23px;"><%=current_user.gpa %>,<%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
+                            <p style="color: black;font-size: 23px;"><%=current_user.gpa %> <br> <%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
                             <dl class="dl-horizontal">
                         <dt>Hometown:</dt>
                         <dd><%=current_user.hometown %></dd>
@@ -157,7 +157,7 @@
                             <th style="text-align: center;" >Scholarship($)</th>
                             <th style="text-align: center;">Status</th>
                             <th style="text-align: center;">Last Updated</th>
-                            <th style="text-align: center;">Interview</th>
+                            <th style="text-align: center;">Interview Date</th>
                             <th style="text-align: center;">Round Applied</th>
                                 </tr>
                   <% @app_data.each_with_index do |ad , k | %>
@@ -198,7 +198,8 @@
                                 </td>
                             <td id="td"  style="font-size:9px"><%= ad.updated_at.strftime("%d-%m-%Y") %>
                             </td>
-                            <td id="td" style="font-size:9px"><%=ad.interviewdate %></td>
+                            <td id="td" style="font-size:9px"><%=ad.interviewdate %>
+                            </td>
                             <td id="td"><%=ad.choice %></td>
                             
                             </tr>
