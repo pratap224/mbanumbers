@@ -127,12 +127,12 @@
                         <dd><%=current_user.hometown %></dd>
                         <dt>Undergraduate:</dt>
                         <dd><%=current_user.undergraduate_school %></dd>
-                        <dt>Work Experience: <br>   (in months)</dt>
+                        <dt>Work Experience:   </dt>
 
-                        <dd><%if current_user.experience.nil?  %>0
-                        <%else %><%=current_user.experience %> <%end %>
+                        <dd><%if current_user.experience.nil?  %>0(in months)
+                        <%else %><%=current_user.experience %>(in months) <%end %>
                         </dd>
-                        <dt>Status:</dt>
+                        <dt style="margin-top">Status:</dt>
                        
                         <dd > 
                           

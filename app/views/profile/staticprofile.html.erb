@@ -94,10 +94,10 @@
                         <dd><%= @user.hometown %></dd>
                         <dt>Undergraduate:</dt>
                         <dd><%= @user.undergraduate_school %></dd>
-                        <dt>Work Experience: <br>   (in months)</dt>
+                        <dt>Work Experience:   </dt>
 
-                        <dd><%if @user.experience.nil?  %>0
-                        <%else %><%=@user.experience %> <%end %>
+                        <dd><%if @user.experience.nil?  %>0(in months)
+                        <%else %><%=@user.experience %>(in months) <%end %>
                         </dd>
                         <dt>Status:</dt>
                         <dd> 
