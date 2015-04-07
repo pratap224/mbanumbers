@@ -315,14 +315,15 @@ $(document).ready(function(){
 
     });
 
-    
-     <% unless @likeuser.nil? %>
+    <% unless @user.commitschool.nil? %>
+     <% unless @likeuser.empty? %>
         
         $('#dislike').css('display','block');
         $('#like').css('display','none');
         $('#content1').css('display','block');
         $('#content').css('display','none');
      <% end %>
+    <% end %>
 })
 </script>
 
