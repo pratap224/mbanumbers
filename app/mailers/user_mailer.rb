@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
   end
 	def support_email(user)
    @user = user
-   mail( :from => @user["email"], :to => "admin@mbanumbers.com", :subject => "Mail From #{@user['name']}" )
+   mail( :from => @user["email"], :to => "infombanumbers@gmail.com", :subject => "Mail From #{@user['name']}" )
   end
 
   def sendemail(user)

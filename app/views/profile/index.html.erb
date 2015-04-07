@@ -65,7 +65,7 @@
                     <%= image_tag 'congo.jpg', :style => 'margin-top: -12px;'%>
                     <div class="tooltip">
                             <%
-                                 @username=Like.where('puser_id = ?',current_user.id)
+                                @username=Like.where('puser_id = ?',current_user.id)
                             %>
                             <% unless @username.empty? %>
                             <%
@@ -103,7 +103,7 @@
 
                           
 
-                         </div>  Have Congratulated 
+                         </div>  Have Congratulated you
                             </div><!--profile_search_blog_lft-->
 
                    
@@ -123,21 +123,24 @@
 
                             <p style="color: black;font-size: 23px;"><%=current_user.gpa %> <br> <%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
                             <dl class="dl-horizontal">
-                        <dt>Hometown:</dt>
+                        <dt style="color:black">Hometown:</dt>
                         <dd><%=current_user.hometown %></dd>
-                        <dt>Undergraduate:</dt>
+                        <dt style="color:black">Undergraduate:</dt>
                         <dd><%=current_user.undergraduate_school %></dd>
-                        <dt>Work Experience:   </dt>
+                        <dt style="color:black">Work Experience:   </dt>
 
                         <dd><%if current_user.experience.nil?  %>0(in months)
                         <%else %><%=current_user.experience %>(in months) <%end %>
                         </dd>
-                        <dt style="margin-top">Status:</dt>
+                        <dt style="color:black;">Status:</dt>
                        
                         <dd > 
                           
-                         <% unless current_user.commitschool.nil? %>   
-                         Commited To <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
+                         <% unless current_user.commitschool.nil? %>  
+                        <%#binding.pry %>
+                         Commited To
+                         <%# @slogo=School.find_by_business_school(current_user.commitschool) %>
+                                <!-- <img alt="Icon" src="<%#=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" /> --> <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
                          <% else %>
                            open
                         <% end %>
@@ -162,15 +165,15 @@
                                 </tr>
                   <% @app_data.each_with_index do |ad , k | %>
                            
-                            <tr  <% if ad.status=="Accepted"%> style = "background-color:rgba(73, 43, 43, 0.8);" <% elsif ad.status=="Rejected" %> 
+                            <tr  <% if ad.status=="Accepted"%> style = "background-color:#2267CA" <% elsif ad.status=="Rejected" %> 
                             style = "background-color:#F5525D"
                                  <%end %>>
                             
                             <td id ="td" style="font-size:12px">
-                            <div class="floatleft school-logo" style="margin-right:12px">
+                          <div class="floatleft school-logo" style="margin-right:12px">
                                 <% @slogo=School.find_by_business_school(ad.school) %>
                                 <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
-                            </div><%= ad.school %> <br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
+                            </div><%= ad.school %>- <%=ad.university %> <br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
                             <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: black; font-size: 14px; "></i></a>
                             <% if ad.status=="Accepted"%>
                            
@@ -178,10 +181,16 @@
             <a href="javascript:void(0)" id="commit<%= k %>">commit</a>
 <%end %>
                             </td>
-                            <td id="td"style="font-size:12px">$<%= ad.scholarship %></td>
+                            <td id="td"style="font-size:12px">$
+                            <%if ad.scholarship.empty? %>
+                            0
+                            <%else %>
+                            <%= ad.scholarship %>
+                            <%end %></td>
                             <td id="td" style="font-size:9px">
                             <% if ad.status == "Waitlisted" %>
-                                <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+                                <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i>
+                                <%= ad.status %>
                                 <% elsif ad.status == "WL, Rejected" || ad.status == "Rejected"%>
                                 <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white"></i><%= ad.status %>
                                 <% elsif ad.status == "Accepted" %>
@@ -221,9 +230,9 @@
                     </div><!--profile_blog_mid_rgt-->
                 </div><!--profile_blog_mid-->
                 
-                <div class="profile_blog_rgt" style="border:none">
-                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                </div><!--profile_blog_rgt-->
+                <!-- <div class="profile_blog_rgt" style="border:none">
+                <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div> --><!--profile_blog_rgt-->
             </div><!--profile_blog-->
             <div class="clear"></div>
         </div><!--mid_wrap-->

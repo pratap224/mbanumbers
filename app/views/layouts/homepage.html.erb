@@ -11,13 +11,7 @@
     <%= favicon_link_tag 'favicon.ico' %>
     <title>MBA Numbers</title>
     
-    <script>
-      WebFont.load({
-        google: {
-          families: ['Arial','Raleway', 'Montserrat', 'Calibri']
-        }
-      });
-    </script>    
+        
     <%= stylesheet_link_tag @forum.nil? ? 'application' : 'forum', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>   
     <style type="text/css">

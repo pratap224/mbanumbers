@@ -16,7 +16,8 @@
 }
 </style>
 
-<div class="well">
+
+<div class="well" style="border:none">
 <div class="gdlr-lms-content" style="width: 1042px;
 ">
 
@@ -55,6 +56,35 @@
 				</div>
 			</div>
 			<div class="clear"></div>
+			<div class="six columns">
+				<div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;
+">
+				<span class="gdlr-lms-form" >
+				
+				<p>Choose a University*</p>
+						<span class="gdlr-lms-combobox" >
+							<select name="university" id="school"  style="width: 267px;">
+							<% @school_name.each do |sn| %>
+								 <option value="<%= sn.university	  %>">
+										<%= sn.university  %>
+								 </option>
+							<% end %>
+								  
+							</select>
+							<script type="text/javascript">
+	for(var i=0;i<document.getElementById('school').length;i++)
+	{
+		if(document.getElementById('university').options[i].value=="<%= @app_data.university  %>")
+		{
+			document.getElementById('university').options[i].selected=true
+		}
+	}          
+	</script>
+						</span>
+				</span>
+				
+				</div>
+			</div>
 		</div>
 		<div style="margin-left:1px;margin-right:1px; padding:17px">
 			<div class="twelve columns">

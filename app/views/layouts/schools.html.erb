@@ -9,14 +9,7 @@
     <meta name="viewport" content="initial-scale = 1.0" />
      <%= favicon_link_tag 'favicon.ico' %>
     <title>MBA Numbers</title>
-    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js"></script>
-    <script>
-      WebFont.load({
-        google: {
-          families: ['Raleway', 'Montserrat', 'Calibri']
-        }
-      });
-    </script>    
+        
     <%= stylesheet_link_tag @forum.nil? ? 'application' : 'forum', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>   
     <style type="text/css">
@@ -48,18 +41,20 @@
                         </div>  
                     </div>                
                 <%end%>
+                <div class="gdlr-item gdlr-divider-item"></div>
+
                 <div class="with-sidebar-wrapper" id="base-cont">
 
-                    <div class="one columns" style="margin-top:20px;margin-left:20px;" id="add1">
-                      <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                   </div> 
-                   <div class="one column"></div>
-                   <div class="nine columns">
+                    <div class="profile_blog_lft" style="border:none">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>
+                   
+                   <div class="eight columns">
                        <%= yield %>
                    </div>
-                    <!-- <div class="one columns" style="margin-top:20px;margin-left:20px" id="add2">
+                     <div class="profile_blog_rgt" style="border:none">
                       <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                   </div> -->
+                   </div> 
                    <div class="clear"></div>
                 </div>
             </div>

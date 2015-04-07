@@ -33,7 +33,7 @@ class SchoolsController < ApplicationController
 
 
   def edit
-   
+   @title="Edit Application"
     @app_data = Application.find(params[:id])
     @school_name = School.all 
   end
@@ -65,6 +65,7 @@ class SchoolsController < ApplicationController
   end
 
   def create
+    #binding.pry
     school_app=Application.new(req_params)
     school_app.user_id = session[:user_id]
     if school_app.save
@@ -75,7 +76,7 @@ class SchoolsController < ApplicationController
 
   private
   def req_params
-    params.permit(:school,:status,:application_type,:program,:interviewdate,:choice,:seat,:received,:complete,:descion,:scholarship)
+    params.permit(:school, :university, :status,:application_type,:program,:interviewdate,:choice,:seat,:received,:complete,:descion,:scholarship)
   end
   def check_auth
     if Application.find(params[:id]).user_id != session[:user_id]

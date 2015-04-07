@@ -72,6 +72,7 @@
 
     
            <div style="width:100%;">
+           
            <% if @likeuser.empty? %>
                 <a href="javascript:void(0)" id="like" style="float:left;"> <%= image_tag 'congo.jpg', :style => 'margin-top: -12px;'%> </a>
             <% end %>
@@ -90,20 +91,22 @@
                         <%# unless@stuff.nil? %>
                             <p style="color: black;font-size: 23px;"><%= @user.gpa %>,<%= @user.gmat_score %> | Class of <%=@user.year %></p>
                             <dl class="dl-horizontal">
-                        <dt>Hometown/Zipcode:</dt>
+                        <dt style="color:black">Hometown/Zipcode:</dt>
                         <dd><%= @user.hometown %></dd>
-                        <dt>Undergraduate:</dt>
+                        <dt style="color:black">Undergraduate:</dt>
                         <dd><%= @user.undergraduate_school %></dd>
-                        <dt>Work Experience:   </dt>
+                        <dt style="color:black">Work Experience:   </dt>
 
                         <dd><%if @user.experience.nil?  %>0(in months)
                         <%else %><%=@user.experience %>(in months) <%end %>
                         </dd>
-                        <dt>Status:</dt>
+                        <dt style="color:black">Status:</dt>
                         <dd> 
 
-                         <% unless @user.commitschool.nil?  %>   
-                        To <%=@user.commitschool %>  On <%= @user.updated_at.strftime("%d-%m-%Y")  %>
+                         <% unless @user.commitschool.nil?  %>  
+                         <%#binding.pry %> 
+                        To <%# @slogo=School.find_by_business_school(@user.commitschool) %>
+                                <!-- <img alt="Icon" src="<%#=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" /> --> <%=@user.commitschool %>  On <%= @user.updated_at.strftime("%d-%m-%Y")  %>
                             <% else %>
                             open
                         <% end %>
@@ -128,7 +131,7 @@
                             <th style="text-align: center;">Round Applied</th>
                                 </tr>
                                 <% @lists.each do |f| %>
-                            <tr <% if f.status== "Accepted"  %> style = "background-color:rgba(73, 43, 43, 0.8);" <% elsif f.status=="Rejected" %> 
+                            <tr <% if f.status== "Accepted"  %> style = "background-color:#2267CA" <% elsif f.status=="Rejected" %> 
                             style = "background-color:#F5525D"
                                  <%end %>>
                             
