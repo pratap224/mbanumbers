@@ -4,6 +4,7 @@ class ChangeDatatypeToMembers < ActiveRecord::Migration
 
 
 change_column :members, :gmat_score, :integer
+change_column :members, :experience, :string
 
 
   end

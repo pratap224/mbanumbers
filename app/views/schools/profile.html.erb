@@ -64,7 +64,7 @@
 	<%= form_tag schools_create_path, :class => 'gdlr-lms-form' do |f| %>
 	<div class="eight columns">
 		
-		<div style="margin-left:1px;margin-right:1px">
+		<div style="margin-left:20px;margin-right:1px">
 			<div class="six columns">
 				<div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;
 ">
@@ -89,14 +89,12 @@
 			</div>
 			<div class="clear"></div>
 			<div class="six columns">
-				<div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;
-">
+				<div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;">
 				<span class="gdlr-lms-form" >
 				
 				<p>Choose a University*</p>
 						<span class="gdlr-lms-combobox" >
-							<select name="university" id="school" style="width: 267px;
-">
+					<select name="university" id="school" style="width: 267px;">
 							<option value="">-----------Select University----------</option>
 							<% @school_name.each do |sn| %>
 								 <option value="<%= sn.university	  %>">
@@ -205,7 +203,7 @@
 				</div> -->
 				<div class="four columns">
 					
-					<p style="margin-bottom:0px">Received</p>
+					<p style="margin-bottom:0px">Date Applied</p>
 					<input type="date" name="received" id="interviewdate"  placeholder="mm/dd/yyyy" style="width: 198px;">
 					
 				</div>
@@ -222,18 +220,21 @@
 				</div> -->
 				<div class="four columns">
 					
-					<p style="margin-bottom:0px">Decision</p>
+					<p style="margin-bottom:0px">Date Descision Recived</p>
 					<input type="date" name="descion" id="interviewdate" value="" style="width: 198px;">
 					
 				</div>
 			</div>
 			<div class="clear"></div>
 		</div>
-		<hr>
-		<div class="twelve columns" style="text-align:center; margin-top: 9px;">
+		</div>
+		
+		<div class="gdlr-lms-content" style="margin-left: -666px;">
+		<div class="twelve columns" style="text-align:center;align:left margin-top: 9px;">
 			<input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application" onclick="return validate();"/>
-			<b style="position: absolute;top:12px;">(or)</b> &nbsp
-			<button class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-left: 25px;margin-top:10px"><a href="<%=profile_index_path %>" style='color:inherit'>Cancel</a></button>
+			 &nbsp
+			<button class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-top:10px"><a href="<%=profile_index_path %>" style='color:inherit'>Cancel</a></button>
+		</div>
 		</div>
 		<% end -%>
 		
@@ -246,5 +247,5 @@
 </div>
 <div class="clear"></div>
 <div class="clear"></div>
-</div>
+
 </div>

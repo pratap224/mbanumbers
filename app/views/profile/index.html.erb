@@ -48,7 +48,7 @@
                             <ul>
                                 <li><i class="icon-envelope-alt" style="color: black; font-size: 16px; "></i><a href="<%= mailboxes_mailbox_path %>">Mailbox</a></li>
                                 <li><i class="icon-location-arrow" style="color: black; font-size: 16px;"></i><a href="<%= mailboxes_newest_path %>">Send Message</a></li>
-                                <li><i class="icon-ok" style="color: black; font-size: 16px; "></i><a href="<%= schools_profile_path %>">Add School</a></li>
+                                <li><i class="icon-plus-sign" style="color: black; font-size: 16px; "></i><a href="<%= schools_profile_path %>">Add School</a></li>
                                 <!-- <li><a href="#">View Profile</a><img src="images/profile-list_pics_20.png" alt=""></li> -->
                                 <li><i class="icon-search" style="color: black; font-size: 16px;"></i><a href="<%= profile_bookmarklist_path %>">Bookmark List</a></li>
                                 <li><i class="icon-edit" style="color: black; font-size: 16px;"></i><a href="<%=profile_edit_path %>">Edit Profile</a></li>
@@ -119,18 +119,19 @@
                                
                             </div><!--profile_search_blog_rgt-->
                         </div><!--profile_search_blog-->
+                      
                         <div class="home_town_blog">
-
+                              <div class="eight columns">
                             <p style="color: black;font-size: 23px;"><%=current_user.gpa %> <br> <%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
                             <dl class="dl-horizontal">
                         <dt style="color:black">Hometown:</dt>
                         <dd><%=current_user.hometown %></dd>
                         <dt style="color:black">Undergraduate:</dt>
                         <dd><%=current_user.undergraduate_school %></dd>
-                        <dt style="color:black">Work Experience:   </dt>
+                        <dt style="color:black">Work Experience and <br> Other Information:   </dt>
 
-                        <dd><%if current_user.experience.nil?  %>0(in months)
-                        <%else %><%=current_user.experience %>(in months) <%end %>
+                        <dd><%if current_user.exp.nil?  %>0(in months)
+                        <%else %><%=current_user.exp %> <%end %>
                         </dd>
                         <dt style="color:black;">Status:</dt>
                        
@@ -142,7 +143,7 @@
                          <%# @slogo=School.find_by_business_school(current_user.commitschool) %>
                                 <!-- <img alt="Icon" src="<%#=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" /> --> <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
                          <% else %>
-                           open
+                           OPEN
                         <% end %>
 
                         </dd>
@@ -152,16 +153,37 @@
                             
                              <!--home_town_text-->
     
-                        </div><!--home_town_blog-->
+                        </div>
+                        <div class="three columns">
+                          <div class="well" style="overflow-y: scroll;height: 150px;">
+                          <p style="text-align: center;background-color: wheat;color: black;">Bookmark List</p>
+                          <% @allmember.each_with_index do |key, index| %>
+                          <% unless  @allmember.blank? %>
+
+              
+
+    
+                  <% @user_name= Member.find(key.bookmarkuserid) %>
+        <%= index+1 %>)  <a href="<%= static_profile_path(@user_name.username) %>"><%= @user_name.username %></a> <br> <%end %>
+          <%end %>
+
+                            
+                          </div>
+                        </div>
+
+
+                        <!--home_town_blog--></div>
                         <div class="profile_tbl">
                             <table>
                                 <tr>
                                     <th style="text-align: center;" >School</th>
-                            <th style="text-align: center;" >Scholarship($)</th>
+                            <th style="text-align: center;" >Scholarship <br> ($)</th>
                             <th style="text-align: center;">Status</th>
                             <th style="text-align: center;">Last Updated</th>
                             <th style="text-align: center;">Interview Date</th>
                             <th style="text-align: center;">Round Applied</th>
+                            <th style="text-align: center;">Date Applied</th>
+                            <th style="text-align: center;">Date Descision Recived</th>
                                 </tr>
                   <% @app_data.each_with_index do |ad , k | %>
                            
@@ -189,27 +211,44 @@
                             <%end %></td>
                             <td id="td" style="font-size:9px">
                             <% if ad.status == "Waitlisted" %>
-                                <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i>
-                                <%= ad.status %>
+                            <%= ad.status %>
+                                <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; text-ailgn:center "></i>
+                                
                                 <% elsif ad.status == "WL, Rejected" || ad.status == "Rejected"%>
-                                <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white"></i><%= ad.status %>
+                                <%= ad.status %>
+                                <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white;text-ailgn:center "></i>
                                 <% elsif ad.status == "Accepted" %>
-                                  <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+                                <%= ad.status %>
+                                  <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px;text-ailgn:center  "></i>
                                 <% elsif ad.status == "WL, Accepted" %>
-                                    <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+                                <%= ad.status %>
+                                    <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px;text-ailgn:center  "></i>
                                     <% elsif ad.status == "Rejected" %>
-                                  <i class="gdlr-icon icon-remove" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+                                    <%= ad.status %>
+                                  <i class="gdlr-icon icon-remove" style="color: #91d549; font-size: 16px;text-ailgn:center  "></i>
                                 <% else %>
-                                    <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= ad.status %>
+                                <%= ad.status %>
 
+                                    <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px;text-ailgn:center  "></i>
                                 
                             <% end %>
                                 </td>
                             <td id="td"  style="font-size:9px"><%= ad.updated_at.strftime("%d-%m-%Y") %>
                             </td>
-                            <td id="td" style="font-size:9px"><%=ad.interviewdate %>
+                            <td id="td" style="font-size:9px">
+                            <%= ad.interviewdate.strftime("%d-%m-%Y") %> 
                             </td>
+
                             <td id="td"><%=ad.choice %></td>
+                             <td id="td" style="font-size:9px">
+                              <%= ad.received.strftime("%d-%m-%Y") %> 
+
+
+                             
+                              <td id="td" style="font-size:9px">
+                               <%= ad.descion.strftime("%d-%m-%Y") %> 
+
+                            
                             
                             </tr>
                             

@@ -25,7 +25,8 @@
 	<%= form_for @app_data, :url => { :action => 'update'}, html: {class: 'gdlr-lms-form'} do |f| %>
 	<div class="eight columns">
 		
-		<div style="margin-left:1px;margin-right:1px">
+		<div style="margin-right:1px;margin-left: 20px;
+">
 			<div class="six columns">
 				<div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;
 ">
@@ -115,7 +116,7 @@
 	}          
 </script>
 				</div>
-				<div class="three columns" >
+				<!-- <div class="three columns" >
 					<p style="margin-bottom:0px">Application Type</p>
 					<span class="gdlr-lms-combobox" style="width: 158px;">
 							<select name="application_type" id="application_type">
@@ -140,7 +141,7 @@
 		}
 	}          
 </script>
-				</div>
+				</div> -->
 				<div class="three columns">
 					<p style="margin-bottom:0px">Program</p>
 					<span class="gdlr-lms-combobox" style="width: 158px;">
@@ -208,14 +209,14 @@
 					</script>				
 					</span>
 				</div>
-				<div class="four columns">
+				<!-- <div class="four columns">
 					
 					<p>Seat</p>
 					<input type="text" name="seat" style="width: 198px;" value="<%= @app_data.seat %>">					
-				</div>
+				</div> -->
 				<div class="four columns">
 					
-					<p>Received</p>
+					<p>Date Applied</p>
 					<input type="date" name="received" id="interviewdate" style="width: 198px;" value="<%= @app_data.received %>">
 					
 				</div>
@@ -224,15 +225,15 @@
 					<p>Scholarship</p>
 					<input type="text" name="scholarship" style="width: 198px;" placeholder='$' value="<%= @app_data.scholarship %>">
 				</div>
-				<div class="four columns">
+				<!-- <div class="four columns">
 					
 					<p>Complete</p>
 					<input type="date" name="complete" id="interviewdate" style="width: 198px;" value="<%= @app_data.received  %>">
 					
-				</div>
+				</div> -->
 				<div class="four columns">
 					
-					<p>Descion</p>
+					<p>Date Descision Received</p>
 					<input type="date" name="descion" id="interviewdate" style="width: 198px;" value="<%= @app_data.descion %>">
 					
 				</div>
@@ -240,13 +241,15 @@
 			<div class="clear"></div>
 		</div>
 		<hr>
-		<div class="twelve columns" style="text-align:center;margin-top: 9px;">
-			<input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Update Application"/>
-			<b style="position: absolute;top:12px;">(or)</b> &nbsp
-			<input type="reset" class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-left: 25px;margin-top:10px" value="cancel"/>
+		
+		<div class="twelve columns" style="margin-top: 9px;">
+			<input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6;font-size: 10px; " value="Update Application"/>
+			
+			 &nbsp
+			<input type="reset" class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-top:10px; font-size: 10px;" value="cancel"/>
 		</div>
 		<% end -%>
-		
+	
 		<div class="clear"></div>
 	
 	

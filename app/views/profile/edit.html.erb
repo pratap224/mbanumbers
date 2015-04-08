@@ -38,10 +38,12 @@
             <%= text_field_tag 'member[gpa]' , current_user.gpa ,placeholder: 'GPA ' %></dd>
             <dt>GMAT Score</dt>
             <dd><%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></dd>
-            <dt>Status</dt>
-            <dd>
+            <dt>Work Experience and <br> Other Information</dt>
+            <dd><%= text_field_tag 'member[exp]' , current_user.experience,placeholder: 'Work Experience' %></dd>
+            <!-- <dt>Status</dt> -->
+            <!-- <dd>
            
-            <%=select_tag 'member[status]', options_for_select([ "Commited", "Open" ]), :style => 'width: 356px;height: 44px;background-color: white;color: #B3ACAC;' %>
+            <%#=select_tag 'member[status]', options_for_select([ "Commited", "Open" ]), :style => 'width: 356px;height: 44px;background-color: white;color: #B3ACAC;' %>
             
 
 
@@ -56,8 +58,8 @@
                         }          
             </script>
             
-            </dd>
-            <div style="display:none;" id="undergrad">
+            </dd> -->
+            <!-- <div style="display:none;" id="undergrad">
             <dt>Undergraduate</dt>
             <dd>
                
@@ -65,7 +67,7 @@
                 <%= text_field_tag 'member[school]' ,current_user.school, placeholder: 'Undergraduate',:required => "true"%>
             
             </dd>
-            </div>
+            </div> -->
             
         
             

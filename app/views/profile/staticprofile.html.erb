@@ -95,10 +95,9 @@
                         <dd><%= @user.hometown %></dd>
                         <dt style="color:black">Undergraduate:</dt>
                         <dd><%= @user.undergraduate_school %></dd>
-                        <dt style="color:black">Work Experience:   </dt>
-
-                        <dd><%if @user.experience.nil?  %>0(in months)
-                        <%else %><%=@user.experience %>(in months) <%end %>
+                        <dt style="color:black">Work Experience and <br> Other Information:   </dt>                       <dd>
+                        <%if @user.exp.nil?  %>0(in months)
+                        <%else %><%=@user.exp %><%end %>
                         </dd>
                         <dt style="color:black">Status:</dt>
                         <dd> 
@@ -108,7 +107,7 @@
                         To <%# @slogo=School.find_by_business_school(@user.commitschool) %>
                                 <!-- <img alt="Icon" src="<%#=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" /> --> <%=@user.commitschool %>  On <%= @user.updated_at.strftime("%d-%m-%Y")  %>
                             <% else %>
-                            open
+                            OPEN
                         <% end %>
 
                         </dd>
@@ -129,6 +128,8 @@
                             <th style="text-align: center;">Last Updated</th>
                             <th style="text-align: center;">Interview</th>
                             <th style="text-align: center;">Round Applied</th>
+                            <th style="text-align: center;">Date Applied</th>
+                            <th style="text-align: center;">Date Descision Recived</th>
                                 </tr>
                                 <% @lists.each do |f| %>
                             <tr <% if f.status== "Accepted"  %> style = "background-color:#2267CA" <% elsif f.status=="Rejected" %> 
@@ -141,27 +142,38 @@
                                 <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
                             </div><%=f.school %> <br></td>
                             <td id="td">$<%=f.scholarship %></td>
-                            <td id="td" style="font-size:9px">
+                            <td id="td" style="font-size:10px">
                             <% if f.status == "Waitlisted" %>
-                                <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= f.status %>
-                                <% elsif f.status == "WL, Rejected" || f.status == "Rejected"%>
-                                <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white"></i><%= f.status %>
+                            <%= f.status %>
+                                <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i>
+                                <% elsif f.status == "WL, Rejected" || f.status == "Rejected"%><%= f.status %>
+                                <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white"></i>
                                 <% elsif f.status == "Accepted" %>
+                                <%= f.status %>
                                   <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= f.status %>
                                 <% elsif f.status == "WL, Accepted" %>
+                                <%= f.status %>
                                     <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= f.status %>
                                     <% elsif f.status == "Rejected" %>
+                                    <%= f.status %>
                                   <i class="gdlr-icon icon-remove" style="color: #91d549; font-size: 16px; "></i><%= f.status %>
                                 <% else %>
-                                    <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= f.status %>
+                                    <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i>
 
                                 
                             <% end %>
                                 </td> 
-                            <td id="td" style="font-size:9px;" ><%= f.updated_at.strftime("%d-%m-%Y") %>
+                            <td id="td" style="font-size:10px;" ><%= f.updated_at.strftime("%d-%m-%Y") %>
                             </td>
-                            <td id="td" style="font-size:9px"><%=f.interviewdate %></td>
+                            <td id="td" style="font-size:10px"><td id="td" style="font-size:10px;" ><%= f.interviewdate.strftime("%d-%m-%Y") %>
+                            </td>
                             <td id="td"><%=f.choice %></td>
+                            <td id="td" style="font-size:10px">
+                            <%= f.received.strftime("%d-%m-%Y") %></td>
+                            
+                              <td id="td" style="font-size:10px">
+                              <%= f.descion.strftime("%d-%m-%Y") %></td>
+                             
                             
                             </tr>
                             <%end %>
@@ -203,9 +215,9 @@
                     </div><!--profile_blog_mid_rgt-->
                 </div><!--profile_blog_mid-->
                 
-                <div class="profile_blog_rgt">
-                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                </div><!--profile_blog_rgt-->
+                <!-- <div class="profile_blog_rgt">
+                <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div> --><!--profile_blog_rgt-->
             </div><!--profile_blog-->
             <div class="clear"></div>
         </div><!--mid_wrap-->
