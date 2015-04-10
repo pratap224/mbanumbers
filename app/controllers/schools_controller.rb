@@ -54,6 +54,10 @@ class SchoolsController < ApplicationController
 
   def destroy
     @app_data = Application.find(params[:id])
+    binding.pry
+    if @app_data.school==current_user.commitschool
+      current_user
+    end
     @app_data.destroy
     redirect_to profile_index_path
   end

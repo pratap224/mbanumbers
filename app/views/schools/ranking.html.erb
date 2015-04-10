@@ -28,8 +28,8 @@
 			<table class="style-1">
 				<tbody>
 				<tr>
-				<th id="th">Icon</th>
-				<th id ="th">Business School</th>
+				<th id="th" style="border-right:none">Icon</th>
+				<th id ="th" style="border-left:none">Business School</th>
 				<th id ="th">University</th>
 				<th id ="th">State</th>
 				<th id ="th">City</th>
@@ -39,9 +39,9 @@
 				</tr>
 				<% @schools.each do |t| %>
 					<tr>
-					<td><img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
+					<td style="border-right:none"><img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 60px; height: 41px;" />
 					</td>
-					<td> <a href="<%= school_appinfo_path(t.business_school) %>" style="color:#453232;">
+					<td style="border-left:none"> <a href="<%= school_appinfo_path(t.business_school) %>" style="color:#453232;">
 									<%= t.business_school%>
 									</a> </td>
 					<td style="color:#453232;"> <%=t.university %></td>

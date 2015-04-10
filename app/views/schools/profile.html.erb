@@ -20,18 +20,25 @@
 	function validate()
 	{
 
+
 		var school= document.getElementById('school').value; 
-		// alert(school);
-		// return false;
+		var university= document.getElementById('university').value;
 		var status= document.getElementById('status').value;
-		var application=document.getElementById('application_type').value;
-		
-		var scholarship=document.getElementById('scholarship').value;
+		var program=document.getElementById('program').value;
+		// var interviewdate=document.getElementById('interviewdate').value;
+		var received=document.getElementById('received').value;
+		// var descion=document.getElementById('descion').value;
 		
 		if(school == "")
 		{
+			
 			document.getElementById('error').innerHTML="Please Select The School";
 			// document.getElementById('school').focus();
+			return false;
+		}
+		else if(university == "")
+		{
+			document.getElementById('error').innerHTML="Please Select The University"
 			return false;
 		}
 		else if(status == "")
@@ -40,19 +47,31 @@
 			// document.getElementById('status').focus();
 			return false;
 		}
-		else if(application == "")
+		else if(program == "")
 		{
-		 document.getElementById('error').innerHTML="Please Select Application Type";
+		 
+		   document.getElementById('error').innerHTML="Please Select The Program";
 		 	// document.getElementById('application_type').focus();
 			return false;
 		}
-		else if(scholarship == "")
+		// else if(interviewdate == "")
+		// {
+		// 	document.getElementById('error').innerHTML="Please Select interviewdate";
+		//  	// document.getElementById('application_type').focus();
+		// 	return false;
+		// }
+		else if(received == "")
 		{
-			document.getElementById('error').innerHTML="Please Enter The Schoolarship";
+			document.getElementById('error').innerHTML="Please Select DateApplied";
+		 	// document.getElementById('application_type').focus();
 			return false;
 		}
-		return true;
-	
+		// else if(descion == "")
+		// {
+		// 	document.getElementById('error').innerHTML="Please Select Date Descision Recived";
+		//  	// document.getElementById('application_type').focus();
+		// 	return false;
+		// }
 	}
 </script>
 
@@ -94,7 +113,7 @@
 				
 				<p>Choose a University*</p>
 						<span class="gdlr-lms-combobox" >
-					<select name="university" id="school" style="width: 267px;">
+					<select name="university" id="university" style="width: 267px;">
 							<option value="">-----------Select University----------</option>
 							<% @school_name.each do |sn| %>
 								 <option value="<%= sn.university	  %>">
@@ -150,7 +169,7 @@
 					<p style="margin-bottom:0px">Program</p>
 					<span class="gdlr-lms-combobox" style="width: 158px;">
 							<select name="program" id="program">
-								<option value="text">-Select-</option>
+								<option value="">-Select-</option>
 								<option value="Full Time">Full Time</option>
 								<option value="Part Time">Part Time</option>
 						
@@ -204,7 +223,7 @@
 				<div class="four columns">
 					
 					<p style="margin-bottom:0px">Date Applied</p>
-					<input type="date" name="received" id="interviewdate"  placeholder="mm/dd/yyyy" style="width: 198px;">
+					<input type="date" name="received" id="received"  placeholder="mm/dd/yyyy" style="width: 198px;">
 					
 				</div>
 				<div class="clear"></div>
@@ -221,7 +240,7 @@
 				<div class="four columns">
 					
 					<p style="margin-bottom:0px">Date Descision Recived</p>
-					<input type="date" name="descion" id="interviewdate" value="" style="width: 198px;">
+					<input type="date" name="descion" id="descion" value="" style="width: 198px;">
 					
 				</div>
 			</div>

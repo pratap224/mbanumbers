@@ -54,8 +54,8 @@
 			<table class="style-1">
 				<tbody>
 				<tr>
-				<th id="th">Icon</th>
-				<th id ="th">Business School</th>
+				<th id="th" style="border-right:none"></th>
+				<th id ="th" style="border-left:none">Business School</th>
 				<th id ="th">University</th>
 				<th id ="th">State</th>
 				<th id ="th">City</th>
@@ -65,9 +65,9 @@
 				</tr>
 				<% @schools.each do |t| %>
 					<tr>
-					<td><img alt="Icon" src="<%= t.image.thumb('300x300').url %>" style="width: 60px; height: 20px;" />
+					<td style="border-right:none"><img alt="Icon" src="<%= t.image.thumb('300x300').url %>" style="width: 60px; height: 41px;"  />
 					</td>
-					<td style="color:#453232;"> <%= t.business_school %> </td>
+					<td style="color:#453232;border-left:none"> <%= t.business_school %> </td>
 					<td style="color:#453232;"> <%=t.university %></td>
 					<td style="color:#453232;"><%= State.find_by_id(t.state_id).name%></td>
 					<td style="color:#453232;"><%=t.city %></td>

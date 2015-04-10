@@ -40,18 +40,7 @@
                     <i class="icon-remove" style="color:#d55949; font-size: 14px;margin-left: 200px; "></i>
                 </a>
                 <%end %>
-
-
-
-
-
-
-
-
-
-
-                                
-                                </li>
+                </li>
                                 <!-- <li><a href="#">Edit Profile</a><i class="icon-edit" style="color: black; font-size: 16px; margin-left: 121px;"></i></li> -->
                                 <!-- <li><a href="<%= mailboxes_mailbox_path %>">Mail Box</a><i class="icon-envelope" style="color: black; font-size: 16px; margin-left: 137px;"></i></li> -->
                             </ul>
@@ -165,16 +154,24 @@
                                 </td> 
                             <td id="td" style="font-size:10px;" ><%= f.updated_at.strftime("%d-%m-%Y") %>
                             </td>
-                            <td id="td" style="font-size:10px"><td id="td" style="font-size:10px;" ><%= f.interviewdate.strftime("%d-%m-%Y") %>
+                            <td id="td" style="font-size:10px"><td id="td" style="font-size:10px;" >
+                            <%if f.interviewdate.nil? %>
+                            <%="--" %>
+                            <%else %>
+                            <%= f.interviewdate.strftime("%d-%m-%Y") %> 
+                           <%end %>
                             </td>
                             <td id="td"><%=f.choice %></td>
                             <td id="td" style="font-size:10px">
                             <%= f.received.strftime("%d-%m-%Y") %></td>
                             
                               <td id="td" style="font-size:10px">
+                              <%if f.descion.nil? %>           
+                               Not Decided
+                               <%else %>
                               <%= f.descion.strftime("%d-%m-%Y") %></td>
                              
-                            
+                            <%end %>
                             </tr>
                             <%end %>
                             </table>

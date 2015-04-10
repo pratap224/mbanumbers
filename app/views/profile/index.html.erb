@@ -122,16 +122,26 @@
                       
                         <div class="home_town_blog">
                               <div class="eight columns">
-                            <p style="color: black;font-size: 23px;"><%=current_user.gpa %> <br> <%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
+                            <p style="color: black;font-size: 23px;"><%=(current_user.gpa*100).round(1)/100 %> <br> <%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
                             <dl class="dl-horizontal">
                         <dt style="color:black">Hometown:</dt>
                         <dd><%=current_user.hometown %></dd>
                         <dt style="color:black">Undergraduate:</dt>
                         <dd><%=current_user.undergraduate_school %></dd>
-                        <dt style="color:black">Work Experience and <br> Other Information:   </dt>
+                        <dt style="color:black">
+               
 
-                        <dd><%if current_user.exp.nil?  %>0(in months)
-                        <%else %><%=current_user.exp %> <%end %>
+
+                        Work Experience and <br> Other Information:   </dt>
+
+                        <dd>
+                        <%# binding.pry %>
+                        <%if current_user.exp.blank?  %>
+                         <%="--" %>
+                        <%else %> 
+                            
+                        <%=current_user.exp %>
+                        <%end %>
                         </dd>
                         <dt style="color:black;">Status:</dt>
                        
@@ -140,8 +150,9 @@
                          <% unless current_user.commitschool.nil? %>  
                         <%#binding.pry %>
                          Commited To
-                         <%# @slogo=School.find_by_business_school(current_user.commitschool) %>
-                                <!-- <img alt="Icon" src="<%#=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" /> --> <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
+                         
+                        <%# @slogo=School.find_by_business_school(current_user.commitschool) %>
+                               <!--  <img alt="Icon" src="<%#=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" /> --> <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
                          <% else %>
                            OPEN
                         <% end %>
@@ -164,7 +175,10 @@
 
     
                   <% @user_name= Member.find(key.bookmarkuserid) %>
-        <%= index+1 %>)  <a href="<%= static_profile_path(@user_name.username) %>"><%= @user_name.username %></a> <br> <%end %>
+        <%= index+1 %>)  <a href="<%= static_profile_path(@user_name.username) %>"><%= @user_name.username %></a> <br>
+        <%else %>
+        <%="No Bookmarklists" %>
+         <%end %>
           <%end %>
 
                             
@@ -193,6 +207,7 @@
                             
                             <td id ="td" style="font-size:12px">
                           <div class="floatleft school-logo" style="margin-right:12px">
+                          <%#binding.pry %>
                                 <% @slogo=School.find_by_business_school(ad.school) %>
                                 <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
                             </div><%= ad.school %>- <%=ad.university %> <br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
@@ -233,21 +248,36 @@
                                 
                             <% end %>
                                 </td>
+
                             <td id="td"  style="font-size:9px"><%= ad.updated_at.strftime("%d-%m-%Y") %>
                             </td>
                             <td id="td" style="font-size:9px">
+                            <%if ad.interviewdate.nil? %>
+                            <%="--" %>
+                            <%else %>
                             <%= ad.interviewdate.strftime("%d-%m-%Y") %> 
+                            <%end %>
                             </td>
 
                             <td id="td"><%=ad.choice %></td>
                              <td id="td" style="font-size:9px">
+                              <%if ad.received.nil? %>
+                              <%="--" %>
+                              <%else %>
+
                               <%= ad.received.strftime("%d-%m-%Y") %> 
+                              <%end %>
+                             <%#binding.pry %></td>
 
-
-                             
+                           
                               <td id="td" style="font-size:9px">
-                               <%= ad.descion.strftime("%d-%m-%Y") %> 
-
+                                         <%if ad.descion.nil? %>           
+                               Not Decided
+                               <%else %>
+                              
+                                <%= ad.descion.strftime("%d-%m-%Y") %>
+                               <%end %> 
+                                          </td>
                             
                             
                             </tr>
@@ -256,15 +286,15 @@
                             </table>
                             
                         </div><!--profile_tbl-->
-                        <div id="comments" class="gdlr-comments-area">
+                        <!-- <div id="comments" class="gdlr-comments-area">
                         <h3 class="comments-title"><%=@comments.count %> Responses</h3>
-                        <%@comments.each do |c| %>
-                        <%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
-                            <%end %>
+                        <%#@comments.each do |c| %>
+                        <%#= render :partial => 'profile/comment', :locals => { :mydata => c } %>
+                            <%#end %>
                         <!-- .commentlist -->
                         <!-- #respond -->
 
-                    </div>
+                    </div> 
                         
                     </div><!--profile_blog_mid_rgt-->
                 </div><!--profile_blog_mid-->
@@ -281,7 +311,7 @@
                 </div>
     </div><!--wraper-->
     <div class="clear"></div>
-
+<div class="gdlr-item gdlr-divider-item"></div>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
