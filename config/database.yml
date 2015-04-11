@@ -8,7 +8,7 @@
  
 development:
   adapter: postgresql
-  database: refmbanumbers
+  database: mbanumbers	
   host: localhost 
   username: postgres
   password: media3

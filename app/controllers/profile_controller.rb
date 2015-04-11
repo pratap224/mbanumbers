@@ -149,7 +149,7 @@ before_action :check_session, :only => [:login, :create]
   end
   def update
     
-    update=current_user.update(:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:member][:undergraduate_school], :year => params[:date][:year], :status => params[:member][:status], :school => params[:member][:school],:exp => params[:member][:exp])
+    update=current_user.update(:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:member][:undergraduate_school], :year => params[:date][:year], :status => params[:member][:status],:exp => params[:member][:exp])
     if update
       flash[:success]="Profile has been changed sucessfully"
       redirect_to profile_index_path

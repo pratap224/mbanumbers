@@ -62,6 +62,7 @@
     <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true     %>
     <script>
         $(function() {
+
         $(window).scroll(function() {    
             var scroll = $(window).scrollTop();
 
@@ -71,16 +72,22 @@
                 $(".gdlr-header-inner").removeClass("gdlr-header-fixed");
             }
         });
+
         });
     </script>
     <% [:notice, :error, :success, :warning].each do |n| %>
         <%if flash[n] %>
-            <script>var n = noty({text: '<%= flash[n] %>',type: '<%=n%>', layout: 'topRight',animation: {
+            <script>
+            var n = noty({text: '<%= flash[n] %>',type: '<%=n%>', layout: 'topRight',animation: {
             open: 'animated bounceInLeft', // Animate.css class names
             close: 'animated bounceOutLeft', // Animate.css class names
             easing: 'swing', // unavailable - no need
             speed: 500
-            }});  </script>
+            
+            }});  
+            
+
+            </script>
         <%end %>
     <%end%>
     <%unless flash['model_errors'].nil? %>
@@ -91,6 +98,7 @@
                 close: 'animated bounceOutRight', // Animate.css class names
                 easing: 'swing', // unavailable - no need
                 speed: 500 // unavailable - no need
+                closeWith: ['backdrop']
                 }});  </script>
             <%end%>
         <%end%>
@@ -113,6 +121,8 @@
         $('.mtbtn').click(function(){
             $('.gdlr-lms-lightbox-wrapper').show()
         })
+
+
         
         </script>
         <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>

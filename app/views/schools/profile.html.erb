@@ -72,6 +72,7 @@
 		//  	// document.getElementById('application_type').focus();
 		// 	return false;
 		// }
+		return true;
 	}
 </script>
 
@@ -116,13 +117,26 @@
 					<select name="university" id="university" style="width: 267px;">
 							<option value="">-----------Select University----------</option>
 							<% @school_name.each do |sn| %>
-								 <option value="<%= sn.university	  %>">
+								 <option value="<%= sn.university %>">
 										<%= sn.university  %>
 								 </option>
 							<% end %>
 								  
 							</select>
 						</span>
+				</span>
+				
+				</div>
+			</div>
+			<div class="six columns">
+				
+				<span class="gdlr-lms-form" >
+				
+			<p>InterView*</p>
+						
+		<input type="radio" name="interview" id="intqyes" value="yes">&nbspyes
+		<input type="radio" name="interview" id="intqno" style="margin-left:10px;" value="no">&nbspNo
+						
 				</span>
 				
 				</div>
@@ -177,7 +191,7 @@
 						</span>
 				</div>
 				
-				<div class="three columns" >
+				<div class="three columns" style="display:none;" id="intdate">
 					
 						<p style="margin-bottom:0px">Interview Date</p>
 					 
@@ -268,3 +282,17 @@
 <div class="clear"></div>
 
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$('#intqyes').click(function(){
+	    
+	        $('#intdate').css('display','block');
+	        
+	    
+	    
+	});
+	$('#intqno').click(function(){
+	    
+	    $('#intdate').css('display','none');
+	});
+</script>

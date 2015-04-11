@@ -86,6 +86,19 @@
 				
 				</div>
 			</div>
+		<div class="six columns">
+				
+				<span class="gdlr-lms-form" >
+				
+			<p>InterView*</p>
+						
+<input type="radio" name="interview" id="intqyes" value="yes" <% if @app_data.interview =="yes"  %> <%= "checked==checked" %> <% end %> >&nbspyes
+<input type="radio" name="interview" id="intqno" style="margin-left:10px;" value="no" <% if @app_data.interview =="no"  %> <%= "checked==checked" %> <% end %> >&nbspNo
+						
+				</span>
+				
+				</div>
+			</div>
 		</div>
 		<div style="margin-left:1px;margin-right:1px; padding:17px">
 			<div class="twelve columns">
@@ -163,7 +176,7 @@
 					</script>
 				</div>
 				
-				<div class="three columns" >
+				<div class="three columns" style="display:none;" id="intdate">
 					
 						<p style="margin-bottom:0px">Interview Date</p>
 					 <input type="date" name="interviewdate" id="interviewdate" style="width: 198px;" placeholder="mm/dd/yyyy" value="<%= @app_data.interviewdate %>">
@@ -261,3 +274,25 @@
 <div class="clear"></div>
 </div>
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$('#intqyes').click(function(){
+	    
+	        $('#intdate').css('display','block');
+	        
+	    
+	    
+	});
+	$('#intqno').click(function(){
+	    
+	    $('#intdate').css('display','none');
+	});
+
+	<% if @app_data.interview =="yes"  %> 
+		$('#intdate').css('display','block');
+	<% end %>
+	<% if @app_data.interview =="no"  %> 
+		$('#intdate').css('display','none');
+	<% end %>
+
+</script>

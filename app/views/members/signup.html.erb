@@ -16,7 +16,7 @@ end
                     <div class="profile_search_blog">
 
 
-                    <%=form_for @user, :url => {:action => 'create'},:html => {:class => "gdlr-lms-form"} do |f| %>
+<%=form_for @user, :url => {:action => 'create'},:html => {:class => "gdlr-lms-form"} do |f| %>
         <dl class="dl-horizontal">
             <dt> Full Name*</dt>
             <dd><%= text_field_tag 'member[name]' , "",placeholder: 'Name' %></dd>
@@ -41,7 +41,8 @@ end
             <dt style="width: 172px;">Undergraduate*</dt>
             <dd style="margin-top:17px;">
            
-        <%= text_field_tag 'member[undergraduate_school]' , "",placeholder: 'Undergraduate' %>
+    <%= text_field_tag 'member[undergraduate_school]' , "",placeholder: 'Undergraduate' %>
+
            
             </dd>
             </div>
@@ -53,6 +54,7 @@ end
            
             </dd>
             </div>
+            <div style="display:none" id="year">
             <dt style="width: 172px";>Undergraduate Year*</dt>
 
             <dd>
@@ -61,6 +63,7 @@ end
                 
             </span>
             </dd>
+            </div>
             <dt>GPA</dt>
                 <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></dd>
             <dt>GMAT Score</dt>
@@ -149,6 +152,7 @@ $('#question').click(function(){
     var a=$("#question").val();
         $('#stated').css('display','block');
         $('#schoold').css('display','none');
+        $('#year').css('display','block');
     
     
 });
@@ -157,6 +161,7 @@ $('#question1').click(function(){
     var b=$("#question1").val();
     $('#schoold').css('display','block');
     $('#stated').css('display','none');
+    $('#year').css('display','block');
     
 });
 </script>
