@@ -16,7 +16,7 @@ end
                     <div class="profile_search_blog">
 
 
-<%=form_for @user, :url => {:action => 'create'},:html => {:class => "gdlr-lms-form"} do |f| %>
+                    <%=form_for @user, :url => {:action => 'create'},:html => {:class => "gdlr-lms-form"} do |f| %>
         <dl class="dl-horizontal">
             <dt> Full Name*</dt>
             <dd><%= text_field_tag 'member[name]' , "",placeholder: 'Name' %></dd>
@@ -28,7 +28,7 @@ end
             <dd><%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></dd>
             <dt>Hometown</dt>
             <dd><%= text_field_tag 'member[hometown]' , "",placeholder: 'Hometown' %></dd>
-             <dt ><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
+            <dt ><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
             <dd>
                         
         <input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;"> Yes
@@ -37,24 +37,32 @@ end
             </dd>
             <div style="display:none;" id="stated">
             <dt style="width: 172px;margin-top: 10px;">State</dt>
-            <dd style="margin-top: 37px;"><%= text_field_tag 'member[state]' , "",placeholder: 'State' %></dd>
-            <dt style="width: 172px;">Undergraduate*</dt>
-            <dd style="margin-top:17px;">
-           
-    <%= text_field_tag 'member[undergraduate_school]' , "",placeholder: 'Undergraduate' %>
-
-           
-            </dd>
+            <dd style="margin-top: 37px;"><span class="gdlr-lms-combobox" >
+    <select name="state" id="state">
+                        <option value="">-----------Select State----------</option>
+                        <% @state.each do |s| %>
+                          <option value="<%= s.id %>"><%= s.states %></option>  
+                        <% end %>
+                                  
+                    </select>
+                        </span></dd>
+            <dt style="width: 172px;">Undergraduate School*</dt>
+            <dd><span class="gdlr-lms-combobox" >
+            <select name="undergraduate_school" id="undergraduate_school">
+                <option value="">-----------Select School----------</option>
+                   
+            </select>
+            
+                        </span></dd>
             </div>
             <div style="display:none;" id="schoold">
-            <dt style="width: 172px;margin-top: 17px;">Undergraduate*</dt>
+            <dt style="width: 172px;margin-top: 17px;">Undergraduate School*</dt>
             <dd style="margin-top:17px;">
            
-        <%= text_field_tag 'school' , "",placeholder: 'Undergraduate' %>
+        <%= text_field_tag 'school' , "",placeholder: 'Undergraduate School' %>
            
             </dd>
             </div>
-            <div style="display:none" id="year">
             <dt style="width: 172px";>Undergraduate Year*</dt>
 
             <dd>
@@ -63,7 +71,6 @@ end
                 
             </span>
             </dd>
-            </div>
             <dt>GPA</dt>
                 <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></dd>
             <dt>GMAT Score</dt>
@@ -152,7 +159,6 @@ $('#question').click(function(){
     var a=$("#question").val();
         $('#stated').css('display','block');
         $('#schoold').css('display','none');
-        $('#year').css('display','block');
     
     
 });
@@ -161,7 +167,24 @@ $('#question1').click(function(){
     var b=$("#question1").val();
     $('#schoold').css('display','block');
     $('#stated').css('display','none');
-    $('#year').css('display','block');
     
 });
+
+$("#undergraduate_school").change(function(){
+
+    var a=$("#undergraduate_school").val();
+     if(a == "OTHER (MY SCHOOL IS NOT LISTED)")
+     {
+        $('#schoold').css('display','block');
+     }
+     else
+     {
+        $('#schoold').css('display','none');
+     }
+
+
+});
+
+
+
 </script>
