@@ -64,55 +64,46 @@
         });
         });
     </script>
-    <% [:notice, :error, :success, :warning].each do |n| %>
-        <%if flash[n] %>
-            <script>
-            var n = noty({text: '<%= flash[n] %>',type: '<%=n%>', layout: 'topRight',animation: {
-            open: 'animated bounceInLeft', // Animate.css class names
-            close: 'animated bounceOutLeft', // Animate.css class names
-            easing: 'swing', // unavailable - no need
-            speed: 500
-            }});  
-            noty({
-  
-                closeWith: []
-            });
-            </script>
-        <%end %>
-    <%end%>
-    <%unless flash['model_errors'].nil? %>
-        <%flash['model_errors'].each do |error| %>
-            <%error[1].each do |msg| %>
-                <script>var n = noty({text: '<%= error[0] %> <%= msg %>',type: 'error', layout: 'topRight',animation: {
-                open: 'animated bounceInRight', // Animate.css class names
-                close: 'animated bounceOutRight', // Animate.css class names
-                easing: 'swing', // unavailable - no need
-                speed: 500 // unavailable - no need
-                }});  </script>
-            <%end%>
-        <%end%>
-    <%end%>
-    <script type="text/javascript" language="javascript">
-        // function createlightbox()
-        // {
-        //     document.getElementById('light').style.display='block';
-        //     document.getElementById('fade').style.display='block'
-        // }
-        // function closelightbox()
-        // {
-        //     document.getElementById('light').style.display='none';
-        //     document.getElementById('fade').style.display='none'
-        // }
-
-        $('.gdlr-lms-lightbox-close').click(function(){
-            $('.gdlr-lms-lightbox-wrapper').hide()
-        })
-        $('.mtbtn').click(function(){
-            $('.gdlr-lms-lightbox-wrapper').show()
-        })
-        
-        
-        </script>
+     <% [:notice, :error, :success, :warning].each do |n| %>
+<%if flash[n] %>
+<script>var n = noty({text: '<%= flash[n] %>',type: '<%=n%>', layout: 'topRight',animation: {
+open: 'animated bounceInLeft', // Animate.css class names
+close: 'animated bounceOutLeft', // Animate.css class names
+easing: 'swing', // unavailable - no need
+speed: 500
+}}); </script>
+<%end %>
+<%end%>
+<%unless flash['model_errors'].nil? %>
+<%flash['model_errors'].each do |error| %>
+<%error[1].each do |msg| %>
+<script>var n = noty({text: '<%= error[0] %> <%= msg %>',type: 'error', layout: 'topRight',animation: {
+open: 'animated bounceInRight', // Animate.css class names
+close: 'animated bounceOutRight', // Animate.css class names
+easing: 'swing', // unavailable - no need
+speed: 500 // unavailable - no need
+}}); </script>
+<%end%>
+<%end%>
+<%end%>
+<script type="text/javascript" language="javascript">
+// function createlightbox()
+// {
+// document.getElementById('light').style.display='block';
+// document.getElementById('fade').style.display='block'
+// }
+// function closelightbox()
+// {
+// document.getElementById('light').style.display='none';
+// document.getElementById('fade').style.display='none'
+// }
+$('.gdlr-lms-lightbox-close').click(function(){
+$('.gdlr-lms-lightbox-wrapper').hide()
+})
+$('.mtbtn').click(function(){
+$('.gdlr-lms-lightbox-wrapper').show()
+})
+</script>
 <script type="text/javascript" language="javascript">
 $(function() {
     $(".owl-carousel").owlCarousel({

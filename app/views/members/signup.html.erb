@@ -38,17 +38,17 @@ end
             <div style="display:none;" id="stated">
             <dt style="width: 172px;margin-top: 10px;">State</dt>
             <dd style="margin-top: 37px;"><span class="gdlr-lms-combobox" >
-    <select name="state" id="state">
+    <select name="state" id="state" style="width: 780px;">
                         <option value="">-----------Select State----------</option>
                         <% @state.each do |s| %>
                           <option value="<%= s.id %>"><%= s.states %></option>  
                         <% end %>
                                   
-                    </select>
+    </select>
                         </span></dd>
             <dt style="width: 172px;">Undergraduate School*</dt>
             <dd><span class="gdlr-lms-combobox" >
-            <select name="undergraduate_school" id="undergraduate_school">
+            <select name="undergraduate_school" id="undergraduate_school" style="width: 783px;">
                 <option value="">-----------Select School----------</option>
                    
             </select>
@@ -75,6 +75,7 @@ end
                 <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></dd>
             <dt>GMAT Score</dt>
             <dd>
+            <span class="gdlr-lms-combobox" style="width: 150px;">
               <select name="member[gmat_score]">
                   <option value="">-----Select----</option>
                   <% addthree(800) do |n| %>
@@ -82,6 +83,7 @@ end
                   <% end %>
                 
               </select>
+              </span>
             </dd>
             <dt>Work Experience <br>   (in months)</dt>
             <dd><%= text_field_tag 'member[exp]' , "",placeholder: 'Work Experience' %></dd>

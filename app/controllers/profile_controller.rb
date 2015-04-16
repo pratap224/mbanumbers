@@ -13,7 +13,8 @@ before_action :check_session, :only => [:login, :create]
     @user = @q.result(distinct: true)
     @user=Member.new()
     @school_name=School.all
-    @state = State.all
+    @state = Ustate.all
+
     @comments = Comment.where('target_id=?',session[:user_id])
     @allmember=Bookmark.where('currentuserid=?',session[:user_id])
   end
@@ -169,7 +170,13 @@ before_action :check_session, :only => [:login, :create]
   
   def profilecreate 
      
-    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => params[:undergraduate_school], :year => params[:date][:year], :state => params[:state], :question => params[:question])
+      unless params[:undergraduate_school].empty?
+        schoolname = params[:undergraduate_school]
+      else
+        schoolname = params[:school]
+      end
+
+    update=current_user.update(:username => params[:member][:username],:email => params[:member][:email],:zipcode => params[:member][:zipcode],:gpa => params[:member][:gpa], :gmat_score => params[:member][:gmat_score], :hometown => params[:member][:hometown], :undergraduate_school => schoolname, :year => params[:date][:year], :state => params[:state], :question => params[:member][:question])
     if update
       current_user.update(:image => params[:member][:image]) unless params[:member][:image].nil?
       flash[:success]="Profile has been changed sucessfully"

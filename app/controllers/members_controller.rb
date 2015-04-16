@@ -2,7 +2,7 @@ class MembersController < ApplicationController
 layout 'homepage'
 before_action :authenticated
 before_action :pass_check, only: :create
-  
+
   def index
   end
 

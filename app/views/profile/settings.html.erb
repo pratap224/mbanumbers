@@ -20,12 +20,23 @@
            <dt style="color:black"><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
             <dd>
                
-<input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;" <% if current_user.question=="yes" %> <%= checked="checked" %> <% end %> Yes
-        <input type="radio" id="question1" name="member[question]" value="no"style="width: 35px;height: 17px;"> No  
+<input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;" <% if current_user.question=="yes" %> <%= checked="checked" %> <% end %> > Yes
+<input type="radio" id="question1" name="member[question]" value="no"style="width: 35px;height: 17px;"
+    <% if current_user.question=="no" %> <%= checked="checked" %> <% end %> 
+
+> No  
             </dd>
             <div style="display:none;" id="stated">
-            <dt style="width: 172px;margin-top: 10px;color:black">State</dt>
-            <dd style="margin-top: 37px;"><%= text_field_tag 'member[state]' , current_user.zipcode,placeholder: 'State' %>
+            <dt style="width: 172px;margin-top: 10px;">State</dt>
+            <dd style="margin-top: 37px;"><span class="gdlr-lms-combobox" >
+    <select name="state" id="state">
+                        <option value="">-----------Select State----------</option>
+
+                        <% @state.each do |s| %>
+                          <option value="<%= s.id %>"><%= s.name %></option>  
+                        <% end %>
+                                  
+    </select>
 <script type="text/javascript">
                         for(var i=0;i<document.getElementById('state').length;i++)
                         {
@@ -37,9 +48,13 @@
 </script>
 
 
-                        </dd>
-            <dt style="width: 172px;color:black">Undergraduate*</dt>
-            <dd><%= text_field_tag 'member[undergraduate_school]' , current_user.zipcode,placeholder: 'Undergraduate' %>
+                        </span></dd>
+            <dt style="width: 172px;color:black">Undergraduate School*</dt>
+            <dd><span class="gdlr-lms-combobox" >
+            <select name="undergraduate_school" id="undergraduate_school">
+                <option value="">-----------Select School----------</option>
+                            
+            </select>
         <script type="text/javascript">
         for(var i=0;i<document.getElementById('undergraduate_school').length;i++)
         {
@@ -50,16 +65,17 @@
         }          
             </script>
             
-                        </dd>
+                        </span></dd>
             </div>
             <div style="display:none;" id="schoold">
-            <dt style="width: 172px;margin-top: 17px;color:black">Undergraduate*</dt>
+            <dt style="width: 172px;margin-top: 17px;">Undergraduate School*</dt>
             <dd style="margin-top:17px;">
            
-        <%= text_field_tag 'undergraduate_school' ,current_user.undergraduate_school,placeholder: 'Undergraduate School' %>
+            <%= text_field_tag 'school' ,current_user.undergraduate_school,placeholder: 'Undergraduate School' %>
            
             </dd>
             </div>
+
             <dt style="width: 172px;color:black">Undergraduate Year*</dt>
 
             <dd>
@@ -154,9 +170,9 @@ if ($("#question").prop("checked"))
 
 if ($("#question1").prop("checked")) 
 {
-
-   $('#stated').css('display','block');
-   $('#schoold').css('display','none');
+    
+   $('#stated').css('display','none');
+   $('#schoold').css('display','block');
 }
 
 
