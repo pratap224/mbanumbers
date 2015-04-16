@@ -111,7 +111,7 @@
                             <div class="profile_search_blog_rgt">
 
 <%=form_tag profile_staticprofile_path, :method => 'get' do |f|  %>
-     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'Enter member name'  %>
+     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'Enter member name', :id => 'kk'  %>
      <%= submit_tag 'Search',:style => 'padding: 10px;color:white; background-color:#F7BD4F;' %>
 <% end -%>
 
@@ -363,5 +363,9 @@ $(document).ready(function(){
                 });
          });
      <% end %>
+ 
+  
+  
+
 });
 </script>

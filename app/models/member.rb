@@ -18,7 +18,7 @@ class Member < ActiveRecord::Base
 	has_one :stuff
 	has_many :posts
 	has_many :topics
-
+	
 	def self.from_omniauth(auth)
 		where(provider: auth.provider, uid: auth.uid).first_or_create do |member|
 			member.provider = auth.provider 

@@ -54,7 +54,7 @@ class SchoolsController < ApplicationController
 
   def destroy
     @app_data = Application.find(params[:id])
-    binding.pry
+    
     if @app_data.school==current_user.commitschool
       current_user
     end
@@ -69,7 +69,7 @@ class SchoolsController < ApplicationController
   end
 
   def create
-    binding.pry
+    
     school_app=Application.new(req_params)
     school_app.user_id = session[:user_id]
     if school_app.save

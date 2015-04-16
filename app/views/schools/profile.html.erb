@@ -26,7 +26,7 @@
 		var status= document.getElementById('status').value;
 		var program=document.getElementById('program').value;
 		// var interviewdate=document.getElementById('interviewdate').value;
-		var received=document.getElementById('received').value;
+		var received=document.getElementById('descion').value;
 		// var descion=document.getElementById('descion').value;
 		
 		if(school == "")
@@ -62,7 +62,8 @@
 		// }
 		else if(received == "")
 		{
-			document.getElementById('error').innerHTML="Please Select DateApplied";
+			var a=document.getElementById('error').innerHTML="Please Select Descision Recived";
+			
 		 	// document.getElementById('application_type').focus();
 			return false;
 		}

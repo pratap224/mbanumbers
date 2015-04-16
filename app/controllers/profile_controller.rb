@@ -3,6 +3,7 @@ layout 'homepage'
 before_action :authenticate_user, :except => [:name,:profileupdates,:topusers,:login, :create, :forgotpassword, :createforgotpassword,:updatepassword,:createupdatepwd]
 before_action :check_session, :only => [:login, :create]
 
+
   def index
     @title = 'Profile'
     @stuff = Stuff.find_by_member_id(session[:user_id]) || Stuff.new
