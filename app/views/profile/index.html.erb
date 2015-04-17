@@ -111,9 +111,10 @@
                             <div class="profile_search_blog_rgt">
 
 <%=form_tag profile_staticprofile_path, :method => 'get' do |f|  %>
-     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'Enter member name', :id => 'kk'  %>
+     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'Enter member name', :id => 'tags'  %>
      <%= submit_tag 'Search',:style => 'padding: 10px;color:white; background-color:#F7BD4F;' %>
 <% end -%>
+<select id="demo" style="margin-top: -13px;position: absolute;left: 928px;width: 228px;background-color: white;border-color: #D7D1D1;display:none;"><option value="">----select--------</option></select>
 
 
                                
@@ -363,9 +364,35 @@ $(document).ready(function(){
                 });
          });
      <% end %>
+
+     $('#tags').keyup(function(){
+            
+            var username =$("#tags").val();
+            
+            $("#demo").css("display", "block");
+            $.ajax({
+                    url: "<%=root_url %>colleges/searchusers/"+username,
+                      context: document.body
+                    }).done(function(r) {
+
+                            document.getElementById("demo").innerHTML = r;
+                            
+                        
+                });
+            
+        });
+
+     $('#demo').change(function(){
+
+        var a=$('#demo').val();
+        document.getElementById("tags").value = a;
+        $("#demo").css("display", "none");
+
+
+     })
  
   
-  
+
 
 });
 </script>

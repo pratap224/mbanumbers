@@ -318,6 +318,8 @@ before_action :check_session, :only => [:login, :create]
 
   end
 
+  
+
   private
     def stuff_params
       params.require(:stuff).permit(:ugschool,:gpa, :gmat, :hometown)
