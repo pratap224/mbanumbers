@@ -29,9 +29,12 @@ before_action :pass_check, only: :create
     @user.year = params[:date][:year]
     @user.password = params[:password]
     @user.token =SecureRandom.urlsafe_base64
+   
     if @user.save
        UserMailer.sendemail(@user).deliver!
+       unless params[:friend].nil?
        UserMailer.friend(@user).deliver!
+     end
       flash[:success] = 'Your Account is created sucessfully, before you login activate your email'
       redirect_to root_url
     else
@@ -52,7 +55,7 @@ before_action :pass_check, only: :create
   # end
   private
   def req_params
-    params.require(:member).permit( :name,:username, :email, :zipcode, :image, :hometown, :gpa, :gmat_score, :question, :friend, :status, :experience)
+    params.require(:member).permit( :name,:username, :email, :zipcode, :image, :hometown, :gpa, :gmat_score, :question, :friend, :status, :exp)
   end
   def email_exist
     unless Member.find_by_email(req_params['email']).nil?
