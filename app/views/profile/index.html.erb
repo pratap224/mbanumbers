@@ -109,12 +109,12 @@
                    
 
                             <div class="profile_search_blog_rgt">
-
+                              
 <%=form_tag profile_staticprofile_path, :method => 'get' do |f|  %>
      <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'Enter member name', :id => 'tags'  %>
      <%= submit_tag 'Search',:style => 'padding: 10px;color:white; background-color:#F7BD4F;' %>
 <% end -%>
-<select id="demo" style="margin-top: -13px;position: absolute;left: 928px;width: 228px;background-color: white;border-color: #D7D1D1;display:none;"><option value="">----select--------</option></select>
+<select id="demo" style="margin-top: -13px;position: absolute;left: 928px;width: 228px;background-color: white;border-color: #D7D1D1;display:none;   margin-left: -7%;"><option value="">----select--------</option></select>
 
 
                                
@@ -169,7 +169,7 @@
                              <!--home_town_text-->
     
                         </div>
-                        <div class="three columns">
+                        <div class="three columns" style="  width: 33%;">
                           <div class="well" style="overflow-y: scroll;height: 150px;">
                           <p style="text-align: center;background-color: wheat;color: black;">Bookmark List</p>
                           <% @allmember.each_with_index do |key, index| %>
