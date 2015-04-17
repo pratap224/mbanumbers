@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 20150415105406) do
     t.datetime "updated_at"
   end
 
+  create_table "colleges", force: true do |t|
+    t.string   "college"
+    t.integer  "state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", force: true do |t|
     t.string   "title"
     t.text     "comment"
@@ -145,6 +152,12 @@ ActiveRecord::Schema.define(version: 20150415105406) do
     t.datetime "updated_at"
     t.integer  "topic_id"
     t.integer  "member_id"
+  end
+
+  create_table "rasts", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "refinery_announcements", force: true do |t|

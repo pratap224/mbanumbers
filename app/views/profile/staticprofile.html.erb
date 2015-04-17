@@ -80,27 +80,27 @@
                         <%# unless@stuff.nil? %>
                             <p style="color: black;font-size: 23px;"><%= @user.gpa %>,<%= @user.gmat_score %> | Class of <%=@user.year %></p>
                             <dl class="dl-inline">
-                        <dt style="color:black">Hometown/Zipcode:</dt>
-                        <dd><%= @user.hometown %></dd>
-                        <dt style="color:black">Undergraduate:</dt>
+                                <dt style="color:black">Hometown/Zipcode:</dt>
+                                <dd><%= @user.hometown %></dd>
+                                <dt style="color:black">Undergraduate:</dt>
                         <dd><%= @user.undergraduate_school %></dd>
-                        <dt style="color:black">Work Experience and <br> Other Information:   </dt>                       <dd>
+                        <dt style="color:black">Work Experience and  Other Information:   </dt>                       <dd>
                         <%if @user.exp.nil?  %>0(in months)
                         <%else %><%=@user.exp %><%end %>
                         </dd>
                         <dt style="color:black">Status:</dt>
                         <dd> 
 
-                         <% unless @user.commitschool.nil?  %>  
+                         <% unless @user.commitschool.nil?  %>COMMITED  
                          <%#binding.pry %> 
-                        To <%# @slogo=School.find_by_business_school(@user.commitschool) %>
-                                <!-- <img alt="Icon" src="<%#=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" /> --> <%=@user.commitschool %>  On <%= @user.updated_at.strftime("%d-%m-%Y")  %>
+                        To <% @slogo=School.find_by_business_school(@user.commitschool) %>
+                               <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />  <%=@user.commitschool %>  On <%= @user.updated_at.strftime("%d-%m-%Y")  %>
                             <% else %>
                             OPEN
                         <% end %>
 
                         </dd>
-                        </dl>
+                            </dl>
                         <%#end %>
                             
                              <!--home_town_text-->
@@ -129,7 +129,7 @@
                             <div class="floatleft school-logo" style="margin-right:12px">
                                 <% @slogo=School.find_by_business_school(f.school) %>
                                 <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
-                            </div><%=f.school %> <br></td>
+                            </div><%=f.school %> -<%= f.university%><br></td>
                             <td id="td">$<%=f.scholarship %></td>
                             <td id="td" style="font-size:10px">
                             <% if f.status == "Waitlisted" %>
@@ -150,11 +150,10 @@
                                     <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i>
 
                                 
-                            <% end %>
-                                </td> 
+                            <% end %></td>
                             <td id="td" style="font-size:10px;" ><%= f.updated_at.strftime("%d-%m-%Y") %>
                             </td>
-                            <td id="td" style="font-size:10px"><td id="td" style="font-size:10px;" >
+                            <td id="td" style="font-size:10px">
                             <%if f.interviewdate.nil? %>
                             <%="--" %>
                             <%else %>
@@ -169,6 +168,7 @@
 
                               <%= f.received.strftime("%m-%d-%Y") %> 
                               <%end %></td>
+                            
                               <td id="td" style="font-size:10px">
                               <%if f.descion.nil? %>           
                                Not Decided
@@ -176,6 +176,7 @@
                               <%= f.descion.strftime("%d-%m-%Y") %></td>
                              
                             <%end %>
+                                
                             </tr>
                             <%end %>
                             </table>

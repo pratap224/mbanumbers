@@ -153,10 +153,10 @@
                           
                          <% unless current_user.commitschool.nil? %>  
                         <%#binding.pry %>
-                         Commited To
+                         COMMITED To
                          
-                        <%# @slogo=School.find_by_business_school(current_user.commitschool) %>
-                               <!--  <img alt="Icon" src="<%#=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" /> --> <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
+                        <% @slogo=School.find_by_business_school(current_user.commitschool) %>
+                   <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />  <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
                          <% else %>
                            OPEN
                         <% end %>
