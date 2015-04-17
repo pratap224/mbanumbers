@@ -164,7 +164,7 @@ before_action :check_session, :only => [:login, :create]
     @title="Profile Settings"
     @user=Member.new()
     @school_name=School.all
-    @state = State.all
+    @state = Ustate.all
     
     
   end

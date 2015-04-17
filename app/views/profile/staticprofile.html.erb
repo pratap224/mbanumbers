@@ -79,7 +79,7 @@
                         <div class="home_town_blog">
                         <%# unless@stuff.nil? %>
                             <p style="color: black;font-size: 23px;"><%= @user.gpa %>,<%= @user.gmat_score %> | Class of <%=@user.year %></p>
-                            <dl class="dl-horizontal">
+                            <dl class="dl-inline">
                         <dt style="color:black">Hometown/Zipcode:</dt>
                         <dd><%= @user.hometown %></dd>
                         <dt style="color:black">Undergraduate:</dt>
@@ -163,8 +163,12 @@
                             </td>
                             <td id="td"><%=f.choice %></td>
                             <td id="td" style="font-size:10px">
-                            <%= f.received.strftime("%d-%m-%Y") %></td>
-                            
+                            <%if f.received.nil? %>
+                              <%="--" %>
+                              <%else %>
+
+                              <%= f.received.strftime("%m-%d-%Y") %> 
+                              <%end %></td>
                               <td id="td" style="font-size:10px">
                               <%if f.descion.nil? %>           
                                Not Decided
