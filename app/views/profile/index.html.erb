@@ -50,7 +50,7 @@
                                 <li><i class="icon-location-arrow" style="color: black; font-size: 16px;"></i><a href="<%= mailboxes_newest_path %>">Send Message</a></li>
                                 <li><i class="icon-plus-sign" style="color: black; font-size: 16px; "></i><a href="<%= schools_profile_path %>">Add School</a></li>
                                 <!-- <li><a href="#">View Profile</a><img src="images/profile-list_pics_20.png" alt=""></li> -->
-                                <li><i class="icon-search" style="color: black; font-size: 16px;"></i><a href="<%= profile_bookmarklist_path %>">Bookmark List</a></li>
+                               <!--  <li><i class="icon-search" style="color: black; font-size: 16px;"></i><a href="<%= profile_bookmarklist_path %>">Bookmark List</a></li> -->
                                 <li><i class="icon-edit" style="color: black; font-size: 16px;"></i><a href="<%=profile_edit_path %>">Edit Profile</a></li>
                                 
                             </ul>
@@ -103,7 +103,7 @@
 
                           
 
-                         </div>  Have Congratulated you
+                         </div>  Have Congratulated YOU
                             </div><!--profile_search_blog_lft-->
 
                    
@@ -171,7 +171,7 @@
                         </div>
                         <div class="three columns" style="  width: 33%;">
                           <div class="well" style="overflow-y: scroll;height: 150px;">
-                          <p style="text-align: center;background-color: wheat;color: black;">Bookmark List</p>
+                          <p style="text-align: center;background-color: wheat;color: black;">Bookmarked Profiles</p>
                           <% @allmember.each_with_index do |key, index| %>
                           <% unless  @allmember.blank? %>
 
