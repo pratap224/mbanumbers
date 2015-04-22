@@ -127,9 +127,9 @@
                             
                             <td id ="td">
                             <div class="floatleft school-logo" style="margin-right:12px">
-                                <% @slogo=School.find_by_business_school(f.school) %>
+                                <% @slogo=School.find_by_id(f.id) %>
                                 <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
-                            </div><%=f.school %> -<%= f.university%><br></td>
+                            </div><%=f.school %><br></td>
                             <td id="td">$<%=f.scholarship %></td>
                             <td id="td" style="font-size:10px">
                             <% if f.status == "Waitlisted" %>

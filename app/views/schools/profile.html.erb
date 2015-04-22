@@ -33,7 +33,14 @@
 			
 			<div class="six columns">
 				
-				<!--  -->
+				<span class="gdlr-lms-form" >
+				
+			<p>InterView*</p>
+						
+		<input type="radio" name="interview" id="intqyes" value="yes">&nbspyes
+		<input type="radio" name="interview" id="intqno" style="margin-left:10px;" value="no">&nbspNo
+						
+				</span>
 				
 				</div>
 			</div>
@@ -178,4 +185,17 @@
 <div class="clear"></div>
 
 </div>
-<!--  -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$('#intqyes').click(function(){
+	    
+	        $('#intdate').css('display','block');
+	        
+	    
+	    
+	});
+	$('#intqno').click(function(){
+	    
+	    $('#intdate').css('display','none');
+	});
+</script>

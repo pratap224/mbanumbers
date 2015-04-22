@@ -94,6 +94,7 @@
   post 'profile/createforgotpassword'
   get 'profile/updatepassword/:token' => 'profile#updatepassword', :as => 'profile_updatepwd'
   post 'profile/createupdatepwd'
+ 
   get 'profile/profileupdates'
   get 'profile/like/:cuserid/:buserid' => 'profile#like', :as => 'profile_like'
   get 'profile/dislike/:cuserid/:buserid' => 'profile#dislike', :as => 'profile_dislike'

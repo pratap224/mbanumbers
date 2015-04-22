@@ -206,6 +206,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-nav (0.2.4)
+      pry (>= 0.9.10, < 0.11.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -314,6 +316,7 @@ DEPENDENCIES
   owlcarousel-rails
   pg (= 0.17.1)
   pry
+  pry-nav
   quiet_assets
   rails (= 4.1.5)
   ransack!

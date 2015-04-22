@@ -12,7 +12,7 @@ class SchoolsController < ApplicationController
 
   def profile
   	@title="Add Application"
-    @school_name=School.all
+    @school_name=School.order('business_school ASC')
     @app_data=Application.all
     
   	
