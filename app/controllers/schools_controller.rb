@@ -44,7 +44,7 @@ class SchoolsController < ApplicationController
 
 
   def update
-    @schools = Application.find(params[:id])
+      @schools = Application.find(params[:id])
     if @schools.update(req_params) 
       redirect_to profile_index_path
     else
@@ -75,14 +75,13 @@ class SchoolsController < ApplicationController
     if school_app.save
       flash[:success] = "Application added"
       redirect_to profile_index_path
-    else
-      redirect_to school_profile_path, :flash => {:model_errors => @user.errors.messages}
+
     end
   end
 
   private
   def req_params
-    params.require(:school, :university, :status,:application_type,:program,:interviewdate,:choice,:seat,:received,:complete,:descion,:scholarship,:interview)
+    params.permit(:school,:status,:program,:interviewdate,:choice,:received,:descion,:scholarship,:interview)
   end
   def check_auth
     if Application.find(params[:id]).user_id != session[:user_id]

@@ -77,6 +77,7 @@
 	}
 </script>
 
+
 <div class="well" style="border:none">
 <div class="gdlr-lms-content" style="width: 1042px; padding-top:0px">
  <span style="color: rgb(219, 103, 103);margin-left: 316px;" id="error"></span>
@@ -97,8 +98,8 @@
 ">
 							<option value="">-----------Select school----------</option>
 							<% @school_name.each do |sn| %>
-								 <option value="<%= sn.business_school	  %>">
-										<%= sn.business_school  %>
+								 <option value="<%= sn.business_school	  %>-<%= sn.university%>">
+										<%= sn.business_school  %>-<%= sn.university%>
 								 </option>
 							<% end %>
 								  
@@ -109,26 +110,7 @@
 				</div>
 			</div>
 			<div class="clear"></div>
-			<div class="six columns">
-				<div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;">
-				<span class="gdlr-lms-form" >
-				
-				<p>Choose a University*</p>
-						<span class="gdlr-lms-combobox" >
-					<select name="university" id="university" style="width: 267px;">
-							<option value="">-----------Select University----------</option>
-							<% @school_name.each do |sn| %>
-								 <option value="<%= sn.university %>">
-										<%= sn.university  %>
-								 </option>
-							<% end %>
-								  
-							</select>
-						</span>
-				</span>
-				
-				</div>
-			</div>
+			
 			<div class="six columns">
 				
 				<span class="gdlr-lms-form" >
@@ -265,7 +247,7 @@
 		<hr>
 		<div class="gdlr-lms-content" style="margin-left: -666px;">
 		<div class="twelve columns" style="text-align:center;align:left margin-top: 9px;">
-			<input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application" onclick="return validate();"/>
+			<input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application" />
 			 &nbsp
 			<button class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-top:0px;padding-bottom: 10px;"><a href="<%=profile_index_path %>" style='color:inherit'>Cancel</a></button>
 		</div>

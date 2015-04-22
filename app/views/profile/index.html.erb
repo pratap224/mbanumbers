@@ -212,9 +212,9 @@
                             <td id ="td" style="font-size:12px">
                           <div class="floatleft school-logo" style="margin-right:12px">
                           <%#binding.pry %>
-                                <% @slogo=School.find_by_business_school(ad.school) %>
-                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
-                            </div><%= ad.school %>- <%=ad.university %> <br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
+                                <% @slogo=School.find_by_id(ad.id) %>
+                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /> 
+                            </div><%= ad.school %><br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
                             <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: black; font-size: 14px; "></i></a>
                             <% if ad.status=="Accepted"%>
                            
