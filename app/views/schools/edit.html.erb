@@ -36,8 +36,8 @@
 						<span class="gdlr-lms-combobox" >
 							<select name="school" id="school"  style="width: 267px;">
 							<% @school_name.each do |sn| %>
-								 <option value="<%= sn.business_school	  %>">
-										<%= sn.business_school  %>
+								 <option value="<%= sn.business_school	  %>-<%sn.university%>">
+										<%= sn.business_school  %>-<%= sn.university%>
 								 </option>
 							<% end %>
 								  
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 			<div class="clear"></div>
-			<div class="six columns">
+			<!-- <div class="six columns">
 				<div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;
 ">
 				<span class="gdlr-lms-form" >
@@ -65,11 +65,11 @@
 				<p>Choose a University*</p>
 						<span class="gdlr-lms-combobox" >
 							<select name="university" id="school"  style="width: 267px;">
-							<% @school_name.each do |sn| %>
-								 <option value="<%= sn.university	  %>">
-										<%= sn.university  %>
+							<%# @school_name.each do |sn| %>
+								 <option value="<%#= sn.university%>">
+										<%#= sn.university  %>
 								 </option>
-							<% end %>
+							<% #end %>
 								  
 							</select>
 							<script type="text/javascript">
@@ -85,7 +85,7 @@
 				</span>
 				
 				</div>
-			</div>
+			</div> -->
 		<div class="six columns">
 				
 				<span class="gdlr-lms-form" >
@@ -202,7 +202,7 @@
 
 				<div class="four columns">
 					
-					<p>Choice</p>
+					<p>Seat</p>
 					
 				<span class="gdlr-lms-combobox" style="width: 158px;">
 						<select name="choice" id="choice">

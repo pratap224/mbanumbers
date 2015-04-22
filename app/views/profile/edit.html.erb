@@ -12,8 +12,8 @@
             <dt>Hometown</dt>
             <dd><%= text_field_tag 'member[hometown]' , current_user.hometown,placeholder: 'Hometown' %></dd>
            
-            <dt>Undergraduate</dt>
-            <dd><%= text_field_tag 'member[undergraduate_school]' , current_user.undergraduate_school ,placeholder: 'Undergraduate' %></dd>
+            <!-- <dt>Undergraduate</dt>
+            <dd><%#= text_field_tag 'member[undergraduate_school]' , current_user.undergraduate_school ,placeholder: 'Undergraduate' %></dd>
 
             
             
@@ -21,7 +21,7 @@
 
             <dd>
             <span class='gdlr-lms-combobox' style="width: 110px;">
-                <%=select_year(Date.today,:selected => current_user.year)%>    
+                <%#=select_year(Date.today,:selected => current_user.year)%>    
             </span>
             <script type="text/javascript">
                         for(var i=0;i<document.getElementById('date_year').length;i++)
@@ -32,7 +32,7 @@
                             }
                         }          
             </script>
-            </dd>
+            </dd> -->
             <dt>GPA</dt>
 
                 <dd>

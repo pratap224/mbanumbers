@@ -1,83 +1,3 @@
-<style>
-	
-#th {
-    background-color: #3E6AA7;
-    color:white;
-   font-family: Verdana,Arial,Helvetica,sans-serif;
-   font-weight: normal;padding: 9px;text-transform: uppercase;
-   font-size: 14px;
-
-    
-}
-.style-1 tr td{
-
-	font-family: arial;
-	font-size: 50;
-}
-</style>
-<script type="text/javascript">
-	function validate()
-	{
-
-
-		var school= document.getElementById('school').value; 
-		var university= document.getElementById('university').value;
-		var status= document.getElementById('status').value;
-		var program=document.getElementById('program').value;
-		// var interviewdate=document.getElementById('interviewdate').value;
-		// var received=document.getElementById('descion').value;
-		// alert(received);
-		// var descion=document.getElementById('descion').value;
-		
-		if(school == "")
-		{
-			
-			document.getElementById('error').innerHTML="Please Select The School";
-			// document.getElementById('school').focus();
-			return false;
-		}
-		else if(university == "")
-		{
-			document.getElementById('error').innerHTML="Please Select The University"
-			return false;
-		}
-		else if(status == "")
-		{
-			document.getElementById('error').innerHTML="Please Select Status";
-			// document.getElementById('status').focus();
-			return false;
-		}
-		else if(program == "")
-		{
-		 
-		   document.getElementById('error').innerHTML="Please Select The Program";
-		 	// document.getElementById('application_type').focus();
-			return false;
-		}
-		// else if(interviewdate == "")
-		// {
-		// 	document.getElementById('error').innerHTML="Please Select interviewdate";
-		//  	// document.getElementById('application_type').focus();
-		// 	return false;
-		// }
-		// else if(received == "")
-		// {
-		// 	var a=document.getElementById('error').innerHTML="Please Select Descision Recived";
-			
-		//  	// document.getElementById('application_type').focus();
-		// 	return false;
-		// }
-		// else if(descion == "")
-		// {
-		// 	document.getElementById('error').innerHTML="Please Select Date Descision Recived";
-		//  	// document.getElementById('application_type').focus();
-		// 	return false;
-		// }
-		return true;
-	}
-</script>
-
-
 <div class="well" style="border:none">
 <div class="gdlr-lms-content" style="width: 1042px; padding-top:0px">
  <span style="color: rgb(219, 103, 103);margin-left: 316px;" id="error"></span>
@@ -94,12 +14,12 @@
 				<p>Choose a School*</p>
 				
 						<span class="gdlr-lms-combobox" >
-							<select name="school" id="school" style="width: 267px;
+							<select required name="school" id="school" style="width: 267px;
 ">
 							<option value="">-----------Select school----------</option>
 							<% @school_name.each do |sn| %>
 								 <option value="<%= sn.business_school	  %>-<%= sn.university%>">
-										<%= sn.business_school  %>-<%= sn.university%>
+										<%= sn.business_school  %> of <%= sn.university%>
 								 </option>
 							<% end %>
 								  
@@ -113,14 +33,7 @@
 			
 			<div class="six columns">
 				
-				<span class="gdlr-lms-form" >
-				
-			<p>InterView*</p>
-						
-		<input type="radio" name="interview" id="intqyes" value="yes">&nbspyes
-		<input type="radio" name="interview" id="intqno" style="margin-left:10px;" value="no">&nbspNo
-						
-				</span>
+				<!--  -->
 				
 				</div>
 			</div>
@@ -133,7 +46,7 @@
 				<div class="three columns">
 					<p style="margin-bottom:0px">Status</p>
 							<span class="gdlr-lms-combobox" style="width: 158px;">
-							<select name="status" id="status">
+							<select required name="status" id="status">
 								<option value="">-Select-</option>
 								<option value="Intend to Apply">Intend to Apply
 								</option>
@@ -165,7 +78,7 @@
 				<div class="three columns">
 					<p style="margin-bottom:0px">Program</p>
 					<span class="gdlr-lms-combobox" style="width: 158px;">
-							<select name="program" id="program">
+							<select required name="program" id="program">
 								<option value="">-Select-</option>
 								<option value="Full Time">Full Time</option>
 								<option value="Part Time">Part Time</option>
@@ -265,17 +178,4 @@
 <div class="clear"></div>
 
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript">
-	$('#intqyes').click(function(){
-	    
-	        $('#intdate').css('display','block');
-	        
-	    
-	    
-	});
-	$('#intqno').click(function(){
-	    
-	    $('#intdate').css('display','none');
-	});
-</script>
+<!--  -->
