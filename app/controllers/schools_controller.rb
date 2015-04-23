@@ -35,7 +35,7 @@ class SchoolsController < ApplicationController
   def edit
    @title="Edit Application"
     @app_data = Application.find(params[:id])
-    @school_name = School.all 
+    @school_name = School.order('business_school ASC')
   end
   def schoolappinfo
     @school=Application.find_by_school(params[:schoolname])
@@ -44,6 +44,7 @@ class SchoolsController < ApplicationController
 
 
   def update
+    
       @schools = Application.find(params[:id])
     if @schools.update(req_params) 
       redirect_to profile_index_path

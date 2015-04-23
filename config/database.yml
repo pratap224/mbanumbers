@@ -10,6 +10,6 @@ development:
   adapter: postgresql
   database: mbanumbers	
   host: localhost 
-  username: postgres
-  password: media3
+  username: pratap
+  password: pratap224
   poll: 10

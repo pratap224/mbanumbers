@@ -213,14 +213,15 @@
                           <div class="floatleft school-logo" style="margin-right:12px">
                           <%#binding.pry %>
                                 <% @slogo=School.find_by_id(ad.id) %>
-                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /> 
-                            </div><%= ad.school %><br><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
-                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: black; font-size: 14px; "></i></a>
+                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /> <div style="text-align: left;">
                             <% if ad.status=="Accepted"%>
                            
                 <input type="hidden" id = "commitsname<%= k %>" value="<%= ad.school %>">
             <a href="javascript:void(0)" id="commit<%= k %>">commit</a>
-<%end %>
+<%end %></div>
+                            </div><%= ad.school %><br><div style="  text-align: right;
+"><a href="<%=schools_edit_path(ad.id)%>"><i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
+                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: black; font-size: 14px; "></i></a></div>
                             </td>
                             <td id="td"style="font-size:12px">$
                             <%if ad.scholarship.empty? %>

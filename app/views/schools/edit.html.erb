@@ -33,10 +33,11 @@
 				<span class="gdlr-lms-form" >
 				
 				<p>Choose a School*</p>
+				<%#binding.pry%>
 						<span class="gdlr-lms-combobox" >
 							<select name="school" id="school"  style="width: 267px;">
 							<% @school_name.each do |sn| %>
-								 <option value="<%= sn.business_school	  %>-<%sn.university%>">
+								 <option value="<%= sn.business_school	  %>-<%=sn.university%>">
 										<%= sn.business_school  %>-<%= sn.university%>
 								 </option>
 							<% end %>
