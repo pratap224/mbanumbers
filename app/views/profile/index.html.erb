@@ -110,7 +110,7 @@
 
                             <div class="profile_search_blog_rgt">
                               
-<%=form_tag profile_staticprofile_path, :method => 'get' do |f|  %>
+<%=form_tag profile_viewusers_path, :method => 'get' do |f|  %>
      <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'Enter member name', :id => 'tags'  %>
      <%= submit_tag 'Search',:style => 'padding: 10px;color:white; background-color:#F7BD4F;' %>
 <% end -%>
@@ -156,7 +156,7 @@
                          COMMITED To
                          
                         <% @slogo=School.find_by_business_school(current_user.commitschool) %>
-                   <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />  <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
+                  <!--  <img alt="Icon" src="<%#=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" /> -->  <%=current_user.commitschool %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
                          <% else %>
                            OPEN
                         <% end %>
@@ -295,10 +295,31 @@
                         <%#@comments.each do |c| %>
                         <%#= render :partial => 'profile/comment', :locals => { :mydata => c } %>
                             <%#end %>
+                            <div id="respond" class="comment-respond">
+                        <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+                        <%#=form_tag prof_cmn_new_path, :class => 'gdlr-lms-form' do %>
+                            
+                            <%#binding.pry%>
+                            
+                              <%#= hidden_field_tag 'username', current_user[:username] %>
+                            
+
+                            <p>Title*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <% #binding.pry %>
+                            <%#= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
+                            </span></p>
+                            <p>Comment*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <%#= text_area_tag 'comment' , "",class: 'form-control' ,placeholder: 'Comment ' %>
+                            </span></p>
+                            <%#= submit_tag 'Post',class: 'button1' %>
+                        <%#end %>
+                    </div>
                         <!-- .commentlist -->
                         <!-- #respond -->
 
-                    </div> 
+                    <!-- </div> MIDCOMMENT--> 
                         
                     </div><!--profile_blog_mid_rgt-->
                 </div><!--profile_blog_mid-->
@@ -352,7 +373,6 @@ $(document).ready(function(){
        
             var cuurentuserid = <%= current_user.id; %>
             var schoolname =$('#commitsname<%= f %>').val();
-              
             $.ajax({
                     url: "<%=root_url %>profile/commitschool/"+cuurentuserid+"/"+schoolname,
                       context: document.body
@@ -364,7 +384,6 @@ $(document).ready(function(){
                 });
          });
      <% end %>
-
      $('#tags').keyup(function(){
             
             var username =$("#tags").val();
@@ -376,23 +395,14 @@ $(document).ready(function(){
                     }).done(function(r) {
 
                             document.getElementById("demo").innerHTML = r;
-                            
-                        
                 });
-            
         });
 
      $('#demo').change(function(){
-
         var a=$('#demo').val();
         document.getElementById("tags").value = a;
         $("#demo").css("display", "none");
-
-
      })
  
-  
-
-
 });
 </script>

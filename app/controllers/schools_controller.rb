@@ -3,7 +3,7 @@ class SchoolsController < ApplicationController
   before_action :authenticate_user, :only => [:profile, :create, :destroy, :update, :edit]
   before_action :check_auth, :only => [:edit, :update, :destroy]
   def index
-  	@title="schools"
+  	@title="MBA Schools"
   	# @schools= School.paginate(:page => params[:page], :per_page => 10)
     @q = School.ransack(params[:q]) 
     @schools = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 20).order('business_school ASC')
@@ -70,12 +70,22 @@ class SchoolsController < ApplicationController
 
   def create
     
-    school_app=Application.new(req_params)
-    school_app.user_id = session[:user_id]
-    if school_app.save
-      flash[:success] = "Application added"
-      redirect_to profile_index_path
-
+    if params[:school].empty?
+        flash[:error]="School can't be blank"
+       redirect_to schools_profile_path
+      elsif params[:status].empty?
+        flash[:error]="Status can't be blank"
+        redirect_to schools_profile_path
+      elsif params[:program].empty?
+        flash[:error]="Program can't be blank"
+        redirect_to schools_profile_path
+      else
+        school_app=Application.new(req_params)
+       school_app.user_id = session[:user_id]
+       if school_app.save
+         flash[:success] = "Application added"
+         redirect_to profile_index_path
+        end  
     end
   end
 

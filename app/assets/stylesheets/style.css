@@ -1670,3 +1670,45 @@ ul								{ list-style:none;}
 .leave_blog input[type=button]	{ width:20%; border-radius:5px; height:35px; background-color:#f7be4f; border:none; font-weight:bold; font-size:15px; margin-top:20px;}
 
 .profile_blog_rgt				{ width:9%; float:right; border:1px solid #999999; min-height:500px;}
+
+                       
+/*                                      TAble*/
+.drawreq_table {
+    border-collapse: collapse;
+	width:100%;
+	margin:30px auto;
+	margin-top:30px !important;
+}
+
+.drawreq_table p{
+ text-align:justify;
+ line-height:20px;
+ padding:0px;
+ margin-top:0px;
+}
+
+.drawreq_table, th, tr    {
+    border: 1px solid #333333;
+	text-align:center;
+	padding:0px 0px;
+    font-family: "Source Sans Pro",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+	color:#000;
+	border-collapse: collapse;
+	text-align:center;
+	padding:7px 0px;
+}
+.drawreq_table th
+{
+ font-weight:600;	
+}
+.drawreq_table th, tr
+{
+	background:#fff url(images/tablebg_03.png) repeat-y right;
+}
+
+.drawreq_table tr  { padding:8px 0px; border:none;     border-collapse: collapse;
+   }
+.drawreq_table td  { padding:12px 10px; border:none; border-right:1px solid #000;     border-collapse: collapse;
+   }

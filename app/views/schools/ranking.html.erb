@@ -25,35 +25,38 @@
 </div>
 	<!-- <div class="well"> -->
 		<div>
-			<table class="style-1">
-				<tbody>
-				<tr>
-				<th id="th" style="border-right:none">Icon</th>
-				<th id ="th" style="border-left:none">Business School</th>
-				<th id ="th">University</th>
-				<th id ="th">State</th>
-				<th id ="th">City</th>
-				<th id ="th">Forbes</th>
-				<th id ="th">USN</th>
-				<!-- <th id ="th">CNN</th> -->
-				</tr>
-				<% @schools.each do |t| %>
-					<tr>
-					<td style="border-right:none"><img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 60px; height: 41px;" />
-					</td>
-					<td style="border-left:none"> <a href="<%= school_appinfo_path(t.business_school) %>" style="color:#453232;">
-									<%= t.business_school%>
-									</a> </td>
-					<td style="color:#453232;"> <%=t.university %></td>
-					<td style="color:#453232;"><%= State.find_by_id(t.state_id).name%></td>
-					<td style="color:#453232;"><%=t.city %></td>
-					<td style="color:#453232;"><%=t.forbes %></td>
-					<td style="color:#453232;"><%=t.US_News_Ranking %></td>
-					<!-- <td style="color:#453232;"><%= t.CNN %></td> -->
-					</tr>
-				<%end %>
-				</tbody>
-			</table>
+			<table width="100%" border="1" cellspacing="8" cellpadding="0" class="drawreq_table">
+                       <tr><th id="th" style="border-right:none;border-bottom:none"></th>
+                <th id ="th" style="border-left:none" rowspan="2"  width="38%">Business School</th>
+                <th id ="th" rowspan="2" width="4%">University</th>
+                <th id ="th" rowspan="2" width="4%">State</th>
+                <th id ="th" rowspan="2" width="4%">City</th>
+                <th id ="th" colspan="4" width="27%">Ranks</th>
+                        </tr>
+                        <th id="th" style="border-right:none;border-top:none"></th>
+                        <th id ="th" width="12%">Forbes</th>
+                        <th id ="th" width="11%">USN</th>
+                    </tr>
+                    <% @schools.each do |t| %>
+                    <tr>
+                            <td style="border-right:none"><img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 60px; height: 41px;" />
+                    </td>
+                            <td style="border-left:none"> <a href="<%= school_appinfo_path(t.business_school) %>" style="color:#453232;">
+                                    <%= t.business_school%>
+                                    </a> </td>
+                            <td style="color:#453232;"> <%=t.university %></td>
+                            <td style="color:#453232;">
+                    <%= State.find_by_id(t.state_id).name%></td>
+                            
+                            <td style="color:#453232;"><%=t.city %></td>
+                            <td style="color:#453232;"><%=t.forbes %></td>
+                    <td style="color:#453232;"><%=t.US_News_Ranking %></td>
+                    
+                    </tr>
+                    <%end%>
+                    
+                    
+               </table> 
 		</div>
 		<%= will_paginate @schools, :class => 'gdlr-pagination'%>
 	<!-- </div> -->

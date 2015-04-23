@@ -21,7 +21,7 @@
   post 'profile/stuff' => 'profile#stuffupdate', :as => 'stuffs'
   patch 'profile/stuff' => 'profile#stuffupdate', :as => 'stuff'
 
-
+   get 'profile/viewusers' => 'profile#viewUsers', :as => 'profile_viewusers'
   get 'schools/edit/:id' => 'schools#edit',  as: 'schools_edit'
   patch 'schools/update/:id' => 'schools#update', as: 'schools_update'
   get 'schools/destroy/:id' => 'schools#destroy', :as => 'schools_destroy'
@@ -94,11 +94,11 @@
   post 'profile/createforgotpassword'
   get 'profile/updatepassword/:token' => 'profile#updatepassword', :as => 'profile_updatepwd'
   post 'profile/createupdatepwd'
- 
   get 'profile/profileupdates'
   get 'profile/like/:cuserid/:buserid' => 'profile#like', :as => 'profile_like'
   get 'profile/dislike/:cuserid/:buserid' => 'profile#dislike', :as => 'profile_dislike'
   get  'profile/commitschool/:cuurentuserid/:schoolname' => 'profile#commitschool', :as => 'profile_commitschool'
+  
   # resources :schools
 
   get 'member/:username' => 'profile#staticprofile', :as => 'static_profile'
@@ -108,7 +108,7 @@
   get 'user/remove/:id' => 'profile#remove', :as => 'user_remove'
   
   post 'comments/create' => 'profile#commentcreate', :as => 'comment_new'
-
+  post 'prof_cmn/create' => 'profile#prof_cmn_create', :as => 'prof_cmn_new'
   get 'profile/topusers' => 'profile#topusers', :as => 'topusers'
   
   get 'profile/bookmarklist'

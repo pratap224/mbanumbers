@@ -24,11 +24,14 @@
 </h3>
 <div class="gdlr-lms-course-price">
 <% if user.status == "Waitlisted" %>
-														<i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= user.status %>
+	<i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; "></i><%= user.status %>
 														<% elsif user.status == "WL, Rejected" || user.status == "Rejected"%>
 														<i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; "></i><%= user.status %>
 														<% elsif user.status == "WL, Accepted" %>
 															<i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px; "></i><%= user.status %>
+															<% elsif user.status == "Accepted" %>
+                                <%= user.status %>
+                                  <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px;text-ailgn:center  "></i>
 														<% else %>
 															<i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px; "></i><%= user.status %>
 

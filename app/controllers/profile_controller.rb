@@ -13,6 +13,7 @@ before_action :check_session, :only => [:login, :create]
      # @users = Member.find_by_username(['username'])
     @user = @q.result(distinct: true)
     @user=Member.new()
+    #@users=Member.all
     @school_name=School.all
     @state = Ustate.all
 
@@ -66,6 +67,39 @@ before_action :check_session, :only => [:login, :create]
       redirect_to profile_index_path
     end
   end
+
+   def commentcreate
+   
+    @comment = Comment.new(params.permit(:title, :comment))
+    @comment.user_id = session[:user_id]
+    @comment.target_id = Member.find_by_username(params[:username]).id
+
+    if @comment.save
+      flash[:success] = 'Comment added'
+      redirect_to static_profile_path(params[:username])
+    else
+      render :text => 'something went wrong'
+    end
+  end
+  def viewUsers
+    @users=Member.where("username LIKE ? ", "%#{params[:username]}%")  
+ end
+
+
+
+
+  # def prof_cmn_create
+    
+  #   @comment = Comment.new(params.permit(:title, :comment))
+  #   @comment.user_id = session[:user_id]
+  #   @comment.target_id = Member.find_by_username(params[:username])
+  #   if @comment.save
+  #     flash[:success] = 'Comment added'
+  #     redirect_to profile_index_path
+  #   else
+  #     render :text => 'something went wrong'
+  #   end
+  # end
   def bookmark
     @buseridcount=Bookmark.where("bookmarkuserid = ?", params[:bookmarkuserid]).count
     if @buseridcount < 1
@@ -242,20 +276,7 @@ before_action :check_session, :only => [:login, :create]
     end
   end
 
-   def commentcreate
-    # binding.pry
-    @comment = Comment.new(params.permit(:title, :comment))
-    @comment.user_id = session[:user_id]
-    @comment.target_id = Member.find_by_username(params[:username]).id
-
-    if @comment.save
-      flash[:success] = 'Comment added'
-      redirect_to static_profile_path(params[:username])
-    else
-      render :text => 'something went wrong'
-    end
-
-  end
+  
   def topusers
     @title="Top Users"
     @all_mebers=Member.order('created_at DESC').paginate(:page => params[:page], :per_page => 20)

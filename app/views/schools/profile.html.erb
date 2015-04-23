@@ -13,13 +13,12 @@
 				<span class="gdlr-lms-form" >
 				<p>Choose a School*</p>
 				
-						<span class="gdlr-lms-combobox" >
-							<select required name="school" id="school" style="width: 267px;
-">
-							<option value="">-----------Select school----------</option>
+						<span class="gdlr-lms-combobox"  >
+							<select  name="school" id="school" style="width: 267px ">
+							<option value="" >-----------Select school----------</option>
 							<% @school_name.each do |sn| %>
 								 <option value="<%= sn.business_school	  %>-<%= sn.university%>">
-										<%= sn.business_school  %> of <%= sn.university%>
+										<%= sn.business_school  %> of <%= sn.university %>
 								 </option>
 							<% end %>
 								  
@@ -53,7 +52,7 @@
 				<div class="three columns">
 					<p style="margin-bottom:0px">Status</p>
 							<span class="gdlr-lms-combobox" style="width: 158px;">
-							<select required name="status" id="status">
+							<select  name="status" id="status">
 								<option value="">-Select-</option>
 								<option value="Intend to Apply">Intend to Apply
 								</option>
@@ -85,7 +84,7 @@
 				<div class="three columns">
 					<p style="margin-bottom:0px">Program</p>
 					<span class="gdlr-lms-combobox" style="width: 158px;">
-							<select required name="program" id="program">
+							<select  name="program" id="program">
 								<option value="">-Select-</option>
 								<option value="Full Time">Full Time</option>
 								<option value="Part Time">Part Time</option>
@@ -187,6 +186,7 @@
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
 	$('#intqyes').click(function(){
 	    
 	        $('#intdate').css('display','block');
@@ -198,4 +198,5 @@
 	    
 	    $('#intdate').css('display','none');
 	});
+});
 </script>
